@@ -94,7 +94,7 @@ const faqCategories = [
     faqs: [
       {
         question: "Where can I find cancellation rules?",
-        answer: "See our Refunds & Cancellations page for the policy details.",
+        answer: "See our Terms and Conditions page for the cancellation policy details.",
       },
     ],
   },

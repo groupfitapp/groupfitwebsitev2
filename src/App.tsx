@@ -21,6 +21,11 @@ import TrainerFAQ from "./pages/TrainerFAQ";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Refunds from "./pages/Refunds";
+import WebsiteTerms from "./pages/WebsiteTerms";
+import WebsitePrivacy from "./pages/WebsitePrivacy";
+import AppUserTerms from "./pages/AppUserTerms";
+import AppTrainerTerms from "./pages/AppTrainerTerms";
+import AppPrivacy from "./pages/AppPrivacy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,6 +55,11 @@ const App = () => (
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/refunds-cancellations" element={<Refunds />} />
+              <Route path="/website-terms-and-condition" element={<WebsiteTerms />} />
+              <Route path="/privacy-policy" element={<WebsitePrivacy />} />
+              <Route path="/app-user-terms-and-condition" element={<AppUserTerms />} />
+              <Route path="/app-trainer-terms-and-condition" element={<AppTrainerTerms />} />
+              <Route path="/app-privacy-policy" element={<AppPrivacy />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
