@@ -9,7 +9,7 @@ import hiitImg from "@/assets/activities/hiit.jpg";
 import kickboxingImg from "@/assets/activities/kickboxing.jpg";
 import soccerImg from "@/assets/activities/soccer.jpg";
 import basketballImg from "@/assets/activities/basketball.jpg";
-import bootcampImg from "@/assets/activities/bootcamp.jpg";
+import calisthenicsImg from "@/assets/activities/calisthenics.jpg";
 
 const activities = [
   { name: "Strength & Conditioning", slug: "strength-and-conditioning", image: strengthImg },
@@ -19,7 +19,7 @@ const activities = [
   { name: "Kickboxing", slug: "kickboxing", image: kickboxingImg },
   { name: "Soccer", slug: "soccer", image: soccerImg },
   { name: "Basketball", slug: "basketball", image: basketballImg },
-  { name: "Bootcamp", slug: "bootcamp", image: bootcampImg },
+  { name: "Calisthenics", slug: "calisthenics", image: calisthenicsImg },
 ];
 
 export function ActivitiesSection() {

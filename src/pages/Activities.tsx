@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Apple, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { APP_LINKS } from "@/lib/appLinks";
 
@@ -11,6 +11,9 @@ import boxingImg from "@/assets/activities/boxing.jpg";
 import hiitImg from "@/assets/activities/hiit.jpg";
 import kickboxingImg from "@/assets/activities/kickboxing.jpg";
 import muayThaiImg from "@/assets/activities/muay-thai.jpg";
+import jiuJitsuImg from "@/assets/activities/jiu-jitsu.jpg";
+import wrestlingImg from "@/assets/activities/wrestling.jpg";
+import selfDefenseImg from "@/assets/activities/self-defense.jpg";
 import soccerImg from "@/assets/activities/soccer.jpg";
 import basketballImg from "@/assets/activities/basketball.jpg";
 import bootcampImg from "@/assets/activities/bootcamp.jpg";
@@ -36,9 +39,9 @@ const activityCategories = [
       { name: "Boxing", slug: "boxing", image: boxingImg },
       { name: "Kickboxing", slug: "kickboxing", image: kickboxingImg },
       { name: "Muay Thai", slug: "muay-thai", image: muayThaiImg },
-      { name: "Jiu Jitsu", slug: "jiu-jitsu", image: boxingImg },
-      { name: "Wrestling", slug: "wrestling", image: boxingImg },
-      { name: "Self Defense", slug: "self-defense", image: boxingImg },
+      { name: "Jiu Jitsu", slug: "jiu-jitsu", image: jiuJitsuImg },
+      { name: "Wrestling", slug: "wrestling", image: wrestlingImg },
+      { name: "Self Defense", slug: "self-defense", image: selfDefenseImg },
     ],
   },
   {
@@ -157,29 +160,39 @@ export default function Activities() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to start training?
             </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <p className="text-white/70 mb-8">
+              Download Group Fit on your device to find available coaches near you.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               <Button
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-red-dark text-white"
+                className="bg-foreground hover:bg-foreground/90 text-background"
               >
                 <a href={APP_LINKS.customer.ios} target="_blank" rel="noopener noreferrer">
-                  <Download className="w-5 h-5 mr-2" />
-                  Download App
+                  <Apple className="w-5 h-5 mr-2" />
+                  App Store
                 </a>
               </Button>
               <Button
                 asChild
                 size="lg"
-                variant="ghost"
-                className="text-white/80 hover:text-white hover:bg-white/10"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10"
               >
-                <Link to="/cities">
-                  View Cities
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
+                <a href={APP_LINKS.customer.android} target="_blank" rel="noopener noreferrer">
+                  <Smartphone className="w-5 h-5 mr-2" />
+                  Google Play
+                </a>
               </Button>
             </div>
+            <Link
+              to="/cities"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+            >
+              View Cities
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </motion.div>
         </div>
       </section>
