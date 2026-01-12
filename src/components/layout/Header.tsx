@@ -7,6 +7,7 @@ import logo from "@/assets/logo.png";
 
 const customerNavLinks = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { name: "How it Works", href: "/how-it-works" },
   { name: "Activities", href: "/activities" },
   { name: "Cities", href: "/cities" },
