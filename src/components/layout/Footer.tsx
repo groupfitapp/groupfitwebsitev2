@@ -18,9 +18,11 @@ const trainerLinks = [
 ];
 
 const legalLinks = [
-  { name: "Terms of Service", href: "/terms" },
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Refunds & Cancellations", href: "/refunds-cancellations" },
+  { name: "Website Terms", href: "/website-terms-and-condition" },
+  { name: "Website Privacy", href: "/privacy-policy" },
+  { name: "App User Terms", href: "/app-user-terms-and-condition" },
+  { name: "App Trainer Terms", href: "/app-trainer-terms-and-condition" },
+  { name: "App Privacy", href: "/app-privacy-policy" },
 ];
 
 const topCities = [

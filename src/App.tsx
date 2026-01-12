@@ -18,9 +18,6 @@ import Trainer from "./pages/Trainer";
 import TrainerHowItWorks from "./pages/TrainerHowItWorks";
 import TrainerRequirements from "./pages/TrainerRequirements";
 import TrainerFAQ from "./pages/TrainerFAQ";
-import Terms from "./pages/Terms";
-import Privacy from "./pages/Privacy";
-import Refunds from "./pages/Refunds";
 import WebsiteTerms from "./pages/WebsiteTerms";
 import WebsitePrivacy from "./pages/WebsitePrivacy";
 import AppUserTerms from "./pages/AppUserTerms";
@@ -52,9 +49,6 @@ const App = () => (
               <Route path="/trainer/how-it-works" element={<TrainerHowItWorks />} />
               <Route path="/trainer/requirements" element={<TrainerRequirements />} />
               <Route path="/trainer/faq" element={<TrainerFAQ />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/refunds-cancellations" element={<Refunds />} />
               <Route path="/website-terms-and-condition" element={<WebsiteTerms />} />
               <Route path="/privacy-policy" element={<WebsitePrivacy />} />
               <Route path="/app-user-terms-and-condition" element={<AppUserTerms />} />
