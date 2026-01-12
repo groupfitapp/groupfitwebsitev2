@@ -52,7 +52,6 @@ const steps = [
 const groupFeatures = [
   "Group bookings are private (friends/family)",
   "Everyone meets at the same location and time",
-  "Session duration is 60 minutes",
   "Split the cost inside Group Fit",
   "Up to 10 members per group",
 ];

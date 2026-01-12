@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Home, Building, TreePine, Dumbbell, Flame, Users, Shield, Swords, Hand, Footprints, Dribbble, LucideIcon } from "lucide-react";
+import { ArrowRight, Home, Building, TreePine, Dumbbell, Flame, HeartPulse, ShieldCheck, Volleyball, LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -9,18 +9,18 @@ import { APP_LINKS } from "@/lib/appLinks";
 
 const activityIcons: Record<string, LucideIcon> = {
   "strength-and-conditioning": Dumbbell,
-  "boxing": Swords,
-  "kickboxing": Hand,
-  "yoga": Footprints,
+  "boxing": Dumbbell,
+  "kickboxing": Dumbbell,
+  "yoga": HeartPulse,
   "hiit": Flame,
-  "calisthenics": Users,
-  "bootcamp": Users,
-  "self-defense": Shield,
-  "soccer": Dribbble,
-  "basketball": Dribbble,
-  "muay-thai": Hand,
-  "jiu-jitsu": Swords,
-  "wrestling": Swords,
+  "calisthenics": Dumbbell,
+  "bootcamp": Flame,
+  "self-defense": ShieldCheck,
+  "soccer": Volleyball,
+  "basketball": Volleyball,
+  "muay-thai": Dumbbell,
+  "jiu-jitsu": Dumbbell,
+  "wrestling": Dumbbell,
 };
 
 const cityData: Record<string, { name: string; metaTitle: string; metaDesc: string; intro: string; activities: { name: string; slug: string }[] }> = {

@@ -1,14 +1,49 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const cities = [
-  { name: "Toronto", slug: "toronto" },
-  { name: "Mississauga", slug: "mississauga" },
-  { name: "Vancouver", slug: "vancouver" },
-  { name: "Calgary", slug: "calgary" },
-  { name: "Edmonton", slug: "edmonton" },
-  { name: "Winnipeg", slug: "winnipeg" },
+// City images from unsplash - iconic landmarks
+const cityImages: Record<string, string> = {
+  toronto: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop",
+  mississauga: "https://images.unsplash.com/photo-1569878698889-7bffa1896872?w=400&h=300&fit=crop",
+  vancouver: "https://images.unsplash.com/photo-1559511260-66a68e7e7a91?w=400&h=300&fit=crop",
+  calgary: "https://images.unsplash.com/photo-1554769524-4a3c08bbe85a?w=400&h=300&fit=crop",
+  edmonton: "https://images.unsplash.com/photo-1543318234-f49d07d27e26?w=400&h=300&fit=crop",
+  winnipeg: "https://images.unsplash.com/photo-1602879943431-07f0d41baef2?w=400&h=300&fit=crop",
+};
+
+interface Province {
+  name: string;
+  cities: { name: string; slug: string }[];
+}
+
+const provinces: Province[] = [
+  {
+    name: "Ontario",
+    cities: [
+      { name: "Toronto", slug: "toronto" },
+      { name: "Mississauga", slug: "mississauga" },
+    ],
+  },
+  {
+    name: "British Columbia",
+    cities: [
+      { name: "Vancouver", slug: "vancouver" },
+    ],
+  },
+  {
+    name: "Alberta",
+    cities: [
+      { name: "Calgary", slug: "calgary" },
+      { name: "Edmonton", slug: "edmonton" },
+    ],
+  },
+  {
+    name: "Manitoba",
+    cities: [
+      { name: "Winnipeg", slug: "winnipeg" },
+    ],
+  },
 ];
 
 export function CitiesSection() {
@@ -44,24 +79,42 @@ export function CitiesSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {cities.map((city, index) => (
+        <div className="space-y-8">
+          {provinces.map((province, provIndex) => (
             <motion.div
-              key={city.slug}
+              key={province.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
+              transition={{ delay: provIndex * 0.1 }}
             >
-              <Link
-                to={`/cities/${city.slug}`}
-                className="group flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/50 hover:shadow-md transition-all duration-300"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <span className="font-medium text-foreground">{city.name}</span>
-              </Link>
+              <h3 className="text-lg font-semibold text-foreground mb-4">{province.name}</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                {province.cities.map((city, index) => (
+                  <motion.div
+                    key={city.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    <Link
+                      to={`/cities/${city.slug}`}
+                      className="group block relative aspect-[4/3] rounded-xl overflow-hidden"
+                    >
+                      <img
+                        src={cityImages[city.slug]}
+                        alt={city.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-3">
+                        <span className="font-medium text-white text-sm">{city.name}</span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>

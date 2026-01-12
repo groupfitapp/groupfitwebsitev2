@@ -26,8 +26,8 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
           >
-            Book an in-person personal trainer at{" "}
-            <span className="text-primary">your location</span>
+            Book an In-Person Trainer at{" "}
+            <span className="text-primary">Your Location</span>
           </motion.h1>
 
           <motion.p
@@ -62,7 +62,7 @@ export function HeroSection() {
               asChild
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6"
+              className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white text-lg px-8 py-6"
             >
               <Link to="/how-it-works">
                 How it Works

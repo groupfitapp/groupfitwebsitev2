@@ -1,25 +1,92 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
-const cities = [
-  { name: "Toronto", slug: "toronto", province: "Ontario" },
-  { name: "Mississauga", slug: "mississauga", province: "Ontario" },
-  { name: "Vancouver", slug: "vancouver", province: "British Columbia" },
-  { name: "Calgary", slug: "calgary", province: "Alberta" },
-  { name: "Edmonton", slug: "edmonton", province: "Alberta" },
-  { name: "Winnipeg", slug: "winnipeg", province: "Manitoba" },
-  { name: "Ottawa", slug: "ottawa", province: "Ontario" },
-  { name: "Quebec City", slug: "quebec-city", province: "Quebec" },
-  { name: "Halifax", slug: "halifax", province: "Nova Scotia" },
-  { name: "Fredericton", slug: "fredericton", province: "New Brunswick" },
-  { name: "Saskatoon", slug: "saskatoon", province: "Saskatchewan" },
-  { name: "Brampton", slug: "brampton", province: "Ontario" },
-  { name: "Oakville", slug: "oakville", province: "Ontario" },
+// City images from unsplash - iconic landmarks
+const cityImages: Record<string, string> = {
+  toronto: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop",
+  mississauga: "https://images.unsplash.com/photo-1569878698889-7bffa1896872?w=400&h=300&fit=crop",
+  vancouver: "https://images.unsplash.com/photo-1559511260-66a68e7e7a91?w=400&h=300&fit=crop",
+  calgary: "https://images.unsplash.com/photo-1554769524-4a3c08bbe85a?w=400&h=300&fit=crop",
+  edmonton: "https://images.unsplash.com/photo-1543318234-f49d07d27e26?w=400&h=300&fit=crop",
+  winnipeg: "https://images.unsplash.com/photo-1602879943431-07f0d41baef2?w=400&h=300&fit=crop",
+  ottawa: "https://images.unsplash.com/photo-1570117429971-0b3e6aeb6a7d?w=400&h=300&fit=crop",
+  "quebec-city": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+  halifax: "https://images.unsplash.com/photo-1523059623039-a9ed027e7fad?w=400&h=300&fit=crop",
+  fredericton: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&h=300&fit=crop",
+  saskatoon: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop",
+  brampton: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop",
+  oakville: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+};
+
+interface City {
+  name: string;
+  slug: string;
+}
+
+interface Province {
+  name: string;
+  cities: City[];
+}
+
+const provinces: Province[] = [
+  {
+    name: "Ontario",
+    cities: [
+      { name: "Toronto", slug: "toronto" },
+      { name: "Mississauga", slug: "mississauga" },
+      { name: "Ottawa", slug: "ottawa" },
+      { name: "Brampton", slug: "brampton" },
+      { name: "Oakville", slug: "oakville" },
+    ],
+  },
+  {
+    name: "British Columbia",
+    cities: [
+      { name: "Vancouver", slug: "vancouver" },
+    ],
+  },
+  {
+    name: "Alberta",
+    cities: [
+      { name: "Calgary", slug: "calgary" },
+      { name: "Edmonton", slug: "edmonton" },
+    ],
+  },
+  {
+    name: "Manitoba",
+    cities: [
+      { name: "Winnipeg", slug: "winnipeg" },
+    ],
+  },
+  {
+    name: "Quebec",
+    cities: [
+      { name: "Quebec City", slug: "quebec-city" },
+    ],
+  },
+  {
+    name: "Nova Scotia",
+    cities: [
+      { name: "Halifax", slug: "halifax" },
+    ],
+  },
+  {
+    name: "New Brunswick",
+    cities: [
+      { name: "Fredericton", slug: "fredericton" },
+    ],
+  },
+  {
+    name: "Saskatchewan",
+    cities: [
+      { name: "Saskatoon", slug: "saskatoon" },
+    ],
+  },
 ];
 
 export default function Cities() {
@@ -51,33 +118,51 @@ export default function Cities() {
         </div>
       </section>
 
-      {/* Cities Grid */}
+      {/* Cities by Province */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {cities.map((city, index) => (
-              <motion.div
-                key={city.slug}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.03 }}
-              >
-                <Link
-                  to={`/cities/${city.slug}`}
-                  className="group block bg-card border border-border rounded-2xl p-6 hover:border-primary/50 hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <MapPin className="w-5 h-5 text-primary" />
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {city.name}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{city.province}</p>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+          {provinces.map((province, provIndex) => (
+            <motion.div
+              key={province.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: provIndex * 0.1 }}
+              className="mb-12 last:mb-0"
+            >
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                {province.name}
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                {province.cities.map((city, index) => (
+                  <motion.div
+                    key={city.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.03 }}
+                  >
+                    <Link
+                      to={`/cities/${city.slug}`}
+                      className="group block relative aspect-[4/3] rounded-2xl overflow-hidden"
+                    >
+                      <img
+                        src={cityImages[city.slug]}
+                        alt={city.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 className="text-white font-semibold text-lg">
+                          {city.name}
+                        </h3>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
