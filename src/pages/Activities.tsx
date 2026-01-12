@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Apple, Smartphone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
 import strengthImg from "@/assets/activities/strength.jpg";
@@ -163,28 +163,11 @@ export default function Activities() {
             <p className="text-white/70 mb-8">
               Download Group Fit on your device to find available coaches near you.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-              <Button
-                asChild
-                size="lg"
-                className="bg-foreground hover:bg-foreground/90 text-background"
-              >
-                <a href={APP_LINKS.customer.ios} target="_blank" rel="noopener noreferrer">
-                  <Apple className="w-5 h-5 mr-2" />
-                  App Store
-                </a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10"
-              >
-                <a href={APP_LINKS.customer.android} target="_blank" rel="noopener noreferrer">
-                  <Smartphone className="w-5 h-5 mr-2" />
-                  Google Play
-                </a>
-              </Button>
+            <div className="flex justify-center mb-6">
+              <AppStoreBadges
+                iosLink={APP_LINKS.customer.ios}
+                androidLink={APP_LINKS.customer.android}
+              />
             </div>
             <Link
               to="/cities"

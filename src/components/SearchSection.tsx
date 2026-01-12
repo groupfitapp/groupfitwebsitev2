@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, MapPin, ChevronDown, Info, Loader2, Apple, Smartphone } from "lucide-react";
+import { Search, MapPin, ChevronDown, Info, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
 const activities = [
@@ -259,29 +260,11 @@ export default function SearchSection() {
                     <p className="text-muted-foreground mb-6">
                       Download the Group Fit app to view available coaches for {activity} near your location.
                     </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                      <Button
-                        asChild
-                        size="lg"
-                        className="w-full sm:w-auto bg-foreground hover:bg-foreground/90 text-background"
-                      >
-                        <a href={APP_LINKS.customer.ios} target="_blank" rel="noopener noreferrer">
-                          <Apple className="w-5 h-5 mr-2" />
-                          App Store
-                        </a>
-                      </Button>
-                      <Button
-                        asChild
-                        size="lg"
-                        variant="outline"
-                        className="w-full sm:w-auto"
-                      >
-                        <a href={APP_LINKS.customer.android} target="_blank" rel="noopener noreferrer">
-                          <Smartphone className="w-5 h-5 mr-2" />
-                          Google Play
-                        </a>
-                      </Button>
-                    </div>
+                    <AppStoreBadges
+                      iosLink={APP_LINKS.customer.ios}
+                      androidLink={APP_LINKS.customer.android}
+                      className="justify-center"
+                    />
                   </div>
                 </motion.div>
               )}

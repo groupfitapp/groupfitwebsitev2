@@ -7,12 +7,9 @@ import {
   Calendar, 
   MapPin, 
   Shield, 
-  ArrowRight,
-  Apple,
-  Smartphone,
-  CheckCircle
+  ArrowRight
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
 const benefits = [
@@ -70,28 +67,11 @@ export default function Trainer() {
             <p className="mt-6 text-lg text-white/70">
               Set your service area and availability and receive bookings for in-person sessions. Trainer onboarding includes credential review and identity verification.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary hover:bg-red-dark text-white"
-              >
-                <a href={APP_LINKS.trainer.ios} target="_blank" rel="noopener noreferrer">
-                  <Apple className="w-5 h-5 mr-2" />
-                  Download for iOS
-                </a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10"
-              >
-                <a href={APP_LINKS.trainer.android} target="_blank" rel="noopener noreferrer">
-                  <Smartphone className="w-5 h-5 mr-2" />
-                  Download for Android
-                </a>
-              </Button>
+            <div className="mt-8 flex justify-center">
+              <AppStoreBadges
+                iosLink={APP_LINKS.trainer.ios}
+                androidLink={APP_LINKS.trainer.android}
+              />
             </div>
           </motion.div>
         </div>
@@ -229,17 +209,11 @@ export default function Trainer() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to start training?
             </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary hover:bg-red-dark text-white"
-              >
-                <a href={APP_LINKS.trainer.ios} target="_blank" rel="noopener noreferrer">
-                  <Apple className="w-5 h-5 mr-2" />
-                  Download Trainer App
-                </a>
-              </Button>
+            <div className="flex justify-center">
+              <AppStoreBadges
+                iosLink={APP_LINKS.trainer.ios}
+                androidLink={APP_LINKS.trainer.android}
+              />
             </div>
           </motion.div>
         </div>
