@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Download, ArrowRight, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/customer-banner.jpg";
 
 export function HeroSection() {
   return (
@@ -12,9 +12,10 @@ export function HeroSection() {
         <img
           src={heroBg}
           alt="Personal training session"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 to-secondary/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-secondary/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-secondary/50" />
       </div>
 
       {/* Content */}

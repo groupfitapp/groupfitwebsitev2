@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -17,12 +17,15 @@ const trainerLinks = [
   { name: "Trainer FAQ", href: "/trainer/faq" },
 ];
 
-const legalLinks = [
+const websiteLegalLinks = [
   { name: "Website Terms", href: "/website-terms-and-condition" },
   { name: "Website Privacy", href: "/privacy-policy" },
-  { name: "App User Terms", href: "/app-user-terms-and-condition" },
-  { name: "App Trainer Terms", href: "/app-trainer-terms-and-condition" },
-  { name: "App Privacy", href: "/app-privacy-policy" },
+];
+
+const appLegalLinks = [
+  { name: "Customer App Terms", href: "/app-user-terms-and-condition" },
+  { name: "Trainer App Terms", href: "/app-trainer-terms-and-condition" },
+  { name: "App Privacy Policy", href: "/app-privacy-policy" },
 ];
 
 const topCities = [
@@ -40,6 +43,9 @@ const topActivities = [
 ];
 
 export function Footer() {
+  const location = useLocation();
+  const isTrainerSection = location.pathname.startsWith("/trainer");
+
   return (
     <footer className="bg-secondary text-white">
       <div className="container mx-auto px-4 py-12 md:py-16">
@@ -146,24 +152,52 @@ export function Footer() {
           </p>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Legal Links - Separated into Website and App */}
         <div className="mt-8 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/50 text-sm">
-              © {new Date().getFullYear()} Group Fit. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              {legalLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="text-white/50 text-sm hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </Link>
+          <div className="flex flex-col gap-4">
+            {/* Website Legal */}
+            <div className="flex flex-wrap justify-center items-center gap-2 text-white/50 text-sm">
+              <span className="text-white/70 font-medium mr-2">Website:</span>
+              {websiteLegalLinks.map((link, index) => (
+                <span key={link.name} className="flex items-center">
+                  <Link
+                    to={link.href}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                  {index < websiteLegalLinks.length - 1 && (
+                    <span className="mx-2">•</span>
+                  )}
+                </span>
+              ))}
+            </div>
+            
+            {/* App Legal */}
+            <div className="flex flex-wrap justify-center items-center gap-2 text-white/50 text-sm">
+              <span className="text-white/70 font-medium mr-2">App:</span>
+              {appLegalLinks.map((link, index) => (
+                <span key={link.name} className="flex items-center">
+                  <Link
+                    to={link.href}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                  {index < appLegalLinks.length - 1 && (
+                    <span className="mx-2">•</span>
+                  )}
+                </span>
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-8 pt-8 border-t border-white/10">
+          <p className="text-white/50 text-sm text-center">
+            © {new Date().getFullYear()} Group Fit. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

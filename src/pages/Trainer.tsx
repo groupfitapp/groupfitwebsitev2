@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
+import trainerBanner from "@/assets/trainer-banner.jpg";
 
 const benefits = [
   {
@@ -53,21 +54,34 @@ export default function Trainer() {
         />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
-        <div className="container mx-auto px-4">
+      {/* Hero Section with Banner */}
+      <section className="relative min-h-[70vh] flex items-center bg-secondary overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img
+            src={trainerBanner}
+            alt="Personal trainer coaching a client"
+            className="w-full h-full object-cover opacity-50"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/85 to-secondary/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-secondary/40" />
+        </div>
+
+        {/* Content */}
+        <div className="container mx-auto px-4 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-3xl mx-auto"
+            className="max-w-3xl"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              Grow your personal training business
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Grow your personal training{" "}
+              <span className="text-primary">business</span>
             </h1>
-            <p className="mt-6 text-lg text-white/70">
+            <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl">
               Set your service area and availability and receive bookings for in-person sessions. Trainer onboarding includes credential review and identity verification.
             </p>
-            <div className="mt-8 flex justify-center">
+            <div className="mt-8">
               <AppStoreBadges
                 iosLink={APP_LINKS.trainer.ios}
                 androidLink={APP_LINKS.trainer.android}
@@ -75,6 +89,9 @@ export default function Trainer() {
             </div>
           </motion.div>
         </div>
+
+        {/* Decorative gradient blob */}
+        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-primary/20 to-transparent blur-3xl pointer-events-none" />
       </section>
 
       {/* Benefits Section */}
