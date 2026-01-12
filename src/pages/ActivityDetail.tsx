@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Download, ArrowRight, CheckCircle, MapPin, Home, TreePine } from "lucide-react";
+import { ArrowRight, CheckCircle, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
 const activityData: Record<string, { title: string; metaTitle: string; metaDesc: string; intro: string; bestFor: string[]; sessionIncludes: string[]; locations: string[]; faqs: { q: string; a: string }[] }> = {
@@ -81,10 +82,13 @@ export default function ActivityDetail() {
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to start?</h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-red-dark text-white"><a href={APP_LINKS.customer.ios} target="_blank" rel="noopener noreferrer"><Download className="w-5 h-5 mr-2" />Download App</a></Button>
-              <Button asChild size="lg" variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10"><Link to="/cities">Check Cities<ArrowRight className="w-5 h-5 ml-2" /></Link></Button>
+            <div className="flex justify-center mb-6">
+              <AppStoreBadges
+                iosLink={APP_LINKS.customer.ios}
+                androidLink={APP_LINKS.customer.android}
+              />
             </div>
+            <Button asChild size="lg" variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10"><Link to="/cities">Check Cities<ArrowRight className="w-5 h-5 ml-2" /></Link></Button>
             <div className="mt-8 flex flex-wrap justify-center gap-6">
               <Link to="/activities" className="text-white/60 hover:text-primary transition-colors text-sm">← Back to Activities</Link>
               <Link to="/how-it-works" className="text-white/60 hover:text-primary transition-colors text-sm">How it Works</Link>

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { Apple, Smartphone, Users, Dumbbell } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Users, Dumbbell } from "lucide-react";
+import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
 export default function Download() {
@@ -69,29 +69,11 @@ export default function Download() {
                 </li>
               </ul>
 
-              <div className="space-y-3">
-                <Button
-                  asChild
-                  size="lg"
-                  className="w-full bg-foreground hover:bg-foreground/90 text-background"
-                >
-                  <a href={APP_LINKS.customer.ios} target="_blank" rel="noopener noreferrer">
-                    <Apple className="w-5 h-5 mr-2" />
-                    Download on App Store
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="w-full"
-                >
-                  <a href={APP_LINKS.customer.android} target="_blank" rel="noopener noreferrer">
-                    <Smartphone className="w-5 h-5 mr-2" />
-                    Get it on Google Play
-                  </a>
-                </Button>
-              </div>
+              <AppStoreBadges
+                iosLink={APP_LINKS.customer.ios}
+                androidLink={APP_LINKS.customer.android}
+                className="justify-center"
+              />
             </motion.div>
 
             {/* Trainers Card */}
@@ -127,29 +109,11 @@ export default function Download() {
                 </li>
               </ul>
 
-              <div className="space-y-3">
-                <Button
-                  asChild
-                  size="lg"
-                  className="w-full bg-foreground hover:bg-foreground/90 text-background"
-                >
-                  <a href={APP_LINKS.trainer.ios} target="_blank" rel="noopener noreferrer">
-                    <Apple className="w-5 h-5 mr-2" />
-                    Download on App Store
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="w-full"
-                >
-                  <a href={APP_LINKS.trainer.android} target="_blank" rel="noopener noreferrer">
-                    <Smartphone className="w-5 h-5 mr-2" />
-                    Get it on Google Play
-                  </a>
-                </Button>
-              </div>
+              <AppStoreBadges
+                iosLink={APP_LINKS.trainer.ios}
+                androidLink={APP_LINKS.trainer.android}
+                className="justify-center"
+              />
             </motion.div>
           </div>
         </div>
