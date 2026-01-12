@@ -7,6 +7,35 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
+// City images
+import mississaugaImg from "@/assets/cities/mississauga.jpg";
+import vancouverImg from "@/assets/cities/vancouver.jpg";
+import calgaryImg from "@/assets/cities/calgary.jpg";
+import edmontonImg from "@/assets/cities/edmonton.jpg";
+import winnipegImg from "@/assets/cities/winnipeg.jpg";
+import ottawaImg from "@/assets/cities/ottawa.jpg";
+import quebecImg from "@/assets/cities/quebec.jpg";
+import halifaxImg from "@/assets/cities/halifax.jpg";
+import saskatoonImg from "@/assets/cities/saskatoon.jpg";
+import bramptonImg from "@/assets/cities/brampton.jpg";
+import oakvilleImg from "@/assets/cities/oakville.jpg";
+
+const cityImages: Record<string, string> = {
+  toronto: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=1200&h=600&fit=crop",
+  mississauga: mississaugaImg,
+  vancouver: vancouverImg,
+  calgary: calgaryImg,
+  edmonton: edmontonImg,
+  winnipeg: winnipegImg,
+  ottawa: ottawaImg,
+  "quebec-city": quebecImg,
+  halifax: halifaxImg,
+  saskatoon: saskatoonImg,
+  brampton: bramptonImg,
+  oakville: oakvilleImg,
+  fredericton: "https://images.unsplash.com/photo-1578861256483-c68e4b7a4e20?w=1200&h=600&fit=crop",
+};
+
 const activityIcons: Record<string, LucideIcon> = {
   "strength-and-conditioning": Dumbbell,
   "boxing": Dumbbell,
@@ -50,16 +79,22 @@ const faqs = [
 export default function CityDetail() {
   const { slug } = useParams();
   const city = cityData[slug || ""] || cityData["toronto"];
+  const heroImage = cityImages[slug || ""] || cityImages["toronto"];
 
   return (
     <>
       <Helmet><title>{city.metaTitle}</title><meta name="description" content={city.metaDesc} /></Helmet>
 
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
-        <div className="container mx-auto px-4">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/80 to-secondary/95" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">In-person personal training in {city.name}</h1>
-            <p className="mt-6 text-lg text-white/70">{city.intro}</p>
+            <p className="mt-6 text-lg text-white/80">{city.intro}</p>
           </motion.div>
         </div>
       </section>

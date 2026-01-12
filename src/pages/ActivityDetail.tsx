@@ -7,6 +7,37 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
+// Activity images
+import strengthImg from "@/assets/activities/strength.jpg";
+import yogaImg from "@/assets/activities/yoga.jpg";
+import boxingImg from "@/assets/activities/boxing.jpg";
+import hiitImg from "@/assets/activities/hiit.jpg";
+import kickboxingImg from "@/assets/activities/kickboxing.jpg";
+import soccerImg from "@/assets/activities/soccer.jpg";
+import basketballImg from "@/assets/activities/basketball.jpg";
+import calisthenicsImg from "@/assets/activities/calisthenics.jpg";
+import bootcampImg from "@/assets/activities/bootcamp.jpg";
+import muayThaiImg from "@/assets/activities/muay-thai.jpg";
+import jiuJitsuImg from "@/assets/activities/jiu-jitsu.jpg";
+import wrestlingImg from "@/assets/activities/wrestling.jpg";
+import selfDefenseImg from "@/assets/activities/self-defense.jpg";
+
+const activityImages: Record<string, string> = {
+  "strength-and-conditioning": strengthImg,
+  "yoga": yogaImg,
+  "boxing": boxingImg,
+  "hiit": hiitImg,
+  "kickboxing": kickboxingImg,
+  "soccer": soccerImg,
+  "basketball": basketballImg,
+  "calisthenics": calisthenicsImg,
+  "bootcamp": bootcampImg,
+  "muay-thai": muayThaiImg,
+  "jiu-jitsu": jiuJitsuImg,
+  "wrestling": wrestlingImg,
+  "self-defense": selfDefenseImg,
+};
+
 const activityData: Record<string, { title: string; metaTitle: string; metaDesc: string; intro: string; bestFor: string[]; sessionIncludes: string[]; locations: string[]; faqs: { q: string; a: string }[] }> = {
   "strength-and-conditioning": { title: "Strength & Conditioning", metaTitle: "Strength & Conditioning Training | In-Person Personal Trainer | Group Fit", metaDesc: "Book an in-person strength and conditioning coach at your location. Build strength, improve form, and train with structure in a 60-minute session.", intro: "Structured coaching to build strength, improve movement quality, and develop conditioning—beginner to advanced.", bestFor: ["General fitness and consistency", "Fat loss and conditioning", "Strength and muscle development", "Athletic performance"], sessionIncludes: ["Warm-up and mobility", "Form coaching and technique", "Strength blocks (lower/upper/full-body)", "Conditioning finisher and cooldown"], locations: ["Home (bodyweight or basic equipment)", "Condo gym / gym", "Outdoor sessions when weather allows"], faqs: [{ q: "Do I need equipment?", a: "No. Sessions can be built around bodyweight or whatever equipment you have access to." }, { q: "Is this good for beginners?", a: "Yes. A coach can start with fundamentals and progress safely." }, { q: "Can I train with friends?", a: "Yes. Use a private group booking so everyone meets at the same location and time." }] },
   "yoga": { title: "Yoga", metaTitle: "Yoga Training | In-Person Yoga Instructor | Group Fit", metaDesc: "Book an in-person yoga instructor at your location for flexibility, mobility, and stress reduction.", intro: "Private yoga tailored to your level for flexibility, mobility, and stress reduction.", bestFor: ["Flexibility and mobility", "Recovery and relaxation", "Posture and movement quality", "Beginner-friendly foundations"], sessionIncludes: ["Breathwork and warm-up", "Guided flow or targeted mobility work", "Balance and stability drills", "Cooldown and stretching"], locations: ["Home or quiet indoor space", "Studio space or gym area (if permitted)"], faqs: [{ q: "Is yoga beginner-friendly?", a: "Yes. Sessions can be adapted to your current mobility and experience." }, { q: "Do I need a mat?", a: "A mat helps, but sessions can be adapted if you don't have one." }] },
@@ -26,6 +57,7 @@ const activityData: Record<string, { title: string; metaTitle: string; metaDesc:
 export default function ActivityDetail() {
   const { slug } = useParams();
   const activity = activityData[slug || ""] || activityData["strength-and-conditioning"];
+  const heroImage = activityImages[slug || ""] || activityImages["strength-and-conditioning"];
 
   return (
     <>
@@ -34,11 +66,16 @@ export default function ActivityDetail() {
         <meta name="description" content={activity.metaDesc} />
       </Helmet>
 
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
-        <div className="container mx-auto px-4">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/80 to-secondary/95" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">{activity.title} training at your location</h1>
-            <p className="mt-6 text-lg text-white/70">{activity.intro}</p>
+            <p className="mt-6 text-lg text-white/80">{activity.intro}</p>
           </motion.div>
         </div>
       </section>
