@@ -6,21 +6,31 @@ import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
-// City images from unsplash - iconic landmarks
+// City images - local assets
+import torontoImg from "@/assets/cities/toronto.jpg";
+import mississaugaImg from "@/assets/cities/mississauga.jpg";
+import vancouverImg from "@/assets/cities/vancouver.jpg";
+import calgaryImg from "@/assets/cities/calgary.jpg";
+import edmontonImg from "@/assets/cities/edmonton.jpg";
+import winnipegImg from "@/assets/cities/winnipeg.jpg";
+import ottawaImg from "@/assets/cities/ottawa.jpg";
+import quebecImg from "@/assets/cities/quebec.jpg";
+import halifaxImg from "@/assets/cities/halifax.jpg";
+import bramptonImg from "@/assets/cities/brampton.jpg";
+import oakvilleImg from "@/assets/cities/oakville.jpg";
+
 const cityImages: Record<string, string> = {
-  toronto: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop",
-  mississauga: "https://images.unsplash.com/photo-1569878698889-7bffa1896872?w=400&h=300&fit=crop",
-  vancouver: "https://images.unsplash.com/photo-1559511260-66a68e7e7a91?w=400&h=300&fit=crop",
-  calgary: "https://images.unsplash.com/photo-1554769524-4a3c08bbe85a?w=400&h=300&fit=crop",
-  edmonton: "https://images.unsplash.com/photo-1543318234-f49d07d27e26?w=400&h=300&fit=crop",
-  winnipeg: "https://images.unsplash.com/photo-1602879943431-07f0d41baef2?w=400&h=300&fit=crop",
-  ottawa: "https://images.unsplash.com/photo-1570117429971-0b3e6aeb6a7d?w=400&h=300&fit=crop",
-  "quebec-city": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-  halifax: "https://images.unsplash.com/photo-1523059623039-a9ed027e7fad?w=400&h=300&fit=crop",
-  fredericton: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&h=300&fit=crop",
-  saskatoon: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop",
-  brampton: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop",
-  oakville: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+  toronto: torontoImg,
+  mississauga: mississaugaImg,
+  vancouver: vancouverImg,
+  calgary: calgaryImg,
+  edmonton: edmontonImg,
+  winnipeg: winnipegImg,
+  ottawa: ottawaImg,
+  "quebec-city": quebecImg,
+  halifax: halifaxImg,
+  brampton: bramptonImg,
+  oakville: oakvilleImg,
 };
 
 interface City {
@@ -73,18 +83,6 @@ const provinces: Province[] = [
     name: "Nova Scotia",
     cities: [
       { name: "Halifax", slug: "halifax" },
-    ],
-  },
-  {
-    name: "New Brunswick",
-    cities: [
-      { name: "Fredericton", slug: "fredericton" },
-    ],
-  },
-  {
-    name: "Saskatchewan",
-    cities: [
-      { name: "Saskatoon", slug: "saskatoon" },
     ],
   },
 ];
