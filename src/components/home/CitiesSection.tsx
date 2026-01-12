@@ -2,14 +2,21 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-// City images from unsplash - iconic landmarks
+// City images - local assets
+import torontoImg from "@/assets/cities/toronto.jpg";
+import mississaugaImg from "@/assets/cities/mississauga.jpg";
+import vancouverImg from "@/assets/cities/vancouver.jpg";
+import calgaryImg from "@/assets/cities/calgary.jpg";
+import edmontonImg from "@/assets/cities/edmonton.jpg";
+import winnipegImg from "@/assets/cities/winnipeg.jpg";
+
 const cityImages: Record<string, string> = {
-  toronto: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop",
-  mississauga: "https://images.unsplash.com/photo-1569878698889-7bffa1896872?w=400&h=300&fit=crop",
-  vancouver: "https://images.unsplash.com/photo-1559511260-66a68e7e7a91?w=400&h=300&fit=crop",
-  calgary: "https://images.unsplash.com/photo-1554769524-4a3c08bbe85a?w=400&h=300&fit=crop",
-  edmonton: "https://images.unsplash.com/photo-1543318234-f49d07d27e26?w=400&h=300&fit=crop",
-  winnipeg: "https://images.unsplash.com/photo-1602879943431-07f0d41baef2?w=400&h=300&fit=crop",
+  toronto: torontoImg,
+  mississauga: mississaugaImg,
+  vancouver: vancouverImg,
+  calgary: calgaryImg,
+  edmonton: edmontonImg,
+  winnipeg: winnipegImg,
 };
 
 interface Province {
