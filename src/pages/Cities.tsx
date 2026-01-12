@@ -7,7 +7,6 @@ import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
 // City images - local assets
-import torontoImg from "@/assets/cities/toronto.jpg";
 import mississaugaImg from "@/assets/cities/mississauga.jpg";
 import vancouverImg from "@/assets/cities/vancouver.jpg";
 import calgaryImg from "@/assets/cities/calgary.jpg";
@@ -18,9 +17,10 @@ import quebecImg from "@/assets/cities/quebec.jpg";
 import halifaxImg from "@/assets/cities/halifax.jpg";
 import bramptonImg from "@/assets/cities/brampton.jpg";
 import oakvilleImg from "@/assets/cities/oakville.jpg";
+import saskatoonImg from "@/assets/cities/saskatoon.jpg";
 
 const cityImages: Record<string, string> = {
-  toronto: torontoImg,
+  toronto: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop",
   mississauga: mississaugaImg,
   vancouver: vancouverImg,
   calgary: calgaryImg,
@@ -31,6 +31,8 @@ const cityImages: Record<string, string> = {
   halifax: halifaxImg,
   brampton: bramptonImg,
   oakville: oakvilleImg,
+  fredericton: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&h=300&fit=crop",
+  saskatoon: saskatoonImg,
 };
 
 interface City {
@@ -83,6 +85,18 @@ const provinces: Province[] = [
     name: "Nova Scotia",
     cities: [
       { name: "Halifax", slug: "halifax" },
+    ],
+  },
+  {
+    name: "New Brunswick",
+    cities: [
+      { name: "Fredericton", slug: "fredericton" },
+    ],
+  },
+  {
+    name: "Saskatchewan",
+    cities: [
+      { name: "Saskatoon", slug: "saskatoon" },
     ],
   },
 ];
