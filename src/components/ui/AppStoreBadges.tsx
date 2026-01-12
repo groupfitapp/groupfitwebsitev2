@@ -5,23 +5,47 @@ interface AppStoreBadgesProps {
   iosLink: string;
   androidLink: string;
   className?: string;
+  size?: "sm" | "md" | "lg";
 }
 
-export function AppStoreBadges({ iosLink, androidLink, className = "" }: AppStoreBadgesProps) {
+export function AppStoreBadges({ 
+  iosLink, 
+  androidLink, 
+  className = "",
+  size = "md" 
+}: AppStoreBadgesProps) {
+  const sizeClasses = {
+    sm: "h-10",
+    md: "h-12",
+    lg: "h-14",
+  };
+
+  const badgeHeight = sizeClasses[size];
+
   return (
-    <div className={`flex flex-col sm:flex-row items-center gap-4 ${className}`}>
-      <a href={iosLink} target="_blank" rel="noopener noreferrer">
+    <div className={`flex flex-col sm:flex-row items-center justify-center gap-3 ${className}`}>
+      <a 
+        href={iosLink} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="transition-transform hover:scale-105"
+      >
         <img
           src={appStoreBadge}
           alt="Download on the App Store"
-          className="h-[50px] w-auto"
+          className={`${badgeHeight} w-auto`}
         />
       </a>
-      <a href={androidLink} target="_blank" rel="noopener noreferrer">
+      <a 
+        href={androidLink} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="transition-transform hover:scale-105"
+      >
         <img
           src={googlePlayBadge}
           alt="Get it on Google Play"
-          className="h-[50px] w-auto"
+          className={`${badgeHeight} w-auto`}
         />
       </a>
     </div>

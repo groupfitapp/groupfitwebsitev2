@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
-import { MapPin, Dumbbell, Users, ShieldCheck } from "lucide-react";
+import { Home, Sparkles, UsersRound, BadgeCheck } from "lucide-react";
 
 const benefits = [
   {
-    icon: MapPin,
+    icon: Home,
     title: "Train anywhere",
     description: "Home, condo gym, park, or a facility you arrange (where permitted).",
   },
   {
-    icon: Dumbbell,
+    icon: Sparkles,
     title: "More ways to train",
     description: "Choose from 35+ activities, including strength, boxing, yoga, sport training and more.",
   },
   {
-    icon: Users,
+    icon: UsersRound,
     title: "Private group bookings",
     description: "Train with friends or family at the same time and location.",
   },
   {
-    icon: ShieldCheck,
+    icon: BadgeCheck,
     title: "Verified coaches",
     description: "Trainer credentials are reviewed and identity verification is completed during onboarding.",
   },
