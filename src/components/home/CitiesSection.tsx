@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 // City images - local assets
-import torontoImg from "@/assets/cities/toronto.jpg";
 import mississaugaImg from "@/assets/cities/mississauga.jpg";
 import vancouverImg from "@/assets/cities/vancouver.jpg";
 import calgaryImg from "@/assets/cities/calgary.jpg";
@@ -11,7 +10,7 @@ import edmontonImg from "@/assets/cities/edmonton.jpg";
 import winnipegImg from "@/assets/cities/winnipeg.jpg";
 
 const cityImages: Record<string, string> = {
-  toronto: torontoImg,
+  toronto: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop",
   mississauga: mississaugaImg,
   vancouver: vancouverImg,
   calgary: calgaryImg,
