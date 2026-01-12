@@ -1,11 +1,27 @@
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Home, Building, TreePine, Dumbbell } from "lucide-react";
+import { ArrowRight, Home, Building, TreePine, Dumbbell, Flame, Users, Shield, Swords, Hand, Footprints, Dribbble, LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
+
+const activityIcons: Record<string, LucideIcon> = {
+  "strength-and-conditioning": Dumbbell,
+  "boxing": Swords,
+  "kickboxing": Hand,
+  "yoga": Footprints,
+  "hiit": Flame,
+  "calisthenics": Users,
+  "bootcamp": Users,
+  "self-defense": Shield,
+  "soccer": Dribbble,
+  "basketball": Dribbble,
+  "muay-thai": Hand,
+  "jiu-jitsu": Swords,
+  "wrestling": Swords,
+};
 
 const cityData: Record<string, { name: string; metaTitle: string; metaDesc: string; intro: string; activities: { name: string; slug: string }[] }> = {
   "toronto": { name: "Toronto", metaTitle: "Personal Trainer Toronto | In-Person Training | Group Fit", metaDesc: "Book an in-person personal trainer in Toronto at your location. Choose an activity, session address, and time to see who is available.", intro: "Toronto customers often book Strength & Conditioning for structured progress, Boxing/Kickboxing for conditioning, and Yoga for mobility—especially for home and condo-gym sessions.", activities: [{ name: "Strength & Conditioning", slug: "strength-and-conditioning" }, { name: "Boxing", slug: "boxing" }, { name: "Kickboxing", slug: "kickboxing" }, { name: "Yoga", slug: "yoga" }, { name: "HIIT", slug: "hiit" }, { name: "Calisthenics", slug: "calisthenics" }] },
@@ -55,7 +71,10 @@ export default function CityDetail() {
             {city.activities.map((act, i) => (
               <motion.div key={act.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
                 <Link to={`/activities/${act.slug}`} className="group flex items-center gap-3 bg-card border border-border rounded-xl p-5 hover:border-primary/50 transition-all">
-                  <Dumbbell className="w-5 h-5 text-primary" />
+                  {(() => {
+                    const IconComponent = activityIcons[act.slug] || Dumbbell;
+                    return <IconComponent className="w-5 h-5 text-primary" />;
+                  })()}
                   <span className="font-medium text-foreground group-hover:text-primary transition-colors">{act.name}</span>
                 </Link>
               </motion.div>
