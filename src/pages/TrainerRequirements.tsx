@@ -1,12 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { CheckCircle, Apple, Smartphone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CircleCheckBig, Award, Fingerprint, Briefcase } from "lucide-react";
+import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 
 const requirements = [
   {
     category: "Credentials",
+    icon: Award,
     items: [
       "Valid personal training certification (or equivalent for your activity)",
       "Current CPR/First Aid certification",
@@ -15,6 +16,7 @@ const requirements = [
   },
   {
     category: "Identity Verification",
+    icon: Fingerprint,
     items: [
       "Government-issued photo ID",
       "Background check (may be required)",
@@ -23,6 +25,7 @@ const requirements = [
   },
   {
     category: "Equipment & Availability",
+    icon: Briefcase,
     items: [
       "Smartphone with the Group Fit Trainer app",
       "Reliable transportation to client locations",
@@ -50,10 +53,13 @@ export default function TrainerRequirements() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 mb-6">
+              <CircleCheckBig className="w-8 h-8 text-primary" />
+            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
               Trainer requirements
             </h1>
-            <p className="mt-6 text-lg text-white/70">
+            <p className="mt-6 text-lg text-white/80">
               What you need to join Group Fit as a trainer.
             </p>
           </motion.div>
@@ -72,16 +78,21 @@ export default function TrainerRequirements() {
                 viewport={{ once: true }}
                 transition={{ delay: catIndex * 0.1 }}
               >
-                <h2 className="text-2xl font-bold text-foreground mb-6">
-                  {category.category}
-                </h2>
-                <div className="space-y-4">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <category.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-foreground">
+                    {category.category}
+                  </h2>
+                </div>
+                <div className="space-y-3">
                   {category.items.map((item, index) => (
                     <div
                       key={index}
                       className="flex items-start gap-4 bg-card border border-border rounded-xl p-5"
                     >
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <CircleCheckBig className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-foreground">{item}</span>
                     </div>
                   ))}
@@ -101,31 +112,18 @@ export default function TrainerRequirements() {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Meet the requirements?
             </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
+            <p className="text-white/70 mb-8">
+              Download the trainer app and start your onboarding today.
+            </p>
+            <div className="flex justify-center">
+              <AppStoreBadges
+                iosLink={APP_LINKS.trainer.ios}
+                androidLink={APP_LINKS.trainer.android}
                 size="lg"
-                className="bg-primary hover:bg-red-dark text-white"
-              >
-                <a href={APP_LINKS.trainer.ios} target="_blank" rel="noopener noreferrer">
-                  <Apple className="w-5 h-5 mr-2" />
-                  Download for iOS
-                </a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10"
-              >
-                <a href={APP_LINKS.trainer.android} target="_blank" rel="noopener noreferrer">
-                  <Smartphone className="w-5 h-5 mr-2" />
-                  Download for Android
-                </a>
-              </Button>
+              />
             </div>
           </motion.div>
         </div>

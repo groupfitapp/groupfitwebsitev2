@@ -2,14 +2,15 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
-  Dumbbell, 
-  MapPin, 
-  Calendar, 
-  Users, 
-  CreditCard,
+  Zap, 
+  Navigation, 
+  CalendarClock, 
+  UserCheck, 
+  Wallet,
   ArrowRight,
-  Clock,
-  CheckCircle
+  Timer,
+  CircleCheckBig,
+  UsersRound
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -18,31 +19,31 @@ import { APP_LINKS } from "@/lib/appLinks";
 const steps = [
   {
     number: 1,
-    icon: Dumbbell,
+    icon: Zap,
     title: "Choose your activity",
     description: "Start with the training style you want. Explore options on our activities page.",
   },
   {
     number: 2,
-    icon: MapPin,
+    icon: Navigation,
     title: "Enter your session address",
     description: "Use the exact address where you want to train. Coach availability is based on this address.",
   },
   {
     number: 3,
-    icon: Calendar,
+    icon: CalendarClock,
     title: "Pick your date & time",
     description: "Choose when you want to train. Availability updates based on schedule and location coverage.",
   },
   {
     number: 4,
-    icon: Users,
+    icon: UserCheck,
     title: "Select an available coach",
     description: "Pick from coaches shown as available for that session (address + time + activity).",
   },
   {
     number: 5,
-    icon: CreditCard,
+    icon: Wallet,
     title: "Pay in-app and train",
     description: "Complete the booking and meet your coach at the selected location.",
   },
@@ -137,7 +138,9 @@ export default function HowItWorks() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <Users className="w-12 h-12 text-primary mx-auto mb-4" />
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
+                <UsersRound className="w-8 h-8 text-primary" />
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 Private group bookings
               </h2>
@@ -153,7 +156,7 @@ export default function HowItWorks() {
               <div className="grid md:grid-cols-2 gap-6">
                 {groupFeatures.map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <CircleCheckBig className="w-5 h-5 text-primary flex-shrink-0" />
                     <span className="text-foreground">{feature}</span>
                   </div>
                 ))}
@@ -173,7 +176,7 @@ export default function HowItWorks() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-3 bg-muted rounded-full px-6 py-3"
             >
-              <Clock className="w-5 h-5 text-primary" />
+              <Timer className="w-5 h-5 text-primary" />
               <span className="text-foreground font-medium">Each session is 60 minutes</span>
             </motion.div>
           </div>

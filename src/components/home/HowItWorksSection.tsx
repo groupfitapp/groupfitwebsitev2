@@ -1,35 +1,35 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Dumbbell, MapPin, Calendar, Users, CreditCard, ArrowRight } from "lucide-react";
+import { Zap, Navigation, CalendarClock, UserCheck, Wallet, ArrowRight } from "lucide-react";
 
 const steps = [
   {
     number: "1",
-    icon: Dumbbell,
+    icon: Zap,
     title: "Choose an activity",
     description: "Pick from strength, yoga, boxing, HIIT, and 35+ more training styles.",
   },
   {
     number: "2",
-    icon: MapPin,
+    icon: Navigation,
     title: "Enter your session address",
     description: "Use the exact address where you want to train.",
   },
   {
     number: "3",
-    icon: Calendar,
+    icon: CalendarClock,
     title: "Pick a date and time",
     description: "Choose when you want to train. Availability updates based on location.",
   },
   {
     number: "4",
-    icon: Users,
+    icon: UserCheck,
     title: "Select from available coaches",
     description: "Pick from coaches shown as available for that exact session.",
   },
   {
     number: "5",
-    icon: CreditCard,
+    icon: Wallet,
     title: "Pay in-app and train",
     description: "Complete the booking and meet your coach at the selected location.",
   },

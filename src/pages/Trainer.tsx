@@ -2,11 +2,11 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
-  Users, 
-  DollarSign, 
-  Calendar, 
-  MapPin, 
-  Shield, 
+  TrendingUp, 
+  CircleDollarSign, 
+  CalendarRange, 
+  Radar, 
+  BadgeCheck, 
   ArrowRight
 } from "lucide-react";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -14,22 +14,22 @@ import { APP_LINKS } from "@/lib/appLinks";
 
 const benefits = [
   {
-    icon: Users,
+    icon: TrendingUp,
     title: "Get more clients",
     description: "Reach customers looking for in-person training at their location.",
   },
   {
-    icon: DollarSign,
+    icon: CircleDollarSign,
     title: "Set your rates",
     description: "You control your pricing and availability.",
   },
   {
-    icon: Calendar,
+    icon: CalendarRange,
     title: "Flexible schedule",
     description: "Accept bookings that fit your schedule.",
   },
   {
-    icon: MapPin,
+    icon: Radar,
     title: "Your service area",
     description: "Define where you're willing to travel for sessions.",
   },
@@ -157,7 +157,9 @@ export default function Trainer() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
+              <BadgeCheck className="w-8 h-8 text-primary" />
+            </div>
             <h2 className="text-2xl font-bold text-foreground mb-4">
               Credential review & identity verification
             </h2>
