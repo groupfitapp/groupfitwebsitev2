@@ -1,0 +1,186 @@
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Download, ArrowRight, MapPin, Users, Shield, Dumbbell } from "lucide-react";
+
+export default function About() {
+  return (
+    <>
+      <Helmet>
+        <title>About Group Fit | On-Location Personal Training Across Canada</title>
+        <meta 
+          name="description" 
+          content="Group Fit connects you with 1,500+ verified coaches across 75+ Canadian cities. Book strength training, yoga, HIIT, boxing & more at your location, on your schedule." 
+        />
+        <meta 
+          name="keywords" 
+          content="personal training Canada, mobile fitness coaching, on-location training, book personal trainer, fitness coaches near me, group fitness booking, verified trainers Canada" 
+        />
+        <link rel="canonical" href="https://groupfit.ca/about" />
+        <meta property="og:title" content="About Group Fit | On-Location Personal Training Across Canada" />
+        <meta property="og:description" content="Group Fit connects you with 1,500+ verified coaches across 75+ Canadian cities for on-location training." />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section className="bg-secondary py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                About <span className="text-primary">Group Fit</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
+                Group Fit is a Canadian platform built to make booking on-location training straightforward. 
+                You choose what you want to train, enter your session address, pick a time, and book a coach 
+                who's available for that exact session—without the usual back-and-forth.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Why We Built Group Fit */}
+        <section className="py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Dumbbell className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Why We Built Group Fit
+                </h2>
+              </div>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Too many people want to train consistently but get stuck on the same obstacles: 
+                <strong className="text-foreground"> limited options, inconvenient locations, and unreliable scheduling</strong>. 
+                Group Fit was created to remove those barriers by bringing qualified coaching to where people 
+                actually train—on their schedule, at their location.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* More Choice, Simpler Booking */}
+        <section className="py-16 md:py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Users className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                  More Choice, Simpler Booking
+                </h2>
+              </div>
+              
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Group Fit offers <strong className="text-foreground">1,500+ coaches</strong> (and growing daily) across 
+                <strong className="text-foreground"> 75+ cities and towns in Canada</strong>. You'll find trainers, instructors, 
+                and coaches across <strong className="text-foreground">35+ activities</strong>, including:
+              </p>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                {[
+                  "Strength & Conditioning",
+                  "Yoga",
+                  "HIIT",
+                  "Boxing",
+                  "Martial Arts",
+                  "Sport Training"
+                ].map((activity) => (
+                  <div 
+                    key={activity}
+                    className="bg-background border border-border rounded-lg p-4 text-center"
+                  >
+                    <span className="text-foreground font-medium">{activity}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Book for yourself, book a private group and split the cost inside Group Fit, 
+                or schedule sessions for your organization.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Trust Matters */}
+        <section className="py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Trust Matters
+                </h2>
+              </div>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Coaches on Group Fit complete <strong className="text-foreground">identity verification and credential review</strong> before 
+                they can accept bookings. Our goal is a safer, more dependable experience—built on clear standards 
+                and consistent expectations.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Ready to Train CTA */}
+        <section className="py-16 md:py-24 bg-secondary">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Ready to Train?
+              </h2>
+              <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+                Check availability at your address on the homepage or download Group Fit to book your first session.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="bg-primary hover:bg-red-dark text-white">
+                  <Link to="/download">
+                    <Download className="w-5 h-5 mr-2" />
+                    Download App
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                  <Link to="/how-it-works">
+                    How It Works
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Structured Data for SEO */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Group Fit",
+            "description": "Canadian platform for booking on-location personal training and fitness coaching",
+            "url": "https://groupfit.ca",
+            "areaServed": {
+              "@type": "Country",
+              "name": "Canada"
+            },
+            "serviceType": ["Personal Training", "Fitness Coaching", "Group Fitness"],
+            "numberOfEmployees": {
+              "@type": "QuantitativeValue",
+              "value": "1500+",
+              "unitText": "coaches"
+            }
+          })}
+        </script>
+      </main>
+    </>
+  );
+}
