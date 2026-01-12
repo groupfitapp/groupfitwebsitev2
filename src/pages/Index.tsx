@@ -1,4 +1,3 @@
-import { Layout } from "@/components/layout";
 import {
   HeroSection,
   BenefitsSection,
@@ -11,7 +10,7 @@ import {
 
 const Index = () => {
   return (
-    <Layout>
+    <>
       <HeroSection />
       <BenefitsSection />
       <ActivitiesSection />
@@ -19,7 +18,7 @@ const Index = () => {
       <HowItWorksSection />
       <FAQSection />
       <CTASection />
-    </Layout>
+    </>
   );
 };
 
