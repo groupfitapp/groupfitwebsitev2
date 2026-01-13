@@ -5,11 +5,11 @@ import { ArrowRight } from "lucide-react";
 import strengthImg from "@/assets/activities/strength.jpg";
 import yogaImg from "@/assets/activities/yoga.jpg";
 import boxingImg from "@/assets/activities/boxing.jpg";
-import hiitImg from "@/assets/activities/hiit.jpg";
-import kickboxingImg from "@/assets/activities/kickboxing.jpg";
-import soccerImg from "@/assets/activities/soccer.jpg";
+import hiitImg from "@/assets/activities/hiit-v2.jpg";
+import kickboxingImg from "@/assets/activities/kickboxing-v2.jpg";
+import soccerImg from "@/assets/activities/soccer-v2.jpg";
 import basketballImg from "@/assets/activities/basketball.jpg";
-import calisthenicsImg from "@/assets/activities/calisthenics.jpg";
+import calisthenicsImg from "@/assets/activities/calisthenics-v2.jpg";
 
 const activities = [
   { name: "Strength & Conditioning", slug: "strength-and-conditioning", image: strengthImg },

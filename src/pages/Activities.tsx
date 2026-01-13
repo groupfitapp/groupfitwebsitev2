@@ -8,16 +8,16 @@ import { APP_LINKS } from "@/lib/appLinks";
 import strengthImg from "@/assets/activities/strength.jpg";
 import yogaImg from "@/assets/activities/yoga.jpg";
 import boxingImg from "@/assets/activities/boxing.jpg";
-import hiitImg from "@/assets/activities/hiit.jpg";
-import kickboxingImg from "@/assets/activities/kickboxing.jpg";
-import muayThaiImg from "@/assets/activities/muay-thai.jpg";
-import jiuJitsuImg from "@/assets/activities/jiu-jitsu.jpg";
-import wrestlingImg from "@/assets/activities/wrestling.jpg";
+import hiitImg from "@/assets/activities/hiit-v2.jpg";
+import kickboxingImg from "@/assets/activities/kickboxing-v2.jpg";
+import muayThaiImg from "@/assets/activities/muay-thai-v2.jpg";
+import jiuJitsuImg from "@/assets/activities/jiu-jitsu-v2.jpg";
+import wrestlingImg from "@/assets/activities/wrestling-v2.jpg";
 import selfDefenseImg from "@/assets/activities/self-defense.jpg";
-import soccerImg from "@/assets/activities/soccer.jpg";
+import soccerImg from "@/assets/activities/soccer-v2.jpg";
 import basketballImg from "@/assets/activities/basketball.jpg";
 import bootcampImg from "@/assets/activities/bootcamp.jpg";
-import calisthenicsImg from "@/assets/activities/calisthenics.jpg";
+import calisthenicsImg from "@/assets/activities/calisthenics-v2.jpg";
 
 const activityCategories = [
   {
