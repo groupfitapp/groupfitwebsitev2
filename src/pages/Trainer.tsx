@@ -63,7 +63,7 @@ export default function Trainer() {
             alt="Personal trainer coaching a client"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-secondary/50" />
+          <div className="absolute inset-0 bg-secondary/65" />
         </div>
 
         {/* Content */}
