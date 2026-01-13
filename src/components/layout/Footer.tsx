@@ -37,6 +37,7 @@ const customerLinks = [
   { name: "Activities", href: "/activities" },
   { name: "Cities", href: "/cities" },
   { name: "FAQ", href: "/faq" },
+  { name: "About Us", href: "/about" },
 ];
 
 const trainerLinks = [
@@ -174,12 +175,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Trust Note */}
-        <div className="mt-12 pt-8 border-t border-white/10">
-          <p className="text-white/50 text-xs text-center max-w-2xl mx-auto">
-            Trainer onboarding includes credential review and identity verification to support a safer experience.
-          </p>
-        </div>
 
         {/* Legal Links - Separated into Website and App */}
         <div className="mt-8 pt-8 border-t border-white/10">
