@@ -55,7 +55,7 @@ const websiteLegalLinks = [
 const appLegalLinks = [
   { name: "Group Fit T&C", href: "/app-user-terms-and-condition" },
   { name: "Group Fit Trainer T&C", href: "/app-trainer-terms-and-condition" },
-  { name: "App Privacy Policy", href: "/app-privacy-policy" },
+  { name: "Group Fit Apps Privacy Policy", href: "/app-privacy-policy" },
 ];
 
 const topCities = [
