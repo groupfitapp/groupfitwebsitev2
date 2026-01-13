@@ -144,6 +144,22 @@ export default function TrainerFAQ() {
         <meta property="og:title" content="Trainer FAQ | Group Fit" />
         <meta property="og:description" content="Everything you need to know about training with Group Fit—payments, scheduling, visibility, and more." />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqCategories.flatMap(category => 
+              category.faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": faq.answer
+                }
+              }))
+            )
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

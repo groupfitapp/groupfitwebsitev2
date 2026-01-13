@@ -202,6 +202,22 @@ export default function FAQ() {
         <meta property="og:title" content="Customer FAQ | Group Fit" />
         <meta property="og:description" content="Get answers to common questions about booking sessions, group bookings, trainer quality, and cancellation policies." />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqCategories.flatMap(category => 
+              category.faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": typeof faq.answer === 'string' ? faq.answer : faq.question
+                }
+              }))
+            )
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
