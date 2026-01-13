@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 import strengthImg from "@/assets/activities/strength.jpg";
 import yogaImg from "@/assets/activities/yoga.jpg";
@@ -79,6 +80,7 @@ export default function Activities() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
         <div className="container mx-auto px-4">
+          <Breadcrumbs className="mb-6" />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -124,8 +126,9 @@ export default function Activities() {
                     >
                       <img
                         src={activity.image}
-                        alt={activity.name}
+                        alt={`${activity.name} - Book in-person personal training sessions`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4">

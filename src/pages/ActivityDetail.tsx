@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 // Activity images
 import strengthImg from "@/assets/activities/strength.jpg";
@@ -75,9 +76,12 @@ export default function ActivityDetail() {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
+          role="img"
+          aria-label={`${activity.title} training - Book in-person sessions with certified coaches`}
         />
         <div className="absolute inset-0 bg-secondary/65" />
         <div className="container mx-auto px-4 relative z-10">
+          <Breadcrumbs className="mb-6" />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">{activity.title} training at your location</h1>
             <p className="mt-6 text-lg text-white/80">{activity.intro}</p>

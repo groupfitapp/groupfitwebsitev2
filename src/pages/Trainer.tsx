@@ -13,6 +13,7 @@ import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import trainerBanner from "@/assets/trainer-banner.jpg";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 const benefits = [
   {
@@ -61,7 +62,7 @@ export default function Trainer() {
         <div className="absolute inset-0">
           <img
             src={trainerBanner}
-            alt="Personal trainer coaching a client"
+            alt="Group Fit personal trainer coaching a client during an in-person fitness session"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-secondary/65" />
@@ -69,6 +70,7 @@ export default function Trainer() {
 
         {/* Content */}
         <div className="container mx-auto px-4 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
+          <Breadcrumbs className="mb-6" />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
