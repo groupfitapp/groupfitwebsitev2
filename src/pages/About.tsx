@@ -16,7 +16,7 @@ export default function About() {
           name="keywords" 
           content="personal training Canada, mobile fitness coaching, on-location training, book personal trainer, fitness coaches near me, group fitness booking, verified trainers Canada" 
         />
-        <link rel="canonical" href="https://groupfit.ca/about" />
+        <link rel="canonical" href="https://groupfitapp.com/about" />
         <meta property="og:title" content="About Group Fit | On-Location Personal Training Across Canada" />
         <meta property="og:description" content="Group Fit connects you with 1,500+ verified coaches across 75+ Canadian cities for on-location training." />
         <meta property="og:type" content="website" />
@@ -167,7 +167,7 @@ export default function About() {
             "@type": "Organization",
             "name": "Group Fit",
             "description": "Canadian platform for booking on-location personal training and fitness coaching",
-            "url": "https://groupfit.ca",
+            "url": "https://groupfitapp.com",
             "areaServed": {
               "@type": "Country",
               "name": "Canada"

@@ -14,7 +14,7 @@ export default function Download() {
           content="Download the Group Fit app for iOS or Android. Book in-person personal training sessions or join as a trainer to grow your client base across Canada."
         />
         <meta name="keywords" content="download Group Fit, fitness app iOS, fitness app Android, personal training app, trainer app Canada" />
-        <link rel="canonical" href="https://groupfit.ca/download" />
+        <link rel="canonical" href="https://groupfitapp.com/download" />
         <meta property="og:title" content="Download Group Fit App" />
         <meta property="og:description" content="Get the Group Fit app on iOS or Android to book personal training sessions or accept clients as a trainer." />
         <meta property="og:type" content="website" />

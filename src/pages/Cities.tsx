@@ -112,7 +112,7 @@ export default function Cities() {
           content="Find in-person personal trainers by city across Canada. Booking and availability depend on your exact session address, activity selection, and time in Group Fit."
         />
         <meta name="keywords" content="personal trainer Toronto, personal trainer Vancouver, personal trainer Calgary, fitness coaches Canada, book trainer near me" />
-        <link rel="canonical" href="https://groupfit.ca/cities" />
+        <link rel="canonical" href="https://groupfitapp.com/cities" />
         <meta property="og:title" content="Find Personal Trainers by City | Group Fit" />
         <meta property="og:description" content="Book in-person personal trainers in Toronto, Vancouver, Calgary, and 75+ Canadian cities." />
         <meta property="og:type" content="website" />

@@ -89,7 +89,7 @@ export function Breadcrumbs({ items, className = "" }: BreadcrumbsProps) {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://groupfit.ca${item.path}`
+      "item": `https://groupfitapp.com${item.path}`
     }))
   };
 
