@@ -149,7 +149,7 @@ export default function About() {
                     Download App
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                <Button asChild size="lg" variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10">
                   <Link to="/how-it-works">
                     How It Works
                     <ArrowRight className="w-5 h-5 ml-2" />
