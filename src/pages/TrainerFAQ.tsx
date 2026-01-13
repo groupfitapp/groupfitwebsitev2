@@ -134,11 +134,16 @@ export default function TrainerFAQ() {
   return (
     <>
       <Helmet>
-        <title>Trainer FAQ | Group Fit</title>
+        <title>Trainer FAQ | Common Questions for Group Fit Coaches</title>
         <meta
           name="description"
-          content="Frequently asked questions for Group Fit trainers. Learn about rates, payments, scheduling, visibility, and requirements."
+          content="Frequently asked questions for Group Fit trainers. Learn about payments, scheduling, visibility, client bookings, and platform requirements."
         />
+        <meta name="keywords" content="trainer FAQ, personal trainer questions, Group Fit trainer help, fitness coach FAQ" />
+        <link rel="canonical" href="https://groupfit.ca/trainer/faq" />
+        <meta property="og:title" content="Trainer FAQ | Group Fit" />
+        <meta property="og:description" content="Everything you need to know about training with Group Fit—payments, scheduling, visibility, and more." />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Hero Section */}

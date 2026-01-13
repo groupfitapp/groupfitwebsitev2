@@ -65,6 +65,11 @@ export default function HowItWorks() {
           name="description"
           content="Learn how to book in-person personal training sessions with Group Fit. Choose an activity, enter your address, pick a time, and connect with available coaches."
         />
+        <meta name="keywords" content="how to book personal trainer, personal training booking, fitness app Canada, book training session" />
+        <link rel="canonical" href="https://groupfit.ca/how-it-works" />
+        <meta property="og:title" content="How It Works | Group Fit" />
+        <meta property="og:description" content="Book in-person personal training in 5 simple steps. Choose activity, enter address, pick time, select coach, and train." />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Hero Section */}
