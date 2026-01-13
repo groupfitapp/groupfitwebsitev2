@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Home, Building, TreePine, Dumbbell, Flame, HeartPulse, ShieldCheck, Volleyball, LucideIcon, Swords, Target, PersonStanding } from "lucide-react";
+import { ArrowRight, Home, Building, TreePine, Dumbbell, Flame, HeartPulse, ShieldCheck, Volleyball, LucideIcon, HandFist, Target, PersonStanding, Swords } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -38,7 +38,7 @@ const cityImages: Record<string, string> = {
 
 const activityIcons: Record<string, LucideIcon> = {
   "strength-and-conditioning": Dumbbell,
-  "boxing": Swords,
+  "boxing": HandFist,
   "kickboxing": Target,
   "yoga": HeartPulse,
   "hiit": Flame,
