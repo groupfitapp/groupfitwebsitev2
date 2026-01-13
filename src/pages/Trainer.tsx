@@ -61,10 +61,9 @@ export default function Trainer() {
           <img
             src={trainerBanner}
             alt="Personal trainer coaching a client"
-            className="w-full h-full object-cover opacity-50"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/85 to-secondary/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-secondary/40" />
+          <div className="absolute inset-0 bg-secondary/50" />
         </div>
 
         {/* Content */}

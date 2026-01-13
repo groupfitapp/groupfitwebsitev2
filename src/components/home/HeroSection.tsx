@@ -12,10 +12,9 @@ export function HeroSection() {
         <img
           src={heroBg}
           alt="Personal training session"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-secondary/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-secondary/50" />
+        <div className="absolute inset-0 bg-secondary/50" />
       </div>
 
       {/* Content */}
