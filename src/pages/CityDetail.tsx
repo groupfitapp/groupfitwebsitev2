@@ -94,6 +94,22 @@ export default function CityDetail() {
         <meta property="og:title" content={city.metaTitle} />
         <meta property="og:description" content={city.metaDesc} />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": `Group Fit - ${city.name}`,
+            "description": city.metaDesc,
+            "url": `https://groupfit.ca/cities/${slug}`,
+            "areaServed": {
+              "@type": "City",
+              "name": city.name,
+              "addressCountry": "CA"
+            },
+            "serviceType": city.activities.map(a => a.name),
+            "priceRange": "$$"
+          })}
+        </script>
       </Helmet>
 
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
