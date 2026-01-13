@@ -36,6 +36,7 @@ const cityImages: Record<string, string> = {
   fredericton: "https://images.unsplash.com/photo-1578861256483-c68e4b7a4e20?w=1200&h=600&fit=crop",
 };
 
+// Activity icon mapping
 const activityIcons: Record<string, LucideIcon> = {
   "strength-and-conditioning": Dumbbell,
   "boxing": HandFist,
