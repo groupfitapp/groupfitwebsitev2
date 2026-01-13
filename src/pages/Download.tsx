@@ -8,11 +8,16 @@ export default function Download() {
   return (
     <>
       <Helmet>
-        <title>Download | Group Fit</title>
+        <title>Download Group Fit App | iOS & Android | Group Fit</title>
         <meta
           name="description"
-          content="Download the Group Fit app for iOS or Android. Book in-person personal training sessions or join as a trainer to grow your client base."
+          content="Download the Group Fit app for iOS or Android. Book in-person personal training sessions or join as a trainer to grow your client base across Canada."
         />
+        <meta name="keywords" content="download Group Fit, fitness app iOS, fitness app Android, personal training app, trainer app Canada" />
+        <link rel="canonical" href="https://groupfit.ca/download" />
+        <meta property="og:title" content="Download Group Fit App" />
+        <meta property="og:description" content="Get the Group Fit app on iOS or Android to book personal training sessions or accept clients as a trainer." />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Hero Section */}

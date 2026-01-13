@@ -38,11 +38,16 @@ export default function TrainerRequirements() {
   return (
     <>
       <Helmet>
-        <title>Trainer Requirements | Group Fit</title>
+        <title>Trainer Requirements | Become a Group Fit Coach</title>
         <meta
           name="description"
-          content="Learn what you need to become a Group Fit trainer. Requirements include certifications, identity verification, and equipment."
+          content="Learn what you need to become a Group Fit trainer. Requirements include certifications, identity verification, CPR/First Aid, and reliable transportation."
         />
+        <meta name="keywords" content="trainer requirements, personal trainer certification, fitness coach qualifications, Group Fit requirements" />
+        <link rel="canonical" href="https://groupfit.ca/trainer/requirements" />
+        <meta property="og:title" content="Trainer Requirements | Group Fit" />
+        <meta property="og:description" content="What you need to join Group Fit as a trainer: certifications, identity verification, and equipment." />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Hero Section */}

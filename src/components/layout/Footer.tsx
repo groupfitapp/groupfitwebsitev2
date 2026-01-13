@@ -32,12 +32,12 @@ const socialLinks = [
 ];
 
 const customerLinks = [
-  { name: "Download", href: "/download" },
+  { name: "About Us", href: "/about" },
   { name: "How it Works", href: "/how-it-works" },
   { name: "Activities", href: "/activities" },
   { name: "Cities", href: "/cities" },
   { name: "FAQ", href: "/faq" },
-  { name: "About Us", href: "/about" },
+  { name: "Download", href: "/download" },
 ];
 
 const trainerLinks = [
@@ -63,6 +63,7 @@ const topCities = [
   { name: "Vancouver", href: "/cities/vancouver" },
   { name: "Calgary", href: "/cities/calgary" },
   { name: "Mississauga", href: "/cities/mississauga" },
+  { name: "View All Cities", href: "/cities" },
 ];
 
 const topActivities = [
@@ -70,6 +71,7 @@ const topActivities = [
   { name: "Boxing", href: "/activities/boxing" },
   { name: "Yoga", href: "/activities/yoga" },
   { name: "HIIT", href: "/activities/hiit" },
+  { name: "View All Activities", href: "/activities" },
 ];
 
 export function Footer() {

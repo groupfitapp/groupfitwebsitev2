@@ -49,11 +49,16 @@ export default function TrainerHowItWorks() {
   return (
     <>
       <Helmet>
-        <title>How It Works for Trainers | Group Fit</title>
+        <title>How It Works for Trainers | Join Group Fit</title>
         <meta
           name="description"
-          content="Learn how to join Group Fit as a trainer. Set your service area, availability, and rates to start receiving in-person training bookings."
+          content="Learn how to join Group Fit as a trainer. Set your service area, availability, and specializations to start receiving in-person training bookings."
         />
+        <meta name="keywords" content="trainer onboarding, join fitness platform, personal trainer signup, how to become trainer Group Fit" />
+        <link rel="canonical" href="https://groupfit.ca/trainer/how-it-works" />
+        <meta property="og:title" content="How It Works for Trainers | Group Fit" />
+        <meta property="og:description" content="Get started in minutes. Set your service area and availability, and start receiving bookings." />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Hero Section */}

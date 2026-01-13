@@ -83,7 +83,15 @@ export default function CityDetail() {
 
   return (
     <>
-      <Helmet><title>{city.metaTitle}</title><meta name="description" content={city.metaDesc} /></Helmet>
+      <Helmet>
+        <title>{city.metaTitle}</title>
+        <meta name="description" content={city.metaDesc} />
+        <meta name="keywords" content={`personal trainer ${city.name}, fitness coach ${city.name}, in-person training ${city.name}, book trainer ${city.name}`} />
+        <link rel="canonical" href={`https://groupfit.ca/cities/${slug}`} />
+        <meta property="og:title" content={city.metaTitle} />
+        <meta property="og:description" content={city.metaDesc} />
+        <meta property="og:type" content="website" />
+      </Helmet>
 
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
         <div 

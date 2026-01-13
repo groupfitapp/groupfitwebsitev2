@@ -31,21 +31,26 @@ const benefits = [
 ];
 
 const steps = [
-  "Download the Trainer app",
+  "Download Group Fit Trainer",
   "Complete your profile and credentials",
-  "Set your activities, rates, and service area",
-  "Start receiving booking requests",
+  "Set your Specializations, Service Locations and Availability",
+  "Start receiving bookings",
 ];
 
 export default function Trainer() {
   return (
     <>
       <Helmet>
-        <title>Get More Clients | Group Fit Trainer</title>
+        <title>Become a Personal Trainer | Get Booked for Sessions | Group Fit</title>
         <meta
           name="description"
-          content="Set your service area and availability and receive bookings for in-person sessions. Trainer onboarding includes credential review and identity verification."
+          content="Join Group Fit as a trainer. Set your service area and availability to receive in-person training bookings across Canada. Credential review and identity verification included."
         />
+        <meta name="keywords" content="become personal trainer, trainer jobs Canada, fitness trainer platform, get more clients trainer, personal training business" />
+        <link rel="canonical" href="https://groupfit.ca/trainer" />
+        <meta property="og:title" content="Become a Group Fit Trainer" />
+        <meta property="og:description" content="Get booked for in-person sessions near you. Set your service area, availability, and start receiving bookings." />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Hero Section with Banner */}
@@ -99,7 +104,7 @@ export default function Trainer() {
             Why train with Group Fit?
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.title}
