@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   TrendingUp, 
-  CircleDollarSign, 
   CalendarRange, 
   Radar, 
   BadgeCheck, 
@@ -20,14 +19,9 @@ const benefits = [
     description: "Reach customers looking for in-person training at their location.",
   },
   {
-    icon: CircleDollarSign,
-    title: "Set your rates",
-    description: "You control your pricing and availability.",
-  },
-  {
     icon: CalendarRange,
     title: "Flexible schedule",
-    description: "Accept bookings that fit your schedule.",
+    description: "Set your hours. We handle scheduling.",
   },
   {
     icon: Radar,
@@ -74,11 +68,11 @@ export default function Trainer() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Grow your personal training{" "}
-              <span className="text-primary">business</span>
+              Get Booked for In-Person Sessions{" "}
+              <span className="text-primary">Near You</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl">
-              Set your service area and availability and receive bookings for in-person sessions. Trainer onboarding includes credential review and identity verification.
+              Set your service area and availability and receive bookings for in-person sessions.
             </p>
             <div className="mt-8">
               <AppStoreBadges
