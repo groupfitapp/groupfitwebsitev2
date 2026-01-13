@@ -13,6 +13,7 @@ import {
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 const steps = [
   {
@@ -66,6 +67,7 @@ export default function TrainerHowItWorks() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
         <div className="container mx-auto px-4">
+          <Breadcrumbs className="mb-6" />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

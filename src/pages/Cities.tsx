@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 // City images - local assets
 import mississaugaImg from "@/assets/cities/mississauga.jpg";
@@ -120,6 +121,7 @@ export default function Cities() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
         <div className="container mx-auto px-4">
+          <Breadcrumbs className="mb-6" />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -165,8 +167,9 @@ export default function Cities() {
                     >
                       <img
                         src={cityImages[city.slug]}
-                        alt={city.name}
+                        alt={`Find personal trainers in ${city.name} for in-person fitness sessions`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4">
