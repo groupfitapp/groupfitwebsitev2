@@ -1,5 +1,6 @@
 import {
   HeroSection,
+  VideoSection,
   AvailabilitySection,
   BenefitsSection,
   ActivitiesSection,
@@ -27,6 +28,7 @@ const Index = () => {
         <meta property="og:url" content="https://groupfit.ca/" />
       </Helmet>
       <HeroSection />
+      <VideoSection />
       <AvailabilitySection />
       <BenefitsSection />
       <ActivitiesSection />
