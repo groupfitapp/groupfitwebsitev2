@@ -1,6 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import { Facebook, Instagram, Youtube, FileText, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 // Custom icons for platforms not in lucide-react
 const XIcon = () => (
@@ -48,8 +56,8 @@ const trainerLinks = [
 ];
 
 const websiteLegalLinks = [
-  { name: "Website Terms", href: "/website-terms-and-condition" },
-  { name: "Website Privacy", href: "/privacy-policy" },
+  { name: "Website T&C", href: "/website-terms-and-condition" },
+  { name: "Website Privacy Policy", href: "/privacy-policy" },
 ];
 
 const appLegalLinks = [
@@ -178,44 +186,41 @@ export function Footer() {
         </div>
 
 
-        {/* Legal Links - Separated into Website and App */}
+        {/* Legal Links - Dropdown */}
         <div className="mt-8 pt-8 border-t border-white/10">
-          <div className="flex flex-col gap-4">
-            {/* Website Legal */}
-            <div className="flex flex-wrap justify-center items-center gap-2 text-white/50 text-sm">
-              <span className="text-white/70 font-medium mr-2">Website:</span>
-              {websiteLegalLinks.map((link, index) => (
-                <span key={link.name} className="flex items-center">
-                  <Link
-                    to={link.href}
-                    className="hover:text-primary transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                  {index < websiteLegalLinks.length - 1 && (
-                    <span className="mx-2">•</span>
-                  )}
-                </span>
-              ))}
-            </div>
-            
-            {/* App Legal */}
-            <div className="flex flex-wrap justify-center items-center gap-2 text-white/50 text-sm">
-              <span className="text-white/70 font-medium mr-2">App:</span>
-              {appLegalLinks.map((link, index) => (
-                <span key={link.name} className="flex items-center">
-                  <Link
-                    to={link.href}
-                    className="hover:text-primary transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                  {index < appLegalLinks.length - 1 && (
-                    <span className="mx-2">•</span>
-                  )}
-                </span>
-              ))}
-            </div>
+          <div className="flex justify-center">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white/70 hover:text-white border border-white/20 rounded-lg hover:border-white/40 transition-colors bg-white/5 hover:bg-white/10">
+                <FileText className="w-4 h-4" />
+                Legal & Privacy
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-secondary border-white/20 z-50" align="center">
+                <DropdownMenuLabel className="text-white/50 text-xs">Website</DropdownMenuLabel>
+                {websiteLegalLinks.map((link) => (
+                  <DropdownMenuItem key={link.name} asChild>
+                    <Link
+                      to={link.href}
+                      className="text-white/80 hover:text-primary cursor-pointer"
+                    >
+                      {link.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuSeparator className="bg-white/10" />
+                <DropdownMenuLabel className="text-white/50 text-xs">Apps</DropdownMenuLabel>
+                {appLegalLinks.map((link) => (
+                  <DropdownMenuItem key={link.name} asChild>
+                    <Link
+                      to={link.href}
+                      className="text-white/80 hover:text-primary cursor-pointer"
+                    >
+                      {link.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
 
