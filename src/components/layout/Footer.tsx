@@ -56,13 +56,13 @@ const trainerLinks = [
 ];
 
 const websiteLegalLinks = [
-  { name: "Website T&C", href: "/website-terms-and-condition" },
-  { name: "Website Privacy Policy", href: "/privacy-policy" },
+  { name: "Terms", href: "/website-terms-and-condition" },
+  { name: "Privacy Policy", href: "/privacy-policy" },
 ];
 
 const appLegalLinks = [
-  { name: "Group Fit T&C", href: "/app-user-terms-and-condition" },
-  { name: "Group Fit Trainer T&C", href: "/app-trainer-terms-and-condition" },
+  { name: "Group Fit Terms", href: "/app-user-terms-and-condition" },
+  { name: "Group Fit Trainer Terms", href: "/app-trainer-terms-and-condition" },
   { name: "Group Fit Apps Privacy Policy", href: "/app-privacy-policy" },
 ];
 
