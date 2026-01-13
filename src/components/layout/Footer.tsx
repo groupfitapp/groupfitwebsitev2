@@ -54,7 +54,7 @@ const websiteLegalLinks = [
 
 const appLegalLinks = [
   { name: "Group Fit T&C", href: "/app-user-terms-and-condition" },
-  { name: "Trainer App Terms", href: "/app-trainer-terms-and-condition" },
+  { name: "Group Fit Trainer T&C", href: "/app-trainer-terms-and-condition" },
   { name: "App Privacy Policy", href: "/app-privacy-policy" },
 ];
 
