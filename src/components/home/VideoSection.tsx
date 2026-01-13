@@ -14,9 +14,6 @@ export function VideoSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             See Group Fit in action
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Watch how easy it is to book in-person personal training sessions at your location.
-          </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
