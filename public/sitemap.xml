@@ -2,220 +2,220 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main Pages -->
   <url>
-    <loc>https://groupfit.ca/</loc>
+    <loc>https://groupfitapp.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/about</loc>
+    <loc>https://groupfitapp.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/how-it-works</loc>
+    <loc>https://groupfitapp.com/how-it-works</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/download</loc>
+    <loc>https://groupfitapp.com/download</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/faq</loc>
+    <loc>https://groupfitapp.com/faq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Activities -->
   <url>
-    <loc>https://groupfit.ca/activities</loc>
+    <loc>https://groupfitapp.com/activities</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/strength-and-conditioning</loc>
+    <loc>https://groupfitapp.com/activities/strength-and-conditioning</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/boxing</loc>
+    <loc>https://groupfitapp.com/activities/boxing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/kickboxing</loc>
+    <loc>https://groupfitapp.com/activities/kickboxing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/muay-thai</loc>
+    <loc>https://groupfitapp.com/activities/muay-thai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/jiu-jitsu</loc>
+    <loc>https://groupfitapp.com/activities/jiu-jitsu</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/wrestling</loc>
+    <loc>https://groupfitapp.com/activities/wrestling</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/self-defense</loc>
+    <loc>https://groupfitapp.com/activities/self-defense</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/yoga</loc>
+    <loc>https://groupfitapp.com/activities/yoga</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/hiit</loc>
+    <loc>https://groupfitapp.com/activities/hiit</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/bootcamp</loc>
+    <loc>https://groupfitapp.com/activities/bootcamp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/calisthenics</loc>
+    <loc>https://groupfitapp.com/activities/calisthenics</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/soccer</loc>
+    <loc>https://groupfitapp.com/activities/soccer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/activities/basketball</loc>
+    <loc>https://groupfitapp.com/activities/basketball</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Cities -->
   <url>
-    <loc>https://groupfit.ca/cities</loc>
+    <loc>https://groupfitapp.com/cities</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/toronto</loc>
+    <loc>https://groupfitapp.com/cities/toronto</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/mississauga</loc>
+    <loc>https://groupfitapp.com/cities/mississauga</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/vancouver</loc>
+    <loc>https://groupfitapp.com/cities/vancouver</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/calgary</loc>
+    <loc>https://groupfitapp.com/cities/calgary</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/edmonton</loc>
+    <loc>https://groupfitapp.com/cities/edmonton</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/winnipeg</loc>
+    <loc>https://groupfitapp.com/cities/winnipeg</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/ottawa</loc>
+    <loc>https://groupfitapp.com/cities/ottawa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/quebec-city</loc>
+    <loc>https://groupfitapp.com/cities/quebec-city</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/halifax</loc>
+    <loc>https://groupfitapp.com/cities/halifax</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/saskatoon</loc>
+    <loc>https://groupfitapp.com/cities/saskatoon</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/brampton</loc>
+    <loc>https://groupfitapp.com/cities/brampton</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/oakville</loc>
+    <loc>https://groupfitapp.com/cities/oakville</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/cities/fredericton</loc>
+    <loc>https://groupfitapp.com/cities/fredericton</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Trainer Pages -->
   <url>
-    <loc>https://groupfit.ca/trainer</loc>
+    <loc>https://groupfitapp.com/trainer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/trainer/how-it-works</loc>
+    <loc>https://groupfitapp.com/trainer/how-it-works</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/trainer/requirements</loc>
+    <loc>https://groupfitapp.com/trainer/requirements</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/trainer/faq</loc>
+    <loc>https://groupfitapp.com/trainer/faq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://groupfit.ca/website-terms</loc>
+    <loc>https://groupfitapp.com/website-terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/website-privacy</loc>
+    <loc>https://groupfitapp.com/website-privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/app-user-terms-and-condition</loc>
+    <loc>https://groupfitapp.com/app-user-terms-and-condition</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/app-trainer-terms-and-condition</loc>
+    <loc>https://groupfitapp.com/app-trainer-terms-and-condition</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://groupfit.ca/app-privacy</loc>
+    <loc>https://groupfitapp.com/app-privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

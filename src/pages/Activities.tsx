@@ -71,7 +71,7 @@ export default function Activities() {
           content="Choose from 13+ activities including strength training, yoga, boxing, HIIT, soccer, and more. Book in-person sessions with certified coaches across Canada."
         />
         <meta name="keywords" content="personal training activities, strength training, yoga classes, boxing training, HIIT workout, fitness activities Canada" />
-        <link rel="canonical" href="https://groupfit.ca/activities" />
+        <link rel="canonical" href="https://groupfitapp.com/activities" />
         <meta property="og:title" content="Training Activities | Group Fit" />
         <meta property="og:description" content="Choose from 35+ activities including strength, yoga, boxing, HIIT, and more. Book in-person sessions with certified coaches." />
         <meta property="og:type" content="website" />

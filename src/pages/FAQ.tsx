@@ -199,7 +199,7 @@ export default function FAQ() {
           name="keywords" 
           content="personal training FAQ, Group Fit questions, book trainer Canada, group fitness booking, session cancellation, trainer verification" 
         />
-        <link rel="canonical" href="https://groupfit.ca/faq" />
+        <link rel="canonical" href="https://groupfitapp.com/faq" />
         <meta property="og:title" content="Customer FAQ | Group Fit" />
         <meta property="og:description" content="Get answers to common questions about booking sessions, group bookings, trainer quality, and cancellation policies." />
         <meta property="og:type" content="website" />

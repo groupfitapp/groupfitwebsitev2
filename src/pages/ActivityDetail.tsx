@@ -66,7 +66,7 @@ export default function ActivityDetail() {
         <title>{activity.metaTitle}</title>
         <meta name="description" content={activity.metaDesc} />
         <meta name="keywords" content={`${activity.title} training, ${activity.title} coach, personal trainer ${activity.title}, in-person ${activity.title} sessions`} />
-        <link rel="canonical" href={`https://groupfit.ca/activities/${slug}`} />
+        <link rel="canonical" href={`https://groupfitapp.com/activities/${slug}`} />
         <meta property="og:title" content={activity.metaTitle} />
         <meta property="og:description" content={activity.metaDesc} />
         <meta property="og:type" content="website" />
