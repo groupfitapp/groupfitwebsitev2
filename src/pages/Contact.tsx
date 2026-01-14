@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Mail, Phone, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,8 +20,7 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-// Web3Forms access key - Get your free key at https://web3forms.com
-const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+const WEB3FORMS_ACCESS_KEY = "c5288a8d-ab57-4736-9066-8ea86f674232";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -88,6 +87,32 @@ export default function Contact() {
           content="Have questions about Group Fit? Contact our support team for help with bookings, trainer inquiries, or general questions about our fitness platform."
         />
         <link rel="canonical" href="https://groupfitapp.com/contact" />
+        <meta property="og:title" content="Contact Us | Group Fit" />
+        <meta property="og:description" content="Have questions about Group Fit? Contact our support team for help with bookings, trainer inquiries, or general questions." />
+        <meta property="og:url" content="https://groupfitapp.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Contact Us | Group Fit" />
+        <meta name="twitter:description" content="Have questions about Group Fit? Contact our support team for help with bookings or trainer inquiries." />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Group Fit",
+            "description": "Contact Group Fit for help with bookings, trainer inquiries, or general questions about our fitness platform.",
+            "url": "https://groupfitapp.com/contact",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Group Fit",
+              "url": "https://groupfitapp.com",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "Customer Support",
+                "availableLanguage": ["English", "French"]
+              }
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
@@ -109,30 +134,14 @@ export default function Contact() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            {/* Contact Info Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-              <div className="flex items-center gap-4 p-6 bg-muted rounded-xl">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email us at</p>
-                  <a
-                    href="mailto:support@groupfitapp.com"
-                    className="font-semibold text-foreground hover:text-primary transition-colors"
-                  >
-                    support@groupfitapp.com
-                  </a>
-                </div>
+            {/* Contact Info Card */}
+            <div className="flex items-center justify-center gap-4 p-6 bg-muted rounded-xl mb-12">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                <Mail className="w-6 h-6 text-primary" />
               </div>
-              <div className="flex items-center gap-4 p-6 bg-muted rounded-xl">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Response time</p>
-                  <p className="font-semibold text-foreground">Within 24-48 hours</p>
-                </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Response time</p>
+                <p className="font-semibold text-foreground">Within 24-48 hours</p>
               </div>
             </div>
 
