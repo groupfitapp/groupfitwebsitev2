@@ -370,21 +370,21 @@ export default function SearchSection() {
         >
           {/* Header */}
           <div className="text-center mb-10">
-            <motion.h1
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight"
             >
               Check Trainer Availability
-            </motion.h1>
+            </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="mt-4 text-lg text-muted-foreground"
             >
-              Type the address (home, park, gym, etc.) where you want your trainer to come.
+              Enter your address to see trainers available for your activity and time—right where you want to train.
             </motion.p>
           </div>
 
