@@ -1,3 +1,7 @@
+Yes — you can upload the notes to your GitHub repo (best practice). Put them in a file like `DEPLOYMENT.md` or `README.md` so you (or any developer) can follow the same process later.
+
+Here are clean notes you can copy-paste.
+
 ---
 
 ## Deployment Notes (Hostinger + Cloudflare + Vite)
