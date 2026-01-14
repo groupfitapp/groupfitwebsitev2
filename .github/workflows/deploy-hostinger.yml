@@ -1,8 +1,7 @@
 name: Deploy to Hostinger (FTP)
 
 on:
-  push:
-    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -24,7 +23,6 @@ jobs:
       - name: Build (Vite)
         run: npm run build
 
-      # Upload dist/ contents to Hostinger public_html
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
