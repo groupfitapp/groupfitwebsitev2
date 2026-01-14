@@ -66,8 +66,8 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button asChild variant="outline" className="border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white">
-              <a href="/referral">
+            <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+              <a href="/referral" className="inline-flex items-center justify-center">
                 <Gift className="w-4 h-4 mr-2" />
                 Refer & Earn
               </a>
@@ -117,8 +117,8 @@ export function Header() {
                 </div>
                 
                 <div className="pt-4 border-t border-border/10 space-y-3">
-                  <Button asChild variant="outline" className="w-full border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white">
-                    <a href="/referral" onClick={() => setIsOpen(false)}>
+                  <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                    <a href="/referral" onClick={() => setIsOpen(false)} className="inline-flex items-center justify-center">
                       <Gift className="w-4 h-4 mr-2" />
                       Refer & Earn
                     </a>
