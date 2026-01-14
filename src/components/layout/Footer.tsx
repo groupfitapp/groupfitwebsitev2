@@ -46,6 +46,7 @@ const customerLinks = [
   { name: "Cities", href: "/cities" },
   { name: "FAQ", href: "/faq" },
   { name: "Download", href: "/download" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 const trainerLinks = [
@@ -53,6 +54,7 @@ const trainerLinks = [
   { name: "How it Works", href: "/trainer/how-it-works" },
   { name: "Requirements", href: "/trainer/requirements" },
   { name: "Trainer FAQ", href: "/trainer/faq" },
+  { name: "Referral Program", href: "/referral", highlight: true },
 ];
 
 const websiteLegalLinks = [
@@ -139,12 +141,21 @@ export function Footer() {
             <ul className="space-y-2">
               {trainerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-white/70 text-sm hover:text-primary transition-colors"
-                  >
-                    {link.name}
-                  </Link>
+                  {'highlight' in link && link.highlight ? (
+                    <a
+                      href={link.href}
+                      className="text-amber-400 text-sm hover:text-amber-300 transition-colors font-medium"
+                    >
+                      {link.name} ✨
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-white/70 text-sm hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

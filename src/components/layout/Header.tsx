@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Download } from "lucide-react";
+import { Menu, Download, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import logo from "@/assets/logo.png";
@@ -64,8 +64,14 @@ export function Header() {
             </Link>
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Button asChild variant="outline" className="border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white">
+              <a href="/referral">
+                <Gift className="w-4 h-4 mr-2" />
+                Refer & Earn
+              </a>
+            </Button>
             <Button asChild className="bg-primary hover:bg-red-dark text-white">
               <Link to="/download">
                 <Download className="w-4 h-4 mr-2" />
@@ -110,7 +116,13 @@ export function Header() {
                   </Link>
                 </div>
                 
-                <div className="pt-4 border-t border-border/10">
+                <div className="pt-4 border-t border-border/10 space-y-3">
+                  <Button asChild variant="outline" className="w-full border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white">
+                    <a href="/referral" onClick={() => setIsOpen(false)}>
+                      <Gift className="w-4 h-4 mr-2" />
+                      Refer & Earn
+                    </a>
+                  </Button>
                   <Button asChild className="w-full bg-primary hover:bg-red-dark text-white">
                     <Link to="/download" onClick={() => setIsOpen(false)}>
                       <Download className="w-4 h-4 mr-2" />
