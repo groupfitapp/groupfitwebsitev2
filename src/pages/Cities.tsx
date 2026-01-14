@@ -170,6 +170,9 @@ export default function Cities() {
                         alt={`Find personal trainers in ${city.name} for in-person fitness sessions`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         loading="lazy"
+                        decoding="async"
+                        width={400}
+                        height={300}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4">

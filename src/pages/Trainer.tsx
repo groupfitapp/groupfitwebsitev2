@@ -64,6 +64,11 @@ export default function Trainer() {
             src={trainerBanner}
             alt="Group Fit personal trainer coaching a client during an in-person fitness session"
             className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            width={1920}
+            height={1080}
           />
           <div className="absolute inset-0 bg-secondary/65" />
         </div>

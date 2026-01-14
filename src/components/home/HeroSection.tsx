@@ -13,6 +13,11 @@ export function HeroSection() {
           src={heroBg}
           alt="Personal training session"
           className="w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
         />
         <div className="absolute inset-0 bg-secondary/65" />
       </div>
