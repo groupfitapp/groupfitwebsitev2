@@ -24,6 +24,7 @@ import WebsitePrivacy from "./pages/WebsitePrivacy";
 import AppUserTerms from "./pages/AppUserTerms";
 import AppTrainerTerms from "./pages/AppTrainerTerms";
 import AppPrivacy from "./pages/AppPrivacy";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -56,6 +57,7 @@ const App = () => (
               <Route path="/app-user-terms-and-condition" element={<AppUserTerms />} />
               <Route path="/app-trainer-terms-and-condition" element={<AppTrainerTerms />} />
               <Route path="/app-privacy-policy" element={<AppPrivacy />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
