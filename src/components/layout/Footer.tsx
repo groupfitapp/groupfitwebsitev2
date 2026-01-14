@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { Facebook, Instagram, Youtube, FileText, ChevronDown } from "lucide-react";
+import { Facebook, Instagram, Youtube, FileText, ChevronDown, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import {
   DropdownMenu,
@@ -37,6 +38,7 @@ const socialLinks = [
   { name: "Threads", href: "https://www.threads.net/@groupfit_app", icon: ThreadsIcon },
   { name: "YouTube", href: "https://www.youtube.com/@GroupFitApp", icon: Youtube },
   { name: "TikTok", href: "https://www.tiktok.com/@groupfit.app", icon: TikTokIcon },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/101067588", icon: Linkedin },
 ];
 
 const customerLinks = [
@@ -114,13 +116,16 @@ export function Footer() {
                 </a>
               ))}
             </div>
-            {/* Contact Us Link */}
-            <Link
-              to="/contact"
-              className="inline-block mt-4 text-primary font-medium hover:text-primary/80 transition-colors"
+            {/* Contact Us Button */}
+            <Button
+              asChild
+              variant="outline"
+              className="mt-4 border-primary text-primary hover:bg-primary hover:text-white"
             >
-              Contact Us →
-            </Link>
+              <Link to="/contact">
+                Contact Us
+              </Link>
+            </Button>
           </div>
 
           {/* Customers */}
