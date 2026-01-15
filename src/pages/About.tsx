@@ -24,8 +24,10 @@ export default function About() {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="bg-secondary py-16 md:py-24">
-          <div className="container mx-auto px-4">
+        <section className="relative bg-secondary py-16 md:py-24">
+          {/* Bottom gradient fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 About <span className="text-primary">Group Fit</span>
