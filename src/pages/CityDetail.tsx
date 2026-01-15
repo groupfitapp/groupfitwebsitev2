@@ -121,6 +121,8 @@ export default function CityDetail() {
           aria-label={`${city.name} cityscape - Find personal trainers in ${city.name}`}
         />
         <div className="absolute inset-0 bg-secondary/65" />
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[1]" />
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumbs className="mb-6" />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">

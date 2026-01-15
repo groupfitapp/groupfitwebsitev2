@@ -117,7 +117,9 @@ export default function Contact() {
 
       {/* Hero Section */}
       <section className="relative bg-secondary pt-24 pb-16 md:pt-32 md:pb-20">
-        <div className="container mx-auto px-4">
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="container mx-auto px-4 relative z-10">
           <Breadcrumbs />
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
