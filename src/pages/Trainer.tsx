@@ -71,6 +71,8 @@ export default function Trainer() {
             height={1080}
           />
           <div className="absolute inset-0 bg-secondary/65" />
+          {/* Bottom gradient fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
         </div>
 
         {/* Content */}
