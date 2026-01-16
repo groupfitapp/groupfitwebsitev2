@@ -118,15 +118,15 @@ export function ImmersiveYouTubeVideo({
   return (
     <section ref={sectionRef} className="relative w-full overflow-hidden bg-secondary">
       {/* Full-width video container with parallax */}
-      <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] overflow-hidden">
+      <div className="relative w-full aspect-video overflow-hidden">
         {/* Parallax video wrapper */}
         <motion.div 
           style={{ y }}
-          className="absolute inset-[-20%] w-[140%] h-[140%] left-[-20%]"
+          className="absolute inset-[-10%] w-[120%] h-[120%] left-[-10%]"
         >
           <div 
             id={containerRef.current}
-            className="absolute inset-0 w-full h-full pointer-events-none scale-[1.5] md:scale-[1.3] origin-center"
+            className="absolute inset-0 w-full h-full pointer-events-none scale-[1.15] origin-center"
           />
         </motion.div>
         
