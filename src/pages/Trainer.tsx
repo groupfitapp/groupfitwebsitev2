@@ -143,7 +143,6 @@ export default function Trainer() {
       <ImmersiveYouTubeVideo
         videoId="upwk6yBzJnI"
         title="Group Fit for Trainers"
-        heading="See how it works"
       />
 
       {/* How It Works */}
