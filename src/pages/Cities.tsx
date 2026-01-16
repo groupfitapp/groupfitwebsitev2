@@ -111,7 +111,7 @@ export default function Cities() {
         <title>Cities | In-Person Personal Trainers Near You | Group Fit</title>
         <meta
           name="description"
-          content="Find in-person personal trainers by city across Canada. Booking and availability depend on your exact session address, activity selection, and time in Group Fit."
+          content="Find in-person personal trainers by city across Canada. Availability depends on your session address, activity, and time."
         />
         <meta name="keywords" content="personal trainer Toronto, personal trainer Vancouver, personal trainer Calgary, fitness coaches Canada, book trainer near me" />
         <link rel="canonical" href="https://groupfitapp.com/cities" />
