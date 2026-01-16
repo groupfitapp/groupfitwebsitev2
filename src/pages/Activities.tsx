@@ -70,7 +70,7 @@ export default function Activities() {
         <title>Activities | In-Person Personal Training | Group Fit</title>
         <meta
           name="description"
-          content="Choose from 13+ activities including strength, yoga, boxing, HIIT, and soccer. Book in-person sessions with certified coaches across Canada."
+          content="Explore 35+ activities including strength, yoga, boxing, HIIT, and more. Book in-person sessions with certified coaches across Canada."
         />
         <meta name="keywords" content="personal training activities, strength training, yoga classes, boxing training, HIIT workout, fitness activities Canada" />
         <link rel="canonical" href="https://groupfitapp.com/activities" />
@@ -103,7 +103,7 @@ export default function Activities() {
               Choose your activity
             </h1>
             <p className="mt-6 text-lg text-white/70">
-              These are popular activities. Group Fit supports trainers across many more activities depending on availability.
+              These are popular activities. Group Fit supports 35+ activities—download the app to see all options available based on your address and time.
             </p>
           </motion.div>
         </div>
@@ -166,7 +166,7 @@ export default function Activities() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-muted-foreground">
-              These pages cover popular options. In Group Fit, you may see additional activities depending on your session address, time, and coach availability.
+              These pages cover popular options. Download Group Fit to see all 35+ activities and check coach availability based on your session address and time.
             </p>
           </div>
         </div>
