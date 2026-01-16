@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Volume2, VolumeX, Play, Pause } from "lucide-react";
 
 interface ImmersiveYouTubeVideoProps {
@@ -26,7 +26,16 @@ export function ImmersiveYouTubeVideo({
   const [isPlaying, setIsPlaying] = useState(true);
   const [isReady, setIsReady] = useState(false);
   const playerRef = useRef<any>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<string>(`player-${videoId}-${Math.random().toString(36).substr(2, 9)}`);
+
+  // Parallax scroll effect
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   useEffect(() => {
     // Load YouTube IFrame API
@@ -107,18 +116,19 @@ export function ImmersiveYouTubeVideo({
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-secondary">
-      {/* Full-width video container */}
-      <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9]">
-        {/* Video embed */}
-        <div 
-          id={containerRef.current}
-          className="absolute inset-0 w-full h-full pointer-events-none scale-[1.5] md:scale-[1.3] origin-center"
-        />
-        
-        {/* Gradient overlays for blending */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/20 via-transparent to-background/20 pointer-events-none" />
+    <section ref={sectionRef} className="relative w-full overflow-hidden bg-secondary">
+      {/* Full-width video container with parallax */}
+      <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] overflow-hidden">
+        {/* Parallax video wrapper */}
+        <motion.div 
+          style={{ y }}
+          className="absolute inset-[-20%] w-[140%] h-[140%] left-[-20%]"
+        >
+          <div 
+            id={containerRef.current}
+            className="absolute inset-0 w-full h-full pointer-events-none scale-[1.5] md:scale-[1.3] origin-center"
+          />
+        </motion.div>
         
         {/* Content overlay */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
