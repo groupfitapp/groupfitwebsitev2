@@ -77,9 +77,13 @@ const AnalyticsRouteTracker = () => {
     };
 
     const contentName = viewContentMap[location.pathname];
+
+    // TikTok requires content_id for ViewContent (use pathname as a stable unique id)
     if (contentName && typeof window.ttq?.track === "function") {
       window.ttq.track("ViewContent", {
+        content_id: location.pathname,
         content_name: contentName,
+        content_type: "page",
         page_path
       });
     }
