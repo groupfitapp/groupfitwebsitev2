@@ -11,7 +11,7 @@ import {
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import trainerBanner from "@/assets/trainer-banner.jpg";
-import { ImmersiveYouTubeVideo } from "@/components/ui/ImmersiveYouTubeVideo";
+import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 const benefits = [
@@ -140,10 +140,14 @@ export default function Trainer() {
       </section>
 
       {/* Video Section */}
-      <ImmersiveYouTubeVideo
-        videoId="upwk6yBzJnI"
-        title="Group Fit for Trainers"
-      />
+      <section className="py-16 md:py-24 bg-secondary">
+        <div className="container mx-auto px-4">
+          <YouTubeEmbed
+            videoId="upwk6yBzJnI"
+            title="Group Fit for Trainers"
+          />
+        </div>
+      </section>
 
       {/* How It Works */}
       <section className="py-16 md:py-24 bg-muted/50">
