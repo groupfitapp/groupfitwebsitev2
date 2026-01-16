@@ -44,7 +44,7 @@ export default function TrainerRequirements() {
         <title>Trainer Requirements | Become a Group Fit Coach</title>
         <meta
           name="description"
-          content="Learn what you need to become a Group Fit trainer. Requirements include certifications, identity verification, CPR/First Aid, and reliable transportation."
+          content="Learn what you need to become a Group Fit trainer. Requirements include certifications, ID verification, CPR/First Aid, and transportation."
         />
         <meta name="keywords" content="trainer requirements, personal trainer certification, fitness coach qualifications, Group Fit requirements" />
         <link rel="canonical" href="https://groupfitapp.com/trainer/requirements" />

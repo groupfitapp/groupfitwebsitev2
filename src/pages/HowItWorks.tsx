@@ -67,7 +67,7 @@ export default function HowItWorks() {
         <title>How It Works | Book Personal Training Sessions | Group Fit</title>
         <meta
           name="description"
-          content="Learn how to book in-person personal training sessions with Group Fit. Choose an activity, enter your address, pick a time, and connect with available coaches."
+          content="Learn how to book in-person personal training with Group Fit. Choose an activity, enter your address, pick a time, and book."
         />
         <meta name="keywords" content="how to book personal trainer, personal training booking, fitness app Canada, book training session" />
         <link rel="canonical" href="https://groupfitapp.com/how-it-works" />
