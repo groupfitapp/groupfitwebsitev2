@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
+export const homeFaqs = [
   {
     question: "Where can sessions take place?",
     answer: "You choose the session location—home, condo gym, park, or a facility you arrange (where permitted). You enter the address during booking and the coach comes to that location.",
@@ -54,7 +54,7 @@ export function FAQSection() {
             transition={{ delay: 0.1 }}
           >
             <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
+              {homeFaqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
