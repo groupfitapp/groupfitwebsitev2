@@ -230,7 +230,7 @@ export default function FAQ() {
         <title>Customer FAQ | Group Fit - Personal Training Questions Answered</title>
         <meta
           name="description"
-          content="Find answers to common questions about booking personal training sessions, group bookings, trainer quality, locations, payments, and cancellation policies with Group Fit."
+          content="Find answers about booking sessions, group bookings, trainer quality, payments, and cancellation policies on Group Fit."
         />
         <meta 
           name="keywords" 

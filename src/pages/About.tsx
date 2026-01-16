@@ -13,7 +13,7 @@ export default function About() {
         <title>About Group Fit | On-Location Personal Training Across Canada</title>
         <meta 
           name="description" 
-          content="Group Fit connects you with 1,500+ verified coaches across 75+ Canadian cities. Book strength training, yoga, HIIT, boxing & more at your location, on your schedule." 
+          content="Group Fit connects you with 1,500+ verified coaches across 75+ Canadian cities. Book strength, yoga, HIIT, boxing & more at your location." 
         />
         <meta 
           name="keywords" 

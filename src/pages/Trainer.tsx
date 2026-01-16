@@ -46,7 +46,7 @@ export default function Trainer() {
         <title>Become a Personal Trainer | Get Booked for Sessions | Group Fit</title>
         <meta
           name="description"
-          content="Join Group Fit as a trainer. Set your service area and availability to receive in-person training bookings across Canada. Credential review and identity verification included."
+          content="Join Group Fit as a trainer. Set your service area and availability to receive in-person bookings. Credential review and ID verification included."
         />
         <meta name="keywords" content="become personal trainer, trainer jobs Canada, fitness trainer platform, get more clients trainer, personal training business" />
         <link rel="canonical" href="https://groupfitapp.com/trainer" />
