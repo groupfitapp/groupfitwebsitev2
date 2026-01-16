@@ -1,7 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download, ArrowRight, MapPin, Users, Shield, Dumbbell } from "lucide-react";
+
+import aboutHeroImg from "@/assets/heroes/about-hero.jpg";
 
 export default function About() {
   return (
@@ -24,11 +27,24 @@ export default function About() {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative bg-secondary py-16 md:py-24">
+        <section className="relative min-h-[60vh] flex items-center">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img
+              src={aboutHeroImg}
+              alt="Group fitness training session"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-secondary/80" />
+          </div>
           {/* Bottom gradient fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[1]" />
+          <div className="container mx-auto px-4 relative z-10 py-32">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="max-w-4xl mx-auto text-center"
+            >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 About <span className="text-primary">Group Fit</span>
               </h1>
@@ -37,7 +53,7 @@ export default function About() {
                 You choose what you want to train, enter your session address, pick a time, and book a coach 
                 who's available for that exact session—without the usual back-and-forth.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 

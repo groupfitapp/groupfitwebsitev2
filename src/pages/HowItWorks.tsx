@@ -18,6 +18,8 @@ import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 
+import howItWorksHeroImg from "@/assets/heroes/how-it-works-hero.jpg";
+
 const steps = [
   {
     number: 1,
@@ -75,9 +77,18 @@ export default function HowItWorks() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={howItWorksHeroImg}
+            alt="Gym training environment"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-secondary/80" />
+        </div>
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[1]" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
