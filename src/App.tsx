@@ -36,12 +36,13 @@ declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
     fbq?: (...args: any[]) => void;
+    ttq?: { page: (...args: any[]) => void; track: (...args: any[]) => void };
   }
 }
 
 /**
- * Tracks SPA route changes for GA4 + Meta Pixel.
- * Keep GA/Pixel scripts in index.html (loaded once), then fire pageview on navigation.
+ * Tracks SPA route changes for GA4 + Meta Pixel + TikTok Pixel.
+ * Keep the base scripts in index.html (loaded once), then fire events on navigation.
  */
 const AnalyticsRouteTracker = () => {
   const location = useLocation();
@@ -57,6 +58,30 @@ const AnalyticsRouteTracker = () => {
     // Meta Pixel PageView on SPA route changes
     if (typeof window.fbq === "function") {
       window.fbq("track", "PageView");
+    }
+
+    // TikTok Pixel page view on SPA route changes
+    if (typeof window.ttq?.page === "function") {
+      window.ttq.page();
+    }
+
+    // TikTok Pixel ViewContent on specific pages you care about
+    const viewContentMap: Record<string, string> = {
+      "/download": "Download",
+      "/trainer": "Trainer",
+      "/about": "About",
+      "/how-it-works": "How It Works",
+      "/activities": "Activities",
+      "/cities": "Cities",
+      "/faq": "FAQ"
+    };
+
+    const contentName = viewContentMap[location.pathname];
+    if (contentName && typeof window.ttq?.track === "function") {
+      window.ttq.track("ViewContent", {
+        content_name: contentName,
+        page_path
+      });
     }
   }, [location.pathname, location.search]);
 
