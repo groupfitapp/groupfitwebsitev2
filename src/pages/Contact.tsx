@@ -84,7 +84,7 @@ export default function Contact() {
         <title>Contact Us | Group Fit - Get in Touch</title>
         <meta
           name="description"
-          content="Have questions about Group Fit? Contact our support team for help with bookings, trainer inquiries, or general questions about our fitness platform."
+          content="Have questions about Group Fit? Contact our support team for help with bookings, trainer inquiries, or general questions."
         />
         <link rel="canonical" href="https://groupfitapp.com/contact" />
         <meta property="og:title" content="Contact Us | Group Fit" />
