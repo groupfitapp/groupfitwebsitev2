@@ -1,10 +1,14 @@
-import { ImmersiveYouTubeVideo } from "@/components/ui/ImmersiveYouTubeVideo";
+import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 
 export function VideoSection() {
   return (
-    <ImmersiveYouTubeVideo
-      videoId="uag832_Ud0Y"
-      title="Group Fit - Book In-Person Personal Training"
-    />
+    <section className="py-16 md:py-24 bg-secondary">
+      <div className="container mx-auto px-4">
+        <YouTubeEmbed
+          videoId="uag832_Ud0Y"
+          title="Group Fit - Book In-Person Personal Training"
+        />
+      </div>
+    </section>
   );
 }
