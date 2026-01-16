@@ -25,7 +25,7 @@ export default function About() {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <main className="pt-20">
+      <main>
         {/* Hero Section */}
         <section className="relative min-h-[60vh] flex items-center">
           {/* Background Image */}
