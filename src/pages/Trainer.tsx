@@ -6,13 +6,12 @@ import {
   CalendarRange, 
   Radar, 
   BadgeCheck, 
-  ArrowRight,
-  PlayCircle
+  ArrowRight
 } from "lucide-react";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import trainerBanner from "@/assets/trainer-banner.jpg";
-import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
+import { ImmersiveYouTubeVideo } from "@/components/ui/ImmersiveYouTubeVideo";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 const benefits = [
@@ -141,30 +140,11 @@ export default function Trainer() {
       </section>
 
       {/* Video Section */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
-          >
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
-              <PlayCircle className="w-8 h-8 text-primary" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              See how it works
-            </h2>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            <YouTubeEmbed
-              videoId="upwk6yBzJnI"
-              title="Group Fit for Trainers"
-            />
-          </div>
-        </div>
-      </section>
+      <ImmersiveYouTubeVideo
+        videoId="upwk6yBzJnI"
+        title="Group Fit for Trainers"
+        heading="See how it works"
+      />
 
       {/* How It Works */}
       <section className="py-16 md:py-24 bg-muted/50">
