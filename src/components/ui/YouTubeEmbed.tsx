@@ -5,12 +5,17 @@ interface YouTubeEmbedProps {
   playlistId?: string;
   title: string;
   className?: string;
+  autoplay?: boolean;
 }
 
-export function YouTubeEmbed({ videoId, playlistId, title, className = "" }: YouTubeEmbedProps) {
+export function YouTubeEmbed({ videoId, playlistId, title, className = "", autoplay = false }: YouTubeEmbedProps) {
+  const baseParams = autoplay 
+    ? `?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0`
+    : "";
+  
   const src = playlistId 
     ? `https://www.youtube.com/embed/videoseries?list=${playlistId}`
-    : `https://www.youtube.com/embed/${videoId}`;
+    : `https://www.youtube.com/embed/${videoId}${baseParams}`;
 
   return (
     <motion.div

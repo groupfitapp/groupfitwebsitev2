@@ -146,6 +146,7 @@ export default function Trainer() {
             <YouTubeEmbed
               videoId="upwk6yBzJnI"
               title="Group Fit for Trainers"
+              autoplay
             />
           </div>
         </div>
