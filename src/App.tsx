@@ -1,11 +1,14 @@
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async";
 import { Layout } from "@/components/layout";
 import { ScrollToTop } from "@/components/ScrollToTop";
+
 import Index from "./pages/Index";
 import About from "./pages/About";
 import HowItWorks from "./pages/HowItWorks";
@@ -29,6 +32,37 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+    fbq?: (...args: any[]) => void;
+  }
+}
+
+/**
+ * Tracks SPA route changes for GA4 + Meta Pixel.
+ * Keep GA/Pixel scripts in index.html (loaded once), then fire pageview on navigation.
+ */
+const AnalyticsRouteTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const page_path = location.pathname + location.search;
+
+    // GA4 page_view on SPA route changes
+    if (typeof window.gtag === "function") {
+      window.gtag("config", "G-X7P71JVPNM", { page_path });
+    }
+
+    // Meta Pixel PageView on SPA route changes
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "PageView");
+    }
+  }, [location.pathname, location.search]);
+
+  return null;
+};
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -36,6 +70,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <AnalyticsRouteTracker />
           <ScrollToTop />
           <Layout>
             <Routes>
