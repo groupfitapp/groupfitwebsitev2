@@ -31,6 +31,7 @@ const faqCategories = [
             <li>Complete the payment, and you're all set!</li>
           </ol>
         ),
+        schemaAnswer: "1. Select the activity you're interested in. 2. Tap the Create Booking button. 3. Add a location for the session. 4. Choose the day and time that work best for you. 5. Pick from our list of qualified trainers. 6. Decide whether to create a group or go solo. 7. Complete the payment, and you're all set!",
       },
       {
         question: "How long is each session?",
@@ -57,6 +58,7 @@ const faqCategories = [
             <p className="mt-3">This robust process ensures that the trainers you interact with on Group Fit are not only experienced but also verified, fostering a safe and trustworthy training environment.</p>
           </>
         ),
+        schemaAnswer: "Group Fit is committed to providing you with qualified and trustworthy trainers. We implement a rigorous two-step screening process: Resume and Certification Review where we meticulously evaluate each trainer's resume and relevant certifications to verify their experience and expertise, and Identity Verification by Plaid where all trainers undergo an identity check ensuring they are who they claim to be. This robust process ensures that the trainers you interact with on Group Fit are not only experienced but also verified, fostering a safe and trustworthy training environment.",
       },
       {
         question: "How can I book sessions with a specific trainer?",
@@ -66,11 +68,19 @@ const faqCategories = [
         question: "Can I find a coach who speaks French?",
         answer: "Yes. Trainer languages are shown on the trainer profile card.",
       },
+      {
+        question: "What should I do if I feel unsafe during a session?",
+        answer: "Your safety is our priority. All trainers complete identity verification and credential review before being approved on Group Fit. If you ever feel uncomfortable, you may end the session immediately and ask the trainer to leave. Contact us at support@groupfitapp.com and we will provide a full refund.",
+      },
     ],
   },
   {
     title: "Booking & Availability",
     faqs: [
+      {
+        question: "How far in advance can I book a session?",
+        answer: "You can book a session as little as 2 hours in advance, subject to coach availability at your selected time and location.",
+      },
       {
         question: "Why can't I find any trainers on Group Fit?",
         answer: (
@@ -84,6 +94,7 @@ const faqCategories = [
             <p className="mt-3">We understand this can be inconvenient. The availability of trainers depends on the number of qualified trainers who have signed up to offer their services in various specializations on our platform.</p>
           </>
         ),
+        schemaAnswer: "There could be several reasons why you're unable to find trainers for your session: Scheduling Conflicts - The trainer you're interested in may already be booked for another session at your chosen time. Activity Availability - There might not be any trainers currently available who specialize in the activity you're looking to train in. Location-Based Matching - Trainers are shown based on the location you've selected, and there may be limited availability in your area. We understand this can be inconvenient. The availability of trainers depends on the number of qualified trainers who have signed up to offer their services in various specializations on our platform.",
       },
       {
         question: "How can I favorite an activity?",
@@ -97,6 +108,10 @@ const faqCategories = [
       {
         question: "What should I consider when choosing a location for my session?",
         answer: "You are free to choose any location for your session, provided it is publicly accessible or you have obtained permission to use it. If the location you select requires a fee for facility usage, please be aware that you will be responsible for covering these costs.",
+      },
+      {
+        question: "What happens if it rains during an outdoor session?",
+        answer: "Customers are responsible for ensuring weather conditions are suitable for outdoor sessions. We recommend having a backup indoor location or rescheduling if conditions are unfavorable.",
       },
       {
         question: "Is it necessary for me to have equipment for my training session?",
@@ -124,6 +139,7 @@ const faqCategories = [
             <p className="text-sm bg-muted p-3 rounded-lg"><strong>Note:</strong> Group members have 30 minutes to complete their payment after a group booking is initiated. If any members fail to pay within this timeframe, the booking will be automatically canceled and any members who have already paid will receive a refund.</p>
           </>
         ),
+        schemaAnswer: "1. Select the Activity you'd like. 2. Tap on Create Booking. 3. Choose your location or add a new one. 4. Pick the date and time for your session. 5. Select your preferred trainer and tap Book Session. 6. Choose from your existing groups or tap Create New Group. Users who have installed and created a profile will appear under Available on Group Fit. If any invitees are not yet on the list, you can invite them to install the app. 7. Once your group is selected, tap Proceed to Pay. 8. On the checkout screen, choose Pay Total Amount if you prefer to cover the full session cost yourself, or Pay Partial Amount to split the cost equally among all group members. Note: Group members have 30 minutes to complete their payment after a group booking is initiated. If any members fail to pay within this timeframe, the booking will be automatically canceled and any members who have already paid will receive a refund.",
       },
       {
         question: "How many members can be in a group?",
@@ -143,6 +159,10 @@ const faqCategories = [
     title: "Cancellations & Rescheduling",
     faqs: [
       {
+        question: "What is the cancellation policy?",
+        answer: "You can cancel a session free of charge up to 2 hours before the scheduled start time. For the most current policy details, please refer to our Terms and Conditions.",
+      },
+      {
         question: "Can I cancel a booked session?",
         answer: "Yes, you can cancel a booked session without any charges if you do so at least 2 hours before the scheduled start time. For the most current cancellation policy, please consult our Terms and Conditions.",
       },
@@ -159,6 +179,14 @@ const faqCategories = [
   {
     title: "Payments & Promotions",
     faqs: [
+      {
+        question: "What payment methods are accepted?",
+        answer: "Group Fit accepts all major credit and debit cards. Payment is processed securely through the app at the time of booking.",
+      },
+      {
+        question: "Are tips included or can I tip my trainer?",
+        answer: "Tips are not required or expected. The session price covers the full cost of your training.",
+      },
       {
         question: "How do I view my payment history?",
         answer: "To view your payment history, go to \"Accounts\" and tap on \"Payment History.\" This will display a detailed record of all your past transactions.",
@@ -188,6 +216,13 @@ const faqCategories = [
   },
 ];
 
+// Helper to get plain text answer for schema
+const getSchemaAnswer = (faq: { question: string; answer: React.ReactNode; schemaAnswer?: string }) => {
+  if (faq.schemaAnswer) return faq.schemaAnswer;
+  if (typeof faq.answer === 'string') return faq.answer;
+  return faq.question; // Fallback
+};
+
 export default function FAQ() {
   return (
     <>
@@ -215,7 +250,7 @@ export default function FAQ() {
                 "name": faq.question,
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": typeof faq.answer === 'string' ? faq.answer : faq.question
+                  "text": getSchemaAnswer(faq)
                 }
               }))
             )
