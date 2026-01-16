@@ -83,7 +83,6 @@ const AnalyticsRouteTracker = () => {
       window.ttq.track("ViewContent", {
         content_id: location.pathname,
         content_name: contentName,
-        content_type: "page",
         page_path
       });
     }
