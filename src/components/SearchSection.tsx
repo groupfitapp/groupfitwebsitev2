@@ -14,21 +14,24 @@ declare global {
         places: {
           Autocomplete: new (input: HTMLInputElement, options?: object) => {
             addListener: (event: string, callback: () => void) => void;
-            getPlace: () => { 
-              geometry?: { 
-                location: { lat: () => number; lng: () => number } 
-              }; 
-              formatted_address?: string 
+            getPlace: () => {
+              geometry?: {
+                location: { lat: () => number; lng: () => number };
+              };
+              formatted_address?: string;
             };
           };
         };
         Geocoder: new () => {
           geocode: (
             request: { address?: string; location?: { lat: number; lng: number } },
-            callback: (results: Array<{ 
-              geometry: { location: { lat: () => number; lng: () => number } };
-              formatted_address: string;
-            }> | null, status: string) => void
+            callback: (
+              results: Array<{
+                geometry: { location: { lat: () => number; lng: () => number } };
+                formatted_address: string;
+              }> | null,
+              status: string
+            ) => void
           ) => void;
         };
       };
@@ -36,36 +39,21 @@ declare global {
   }
 }
 
-const activities = [
-  "Strength & Conditioning",
-  "Yoga",
-  "Boxing",
-  "HIIT",
-  "Kickboxing",
-  "Muay Thai",
-  "Jiu Jitsu",
-  "Wrestling",
-  "Self Defense",
-  "Soccer",
-  "Basketball",
-  "Bootcamp",
-  "Calisthenics",
-];
-
 const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 const CONFIG = {
-  SHEET_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcFnalZoacA7H0P-JXOgMkXCfSmnztWUJPGWraznJedSIVauk3Iq6-njDzwp7sXhpoDbyqZBldKVZn/pub?output=csv',
+  SHEET_URL:
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQcFnalZoacA7H0P-JXOgMkXCfSmnztWUJPGWraznJedSIVauk3Iq6-njDzwp7sXhpoDbyqZBldKVZn/pub?output=csv",
   MAP_ZOOM: 12,
-  CIRCLE_COLOR: '#2196F3'
+  CIRCLE_COLOR: "#2196F3"
 };
 
 interface Trainer {
   Name: string;
   Activity: string;
   Day: string;
-  'Start Time': string;
-  'End Time': string;
+  "Start Time": string;
+  "End Time": string;
   Latitude: string;
   Longitude: string;
   KM: string;
@@ -75,21 +63,20 @@ interface Trainer {
 // Calculate distance between two coordinates (Haversine formula)
 function getDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const R = 6371;
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLon = (lon2 - lon1) * Math.PI / 180;
-  const a = Math.sin(dLat / 2) ** 2 +
-    Math.cos(lat1 * Math.PI / 180) *
-    Math.cos(lat2 * Math.PI / 180) *
-    Math.sin(dLon / 2) ** 2;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) ** 2;
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
 // Parse time string to minutes
 function parseTime(str: string): number {
-  const [time, mod] = str.split(' ');
-  let [h, m] = time.split(':').map(Number);
-  if (mod === 'PM' && h < 12) h += 12;
-  if (mod === 'AM' && h === 12) h = 0;
+  const [time, mod] = str.split(" ");
+  let [h, m] = time.split(":").map(Number);
+  if (mod === "PM" && h < 12) h += 12;
+  if (mod === "AM" && h === 12) h = 0;
   return h * 60 + m;
 }
 
@@ -97,38 +84,38 @@ function parseTime(str: string): number {
 function formatTime(mins: number): string {
   const h = Math.floor(mins / 60);
   const m = mins % 60;
-  const period = h >= 12 ? 'PM' : 'AM';
+  const period = h >= 12 ? "PM" : "AM";
   const hour = h % 12 || 12;
-  return `${hour}:${m.toString().padStart(2, '0')} ${period}`;
+  return `${hour}:${m.toString().padStart(2, "0")} ${period}`;
 }
 
 // Parse CSV data
 function parseCSV(text: string): Trainer[] {
-  const lines = text.trim().split('\n');
-  const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
-  
-  return lines.slice(1).map(line => {
+  const lines = text.trim().split("\n");
+  const headers = lines[0].split(",").map((h) => h.trim().replace(/"/g, ""));
+
+  return lines.slice(1).map((line) => {
     const values: string[] = [];
-    let current = '';
+    let current = "";
     let inQuotes = false;
-    
+
     for (const char of line) {
       if (char === '"') {
         inQuotes = !inQuotes;
-      } else if (char === ',' && !inQuotes) {
+      } else if (char === "," && !inQuotes) {
         values.push(current.trim());
-        current = '';
+        current = "";
       } else {
         current += char;
       }
     }
     values.push(current.trim());
-    
+
     const obj: Record<string, string> = {};
     headers.forEach((header, i) => {
-      obj[header] = values[i] || '';
+      obj[header] = values[i] || "";
     });
-    
+
     return obj as unknown as Trainer;
   });
 }
@@ -139,17 +126,20 @@ export default function SearchSection() {
   const [day, setDay] = useState("");
   const [isActivityOpen, setIsActivityOpen] = useState(false);
   const [isDayOpen, setIsDayOpen] = useState(false);
-  const [isLoadingAddress, setIsLoadingAddress] = useState(false);
+
+  const [isLoadingMaps, setIsLoadingMaps] = useState(false);
+  const [mapsLoaded, setMapsLoaded] = useState(false);
+
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
+
   const [allTrainers, setAllTrainers] = useState<Trainer[]>([]);
   const [validTrainers, setValidTrainers] = useState<Trainer[]>([]);
   const [filteredTrainers, setFilteredTrainers] = useState<Trainer[]>([]);
   const [availableActivities, setAvailableActivities] = useState<string[]>([]);
   const [availableDays, setAvailableDays] = useState<string[]>([]);
-  const [mapLoaded, setMapLoaded] = useState(false);
   const [showResults, setShowResults] = useState(false);
 
   const activityRef = useRef<HTMLDivElement>(null);
@@ -160,35 +150,63 @@ export default function SearchSection() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const geocoderRef = useRef<any>(null);
 
-  // Load Google Maps script
-  useEffect(() => {
+  /**
+   * ✅ BIG PERFORMANCE FIX:
+   * Load Google Maps only when the user interacts with the address section.
+   */
+  const loadGoogleMaps = useCallback(() => {
+    if (mapsLoaded || isLoadingMaps) return;
+
     if (window.google?.maps?.places) {
-      setMapLoaded(true);
+      setMapsLoaded(true);
       return;
     }
 
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCfy7AmCWSSV36sswSYqtZkdhSt68M0eaA&libraries=places`;
+    setIsLoadingMaps(true);
+
+    const existing = document.querySelector('script[data-google-maps="1"]') as HTMLScriptElement | null;
+    if (existing) {
+      existing.addEventListener("load", () => {
+        setMapsLoaded(true);
+        setIsLoadingMaps(false);
+      });
+      existing.addEventListener("error", () => {
+        setIsLoadingMaps(false);
+      });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.setAttribute("data-google-maps", "1");
+    script.src =
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyCfy7AmCWSSV36sswSYqtZkdhSt68M0eaA&libraries=places";
     script.async = true;
     script.defer = true;
-    script.onload = () => setMapLoaded(true);
-    document.head.appendChild(script);
 
-    return () => {
-      // Cleanup if needed
+    script.onload = () => {
+      setMapsLoaded(true);
+      setIsLoadingMaps(false);
     };
-  }, []);
 
-  // Initialize autocomplete when map is loaded
+    script.onerror = () => {
+      setIsLoadingMaps(false);
+      alert("Map services failed to load. You can still type your address and submit.");
+    };
+
+    document.head.appendChild(script);
+  }, [mapsLoaded, isLoadingMaps]);
+
+  // Initialize autocomplete when Maps is loaded
   useEffect(() => {
-    if (!mapLoaded || !addressInputRef.current) return;
+    if (!mapsLoaded || !addressInputRef.current || !window.google?.maps) return;
 
     geocoderRef.current = new window.google.maps.Geocoder();
+
     autocompleteRef.current = new window.google.maps.places.Autocomplete(addressInputRef.current, {
-      componentRestrictions: { country: 'ca' }
+      componentRestrictions: { country: "ca" }
     });
 
-    autocompleteRef.current.addListener('place_changed', () => {
+    autocompleteRef.current.addListener("place_changed", () => {
       const place = autocompleteRef.current?.getPlace();
       if (place?.geometry?.location) {
         const loc = {
@@ -196,11 +214,12 @@ export default function SearchSection() {
           lng: place.geometry.location.lng()
         };
         setUserLocation(loc);
-        setAddress(place.formatted_address || '');
+        setAddress(place.formatted_address || "");
         handleLocationSet(loc);
       }
     });
-  }, [mapLoaded]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mapsLoaded]);
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -217,10 +236,10 @@ export default function SearchSection() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Fetch trainer data
+  // Fetch trainer data (only when needed)
   const fetchTrainerData = useCallback(async (): Promise<Trainer[]> => {
     if (allTrainers.length > 0) return allTrainers;
-    
+
     try {
       const response = await fetch(CONFIG.SHEET_URL);
       const text = await response.text();
@@ -228,81 +247,93 @@ export default function SearchSection() {
       setAllTrainers(data);
       return data;
     } catch (error) {
-      console.error('Failed to fetch trainer data:', error);
+      console.error("Failed to fetch trainer data:", error);
       return [];
     }
   }, [allTrainers]);
 
   // Handle location set (either from autocomplete or geolocation)
-  const handleLocationSet = useCallback(async (loc: { lat: number; lng: number }) => {
-    setIsSearching(true);
-    setShowResults(true);
-    
-    const data = await fetchTrainerData();
-    const trainersWithDistance = data
-      .filter(t => t.Latitude && t.Longitude)
-      .map(t => ({
-        ...t,
-        DistanceKM: Math.floor(getDistance(
-          loc.lat, loc.lng,
-          parseFloat(t.Latitude), parseFloat(t.Longitude)
-        ))
-      }))
-      .filter(t => t.DistanceKM !== undefined && t.DistanceKM <= parseFloat(t.KM));
+  const handleLocationSet = useCallback(
+    async (loc: { lat: number; lng: number }) => {
+      setIsSearching(true);
+      setShowResults(true);
 
-    setValidTrainers(trainersWithDistance);
-    
-    // Get unique activities
-    const uniqueActivities = [...new Set(trainersWithDistance.map(t => t.Activity))].sort();
-    setAvailableActivities(uniqueActivities);
-    
-    setActivity("");
-    setDay("");
-    setFilteredTrainers([]);
-    setIsSearching(false);
-    setHasSearched(true);
-  }, [fetchTrainerData]);
+      const data = await fetchTrainerData();
+      const trainersWithDistance = data
+        .filter((t) => t.Latitude && t.Longitude)
+        .map((t) => ({
+          ...t,
+          DistanceKM: Math.floor(
+            getDistance(loc.lat, loc.lng, parseFloat(t.Latitude), parseFloat(t.Longitude))
+          )
+        }))
+        .filter((t) => t.DistanceKM !== undefined && t.DistanceKM <= parseFloat(t.KM));
+
+      setValidTrainers(trainersWithDistance);
+
+      // Get unique activities
+      const uniqueActivities = [...new Set(trainersWithDistance.map((t) => t.Activity))].sort();
+      setAvailableActivities(uniqueActivities);
+
+      setActivity("");
+      setDay("");
+      setFilteredTrainers([]);
+      setIsSearching(false);
+      setHasSearched(true);
+    },
+    [fetchTrainerData]
+  );
 
   // Handle activity change
-  const handleActivityChange = useCallback((selectedActivity: string) => {
-    setActivity(selectedActivity);
-    setIsActivityOpen(false);
-    
-    // Get available days for this activity
-    const trainersForActivity = validTrainers.filter(t => t.Activity === selectedActivity);
-    const uniqueDays = [...new Set(trainersForActivity.map(t => t.Day))]
-      .sort((a, b) => DAYS.indexOf(a) - DAYS.indexOf(b));
-    
-    setAvailableDays(uniqueDays);
-    setDay("");
-    setFilteredTrainers([]);
-  }, [validTrainers]);
+  const handleActivityChange = useCallback(
+    (selectedActivity: string) => {
+      setActivity(selectedActivity);
+      setIsActivityOpen(false);
+
+      // Get available days for this activity
+      const trainersForActivity = validTrainers.filter((t) => t.Activity === selectedActivity);
+      const uniqueDays = [...new Set(trainersForActivity.map((t) => t.Day))].sort(
+        (a, b) => DAYS.indexOf(a) - DAYS.indexOf(b)
+      );
+
+      setAvailableDays(uniqueDays);
+      setDay("");
+      setFilteredTrainers([]);
+    },
+    [validTrainers]
+  );
 
   // Handle day change
-  const handleDayChange = useCallback((selectedDay: string) => {
-    setDay(selectedDay);
-    setIsDayOpen(false);
-    
-    // Filter trainers by activity and day
-    const filtered = validTrainers.filter(
-      t => t.Activity === activity && t.Day === selectedDay
-    );
-    setFilteredTrainers(filtered);
-  }, [validTrainers, activity]);
+  const handleDayChange = useCallback(
+    (selectedDay: string) => {
+      setDay(selectedDay);
+      setIsDayOpen(false);
+
+      // Filter trainers by activity and day
+      const filtered = validTrainers.filter((t) => t.Activity === activity && t.Day === selectedDay);
+      setFilteredTrainers(filtered);
+    },
+    [validTrainers, activity]
+  );
 
   // Handle submit button
   const handleSubmit = useCallback(async () => {
     if (!address.trim()) {
-      alert('Please enter an address.');
+      alert("Please enter an address.");
       return;
     }
 
     setIsSearching(true);
 
+    // If Maps isn't loaded yet, load it now (so geocoder can run)
+    if (!mapsLoaded) {
+      loadGoogleMaps();
+    }
+
     // Try to geocode the address if we don't have a location
     if (!userLocation && geocoderRef.current) {
       geocoderRef.current.geocode({ address }, (results, status) => {
-        if (status === 'OK' && results?.[0]) {
+        if (status === "OK" && results?.[0]) {
           const loc = {
             lat: results[0].geometry.location.lat(),
             lng: results[0].geometry.location.lng()
@@ -310,14 +341,18 @@ export default function SearchSection() {
           setUserLocation(loc);
           handleLocationSet(loc);
         } else {
-          alert('Could not find the address. Please try again.');
+          alert("Could not find the address. Please try again.");
           setIsSearching(false);
         }
       });
     } else if (userLocation) {
       handleLocationSet(userLocation);
+    } else {
+      // If geocoder isn't available (Maps still loading), let user try again
+      setIsSearching(false);
+      alert("Loading map services. Please try again in a moment.");
     }
-  }, [address, userLocation, handleLocationSet]);
+  }, [address, userLocation, handleLocationSet, mapsLoaded, loadGoogleMaps]);
 
   // Handle use my location
   const handleUseMyLocation = useCallback(() => {
@@ -325,6 +360,9 @@ export default function SearchSection() {
       alert("Geolocation is not supported by your browser.");
       return;
     }
+
+    // Ensure Maps loads when user requests location (reverse geocode)
+    if (!mapsLoaded) loadGoogleMaps();
 
     setIsLoadingLocation(true);
 
@@ -338,7 +376,7 @@ export default function SearchSection() {
         // Reverse geocode to get address
         if (geocoderRef.current) {
           geocoderRef.current.geocode({ location: loc }, (results, status) => {
-            if (status === 'OK' && results?.[0]) {
+            if (status === "OK" && results?.[0]) {
               setAddress(results[0].formatted_address);
             }
             setUserLocation(loc);
@@ -357,7 +395,7 @@ export default function SearchSection() {
         setIsLoadingLocation(false);
       }
     );
-  }, [handleLocationSet]);
+  }, [handleLocationSet, mapsLoaded, loadGoogleMaps]);
 
   return (
     <section className="min-h-[calc(100vh-5rem)] flex items-center justify-center py-12 md:py-20">
@@ -398,32 +436,31 @@ export default function SearchSection() {
             <div className="space-y-5">
               {/* Address Input */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Session Address
-                </label>
+                <label className="block text-sm font-medium text-foreground mb-2">Session Address</label>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <div className="relative flex-1">
                     <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                     <Input
                       ref={addressInputRef}
                       type="text"
-                      placeholder={mapLoaded ? "Enter address" : "Loading map..."}
+                      placeholder={mapsLoaded ? "Enter address" : "Enter address (map loads when you click)"}
                       value={address}
+                      onFocus={loadGoogleMaps}
+                      onClick={loadGoogleMaps}
                       onChange={(e) => {
                         setAddress(e.target.value);
                         setHasSearched(false);
                         setShowResults(false);
                       }}
-                      disabled={!mapLoaded}
                       className="pl-12 h-14 text-base bg-background border-border focus:border-primary transition-colors"
                     />
-                    {isLoadingAddress && (
+                    {isLoadingMaps && (
                       <Loader2 className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground animate-spin" />
                     )}
                   </div>
                   <Button
                     onClick={handleUseMyLocation}
-                    disabled={!mapLoaded || isLoadingLocation}
+                    disabled={isLoadingLocation}
                     variant="outline"
                     className="h-14 px-4 whitespace-nowrap"
                   >
@@ -444,7 +481,7 @@ export default function SearchSection() {
               <Button
                 size="lg"
                 onClick={handleSubmit}
-                disabled={!address.trim() || !mapLoaded || isSearching}
+                disabled={!address.trim() || isSearching}
                 className="w-full h-14 text-lg bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSearching ? (
@@ -472,9 +509,7 @@ export default function SearchSection() {
                     <div className="flex flex-col sm:flex-row gap-4">
                       {/* Activity Selector */}
                       <div ref={activityRef} className="relative flex-1">
-                        <label className="block text-sm font-medium text-foreground mb-2">
-                          Select Activity
-                        </label>
+                        <label className="block text-sm font-medium text-foreground mb-2">Select Activity</label>
                         <button
                           onClick={() => setIsActivityOpen(!isActivityOpen)}
                           disabled={availableActivities.length === 0}
@@ -484,7 +519,9 @@ export default function SearchSection() {
                             {activity || "Select Activity"}
                           </span>
                           <ChevronDown
-                            className={`w-5 h-5 text-muted-foreground transition-transform ${isActivityOpen ? "rotate-180" : ""}`}
+                            className={`w-5 h-5 text-muted-foreground transition-transform ${
+                              isActivityOpen ? "rotate-180" : ""
+                            }`}
                           />
                         </button>
 
@@ -514,9 +551,7 @@ export default function SearchSection() {
 
                       {/* Day Selector */}
                       <div ref={dayRef} className="relative flex-1">
-                        <label className="block text-sm font-medium text-foreground mb-2">
-                          Select Day
-                        </label>
+                        <label className="block text-sm font-medium text-foreground mb-2">Select Day</label>
                         <button
                           onClick={() => setIsDayOpen(!isDayOpen)}
                           disabled={!activity || availableDays.length === 0}
@@ -526,7 +561,9 @@ export default function SearchSection() {
                             {day || "Select Day"}
                           </span>
                           <ChevronDown
-                            className={`w-5 h-5 text-muted-foreground transition-transform ${isDayOpen ? "rotate-180" : ""}`}
+                            className={`w-5 h-5 text-muted-foreground transition-transform ${
+                              isDayOpen ? "rotate-180" : ""
+                            }`}
                           />
                         </button>
 
@@ -569,12 +606,8 @@ export default function SearchSection() {
                   className="mt-6 pt-6 border-t border-border"
                 >
                   <div className="text-center p-6 bg-muted/50 rounded-xl">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
-                      No trainers found nearby.
-                    </h3>
-                    <p className="text-muted-foreground">
-                      Try searching for a different location or checking back later!
-                    </p>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">No trainers found nearby.</h3>
+                    <p className="text-muted-foreground">Try searching for a different location or checking back later!</p>
                   </div>
                 </motion.div>
               )}
@@ -591,11 +624,9 @@ export default function SearchSection() {
                       <User className="w-6 h-6 text-primary" />
                     </div>
                     <h3 className="text-lg font-semibold text-foreground mb-1">
-                      {validTrainers.length} Trainer{validTrainers.length !== 1 ? 's' : ''} Available in Your Area
+                      {validTrainers.length} Trainer{validTrainers.length !== 1 ? "s" : ""} Available in Your Area
                     </h3>
-                    <p className="text-muted-foreground text-sm">
-                      Select an activity and day to see who's available.
-                    </p>
+                    <p className="text-muted-foreground text-sm">Select an activity and day to see who's available.</p>
                   </div>
                 </motion.div>
               )}
@@ -608,11 +639,9 @@ export default function SearchSection() {
                   className="mt-6 pt-6 border-t border-border"
                 >
                   <div className="mb-4 text-center">
-                    <h3 className="text-lg font-semibold text-foreground">
-                      Available Trainers - Book on Group Fit
-                    </h3>
+                    <h3 className="text-lg font-semibold text-foreground">Available Trainers - Book on Group Fit</h3>
                   </div>
-                  
+
                   {/* Desktop Table */}
                   <div className="hidden md:block overflow-x-auto">
                     <table className="w-full">
@@ -625,18 +654,16 @@ export default function SearchSection() {
                       </thead>
                       <tbody>
                         {filteredTrainers.map((trainer, index) => (
-                          <tr 
+                          <tr
                             key={`${trainer.Name}-${index}`}
                             className={index % 2 === 0 ? "bg-background" : "bg-muted/30"}
                           >
-                            <td className="px-4 py-3 text-center text-foreground font-medium">
-                              {trainer.Name}
+                            <td className="px-4 py-3 text-center text-foreground font-medium">{trainer.Name}</td>
+                            <td className="px-4 py-3 text-center text-muted-foreground">
+                              {formatTime(parseTime(trainer["Start Time"]))}
                             </td>
                             <td className="px-4 py-3 text-center text-muted-foreground">
-                              {formatTime(parseTime(trainer['Start Time']))}
-                            </td>
-                            <td className="px-4 py-3 text-center text-muted-foreground">
-                              {formatTime(parseTime(trainer['End Time']))}
+                              {formatTime(parseTime(trainer["End Time"]))}
                             </td>
                           </tr>
                         ))}
@@ -647,24 +674,22 @@ export default function SearchSection() {
                   {/* Mobile Cards */}
                   <div className="md:hidden space-y-3">
                     {filteredTrainers.map((trainer, index) => (
-                      <div 
+                      <div
                         key={`${trainer.Name}-${index}`}
                         className="bg-card border border-border rounded-xl overflow-hidden shadow-sm"
                       >
-                        <div className="bg-secondary text-white px-4 py-3 font-semibold">
-                          {trainer.Name}
-                        </div>
+                        <div className="bg-secondary text-white px-4 py-3 font-semibold">{trainer.Name}</div>
                         <div className="p-4 space-y-2">
                           <div className="flex justify-between items-center">
                             <span className="text-sm font-medium text-foreground">Start Time</span>
                             <span className="text-sm text-muted-foreground">
-                              {formatTime(parseTime(trainer['Start Time']))}
+                              {formatTime(parseTime(trainer["Start Time"]))}
                             </span>
                           </div>
                           <div className="flex justify-between items-center">
                             <span className="text-sm font-medium text-foreground">End Time</span>
                             <span className="text-sm text-muted-foreground">
-                              {formatTime(parseTime(trainer['End Time']))}
+                              {formatTime(parseTime(trainer["End Time"]))}
                             </span>
                           </div>
                         </div>
@@ -674,9 +699,7 @@ export default function SearchSection() {
 
                   {/* Download CTA */}
                   <div className="mt-6 text-center">
-                    <p className="text-muted-foreground mb-4">
-                      Download the Group Fit app to book your session.
-                    </p>
+                    <p className="text-muted-foreground mb-4">Download the Group Fit app to book your session.</p>
                     <AppStoreBadges
                       iosLink={APP_LINKS.customer.ios}
                       androidLink={APP_LINKS.customer.android}
@@ -690,9 +713,7 @@ export default function SearchSection() {
             {/* Helper Text */}
             <div className="mt-6 flex items-start gap-2 text-xs text-muted-foreground">
               <Info className="w-4 h-4 mt-0.5 flex-shrink-0" />
-              <p>
-                Results are based on the session address you enter, your selected activity, and trainer availability in the app.
-              </p>
+              <p>Results are based on the session address you enter, your selected activity, and trainer availability in the app.</p>
             </div>
           </motion.div>
 
