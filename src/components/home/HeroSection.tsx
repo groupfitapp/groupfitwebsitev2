@@ -27,14 +27,15 @@ export function HeroSection() {
       {/* Content */}
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-3xl">
+          {/* ✅ Keep a clear, SEO-friendly H1 */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
           >
-            Book an In-Person Trainer at{" "}
-            <span className="text-primary">Your Location</span>
+            Personal Trainer at{" "}
+            <span className="text-primary">Your Address</span> in Canada
           </motion.h1>
 
           <motion.p
@@ -60,18 +61,19 @@ export function HeroSection() {
               size="lg"
               className="bg-primary hover:bg-red-dark text-white text-lg px-8 py-6"
             >
-              <Link to="/download">
+              <Link to="/download" aria-label="Download the Group Fit app">
                 <Download className="w-5 h-5 mr-2" />
                 Download App
               </Link>
             </Button>
+
             <Button
               asChild
               size="lg"
               variant="outline"
               className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white text-lg px-8 py-6"
             >
-              <Link to="/how-it-works">
+              <Link to="/how-it-works" aria-label="How Group Fit works">
                 How it Works
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
