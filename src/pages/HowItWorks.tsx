@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  Zap, 
-  Navigation, 
-  CalendarClock, 
-  UserCheck, 
+import {
+  Zap,
+  Navigation,
+  CalendarClock,
+  UserCheck,
   Wallet,
   ArrowRight,
   Timer,
@@ -25,55 +25,74 @@ const steps = [
     number: 1,
     icon: Zap,
     title: "Choose your activity",
-    description: "Start with the training style you want. Explore options on our activities page.",
+    description: "Start with the training style you want. Explore options on our activities page."
   },
   {
     number: 2,
     icon: Navigation,
     title: "Enter your session address",
-    description: "Use the exact address where you want to train. Coach availability is based on this address.",
+    description: "Use the exact address where you want to train. Coach availability is based on this address."
   },
   {
     number: 3,
     icon: CalendarClock,
     title: "Pick your date & time",
-    description: "Choose when you want to train. Availability updates based on schedule and location coverage.",
+    description: "Choose when you want to train. Availability updates based on schedule and location coverage."
   },
   {
     number: 4,
     icon: UserCheck,
     title: "Select an available coach",
-    description: "Pick from coaches shown as available for that session (address + time + activity).",
+    description: "Pick from coaches shown as available for that session (address + time + activity)."
   },
   {
     number: 5,
     icon: Wallet,
     title: "Pay in-app and train",
-    description: "Complete the booking and meet your coach at the selected location.",
-  },
+    description: "Complete the booking and meet your coach at the selected location."
+  }
 ];
 
 const groupFeatures = [
   "Group bookings are private (friends/family)",
   "Everyone meets at the same location and time",
   "Split the cost inside Group Fit",
-  "Up to 10 members per group",
+  "Up to 10 members per group"
 ];
 
 export default function HowItWorks() {
+  const title = "How It Works | Personal Trainer at Your Address | Group Fit";
+  const description =
+    "See how Group Fit works: choose an activity, enter your session address, pick a time, then book an in-person coach available for that session.";
+  const canonical = "https://groupfitapp.com/how-it-works";
+  const ogImage = "https://groupfitapp.com/groupfit-logo.png";
+
   return (
     <>
       <Helmet>
-        <title>How It Works | Book Personal Training Sessions | Group Fit</title>
-        <meta
-          name="description"
-          content="Learn how to book in-person personal training with Group Fit. Choose an activity, enter your address, pick a time, and book."
-        />
-        <meta name="keywords" content="how to book personal trainer, personal training booking, fitness app Canada, book training session" />
-        <link rel="canonical" href="https://groupfitapp.com/how-it-works" />
-        <meta property="og:title" content="How It Works | Group Fit" />
-        <meta property="og:description" content="Book in-person personal training in 5 simple steps. Choose activity, enter address, pick time, select coach, and train." />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:secure_url" content={ogImage} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="791" />
+        <meta property="og:image:height" content="791" />
+        <meta property="og:image:alt" content="Group Fit" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@groupfitapp" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content="Group Fit" />
       </Helmet>
 
       {/* Hero Section */}
@@ -84,11 +103,15 @@ export default function HowItWorks() {
             src={howItWorksHeroImg}
             alt="Gym training environment"
             className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-secondary/80" />
         </div>
+
         {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[1]" />
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -99,7 +122,8 @@ export default function HowItWorks() {
               How booking works in Group Fit
             </h1>
             <p className="mt-6 text-lg text-white/70">
-              Booking is built around your selected activity, session address, and time—so you only see coaches who can accept that session.
+              Booking is built around your selected activity, session address, and time—so you only see coaches
+              who can accept that session.
             </p>
           </motion.div>
         </div>
@@ -134,12 +158,8 @@ export default function HowItWorks() {
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-sm font-medium text-primary">Step {step.number}</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {step.description}
-                  </p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -160,9 +180,7 @@ export default function HowItWorks() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
                 <UsersRound className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Private group bookings
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Private group bookings</h2>
             </motion.div>
 
             <motion.div
@@ -214,9 +232,7 @@ export default function HowItWorks() {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
               <PlayCircle className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Video tutorials
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Video tutorials</h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
               Watch step-by-step guides on how to use Group Fit.
             </p>
@@ -240,22 +256,12 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Next steps
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Next steps</h2>
             <div className="flex justify-center mb-6">
-              <AppStoreBadges
-                iosLink={APP_LINKS.customer.ios}
-                androidLink={APP_LINKS.customer.android}
-              />
+              <AppStoreBadges iosLink={APP_LINKS.customer.ios} androidLink={APP_LINKS.customer.android} />
             </div>
-            <Button
-              asChild
-              size="lg"
-              variant="ghost"
-              className="text-white/80 hover:text-white hover:bg-white/10"
-            >
-              <Link to="/activities">
+            <Button asChild size="lg" variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10">
+              <Link to="/activities" aria-label="View Group Fit activities">
                 View Activities
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
