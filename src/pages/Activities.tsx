@@ -27,14 +27,12 @@ const activityCategories = [
     name: "Strength & Performance",
     activities: [
       { name: "Strength & Conditioning", slug: "strength-and-conditioning", image: strengthImg },
-      { name: "Calisthenics", slug: "calisthenics", image: calisthenicsImg },
-    ],
+      { name: "Calisthenics", slug: "calisthenics", image: calisthenicsImg }
+    ]
   },
   {
     name: "Mind & Mobility",
-    activities: [
-      { name: "Yoga", slug: "yoga", image: yogaImg },
-    ],
+    activities: [{ name: "Yoga", slug: "yoga", image: yogaImg }]
   },
   {
     name: "Combat Sports & Self-Defense",
@@ -44,39 +42,58 @@ const activityCategories = [
       { name: "Muay Thai", slug: "muay-thai", image: muayThaiImg },
       { name: "Jiu Jitsu", slug: "jiu-jitsu", image: jiuJitsuImg },
       { name: "Wrestling", slug: "wrestling", image: wrestlingImg },
-      { name: "Self Defense", slug: "self-defense", image: selfDefenseImg },
-    ],
+      { name: "Self Defense", slug: "self-defense", image: selfDefenseImg }
+    ]
   },
   {
     name: "Sport Training",
     activities: [
       { name: "Soccer", slug: "soccer", image: soccerImg },
-      { name: "Basketball", slug: "basketball", image: basketballImg },
-    ],
+      { name: "Basketball", slug: "basketball", image: basketballImg }
+    ]
   },
   {
     name: "Conditioning",
     activities: [
       { name: "HIIT", slug: "hiit", image: hiitImg },
-      { name: "Bootcamp", slug: "bootcamp", image: bootcampImg },
-    ],
-  },
+      { name: "Bootcamp", slug: "bootcamp", image: bootcampImg }
+    ]
+  }
 ];
 
 export default function Activities() {
+  const title = "Activities | Personal Trainer at Your Address | Group Fit";
+  const description =
+    "Explore training activities across Canada—strength, yoga, boxing, HIIT and more. Group Fit helps you book an in-person coach at your address.";
+  const canonical = "https://groupfitapp.com/activities";
+  const ogImage = "https://groupfitapp.com/groupfit-logo.png";
+
   return (
     <>
       <Helmet>
-        <title>Activities | In-Person Personal Training | Group Fit</title>
-        <meta
-          name="description"
-          content="Explore 35+ activities including strength, yoga, boxing, HIIT, and more. Book in-person sessions with certified coaches across Canada."
-        />
-        <meta name="keywords" content="personal training activities, strength training, yoga classes, boxing training, HIIT workout, fitness activities Canada" />
-        <link rel="canonical" href="https://groupfitapp.com/activities" />
-        <meta property="og:title" content="Training Activities | Group Fit" />
-        <meta property="og:description" content="Choose from 35+ activities including strength, yoga, boxing, HIIT, and more. Book in-person sessions with certified coaches." />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:secure_url" content={ogImage} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="791" />
+        <meta property="og:image:height" content="791" />
+        <meta property="og:image:alt" content="Group Fit" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@groupfitapp" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content="Group Fit" />
       </Helmet>
 
       {/* Hero Section */}
@@ -87,11 +104,15 @@ export default function Activities() {
             src={activitiesHeroImg}
             alt="Fitness training activities"
             className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-secondary/80" />
         </div>
+
         {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[1]" />
+
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumbs className="mb-6" />
           <motion.div
@@ -99,11 +120,10 @@ export default function Activities() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              Choose your activity
-            </h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Choose your activity</h1>
             <p className="mt-6 text-lg text-white/70">
-              These are popular activities. Group Fit supports 35+ activities—download the app to see all options available based on your address and time.
+              These are popular activities. Group Fit supports 35+ activities—download the app to see options available
+              based on your address and time.
             </p>
           </motion.div>
         </div>
@@ -121,9 +141,8 @@ export default function Activities() {
               transition={{ delay: catIndex * 0.1 }}
               className="mb-16 last:mb-0"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-                {category.name}
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">{category.name}</h2>
+
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                 {category.activities.map((activity, index) => (
                   <motion.div
@@ -136,10 +155,11 @@ export default function Activities() {
                     <Link
                       to={`/activities/${activity.slug}`}
                       className="group block relative aspect-[4/3] rounded-2xl overflow-hidden card-hover"
+                      aria-label={`View ${activity.name} training`}
                     >
                       <img
                         src={activity.image}
-                        alt={`${activity.name} - Book in-person personal training sessions`}
+                        alt={`${activity.name} - Book an in-person coach at your address`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         loading="lazy"
                         decoding="async"
@@ -148,9 +168,7 @@ export default function Activities() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <h3 className="text-white font-semibold text-sm md:text-base">
-                          {activity.name}
-                        </h3>
+                        <h3 className="text-white font-semibold text-sm md:text-base">{activity.name}</h3>
                       </div>
                     </Link>
                   </motion.div>
@@ -166,7 +184,8 @@ export default function Activities() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-muted-foreground">
-              These pages cover popular options. Download Group Fit to see all 35+ activities and check coach availability based on your session address and time.
+              These pages cover popular options. Download Group Fit to see all 35+ activities and check coach
+              availability based on your session address and time.
             </p>
           </div>
         </div>
@@ -181,21 +200,17 @@ export default function Activities() {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to start training?
-            </h2>
-            <p className="text-white/70 mb-8">
-              Download Group Fit on your device to find available coaches near you.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to start training?</h2>
+            <p className="text-white/70 mb-8">Download Group Fit on your device to find available coaches near you.</p>
+
             <div className="flex justify-center mb-6">
-              <AppStoreBadges
-                iosLink={APP_LINKS.customer.ios}
-                androidLink={APP_LINKS.customer.android}
-              />
+              <AppStoreBadges iosLink={APP_LINKS.customer.ios} androidLink={APP_LINKS.customer.android} />
             </div>
+
             <Link
               to="/cities"
               className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+              aria-label="View cities Group Fit serves"
             >
               View Cities
               <ArrowRight className="w-5 h-5" />
