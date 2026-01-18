@@ -35,7 +35,7 @@ const cityImages: Record<string, string> = {
   brampton: bramptonImg,
   oakville: oakvilleImg,
   fredericton: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&h=300&fit=crop",
-  saskatoon: saskatoonImg,
+  saskatoon: saskatoonImg
 };
 
 interface City {
@@ -56,68 +56,75 @@ const provinces: Province[] = [
       { name: "Mississauga", slug: "mississauga" },
       { name: "Ottawa", slug: "ottawa" },
       { name: "Brampton", slug: "brampton" },
-      { name: "Oakville", slug: "oakville" },
-    ],
+      { name: "Oakville", slug: "oakville" }
+    ]
   },
   {
     name: "British Columbia",
-    cities: [
-      { name: "Vancouver", slug: "vancouver" },
-    ],
+    cities: [{ name: "Vancouver", slug: "vancouver" }]
   },
   {
     name: "Alberta",
     cities: [
       { name: "Calgary", slug: "calgary" },
-      { name: "Edmonton", slug: "edmonton" },
-    ],
+      { name: "Edmonton", slug: "edmonton" }
+    ]
   },
   {
     name: "Manitoba",
-    cities: [
-      { name: "Winnipeg", slug: "winnipeg" },
-    ],
+    cities: [{ name: "Winnipeg", slug: "winnipeg" }]
   },
   {
     name: "Quebec",
-    cities: [
-      { name: "Quebec City", slug: "quebec-city" },
-    ],
+    cities: [{ name: "Quebec City", slug: "quebec-city" }]
   },
   {
     name: "Nova Scotia",
-    cities: [
-      { name: "Halifax", slug: "halifax" },
-    ],
+    cities: [{ name: "Halifax", slug: "halifax" }]
   },
   {
     name: "New Brunswick",
-    cities: [
-      { name: "Fredericton", slug: "fredericton" },
-    ],
+    cities: [{ name: "Fredericton", slug: "fredericton" }]
   },
   {
     name: "Saskatchewan",
-    cities: [
-      { name: "Saskatoon", slug: "saskatoon" },
-    ],
-  },
+    cities: [{ name: "Saskatoon", slug: "saskatoon" }]
+  }
 ];
 
 export default function Cities() {
+  const title = "Cities | Personal Trainer at Your Address | Group Fit";
+  const description =
+    "Browse Canadian cities served by Group Fit. To see real availability and book an in-person coach, enter your session address and time in Group Fit.";
+  const canonical = "https://groupfitapp.com/cities";
+  const ogImage = "https://groupfitapp.com/groupfit-logo.png";
+
   return (
     <>
       <Helmet>
-        <title>Cities | In-Person Personal Trainers Near You | Group Fit</title>
-        <meta
-          name="description"
-          content="Find in-person personal trainers by city across Canada. Availability depends on your session address, activity, and time."
-        />
-        <meta name="keywords" content="personal trainer Toronto, personal trainer Vancouver, personal trainer Calgary, fitness coaches Canada, book trainer near me" />
-        <link rel="canonical" href="https://groupfitapp.com/cities" />
-        <meta property="og:title" content="Find Personal Trainers by City | Group Fit" />
-        <meta property="og:description" content="Book in-person personal trainers in Toronto, Vancouver, Calgary, and 75+ Canadian cities." />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:secure_url" content={ogImage} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="791" />
+        <meta property="og:image:height" content="791" />
+        <meta property="og:image:alt" content="Group Fit" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@groupfitapp" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content="Group Fit" />
       </Helmet>
 
       {/* Hero Section */}
@@ -128,11 +135,15 @@ export default function Cities() {
             src={citiesHeroImg}
             alt="Canadian cityscape"
             className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-secondary/80" />
         </div>
+
         {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[1]" />
+
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumbs className="mb-6" />
           <motion.div
@@ -144,7 +155,8 @@ export default function Cities() {
               Find trainers near you
             </h1>
             <p className="mt-6 text-lg text-white/70">
-              City pages help you pick the right activity and understand session location options. To see real availability and book, use Group Fit with your exact session address and time.
+              City pages help you choose the right activity and understand session options. To see real availability
+              and book, use Group Fit with your exact session address and time.
             </p>
           </motion.div>
         </div>
@@ -165,6 +177,7 @@ export default function Cities() {
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
                 {province.name}
               </h2>
+
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                 {province.cities.map((city, index) => (
                   <motion.div
@@ -176,11 +189,12 @@ export default function Cities() {
                   >
                     <Link
                       to={`/cities/${city.slug}`}
+                      aria-label={`View personal training in ${city.name}`}
                       className="group block relative aspect-[4/3] rounded-2xl overflow-hidden"
                     >
                       <img
                         src={cityImages[city.slug]}
-                        alt={`Find personal trainers in ${city.name} for in-person fitness sessions`}
+                        alt={`Find personal trainers in ${city.name} for in-person sessions`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         loading="lazy"
                         decoding="async"
@@ -189,9 +203,7 @@ export default function Cities() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <h3 className="text-white font-semibold text-lg">
-                          {city.name}
-                        </h3>
+                        <h3 className="text-white font-semibold text-lg">{city.name}</h3>
                       </div>
                     </Link>
                   </motion.div>
@@ -214,19 +226,18 @@ export default function Cities() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to find a trainer?
             </h2>
+
             <div className="flex justify-center mb-6">
-              <AppStoreBadges
-                iosLink={APP_LINKS.customer.ios}
-                androidLink={APP_LINKS.customer.android}
-              />
+              <AppStoreBadges iosLink={APP_LINKS.customer.ios} androidLink={APP_LINKS.customer.android} />
             </div>
+
             <Button
               asChild
               size="lg"
               variant="ghost"
               className="text-white/80 hover:text-white hover:bg-white/10"
             >
-              <Link to="/activities">
+              <Link to="/activities" aria-label="View Group Fit activities">
                 View Activities
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
