@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -9,7 +9,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Layout } from "@/components/layout";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
-// ✅ Route-based code splitting (reduces unused JS on the homepage)
+// ✅ Lazy-load pages to reduce initial JS (helps PageSpeed “Reduce unused JavaScript”)
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
@@ -37,7 +37,10 @@ declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
     fbq?: (...args: any[]) => void;
-    ttq?: { page: (...args: any[]) => void; track: (...args: any[]) => void };
+    ttq?: {
+      page: (...args: any[]) => void;
+      track: (...args: any[]) => void;
+    };
   }
 }
 
@@ -66,7 +69,7 @@ const AnalyticsRouteTracker = () => {
       window.ttq.page();
     }
 
-    // TikTok Pixel ViewContent on specific pages you care about
+    // TikTok ViewContent on key pages (optional but you asked for it)
     const viewContentMap: Record<string, string> = {
       "/download": "Download",
       "/trainer": "Trainer",
@@ -74,23 +77,27 @@ const AnalyticsRouteTracker = () => {
       "/how-it-works": "How It Works",
       "/activities": "Activities",
       "/cities": "Cities",
-      "/faq": "FAQ"
+      "/faq": "FAQ",
+      "/availability": "Availability"
     };
 
     const contentName = viewContentMap[location.pathname];
 
-    // TikTok requires content_id for ViewContent (use pathname as a stable unique id)
     if (contentName && typeof window.ttq?.track === "function") {
       window.ttq.track("ViewContent", {
-        content_id: location.pathname,
+        content_id: location.pathname, // required by TikTok
         content_name: contentName,
-        page_path
+        content_type: "product_group" // TikTok allows ONLY product / product_group
       });
     }
   }, [location.pathname, location.search]);
 
   return null;
 };
+
+const RouteLoadingFallback = () => (
+  <div style={{ minHeight: "60vh" }} aria-busy="true" />
+);
 
 const App = () => (
   <HelmetProvider>
@@ -102,10 +109,14 @@ const App = () => (
           <AnalyticsRouteTracker />
           <ScrollToTop />
           <Layout>
-            {/* ✅ Loads route chunks only when needed */}
-            <Suspense fallback={null}>
+            <Suspense fallback={<RouteLoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
+
+                {/* ✅ Fix Search Console “/availability” issues by making it a real SPA route */}
+                <Route path="/availability" element={<Index />} />
+                <Route path="/availability/*" element={<Index />} />
+
                 <Route path="/about" element={<About />} />
                 <Route path="/how-it-works" element={<HowItWorks />} />
                 <Route path="/activities" element={<Activities />} />
