@@ -43,6 +43,7 @@ const socialLinks = [
 
 const customerLinks = [
   { name: "About Us", href: "/about" },
+  { name: "Blog", href: "https://blog.groupfitapp.com/" },
   { name: "How it Works", href: "/how-it-works" },
   { name: "Activities", href: "/activities" },
   { name: "Cities", href: "/cities" },
@@ -101,6 +102,7 @@ export function Footer() {
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
               In-person training at your location, made simple—for individuals, private groups, and organizations.
             </p>
+
             {/* Social Icons */}
             <div className="flex items-center gap-4 mt-6">
               {socialLinks.map((social) => (
@@ -116,15 +118,14 @@ export function Footer() {
                 </a>
               ))}
             </div>
+
             {/* Contact Us Button */}
             <Button
               asChild
               variant="outline"
               className="mt-4 border-primary text-primary hover:bg-primary hover:text-white"
             >
-              <Link to="/contact">
-                Contact Us
-              </Link>
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
 
@@ -134,12 +135,23 @@ export function Footer() {
             <ul className="space-y-2">
               {customerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-white/70 text-sm hover:text-primary transition-colors"
-                  >
-                    {link.name}
-                  </Link>
+                  {link.href.startsWith("http") ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 text-sm hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-white/70 text-sm hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -197,7 +209,6 @@ export function Footer() {
           </div>
         </div>
 
-
         {/* Legal Links - Dropdown */}
         <div className="mt-8 pt-8 border-t border-white/10">
           <div className="flex justify-center">
@@ -211,10 +222,7 @@ export function Footer() {
                 <DropdownMenuLabel className="text-white/50 text-xs">Website</DropdownMenuLabel>
                 {websiteLegalLinks.map((link) => (
                   <DropdownMenuItem key={link.name} asChild>
-                    <Link
-                      to={link.href}
-                      className="text-white/80 hover:text-primary cursor-pointer"
-                    >
+                    <Link to={link.href} className="text-white/80 hover:text-primary cursor-pointer">
                       {link.name}
                     </Link>
                   </DropdownMenuItem>
@@ -223,10 +231,7 @@ export function Footer() {
                 <DropdownMenuLabel className="text-white/50 text-xs">Apps</DropdownMenuLabel>
                 {appLegalLinks.map((link) => (
                   <DropdownMenuItem key={link.name} asChild>
-                    <Link
-                      to={link.href}
-                      className="text-white/80 hover:text-primary cursor-pointer"
-                    >
+                    <Link to={link.href} className="text-white/80 hover:text-primary cursor-pointer">
                       {link.name}
                     </Link>
                   </DropdownMenuItem>
