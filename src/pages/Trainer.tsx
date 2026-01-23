@@ -121,7 +121,7 @@ export default function Trainer() {
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link to="/download">
                 <Button size="lg" className="w-full sm:w-auto">
-                  Download Group Fit Trainer
+                  Download
                 </Button>
               </Link>
               <Link to="/trainer/how-it-works">
@@ -374,13 +374,6 @@ export default function Trainer() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to simplify your week?
             </h2>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-              <Link to="/download">
-                <Button size="lg" className="w-full sm:w-auto">
-                  Download Group Fit Trainer
-                </Button>
-              </Link>
-            </div>
             <div className="flex justify-center">
               <AppStoreBadges
                 iosLink={APP_LINKS.trainer.ios}

@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import contactHero from "@/assets/heroes/contact-hero.jpg";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -116,11 +117,23 @@ export default function Contact() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-secondary pt-24 pb-16 md:pt-32 md:pb-20">
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-        <div className="container mx-auto px-4 relative z-10">
-          <Breadcrumbs />
+      <section className="relative min-h-[50vh] flex items-center bg-secondary overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={contactHero}
+            alt="Team collaboration and communication"
+            className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            width={1920}
+            height={1080}
+          />
+          <div className="absolute inset-0 bg-secondary/70" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        </div>
+        <div className="container mx-auto px-4 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
+          <Breadcrumbs className="mb-6" />
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Contact Us
