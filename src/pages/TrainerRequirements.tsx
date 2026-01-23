@@ -260,11 +260,6 @@ export default function TrainerRequirements() {
             <p className="text-white/70 mb-8">
               Download the trainer app and start your onboarding today.
             </p>
-            <div className="flex justify-center mb-6">
-              <Link to="/download">
-                <Button size="lg">Download Group Fit Trainer</Button>
-              </Link>
-            </div>
             <div className="flex justify-center">
               <AppStoreBadges
                 iosLink={APP_LINKS.trainer.ios}

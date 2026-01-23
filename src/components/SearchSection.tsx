@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
+import { PillLink } from "@/components/ui/PillLink";
 
 // Extend window for Google Maps
 declare global {
@@ -722,26 +723,17 @@ export default function SearchSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="mt-8 flex flex-wrap justify-center gap-6"
+            className="mt-8 flex flex-wrap justify-center gap-4"
           >
-            <a
-              href="/activities"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              View all activities →
-            </a>
-            <a
-              href="/cities"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              Cities we serve →
-            </a>
-            <a
-              href="/how-it-works"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              How it works →
-            </a>
+            <PillLink to="/activities" variant="default">
+              View all activities
+            </PillLink>
+            <PillLink to="/cities" variant="default">
+              Cities we serve
+            </PillLink>
+            <PillLink to="/how-it-works" variant="default">
+              How it works
+            </PillLink>
           </motion.div>
         </motion.div>
       </div>
