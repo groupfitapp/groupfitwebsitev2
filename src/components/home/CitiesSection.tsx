@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { PillLink } from "@/components/ui/PillLink";
 import {
   Carousel,
   CarouselContent,
@@ -49,13 +49,9 @@ export function CitiesSection() {
               Subject to trainer availability in your area
             </motion.p>
           </div>
-          <Link
-            to="/cities"
-            className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
-          >
+          <PillLink to="/cities">
             View all cities
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          </PillLink>
         </div>
 
         <motion.div

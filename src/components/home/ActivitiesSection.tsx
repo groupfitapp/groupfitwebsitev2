@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { PillLink } from "@/components/ui/PillLink";
 
 import strengthImg from "@/assets/activities/strength.jpg";
 import yogaImg from "@/assets/activities/yoga.jpg";
@@ -46,13 +46,9 @@ export function ActivitiesSection() {
               Explore our most booked training styles
             </motion.p>
           </div>
-          <Link
-            to="/activities"
-            className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
-          >
+          <PillLink to="/activities">
             View all activities
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          </PillLink>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">

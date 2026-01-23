@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Zap, Navigation, CalendarClock, UserCheck, Wallet, ArrowRight } from "lucide-react";
+import { Zap, Navigation, CalendarClock, UserCheck, Wallet } from "lucide-react";
+import { PillLink } from "@/components/ui/PillLink";
 
 const steps = [
   {
@@ -124,13 +125,9 @@ export function HowItWorksSection() {
           transition={{ delay: 0.5 }}
           className="text-center mt-12"
         >
-          <Link
-            to="/how-it-works"
-            className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
-          >
+          <PillLink to="/how-it-works">
             Learn more
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          </PillLink>
         </motion.div>
       </div>
     </section>
