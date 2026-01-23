@@ -9,7 +9,6 @@ import {
   Settings,
   Zap,
   BadgeCheck,
-  ArrowRight,
   CheckCircle,
   Gift
 } from "lucide-react";
@@ -19,6 +18,7 @@ import { APP_LINKS } from "@/lib/appLinks";
 import trainerBanner from "@/assets/trainer-banner.jpg";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { PillLink } from "@/components/ui/PillLink";
 
 const benefitCards = [
   {
@@ -127,7 +127,7 @@ export default function Trainer() {
               <Link to="/trainer/how-it-works">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto bg-white/10 border-white/20 text-white hover:bg-white/20">
                   See how it works
-                  <ArrowRight className="ml-2 w-4 h-4" />
+                  <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </Button>
               </Link>
             </div>
@@ -328,36 +328,22 @@ export default function Trainer() {
       {/* Links Section */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-            <Link
-              to="/trainer/how-it-works"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+          <div className="flex flex-wrap justify-center gap-4">
+            <PillLink to="/trainer/how-it-works" variant="default">
               How it works
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/trainer/requirements"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+            </PillLink>
+            <PillLink to="/trainer/requirements" variant="default">
               Requirements & verification
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/trainer/faq"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+            </PillLink>
+            <PillLink to="/trainer/faq" variant="default">
               Trainer FAQ
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/referral"
-              className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-colors"
+            </PillLink>
+            <PillLink 
+              to="/referral" 
+              icon={<Gift className="w-4 h-4" />}
             >
-              <Gift className="w-4 h-4" />
               Refer & Earn
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            </PillLink>
           </div>
         </div>
       </section>

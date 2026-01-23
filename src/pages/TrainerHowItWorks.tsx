@@ -8,14 +8,14 @@ import {
   Timer,
   RefreshCw,
   Rocket,
-  PlayCircle,
-  ArrowRight
+  PlayCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { PillLink } from "@/components/ui/PillLink";
 
 import trainerHowItWorksHeroImg from "@/assets/heroes/trainer-how-it-works-hero.jpg";
 
@@ -177,28 +177,16 @@ export default function TrainerHowItWorks() {
       {/* Links Section */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-            <Link
-              to="/download"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+          <div className="flex flex-wrap justify-center gap-4">
+            <PillLink to="/download" variant="default">
               Download
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/trainer/requirements"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+            </PillLink>
+            <PillLink to="/trainer/requirements" variant="default">
               See requirements
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/trainer/faq"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+            </PillLink>
+            <PillLink to="/trainer/faq" variant="default">
               Read FAQs
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            </PillLink>
           </div>
         </div>
       </section>

@@ -4,13 +4,12 @@ import { motion } from "framer-motion";
 import { 
   Download,
   CheckCircle,
-  ArrowRight,
   Smartphone
 } from "lucide-react";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-
+import { PillLink } from "@/components/ui/PillLink";
 import trainerBanner from "@/assets/trainer-banner.jpg";
 
 const setupChecklist = [
@@ -125,28 +124,16 @@ export default function TrainerDownload() {
       {/* Links Section */}
       <section className="py-12 bg-muted/50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-            <Link
-              to="/trainer/how-it-works"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+          <div className="flex flex-wrap justify-center gap-4">
+            <PillLink to="/trainer/how-it-works" variant="default">
               How it works
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/trainer/requirements"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+            </PillLink>
+            <PillLink to="/trainer/requirements" variant="default">
               Requirements
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/trainer/faq"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+            </PillLink>
+            <PillLink to="/trainer/faq" variant="default">
               FAQ
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            </PillLink>
           </div>
         </div>
       </section>

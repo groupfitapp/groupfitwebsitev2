@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
-  ArrowRight, 
   Sparkles, 
   CircleDollarSign, 
   Calendar, 
@@ -12,6 +11,7 @@ import {
   HelpCircle,
   Shield
 } from "lucide-react";
+import { PillLink } from "@/components/ui/PillLink";
 import {
   Accordion,
   AccordionContent,
@@ -335,28 +335,16 @@ export default function TrainerFAQ() {
       {/* Links Section */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-            <Link
-              to="/trainer/how-it-works"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+          <div className="flex flex-wrap justify-center gap-4">
+            <PillLink to="/trainer/how-it-works" variant="default">
               How it works
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/trainer/requirements"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+            </PillLink>
+            <PillLink to="/trainer/requirements" variant="default">
               Requirements
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/download"
-              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
-            >
+            </PillLink>
+            <PillLink to="/download" variant="default">
               Download
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            </PillLink>
           </div>
         </div>
       </section>

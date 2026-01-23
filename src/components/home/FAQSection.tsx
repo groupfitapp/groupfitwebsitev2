@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { PillLink } from "@/components/ui/PillLink";
 import {
   Accordion,
   AccordionContent,
@@ -78,13 +78,9 @@ export function FAQSection() {
             transition={{ delay: 0.3 }}
             className="text-center mt-8"
           >
-            <Link
-              to="/faq"
-              className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
-            >
+            <PillLink to="/faq">
               View all FAQs
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            </PillLink>
           </motion.div>
         </div>
       </div>
