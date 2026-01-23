@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Users, Dumbbell } from "lucide-react";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
+import downloadHero from "@/assets/heroes/download-hero.jpg";
 
 export default function Download() {
   return (
@@ -21,10 +22,22 @@ export default function Download() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="relative min-h-[50vh] flex items-center bg-secondary overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={downloadHero}
+            alt="Mobile fitness app on smartphone"
+            className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            width={1920}
+            height={1080}
+          />
+          <div className="absolute inset-0 bg-secondary/70" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        </div>
+        <div className="container mx-auto px-4 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
