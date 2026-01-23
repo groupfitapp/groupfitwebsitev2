@@ -104,11 +104,13 @@ const faqCategories = [
     faqs: [
       {
         question: "How is commission calculated and paid out?",
-        answer: "Earnings and payouts are handled through Stripe Connect. For current payout timing and rules, refer to the Terms & Conditions and in-app details.",
+        answer: "Earnings and payouts are handled through Stripe Connect. For current payout timing and rules, refer to the [Terms & Conditions](/app-trainer-terms-and-condition) and in-app details.",
+        hasLink: true,
       },
       {
         question: "Do customer discounts reduce what I earn?",
-        answer: "Earnings and promotions are handled transparently—details are available in the Terms & Conditions.",
+        answer: "Earnings and promotions are handled transparently—details are available in the [Terms & Conditions](/app-trainer-terms-and-condition).",
+        hasLink: true,
       },
     ],
   },
@@ -296,7 +298,16 @@ export default function TrainerFAQ() {
                         </span>
                       </AccordionTrigger>
                       <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
-                        {faq.answer}
+                        {faq.hasLink ? (
+                          <span dangerouslySetInnerHTML={{
+                            __html: faq.answer.replace(
+                              /\[([^\]]+)\]\(([^)]+)\)/g,
+                              '<a href="$2" class="text-primary hover:underline">$1</a>'
+                            )
+                          }} />
+                        ) : (
+                          faq.answer
+                        )}
                       </AccordionContent>
                     </AccordionItem>
                   ))}
