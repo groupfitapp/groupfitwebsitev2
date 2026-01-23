@@ -23,6 +23,7 @@ const Trainer = lazy(() => import("./pages/Trainer"));
 const TrainerHowItWorks = lazy(() => import("./pages/TrainerHowItWorks"));
 const TrainerRequirements = lazy(() => import("./pages/TrainerRequirements"));
 const TrainerFAQ = lazy(() => import("./pages/TrainerFAQ"));
+const TrainerDownload = lazy(() => import("./pages/TrainerDownload"));
 const WebsiteTerms = lazy(() => import("./pages/WebsiteTerms"));
 const WebsitePrivacy = lazy(() => import("./pages/WebsitePrivacy"));
 const AppUserTerms = lazy(() => import("./pages/AppUserTerms"));
@@ -129,6 +130,7 @@ const App = () => (
                 <Route path="/trainer/how-it-works" element={<TrainerHowItWorks />} />
                 <Route path="/trainer/requirements" element={<TrainerRequirements />} />
                 <Route path="/trainer/faq" element={<TrainerFAQ />} />
+                <Route path="/trainer/download" element={<TrainerDownload />} />
                 <Route path="/website-terms-and-condition" element={<WebsiteTerms />} />
                 <Route path="/privacy-policy" element={<WebsitePrivacy />} />
                 <Route path="/app-user-terms-and-condition" element={<AppUserTerms />} />

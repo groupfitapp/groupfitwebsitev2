@@ -1,15 +1,17 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
-  Download,
-  UserRoundCheck,
-  SlidersHorizontal,
-  BellRing,
+  Dumbbell,
+  CalendarDays,
   MapPinned,
-  CalendarCheck,
+  Timer,
+  RefreshCw,
   Rocket,
-  PlayCircle
+  PlayCircle,
+  ArrowRight
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
@@ -19,34 +21,29 @@ import trainerHowItWorksHeroImg from "@/assets/heroes/trainer-how-it-works-hero.
 
 const steps = [
   {
-    icon: Download,
-    title: "Download the Trainer app",
-    description: "Get Group Fit Trainer from the App Store or Google Play.",
+    icon: Dumbbell,
+    title: "Choose what you coach",
+    description: "Select your specializations (35+ options—HIIT, Boxing, Jiu Jitsu, and more).",
   },
   {
-    icon: UserRoundCheck,
-    title: "Complete onboarding",
-    description: "Submit your credentials and complete identity verification.",
-  },
-  {
-    icon: SlidersHorizontal,
-    title: "Set up your profile",
-    description: "Add your activities, rates, availability, and bio.",
+    icon: CalendarDays,
+    title: "Set your availability (time slots)",
+    description: "Create time windows per day (example: Monday 8–3 and 5–8; Tuesday–Friday 9–3). Customers can only book inside the windows you set.",
   },
   {
     icon: MapPinned,
-    title: "Define your service area",
-    description: "Set the locations where you're willing to travel for sessions.",
+    title: "Set your service radius by day",
+    description: "Create one or more service locations and assign a radius in kilometers. Example: Monday 25 km from CN Tower, Toronto; Tue–Fri 30 km from Square One, Mississauga.",
   },
   {
-    icon: CalendarCheck,
-    title: "Set your availability",
-    description: "Mark the days and times you're available for bookings.",
+    icon: Timer,
+    title: "Set your time gap between sessions",
+    description: "Choose how much time you want between sessions (up to 1 hour) to rest or travel. If you're booked at 9:00 AM and your gap is 30 minutes, your next available slot won't show until 10:30 AM.",
   },
   {
-    icon: BellRing,
-    title: "Receive bookings",
-    description: "Get notified when customers book sessions with you.",
+    icon: RefreshCw,
+    title: "Rescheduling is built in",
+    description: "When something unexpected happens, request a reschedule or cancellation in the app. Group Fit manages the client confirmation flow.",
   },
 ];
 
@@ -54,21 +51,26 @@ export default function TrainerHowItWorks() {
   return (
     <>
       <Helmet>
-        <title>How It Works for Trainers | Join Group Fit</title>
+        <title>How Group Fit Trainer Works | Setup Guide</title>
         <meta
           name="description"
-          content="Learn how to join Group Fit as a trainer. Set your service area, availability, and specializations to start receiving in-person training bookings."
+          content="Learn how to set up Group Fit Trainer: choose specializations, set availability time slots, define service areas and radius, configure booking buffers, and manage rescheduling."
         />
-        <meta name="keywords" content="trainer onboarding, join fitness platform, personal trainer signup, how to become trainer Group Fit" />
+        <meta name="keywords" content="trainer onboarding, fitness trainer setup, personal trainer app guide, how to use Group Fit" />
         <link rel="canonical" href="https://groupfitapp.com/trainer/how-it-works" />
-        <meta property="og:title" content="How It Works for Trainers | Group Fit" />
-        <meta property="og:description" content="Get started in minutes. Set your service area and availability, and start receiving bookings." />
+        <meta name="robots" content="index,follow" />
+        <meta property="og:site_name" content="Group Fit" />
         <meta property="og:type" content="website" />
+        <meta property="og:title" content="How Group Fit Trainer Works | Setup Guide" />
+        <meta property="og:description" content="Step-by-step guide to setting up your trainer profile, availability, and service areas." />
+        <meta property="og:url" content="https://groupfitapp.com/trainer/how-it-works" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="How Group Fit Trainer Works" />
+        <meta name="twitter:description" content="Step-by-step guide to setting up your trainer profile." />
       </Helmet>
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
-        {/* Background Image */}
         <div className="absolute inset-0">
           <img
             src={trainerHowItWorksHeroImg}
@@ -77,7 +79,6 @@ export default function TrainerHowItWorks() {
           />
           <div className="absolute inset-0 bg-secondary/80" />
         </div>
-        {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[1]" />
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumbs className="mb-6" />
@@ -90,10 +91,10 @@ export default function TrainerHowItWorks() {
               <Rocket className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              How it works for trainers
+              Set your rules once. Get clean bookings automatically.
             </h1>
             <p className="mt-6 text-lg text-white/80">
-              Get started in minutes. Set your service area and availability, and start receiving bookings.
+              Customers can only book you when the booking is actually valid—no back-and-forth, no irrelevant inquiries.
             </p>
           </motion.div>
         </div>
@@ -112,23 +113,35 @@ export default function TrainerHowItWorks() {
                 transition={{ delay: index * 0.1 }}
                 className="flex gap-6 items-start"
               >
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center relative">
                   <step.icon className="w-7 h-7 text-primary" />
+                  <span className="absolute -top-2 -right-2 w-6 h-6 bg-primary text-white text-xs font-bold rounded-full flex items-center justify-center">
+                    {index + 1}
+                  </span>
                 </div>
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-sm font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">Step {index + 1}</span>
-                  </div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground leading-relaxed">
                     {step.description}
                   </p>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Tip Box */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto mt-12 bg-primary/5 border border-primary/20 rounded-xl p-6"
+          >
+            <p className="text-foreground">
+              <strong>Practical tip:</strong> Larger radiuses usually need larger time gaps. Start with a sensible estimate and adjust anytime.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -161,6 +174,35 @@ export default function TrainerHowItWorks() {
         </div>
       </section>
 
+      {/* Links Section */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+            <Link
+              to="/download"
+              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
+            >
+              Download
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/trainer/requirements"
+              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
+            >
+              See requirements
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/trainer/faq"
+              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
+            >
+              Read FAQs
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
@@ -176,6 +218,11 @@ export default function TrainerHowItWorks() {
             <p className="text-white/70 mb-8">
               Download the trainer app and start growing your business today.
             </p>
+            <div className="flex justify-center mb-6">
+              <Link to="/download">
+                <Button size="lg">Download Group Fit Trainer</Button>
+              </Link>
+            </div>
             <div className="flex justify-center">
               <AppStoreBadges
                 iosLink={APP_LINKS.trainer.ios}
