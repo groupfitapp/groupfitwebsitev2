@@ -5,12 +5,11 @@ import {
   CircleCheckBig, 
   Camera, 
   FileText, 
-  Fingerprint, 
-  CreditCard, 
-  MapPinned, 
+  Fingerprint,
   Users, 
   Dumbbell,
-  Wallet
+  Wallet,
+  Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -22,7 +21,7 @@ import trainerRequirementsHeroImg from "@/assets/heroes/trainer-requirements-her
 const requirements = [
   {
     icon: Camera,
-    title: "Professional profile photo",
+    title: "Clear profile photo",
     description: "A clear, high-quality photo that represents you professionally.",
   },
   {
@@ -32,18 +31,8 @@ const requirements = [
   },
   {
     icon: Fingerprint,
-    title: "ID verification",
+    title: "ID verification during onboarding",
     description: "Complete identity verification via Plaid during onboarding.",
-  },
-  {
-    icon: CreditCard,
-    title: "Stripe Connect setup",
-    description: "Required for receiving payouts securely.",
-  },
-  {
-    icon: MapPinned,
-    title: "In-person availability",
-    description: "Service area configuration for where you're willing to travel.",
   },
 ];
 
@@ -56,13 +45,15 @@ const inPersonInfo = {
 const equipmentInfo = {
   icon: Dumbbell,
   title: "Equipment",
-  description: "Providing equipment is optional. Some trainers bring equipment to improve the session experience.",
+  description: "Optional. Bring equipment if you choose.",
 };
 
 const payoutsInfo = {
   icon: Wallet,
-  title: "Payouts and promotions",
+  title: "Payments and payouts",
   items: [
+    "Group Fit handles payments so you don't have to chase clients",
+    "Secure payouts to your bank account",
     "Transparent payouts with clear earnings visibility in the app",
     "Earnings and promotions are handled transparently—details are available in the Terms & Conditions",
   ],
@@ -72,22 +63,22 @@ export default function TrainerRequirements() {
   return (
     <>
       <Helmet>
-        <title>Trainer Requirements | Join Group Fit</title>
+        <title>Trainer Requirements & Verification | Group Fit</title>
         <meta
           name="description"
-          content="Requirements to become a Group Fit trainer: professional photo, credentials review, ID verification via Plaid, Stripe Connect for payouts, and in-person availability."
+          content="Professional standards, safer sessions, and smoother bookings. Currently available in Canada."
         />
         <meta name="keywords" content="trainer requirements, personal trainer certification, fitness coach qualifications, Group Fit requirements, trainer verification" />
         <link rel="canonical" href="https://groupfitapp.com/trainer/requirements" />
         <meta name="robots" content="index,follow" />
         <meta property="og:site_name" content="Group Fit" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Trainer Requirements | Group Fit" />
+        <meta property="og:title" content="Trainer Requirements & Verification | Group Fit" />
         <meta property="og:description" content="Professional standards, safer sessions, and smoother bookings." />
         <meta property="og:url" content="https://groupfitapp.com/trainer/requirements" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Trainer Requirements | Group Fit" />
-        <meta name="twitter:description" content="What you need to join Group Fit as a trainer." />
+        <meta name="twitter:title" content="Trainer Requirements & Verification" />
+        <meta name="twitter:description" content="Professional standards, safer sessions, and smoother bookings." />
       </Helmet>
 
       {/* Hero Section */}
@@ -112,10 +103,13 @@ export default function TrainerRequirements() {
               <CircleCheckBig className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              Requirements & verification
+              Trainer Requirements & Verification
             </h1>
             <p className="mt-6 text-lg text-white/80">
               Professional standards, safer sessions, and smoother bookings.
+            </p>
+            <p className="mt-2 text-white/60">
+              Currently available in Canada.
             </p>
           </motion.div>
         </div>
@@ -231,16 +225,52 @@ export default function TrainerRequirements() {
         </div>
       </section>
 
-      {/* Links Section */}
+      {/* Bonus Section */}
       <section className="py-12 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-4">
+              <Sparkles className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-xl font-bold text-foreground mb-2">
+              Bonus: rules-based discovery
+            </h3>
+            <p className="text-muted-foreground text-sm">
+              Group Fit shows your profile only to customers who match your specialization, time slots, and service location radius.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Links Section */}
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4">
             <PillLink to="/download" variant="default">
               Download
             </PillLink>
-            <PillLink to="/trainer/faq" variant="default">
-              FAQs
+            <PillLink to="/trainer/how-it-works" variant="default">
+              How it works
             </PillLink>
+            <PillLink to="/trainer/faq" variant="default">
+              FAQ
+            </PillLink>
+          </div>
+        </div>
+      </section>
+
+      {/* How to Invite Clients Link */}
+      <section className="py-6 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <Link to="/trainer#share" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Already have the app? <span className="text-primary font-medium">How to invite clients →</span>
+            </Link>
           </div>
         </div>
       </section>
