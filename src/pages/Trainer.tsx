@@ -8,8 +8,7 @@ import {
   CreditCard,
   CheckCircle,
   Share2,
-  Sparkles,
-  PlayCircle
+  Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -220,7 +219,7 @@ export default function Trainer() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="rounded-2xl overflow-hidden shadow-xl bg-secondary"
+                className="max-w-xs mx-auto rounded-2xl overflow-hidden shadow-xl bg-secondary"
               >
                 <video
                   src={shareProfileVideo}
@@ -237,26 +236,9 @@ export default function Trainer() {
         </div>
       </section>
 
-      {/* Trainer Playlist Section */}
+      {/* Main Video Section */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
-          >
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 mb-6">
-              <PlayCircle className="w-8 h-8 text-primary" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Hear from trainers using Group Fit
-            </h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
-              Short clips from trainers sharing how Group Fit Trainer helps reduce scheduling and payment admin.
-            </p>
-          </motion.div>
-
           <div className="max-w-4xl mx-auto">
             <YouTubeEmbed
               videoId="upwk6yBzJnI"

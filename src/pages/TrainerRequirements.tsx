@@ -268,9 +268,9 @@ export default function TrainerRequirements() {
       <section className="py-6 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <Link to="/trainer#share" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Already have the app? <span className="text-primary font-medium">How to invite clients →</span>
-            </Link>
+            <PillLink to="/trainer#share" variant="default">
+              Already have the app? How to invite clients
+            </PillLink>
           </div>
         </div>
       </section>

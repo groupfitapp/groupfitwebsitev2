@@ -117,15 +117,15 @@ export default function Download() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Set your service area and availability
+                  Set your schedule, service locations, and travel radius
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Receive bookings directly in-app
+                  Share your profile link with existing clients
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Manage your schedule easily
+                  Payments handled—no chasing clients
                 </li>
               </ul>
 
