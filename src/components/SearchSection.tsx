@@ -622,12 +622,9 @@ export default function SearchSection() {
                 >
                   <div className="text-center p-6 bg-primary/10 rounded-xl">
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 mb-3">
-                      <User className="w-6 h-6 text-primary" />
+                      <Info className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">
-                      {validTrainers.length} Trainer{validTrainers.length !== 1 ? "s" : ""} Available in Your Area
-                    </h3>
-                    <p className="text-muted-foreground text-sm">Select an activity and day to see who's available.</p>
+                    <p className="text-foreground font-medium">Select an activity and day to see who's available.</p>
                   </div>
                 </motion.div>
               )}
