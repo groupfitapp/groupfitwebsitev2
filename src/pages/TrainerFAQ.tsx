@@ -5,11 +5,10 @@ import {
   Sparkles, 
   CircleDollarSign, 
   Calendar, 
-  MapPinned, 
   Users, 
   RefreshCw, 
   HelpCircle,
-  Shield
+  MapPinned
 } from "lucide-react";
 import { PillLink } from "@/components/ui/PillLink";
 import {
@@ -18,7 +17,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -27,12 +25,12 @@ import trainerFaqHeroImg from "@/assets/heroes/trainer-faq-hero.jpg";
 
 const faqCategories = [
   {
-    title: "Getting Started",
+    title: "Getting started",
     icon: Sparkles,
     faqs: [
       {
-        question: "What is Group Fit?",
-        answer: "Group Fit is a platform for in-person sessions where customers can book trainers based on specialization, time, and location. Customers can also create private groups with friends or family and split the cost.",
+        question: "How do I share my profile link with clients?",
+        answer: "Open Group Fit Trainer → Account → My Profile → tap the 3 dots → View Public Profile → Share.",
       },
       {
         question: "What is Group Fit Trainer?",
@@ -41,56 +39,34 @@ const faqCategories = [
     ],
   },
   {
-    title: "Availability, Service Radius & Visibility",
+    title: "Booking rules (visibility)",
     icon: Calendar,
     faqs: [
       {
-        question: "How does availability work?",
-        answer: "You set time slots for each day (multiple windows per day are allowed). Customers can only book within the times you set.",
+        question: "When do customers see my profile?",
+        answer: "Only when the customer's specialization, day/time, and address match your settings, and buffer time allows it.",
       },
       {
-        question: "How do service locations and radius work?",
-        answer: "You set a service location and radius in kilometers, and you can assign different locations and radiuses to different days.",
+        question: "How do time slots work?",
+        answer: "You set your available time slots per day. Customers can only book within those hours.",
       },
       {
-        question: "How do these settings affect who sees me?",
-        answer: "Customers see you only when their request matches all of the following: your specialization, your available day/time, and their address is inside your radius for that day.",
+        question: "What are service locations and radius?",
+        answer: "You set a service location and a travel radius (km). If the customer's address is outside your radius, they can't book you.",
       },
       {
-        question: "How does the time gap between sessions work?",
-        answer: "You choose a buffer (up to 1 hour). Group Fit automatically blocks times that would violate your buffer, helping prevent scheduling conflicts.",
+        question: "What is buffer time?",
+        answer: "Buffer time (up to 1 hour) blocks back-to-back bookings and helps prevent scheduling conflicts.",
       },
     ],
   },
   {
-    title: "Bookings & Group Sessions",
-    icon: Users,
-    faqs: [
-      {
-        question: "Will I receive group bookings?",
-        answer: "Yes. Customers can form private groups and book together, and you'll see the group details and the selected address.",
-      },
-      {
-        question: "Do group sessions cost more than individual sessions?",
-        answer: "No. Group sessions are priced the same as individual sessions, and the platform can split the cost among group members.",
-      },
-      {
-        question: "Where can sessions take place?",
-        answer: "Sessions can take place at a suitable location chosen by the customer (home, park, gym, etc.). Customers cover any facility fees.",
-      },
-      {
-        question: "Do I have to travel to the customer's location?",
-        answer: "Yes. Sessions are in-person and trainers travel to the customer's chosen location.",
-      },
-    ],
-  },
-  {
-    title: "Rescheduling & Cancellations",
+    title: "Managing sessions",
     icon: RefreshCw,
     faqs: [
       {
-        question: "How do rescheduling requests work?",
-        answer: "You can request a reschedule in the app. Group Fit manages the client confirmation flow and finalizes the updated time.",
+        question: "How does rescheduling work?",
+        answer: "Request a change in the app. Group Fit manages the client confirmation flow.",
       },
       {
         question: "How do cancellations work?",
@@ -99,72 +75,110 @@ const faqCategories = [
     ],
   },
   {
-    title: "Earnings & Payouts",
+    title: "Payments & payouts",
     icon: CircleDollarSign,
     faqs: [
       {
-        question: "How is commission calculated and paid out?",
-        answer: "Earnings and payouts are handled through Stripe Connect. For current payout timing and rules, refer to the [Terms & Conditions](/app-trainer-terms-and-condition) and in-app details.",
+        question: "How do payouts work?",
+        answer: "Group Fit handles payments and provides secure payouts to your bank account. Details are in the Terms & Conditions.",
         hasLink: true,
       },
       {
-        question: "Do customer discounts reduce what I earn?",
-        answer: "Earnings and promotions are handled transparently—details are available in the [Terms & Conditions](/app-trainer-terms-and-condition).",
+        question: "Where do I see payout details?",
+        answer: "Transparent payouts with clear earnings visibility in the app. Earnings and promotions are handled transparently—details are available in the [Terms & Conditions](/app-trainer-terms-and-condition).",
         hasLink: true,
       },
     ],
   },
   {
-    title: "Verification, Safety & Profile Tips",
-    icon: Shield,
+    title: "Group bookings",
+    icon: Users,
     faqs: [
       {
-        question: "What is the ID verification process?",
-        answer: "Trainers complete ID verification during onboarding (via Plaid). This helps keep the platform safe for both trainers and customers.",
+        question: "Will I receive group bookings?",
+        answer: "Yes. Customers can create private groups and book together.",
       },
       {
-        question: "Do I need to provide equipment?",
-        answer: "It's optional. You can bring equipment if you choose, at no extra charge unless otherwise stated.",
+        question: "Do group sessions cost more?",
+        answer: "No. Group sessions are priced the same as individual sessions, and the platform can split the cost among group members.",
+      },
+    ],
+  },
+  {
+    title: "Locations & travel",
+    icon: MapPinned,
+    faqs: [
+      {
+        question: "Where can sessions take place?",
+        answer: "Sessions can take place at a suitable location chosen by the customer (home, park, gym, etc.). Customers cover any facility fees.",
       },
       {
-        question: "How can I make a strong first impression?",
-        answer: "Use a clear profile photo, write a simple bio, select accurate specializations, and list languages you speak.",
-      },
-      {
-        question: "Can I update my service area, availability, and specializations?",
-        answer: "Yes. You can update service area, radius, availability, and specializations in the app. Some specializations may require support approval.",
+        question: "Do I travel to the customer?",
+        answer: "Yes. Sessions are in-person and trainers travel to the customer's chosen location.",
       },
     ],
   },
 ];
 
-// Generate structured FAQ schema from categories
+// SEO FAQ Schema from provided file
 const faqSchemaData = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How does availability work?",
+      "name": "How do I share my profile link with clients?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You set time slots for each day (multiple windows per day are allowed). Customers can only book within the times you set."
+        "text": "Open Group Fit Trainer → Account → My Profile → tap the 3 dots → View Public Profile → Share."
       }
     },
     {
       "@type": "Question",
-      "name": "How do service locations and radius work?",
+      "name": "When do customers see my profile?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You set a service location and radius in kilometers, and you can assign different locations and radiuses to different days."
+        "text": "Only when the customer's specialization, day/time, and address match your settings, and buffer time allows it."
       }
     },
     {
       "@type": "Question",
-      "name": "How does the time gap between sessions work?",
+      "name": "How do time slots work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You choose a buffer (up to 1 hour). Group Fit automatically blocks times that would violate your buffer, helping prevent scheduling conflicts."
+        "text": "You set your available time slots per day. Customers can only book within those hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are service locations and radius?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You set a service location and a travel radius (km). If the customer's address is outside your radius, they can't book you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is buffer time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Buffer time (up to 1 hour) blocks back-to-back bookings and helps prevent scheduling conflicts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does rescheduling work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Request a change in the app. Group Fit manages the client confirmation flow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do payouts work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Group Fit handles payments and provides secure payouts to your bank account. Details are in the Terms & Conditions."
       }
     },
     {
@@ -172,39 +186,7 @@ const faqSchemaData = {
       "name": "Will I receive group bookings?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Customers can form private groups and book together, and you'll see the group details and the selected address."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do group sessions cost more than individual sessions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Group sessions are priced the same as individual sessions, and the platform can split the cost among group members."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where can sessions take place?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sessions can take place at a suitable location chosen by the customer (home, park, gym, etc.). Customers cover any facility fees."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do rescheduling requests work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can request a reschedule in the app. Group Fit manages the client confirmation flow and finalizes the updated time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is commission calculated and paid out?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Earnings and payouts are handled through Stripe Connect. For current payout timing and rules, refer to the Terms & Conditions and in-app details."
+        "text": "Yes. Customers can create private groups and book together."
       }
     }
   ]
@@ -214,22 +196,22 @@ export default function TrainerFAQ() {
   return (
     <>
       <Helmet>
-        <title>Trainer FAQ | Group Fit Trainer</title>
+        <title>Trainer FAQ | Scheduling, Service Radius & Payouts</title>
         <meta
           name="description"
-          content="Answers for trainers on availability, service radiuses, booking buffers, group bookings, locations, rescheduling, verification, and payouts."
+          content="Trainer FAQs on time slots, service locations + radius, buffer time, visibility rules, rescheduling, group bookings, travel, and secure payouts."
         />
         <meta name="keywords" content="trainer FAQ, personal trainer questions, Group Fit trainer help, fitness coach FAQ, trainer support" />
         <link rel="canonical" href="https://groupfitapp.com/trainer/faq" />
         <meta name="robots" content="index,follow" />
         <meta property="og:site_name" content="Group Fit" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Trainer FAQ | Group Fit Trainer" />
-        <meta property="og:description" content="Quick answers for trainers. No fluff." />
+        <meta property="og:title" content="Trainer FAQ | Scheduling, Service Radius & Payouts" />
+        <meta property="og:description" content="Quick answers. No fluff. If it doesn't match your settings, the client can't book you." />
         <meta property="og:url" content="https://groupfitapp.com/trainer/faq" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Trainer FAQ | Group Fit" />
-        <meta name="twitter:description" content="Quick answers for trainers on availability, bookings, and payouts." />
+        <meta name="twitter:description" content="Quick answers for trainers on time slots, service radius, and payouts." />
         <script type="application/ld+json">
           {JSON.stringify(faqSchemaData)}
         </script>
@@ -261,6 +243,9 @@ export default function TrainerFAQ() {
             </h1>
             <p className="mt-6 text-lg text-white/80">
               Quick answers. No fluff.
+            </p>
+            <p className="mt-2 text-white/60">
+              If it doesn't match your settings, the client can't book you.
             </p>
           </motion.div>
         </div>
@@ -336,15 +321,26 @@ export default function TrainerFAQ() {
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4">
+            <PillLink to="/download" variant="default">
+              Download
+            </PillLink>
             <PillLink to="/trainer/how-it-works" variant="default">
               How it works
             </PillLink>
             <PillLink to="/trainer/requirements" variant="default">
               Requirements
             </PillLink>
-            <PillLink to="/download" variant="default">
-              Download
-            </PillLink>
+          </div>
+        </div>
+      </section>
+
+      {/* How to Invite Clients Link */}
+      <section className="py-6 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <Link to="/trainer#share" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Already have the app? <span className="text-primary font-medium">How to invite clients →</span>
+            </Link>
           </div>
         </div>
       </section>

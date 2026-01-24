@@ -8,7 +8,9 @@ import {
   Timer,
   RefreshCw,
   Rocket,
-  PlayCircle
+  PlayCircle,
+  Share2,
+  Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -16,6 +18,7 @@ import { APP_LINKS } from "@/lib/appLinks";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PillLink } from "@/components/ui/PillLink";
+import shareProfileVideo from "@/assets/videos/share-profile-demo.mp4";
 
 import trainerHowItWorksHeroImg from "@/assets/heroes/trainer-how-it-works-hero.jpg";
 
@@ -23,27 +26,31 @@ const steps = [
   {
     icon: Dumbbell,
     title: "Choose what you coach",
-    description: "Select your specializations (35+ options—HIIT, Boxing, Jiu Jitsu, and more).",
+    description: "35+ specializations—HIIT, Boxing, Jiu Jitsu, and more.",
   },
   {
     icon: CalendarDays,
-    title: "Set your availability (time slots)",
-    description: "Create time windows per day (example: Monday 8–3 and 5–8; Tuesday–Friday 9–3). Customers can only book inside the windows you set.",
+    title: "Set your time slots",
+    description: "Create time windows per day (example: Monday 8:00 AM–3:00 PM and 5:00 PM–8:00 PM).",
+    note: "Outside your time slots? Clients can't book you.",
   },
   {
     icon: MapPinned,
-    title: "Set your service radius by day",
-    description: "Create one or more service locations and assign a radius in kilometers. Example: Monday 25 km from CN Tower, Toronto; Tue–Fri 30 km from Square One, Mississauga.",
+    title: "Set service locations + radius",
+    description: "Assign different locations and radiuses to different days.",
+    note: "Outside your radius? Clients can't book you.",
+    example: "Monday: 25 km radius from CN Tower (Toronto). Tuesday–Friday: 30 km radius from Square One (Mississauga).",
   },
   {
     icon: Timer,
-    title: "Set your time gap between sessions",
-    description: "Choose how much time you want between sessions (up to 1 hour) to rest or travel. If you're booked at 9:00 AM and your gap is 30 minutes, your next available slot won't show until 10:30 AM.",
+    title: "Set buffer time",
+    description: "Choose how much time between sessions (up to 1 hour).",
+    example: "Booked at 9:00 AM with a 30-minute buffer → next available shows at 10:30 AM.",
   },
   {
     icon: RefreshCw,
-    title: "Rescheduling is built in",
-    description: "When something unexpected happens, request a reschedule or cancellation in the app. Group Fit manages the client confirmation flow.",
+    title: "Rescheduling is supported",
+    description: "Request a change in the app. Group Fit manages the client confirmation flow.",
   },
 ];
 
@@ -51,22 +58,22 @@ export default function TrainerHowItWorks() {
   return (
     <>
       <Helmet>
-        <title>How Group Fit Trainer Works | Setup Guide</title>
+        <title>How It Works for Trainers | Group Fit Trainer</title>
         <meta
           name="description"
-          content="Learn how to set up Group Fit Trainer: choose specializations, set availability time slots, define service areas and radius, configure booking buffers, and manage rescheduling."
+          content="Set your availability and service locations. Group Fit does the rest. Move existing clients into a clean booking flow."
         />
         <meta name="keywords" content="trainer onboarding, fitness trainer setup, personal trainer app guide, how to use Group Fit" />
         <link rel="canonical" href="https://groupfitapp.com/trainer/how-it-works" />
         <meta name="robots" content="index,follow" />
         <meta property="og:site_name" content="Group Fit" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="How Group Fit Trainer Works | Setup Guide" />
-        <meta property="og:description" content="Step-by-step guide to setting up your trainer profile, availability, and service areas." />
+        <meta property="og:title" content="How It Works for Trainers | Group Fit Trainer" />
+        <meta property="og:description" content="Set your availability and service locations. Group Fit does the rest." />
         <meta property="og:url" content="https://groupfitapp.com/trainer/how-it-works" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="How Group Fit Trainer Works" />
-        <meta name="twitter:description" content="Step-by-step guide to setting up your trainer profile." />
+        <meta name="twitter:title" content="How It Works for Trainers" />
+        <meta name="twitter:description" content="Set your availability and service locations. Group Fit does the rest." />
       </Helmet>
 
       {/* Hero Section */}
@@ -91,12 +98,28 @@ export default function TrainerHowItWorks() {
               <Rocket className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              Set your rules once. Get clean bookings automatically.
+              Set your availability and service locations. Group Fit does the rest.
             </h1>
             <p className="mt-6 text-lg text-white/80">
-              Customers can only book you when the booking is actually valid—no back-and-forth, no irrelevant inquiries.
+              Move existing clients into a clean booking flow. Only valid bookings get through.
+            </p>
+            <p className="mt-4 text-white/60">
+              You appear only for matching requests—right specialty, right time, right location.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Feature Pills */}
+      <section className="py-8 bg-background border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-3">
+            {["Built for in-person coaches", "Verified onboarding", "Rules-based scheduling", "Payments handled"].map((item) => (
+              <span key={item} className="px-4 py-2 bg-muted rounded-full text-sm text-foreground">
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -126,27 +149,88 @@ export default function TrainerHowItWorks() {
                   <p className="text-muted-foreground leading-relaxed">
                     {step.description}
                   </p>
+                  {step.note && (
+                    <p className="text-primary text-sm mt-2 font-medium">
+                      {step.note}
+                    </p>
+                  )}
+                  {step.example && (
+                    <p className="text-muted-foreground text-sm mt-2 italic">
+                      Example: {step.example}
+                    </p>
+                  )}
                 </div>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Tip Box */}
+      {/* Share Callout */}
+      <section className="py-16 md:py-24 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-10"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
+                <Share2 className="w-8 h-8 text-primary" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Share your profile link
+              </h2>
+              <p className="text-muted-foreground">
+                Account → My Profile → 3 dots → View Public Profile → Share
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl bg-secondary"
+            >
+              <video
+                src={shareProfileVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto"
+                title="How to share your profile link"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bonus Section */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto mt-12 bg-primary/5 border border-primary/20 rounded-xl p-6"
+            className="max-w-3xl mx-auto text-center"
           >
-            <p className="text-foreground">
-              <strong>Practical tip:</strong> Larger radiuses usually need larger time gaps. Start with a sensible estimate and adjust anytime.
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-4">
+              <Sparkles className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-xl font-bold text-foreground mb-2">
+              Bonus: rules-based discovery
+            </h3>
+            <p className="text-muted-foreground text-sm">
+              Group Fit shows your profile only to customers who match your specialization, time slots, and service location radius.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Video Tutorials Section */}
-      <section className="py-16 md:py-24 bg-muted/50">
+      <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -154,13 +238,13 @@ export default function TrainerHowItWorks() {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 mb-6">
               <PlayCircle className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
               Video tutorials
             </h2>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-4 text-white/70 max-w-2xl mx-auto">
               Watch step-by-step guides on how to use the Group Fit Trainer app.
             </p>
           </motion.div>
@@ -182,11 +266,22 @@ export default function TrainerHowItWorks() {
               Download
             </PillLink>
             <PillLink to="/trainer/requirements" variant="default">
-              See requirements
+              Requirements
             </PillLink>
             <PillLink to="/trainer/faq" variant="default">
-              Read FAQs
+              FAQ
             </PillLink>
+          </div>
+        </div>
+      </section>
+
+      {/* How to Invite Clients Link */}
+      <section className="py-6 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <Link to="/trainer#share" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Already have the app? <span className="text-primary font-medium">How to invite clients →</span>
+            </Link>
           </div>
         </div>
       </section>
