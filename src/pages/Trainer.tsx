@@ -163,7 +163,7 @@ export default function Trainer() {
             viewport={{ once: true }}
             className="text-center text-muted-foreground mt-8 max-w-2xl mx-auto"
           >
-            Outside your radius? Clients can't book you. Outside your hours? They won't see you.
+            Clients can only book when they match your radius, hours, and specialty.
           </motion.p>
         </div>
       </section>
