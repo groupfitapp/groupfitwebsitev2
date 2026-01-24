@@ -9,13 +9,23 @@ interface YouTubeEmbedProps {
 }
 
 export function YouTubeEmbed({ videoId, playlistId, title, className = "", autoplay = false }: YouTubeEmbedProps) {
-  const baseParams = autoplay 
-    ? `?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0`
-    : "";
+  let src: string;
   
-  const src = playlistId 
-    ? `https://www.youtube.com/embed/videoseries?list=${playlistId}`
-    : `https://www.youtube.com/embed/${videoId}${baseParams}`;
+  if (playlistId) {
+    // Playlist embed with autoplay, mute, and loop support
+    const playlistParams = autoplay 
+      ? `&autoplay=1&mute=1&loop=1&controls=1&modestbranding=1&rel=0`
+      : "";
+    src = `https://www.youtube.com/embed/videoseries?list=${playlistId}${playlistParams}`;
+  } else if (videoId) {
+    // Single video embed
+    const videoParams = autoplay 
+      ? `?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0`
+      : "";
+    src = `https://www.youtube.com/embed/${videoId}${videoParams}`;
+  } else {
+    return null;
+  }
 
   return (
     <motion.div

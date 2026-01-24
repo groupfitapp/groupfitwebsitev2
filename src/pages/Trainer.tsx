@@ -333,8 +333,34 @@ export default function Trainer() {
         </div>
       </section>
 
+      {/* Trainer Testimonials */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Hear from trainers using Group Fit
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Real trainers share how Group Fit helps them manage their schedule and grow their business.
+            </p>
+          </motion.div>
+          <div className="max-w-4xl mx-auto">
+            <YouTubeEmbed
+              playlistId="PLsM4U67lWn__uWHGXO9RAqlqCN8_q2hbz"
+              title="Group Fit Trainer Testimonials"
+              autoplay
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Links Section */}
-      <section className="py-12 bg-background">
+      <section className="py-12 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4">
             <PillLink to="/trainer/how-it-works" variant="default">
