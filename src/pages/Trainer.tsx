@@ -61,7 +61,7 @@ export default function Trainer() {
   return (
     <>
       <Helmet>
-        <title>Run your schedule. Stop the back-and-forth. | Group Fit Trainer</title>
+        <title>Trainer Scheduling & Booking App | Group Fit</title>
         <meta
           name="description"
           content="Move your existing clients onto Group Fit so bookings and payments run cleanly—without DMs, spreadsheets, or chasing."
@@ -72,7 +72,7 @@ export default function Trainer() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:site_name" content="Group Fit" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Run your schedule. Stop the back-and-forth. | Group Fit Trainer" />
+        <meta property="og:title" content="Trainer Scheduling & Booking App | Group Fit" />
         <meta property="og:description" content="Move your existing clients onto Group Fit so bookings and payments run cleanly—without DMs, spreadsheets, or chasing." />
         <meta property="og:url" content="https://groupfitapp.com/trainer" />
         <meta name="twitter:card" content="summary_large_image" />

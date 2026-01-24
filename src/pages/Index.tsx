@@ -98,10 +98,10 @@ const Index = () => {
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               See real training sessions
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
+            <p className="text-white/70 max-w-xl mx-auto">
               Watch customers training with Group Fit coaches at their chosen locations.
             </p>
           </div>
