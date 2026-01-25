@@ -449,14 +449,6 @@ export default function About() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8">
-                  <Button asChild className="w-full">
-                    <Link to="/download">
-                      <Download className="w-5 h-5 mr-2" />
-                      Download App
-                    </Link>
-                  </Button>
-                </div>
               </motion.div>
 
               {/* Trainers */}
@@ -482,14 +474,6 @@ export default function About() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8">
-                  <Button asChild variant="outline" className="w-full">
-                    <Link to="/trainer">
-                      Become a Trainer
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </Link>
-                  </Button>
-                </div>
               </motion.div>
             </div>
           </div>
