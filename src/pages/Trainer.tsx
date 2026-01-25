@@ -141,9 +141,10 @@ export default function Trainer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-colors"
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="group bg-card border border-border rounded-2xl p-6 hover:border-primary/50 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lifted)] transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_hsl(355_78%_56%/0.3)] transition-all duration-300">
                   <benefit.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">

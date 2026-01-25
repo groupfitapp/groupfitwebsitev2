@@ -137,7 +137,8 @@ export default function TrainerRequirements() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-start gap-4 bg-card border border-border rounded-xl p-5"
+                whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                className="flex items-start gap-4 bg-card border border-border rounded-xl p-5 hover:border-primary/50 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lifted)] transition-all duration-300"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <req.icon className="w-5 h-5 text-primary" />
@@ -160,7 +161,8 @@ export default function TrainerRequirements() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-card border border-border rounded-2xl p-6"
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lifted)] transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                 <inPersonInfo.icon className="w-6 h-6 text-primary" />
@@ -174,7 +176,8 @@ export default function TrainerRequirements() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-card border border-border rounded-2xl p-6"
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lifted)] transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                 <equipmentInfo.icon className="w-6 h-6 text-primary" />
@@ -276,8 +279,14 @@ export default function TrainerRequirements() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-secondary">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-24 bg-secondary relative overflow-hidden">
+        {/* Decorative elements with enhanced glow */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[100px] pointer-events-none animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

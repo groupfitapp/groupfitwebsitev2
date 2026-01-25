@@ -62,7 +62,8 @@ export default function Download() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-card border border-border rounded-2xl p-8"
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="bg-card border border-border rounded-2xl p-8 hover:border-primary/50 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lifted)] transition-all duration-300"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
@@ -102,7 +103,8 @@ export default function Download() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-card border border-border rounded-2xl p-8"
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="bg-card border border-border rounded-2xl p-8 hover:border-primary/50 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lifted)] transition-all duration-300"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">

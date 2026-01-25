@@ -138,7 +138,7 @@ export default function About() {
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
                 {["Strength & Conditioning", "Yoga", "HIIT", "Boxing", "Martial Arts", "Sport Training"].map((a) => (
-                  <div key={a} className="bg-background border border-border rounded-lg p-4 text-center">
+                  <div key={a} className="bg-background border border-border rounded-lg p-4 text-center hover:border-primary/50 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lifted)] hover:-translate-y-1 transition-all duration-300">
                     <span className="text-foreground font-medium">{a}</span>
                   </div>
                 ))}
@@ -171,8 +171,14 @@ export default function About() {
         </section>
 
         {/* Ready to Train CTA */}
-        <section className="py-16 md:py-24 bg-secondary">
-          <div className="container mx-auto px-4">
+        <section className="py-16 md:py-24 bg-secondary relative overflow-hidden">
+          {/* Decorative elements with enhanced glow */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[100px] pointer-events-none animate-pulse" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
