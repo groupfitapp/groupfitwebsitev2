@@ -59,10 +59,12 @@ export function ActivitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lifted)] rounded-2xl transition-shadow duration-300"
             >
               <Link
                 to={`/activities/${activity.slug}`}
-                className="group block relative aspect-[4/3] rounded-2xl overflow-hidden card-hover"
+                className="group block relative aspect-[4/3] rounded-2xl overflow-hidden"
               >
                 <img
                   src={activity.image}
@@ -73,9 +75,9 @@ export function ActivitiesSection() {
                   width={400}
                   height={300}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-white font-semibold text-sm md:text-base">
+                  <h3 className="text-white font-semibold text-sm md:text-base group-hover:text-primary transition-colors duration-300">
                     {activity.name}
                   </h3>
                 </div>

@@ -73,12 +73,13 @@ export function HowItWorksSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="relative flex flex-col items-center text-center w-1/5 px-4"
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="relative flex flex-col items-center text-center w-1/5 px-4 group"
               >
-                <div className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold z-10 shadow-lg shadow-primary/30">
+                <div className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold z-10 shadow-[0_0_25px_hsl(355_78%_56%/0.4)] group-hover:shadow-[0_0_35px_hsl(355_78%_56%/0.6)] transition-shadow duration-300">
                   {step.number}
                 </div>
-                <div className="mt-4 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <div className="mt-4 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
                   <step.icon className="w-5 h-5 text-primary" />
                 </div>
                 <h3 className="mt-4 font-semibold text-foreground">{step.title}</h3>
@@ -97,14 +98,14 @@ export function HowItWorksSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex gap-4"
+              className="flex gap-4 group"
             >
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold shadow-lg shadow-primary/30">
+                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold shadow-[0_0_20px_hsl(355_78%_56%/0.4)] group-hover:shadow-[0_0_30px_hsl(355_78%_56%/0.6)] transition-shadow duration-300">
                   {step.number}
                 </div>
                 {index < steps.length - 1 && (
-                  <div className="w-0.5 flex-1 bg-border mt-2" />
+                  <div className="w-0.5 flex-1 bg-gradient-to-b from-primary/50 to-border mt-2" />
                 )}
               </div>
               <div className="pb-8">

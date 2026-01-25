@@ -69,24 +69,30 @@ export function CitiesSection() {
             <CarouselContent className="-ml-4">
               {cities.map((city) => (
                 <CarouselItem key={city.slug} className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5">
-                  <Link
-                    to={`/cities/${city.slug}`}
-                    className="group block relative aspect-[4/3] rounded-xl overflow-hidden"
+                  <motion.div
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.3 }}
+                    className="shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lifted)] rounded-xl transition-shadow duration-300"
                   >
-                    <img
-                      src={city.image}
-                      alt={`Personal trainers available in ${city.name}, Canada`}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                      decoding="async"
-                      width={400}
-                      height={300}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-3">
-                      <span className="font-medium text-white text-sm">{city.name}</span>
-                    </div>
-                  </Link>
+                    <Link
+                      to={`/cities/${city.slug}`}
+                      className="group block relative aspect-[4/3] rounded-xl overflow-hidden"
+                    >
+                      <img
+                        src={city.image}
+                        alt={`Personal trainers available in ${city.name}, Canada`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
+                        decoding="async"
+                        width={400}
+                        height={300}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-300" />
+                      <div className="absolute bottom-0 left-0 right-0 p-3">
+                        <span className="font-medium text-white text-sm group-hover:text-primary transition-colors duration-300">{city.name}</span>
+                      </div>
+                    </Link>
+                  </motion.div>
                 </CarouselItem>
               ))}
             </CarouselContent>
