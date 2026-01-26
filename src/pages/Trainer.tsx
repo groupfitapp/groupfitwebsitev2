@@ -106,8 +106,8 @@ export default function Trainer() {
               Run your schedule. <span className="text-primary">Stop the back-and-forth.</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl">
-              Move your existing clients onto Group Fit so bookings and payments run cleanly—without DMs, spreadsheets,
-              or chasing.
+              Move your clients onto Group Fit so bookings and payments run cleanly—without DMs, spreadsheets, or
+              chasing.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link to="/download">
