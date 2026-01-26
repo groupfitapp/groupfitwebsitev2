@@ -24,7 +24,7 @@ import {
   Star,
   Play
 } from "lucide-react";
-import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
+import { LazyYouTubeEmbed } from "@/components/ui/LazyYouTubeEmbed";
 
 import aboutHeroImg from "@/assets/heroes/about-hero.jpg";
 
@@ -545,7 +545,7 @@ export default function About() {
             </motion.div>
 
             <div className="max-w-4xl mx-auto">
-              <YouTubeEmbed
+              <LazyYouTubeEmbed
                 playlistId="PLsM4U67lWn_-fabL01WQkp1xNS4iuGNNZ"
                 title="Group Fit Customer Training Sessions"
                 autoplay

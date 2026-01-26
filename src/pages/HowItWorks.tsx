@@ -16,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
-import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
+import { LazyYouTubeEmbed } from "@/components/ui/LazyYouTubeEmbed";
 
 import howItWorksHeroImg from "@/assets/heroes/how-it-works-hero.jpg";
 
@@ -240,7 +240,7 @@ export default function HowItWorks() {
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
-            <YouTubeEmbed
+            <LazyYouTubeEmbed
               playlistId="PLsM4U67lWn_8HNH46mFe6-IPn-VhgX3fQ"
               title="Group Fit How-To Videos for Customers"
             />

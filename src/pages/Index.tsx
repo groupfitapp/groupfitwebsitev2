@@ -10,7 +10,7 @@ import {
   CTASection,
 } from "@/components/home";
 import { homeFaqs } from "@/components/home/FAQSection";
-import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
+import { LazyYouTubeEmbed } from "@/components/ui/LazyYouTubeEmbed";
 import { Helmet } from "react-helmet-async";
 import React from "react";
 
@@ -106,7 +106,7 @@ const Index = () => {
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
-            <YouTubeEmbed
+            <LazyYouTubeEmbed
               playlistId="PLsM4U67lWn_-fabL01WQkp1xNS4iuGNNZ"
               title="Group Fit Customer Training Sessions"
               autoplay
