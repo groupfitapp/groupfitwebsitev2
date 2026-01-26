@@ -14,7 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
-import { LazyYouTubeEmbed } from "@/components/ui/LazyYouTubeEmbed";
+import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PillLink } from "@/components/ui/PillLink";
 import shareProfileVideo from "@/assets/videos/share-profile-demo.mp4";
@@ -249,7 +249,7 @@ export default function TrainerHowItWorks() {
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
-            <LazyYouTubeEmbed
+            <YouTubeEmbed
               playlistId="PLsM4U67lWn_-E8CUN175jAfm459b6wGlh"
               title="Group Fit How-To Videos for Trainers"
             />

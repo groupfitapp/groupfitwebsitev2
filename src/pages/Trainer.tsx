@@ -7,7 +7,7 @@ import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import trainerBanner from "@/assets/trainer-banner.jpg";
 import shareProfileVideo from "@/assets/videos/share-profile-demo.mp4";
-import { LazyYouTubeEmbed } from "@/components/ui/LazyYouTubeEmbed";
+import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PillLink } from "@/components/ui/PillLink";
 
@@ -248,7 +248,7 @@ export default function Trainer() {
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <LazyYouTubeEmbed videoId="upwk6yBzJnI" title="Group Fit for Trainers" autoplay />
+            <YouTubeEmbed videoId="upwk6yBzJnI" title="Group Fit for Trainers" autoplay />
           </div>
         </div>
       </section>
@@ -349,7 +349,7 @@ export default function Trainer() {
             </p>
           </motion.div>
           <div className="max-w-4xl mx-auto">
-            <LazyYouTubeEmbed
+            <YouTubeEmbed
               playlistId="PLsM4U67lWn__uWHGXO9RAqlqCN8_q2hbz"
               title="Group Fit Trainer Testimonials"
               autoplay

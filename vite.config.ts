@@ -45,36 +45,17 @@ export default defineConfig(({ mode }) => ({
   build: {
     sourcemap: false,
     chunkSizeWarningLimit: 900,
-    // Enable CSS code splitting
-    cssCodeSplit: true,
-    // Minify CSS
-    cssMinify: true,
-    // Target modern browsers for smaller bundles
-    target: 'es2020',
 
     rollupOptions: {
       output: {
         /**
-         * ✅ Optimized chunking for PageSpeed:
-         * - Splits framer-motion into separate chunk (lazy-loaded)
-         * - Keeps React ecosystem together for better caching
-         * - Heavy dependencies get their own chunks
+         * ✅ Better chunking for performance:
+         * - Splits dependencies by package instead of forcing large "vendor/ui" bundles.
+         * - Works very well with route-based code splitting you added in App.tsx.
          */
         manualChunks(id) {
           if (id.includes("node_modules")) {
-            // Framer motion in its own chunk (lazy-loaded)
-            if (id.includes("framer-motion")) {
-              return "vendor-framer-motion";
-            }
-            // React ecosystem together
-            if (id.includes("react") || id.includes("react-dom") || id.includes("react-router")) {
-              return "vendor-react";
-            }
-            // Radix UI components
-            if (id.includes("@radix-ui")) {
-              return "vendor-radix";
-            }
-            // Other dependencies
+            // Put each dependency in its own chunk (stable + cacheable)
             const parts = id.split("node_modules/")[1].split("/");
             const pkg = parts[0].startsWith("@") ? `${parts[0]}/${parts[1]}` : parts[0];
             return `vendor-${pkg.replace("@", "").replace("/", "-")}`;
