@@ -1,0 +1,542 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "howItWorks": "How it Works",
+    "activities": "Activities",
+    "cities": "Cities",
+    "faq": "FAQ",
+    "download": "Download",
+    "contact": "Contact Us",
+    "forCustomers": "For Customers",
+    "forTrainers": "For Trainers",
+    "becomeTrainer": "Become a Trainer",
+    "requirements": "Requirements",
+    "referEarn": "Refer & Earn"
+  },
+  "footer": {
+    "tagline": "In-person training at your location, made simple—for individuals, private groups, and organizations.",
+    "customers": "Customers",
+    "trainers": "Trainers",
+    "topCities": "Top Cities",
+    "topActivities": "Top Activities",
+    "legalPrivacy": "Legal & Privacy",
+    "website": "Website",
+    "apps": "Apps",
+    "terms": "Terms",
+    "privacyPolicy": "Privacy Policy",
+    "appTerms": "Group Fit Terms",
+    "trainerTerms": "Group Fit Trainer Terms",
+    "appPrivacy": "Group Fit Apps Privacy Policy",
+    "viewAllCities": "View All Cities",
+    "viewAllActivities": "View All Activities",
+    "copyright": "© {{year}} Group Fit. All rights reserved.",
+    "aboutUs": "About Us",
+    "blog": "Blog"
+  },
+  "home": {
+    "hero": {
+      "title": "Personal Trainer at",
+      "titleHighlight": "Your Address",
+      "titleSuffix": "in Canada",
+      "subtitle": "Choose an activity, enter your session address, and pick a time—Group Fit shows available trainers for that exact session. Book for yourself, your private group, or your organization.",
+      "download": "Download",
+      "howItWorks": "How it Works",
+      "trustBadge": "Trainer onboarding includes credential review and identity verification"
+    },
+    "video": {
+      "title": "Group Fit - Book In-Person Personal Training"
+    },
+    "benefits": {
+      "title": "Personal training—without the usual hassle",
+      "subtitle": "Group Fit keeps booking simple. You choose an activity, session address, and time. You only see coaches who can accept that session, with secure in-app payments and optional private group cost-splitting.",
+      "trainAnywhere": "Train anywhere",
+      "trainAnywhereDesc": "Home, condo gym, park, or a facility you arrange (where permitted).",
+      "moreWays": "More ways to train",
+      "moreWaysDesc": "Choose from 35+ activities, including strength, boxing, yoga, sport training and more.",
+      "privateGroup": "Private group bookings",
+      "privateGroupDesc": "Train with friends or family at the same time and location.",
+      "verifiedCoaches": "Verified coaches",
+      "verifiedCoachesDesc": "Trainer credentials are reviewed and identity verification is completed during onboarding."
+    },
+    "activities": {
+      "title": "Popular activities",
+      "subtitle": "Explore our most booked training styles",
+      "viewAll": "View all activities"
+    },
+    "cities": {
+      "title": "Available across Canada",
+      "subtitle": "Subject to trainer availability in your area",
+      "viewAll": "View all cities"
+    },
+    "testimonials": {
+      "title": "See real training sessions",
+      "subtitle": "Watch customers training with Group Fit coaches at their chosen locations."
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "viewAll": "View all FAQs",
+      "q1": "Where can sessions take place?",
+      "a1": "You choose the session location—home, condo gym, park, or a facility you arrange (where permitted). You enter the address during booking and the coach comes to that location.",
+      "q2": "Why does the list of coaches change when I change the address?",
+      "a2": "Availability is based on the session address selected in Group Fit. Changing the address can change which coaches cover that area and who is available at your selected time.",
+      "q3": "How long is each session?",
+      "a3": "Each session is 60 minutes.",
+      "q4": "Can I book with friends or family and split the cost?",
+      "a4": "Yes. Group bookings are private (your own people). You can split the session cost inside Group Fit so there's no manual collecting.",
+      "q5": "What if I don't see options for my activity or time?",
+      "a5": "Try a different time or date, or choose a different activity. Availability depends on the session address, the activity selected, and coach schedules."
+    },
+    "cta": {
+      "title": "Ready to train on your schedule?",
+      "subtitle": "Download Group Fit and find available trainers near you",
+      "trainerLink": "Are you a trainer?"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About",
+      "titleHighlight": "Group Fit",
+      "subtitle": "Group Fit is a Canadian platform built to make booking on-location training straightforward. You choose what you want to train, enter your session address, pick a time, and book a coach who's available for that exact session—without the usual back-and-forth."
+    },
+    "stats": {
+      "activities": "Activities",
+      "coverage": "Coverage",
+      "sessions": "Sessions",
+      "coaches": "Coaches",
+      "canadaWide": "Canada-Wide",
+      "sixtyMin": "60 Min",
+      "verified": "Verified"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "To make fitness accessible, affordable, and convenient by connecting people with certified trainers for personalised in-person sessions anytime, anywhere."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To enrich lives by providing easy access to diverse fitness activities, empowering individuals to achieve their health goals flexibly and enjoyably."
+    },
+    "whyBuilt": {
+      "title": "Why We Built Group Fit",
+      "content": "Too many people want to train consistently but get stuck on the same obstacles:",
+      "obstacles": "limited options, inconvenient locations, and unreliable scheduling",
+      "conclusion": "Group Fit was created to remove those barriers by bringing qualified coaching to where people actually train—on their schedule, at their location."
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Book a personal training session in three simple steps.",
+      "step1Title": "Choose & Search",
+      "step1Desc": "Select your activity, enter your session address, and pick your preferred time.",
+      "step2Title": "Find Available Coaches",
+      "step2Desc": "See only coaches who match your location, time, and activity—no guesswork.",
+      "step3Title": "Book & Train",
+      "step3Desc": "Complete secure payment in-app and meet your coach at your location.",
+      "learnMore": "Learn More"
+    },
+    "trainAnywhere": {
+      "title": "Train Anywhere",
+      "subtitle": "You choose where your session happens. Coaches come to you.",
+      "home": "Your Home",
+      "homeDesc": "Train in your living room or backyard",
+      "condoGym": "Condo Gym",
+      "condoGymDesc": "Use your building's amenities",
+      "park": "Local Park",
+      "parkDesc": "Outdoor sessions in fresh air",
+      "facility": "Your Facility",
+      "facilityDesc": "Any gym or studio you arrange"
+    },
+    "activitiesSection": {
+      "title": "35+ Activities",
+      "subtitle": "From strength training to martial arts, find coaches across a wide variety of specializations.",
+      "viewAll": "View All Activities"
+    },
+    "forCustomers": {
+      "title": "For Customers",
+      "benefit1": "Book sessions at your own address",
+      "benefit2": "Choose from 35+ activities",
+      "benefit3": "Train solo or with a private group",
+      "benefit4": "Split costs with friends & family",
+      "benefit5": "Verified, credential-reviewed coaches",
+      "benefit6": "Secure in-app payments"
+    },
+    "forTrainers": {
+      "title": "For Trainers",
+      "benefit1": "Set your own schedule & rates",
+      "benefit2": "Define your service areas & radius",
+      "benefit3": "No chasing clients for payments",
+      "benefit4": "Share your profile to invite clients",
+      "benefit5": "Transparent earnings visibility",
+      "benefit6": "Grow your client base organically"
+    }
+  },
+  "howItWorks": {
+    "hero": {
+      "title": "How booking works in Group Fit",
+      "subtitle": "Booking is built around your selected activity, session address, and time—so you only see coaches who can accept that session."
+    },
+    "stepsTitle": "Step-by-step",
+    "step1": {
+      "title": "Choose your activity",
+      "description": "Start with the training style you want. Explore options on our activities page."
+    },
+    "step2": {
+      "title": "Enter your session address",
+      "description": "Use the exact address where you want to train. Coach availability is based on this address."
+    },
+    "step3": {
+      "title": "Pick your date & time",
+      "description": "Choose when you want to train. Availability updates based on schedule and location coverage."
+    },
+    "step4": {
+      "title": "Select an available coach",
+      "description": "Pick from coaches shown as available for that session (address + time + activity)."
+    },
+    "step5": {
+      "title": "Pay in-app and train",
+      "description": "Complete the booking and meet your coach at the selected location."
+    },
+    "groupBookings": {
+      "title": "Private group bookings",
+      "feature1": "Group bookings are private (friends/family)",
+      "feature2": "Everyone meets at the same location and time",
+      "feature3": "Split the cost inside Group Fit",
+      "feature4": "Up to 10 members per group"
+    },
+    "sessionInfo": "Each session is 60 minutes",
+    "videoTutorials": {
+      "title": "Video tutorials",
+      "subtitle": "Watch step-by-step guides on how to use Group Fit."
+    },
+    "cta": {
+      "title": "Next steps",
+      "viewActivities": "View Activities"
+    }
+  },
+  "activities": {
+    "hero": {
+      "title": "Choose your activity",
+      "subtitle": "These are popular activities. Group Fit supports 35+ activities—download the app to see options available based on your address and time."
+    },
+    "categories": {
+      "strengthPerformance": "Strength & Performance",
+      "mindMobility": "Mind & Mobility",
+      "combatSports": "Combat Sports & Self-Defense",
+      "sportTraining": "Sport Training",
+      "conditioning": "Conditioning"
+    },
+    "activityNames": {
+      "strengthConditioning": "Strength & Conditioning",
+      "calisthenics": "Calisthenics",
+      "yoga": "Yoga",
+      "boxing": "Boxing",
+      "kickboxing": "Kickboxing",
+      "muayThai": "Muay Thai",
+      "jiuJitsu": "Jiu Jitsu",
+      "wrestling": "Wrestling",
+      "selfDefense": "Self Defense",
+      "soccer": "Soccer",
+      "basketball": "Basketball",
+      "hiit": "HIIT",
+      "bootcamp": "Bootcamp"
+    },
+    "moreNote": "These pages cover popular options. Download Group Fit to see all 35+ activities and check coach availability based on your session address and time.",
+    "cta": {
+      "title": "Ready to start training?",
+      "subtitle": "Download Group Fit on your device to find available coaches near you.",
+      "viewCities": "View Cities"
+    }
+  },
+  "cities": {
+    "hero": {
+      "title": "Find trainers near you",
+      "subtitle": "City pages help you choose the right activity and understand session options. To see real availability and book, use Group Fit with your exact session address and time."
+    },
+    "provinces": {
+      "ontario": "Ontario",
+      "britishColumbia": "British Columbia",
+      "alberta": "Alberta",
+      "manitoba": "Manitoba",
+      "quebec": "Quebec",
+      "novaScotia": "Nova Scotia",
+      "newBrunswick": "New Brunswick",
+      "saskatchewan": "Saskatchewan"
+    },
+    "cityNames": {
+      "toronto": "Toronto",
+      "mississauga": "Mississauga",
+      "ottawa": "Ottawa",
+      "brampton": "Brampton",
+      "oakville": "Oakville",
+      "vancouver": "Vancouver",
+      "calgary": "Calgary",
+      "edmonton": "Edmonton",
+      "winnipeg": "Winnipeg",
+      "quebecCity": "Quebec City",
+      "halifax": "Halifax",
+      "fredericton": "Fredericton",
+      "saskatoon": "Saskatoon"
+    },
+    "cta": {
+      "title": "Ready to find a trainer?",
+      "viewActivities": "View Activities"
+    }
+  },
+  "download": {
+    "hero": {
+      "title": "Download Group Fit",
+      "subtitle": "Get the app on iOS or Android to start booking sessions or accepting clients."
+    },
+    "customers": {
+      "title": "Customers",
+      "subtitle": "Book personal training sessions",
+      "benefit1": "Find available trainers near you",
+      "benefit2": "Book solo or with a private group",
+      "benefit3": "Split costs with friends and family"
+    },
+    "trainers": {
+      "title": "Trainers",
+      "subtitle": "Grow your client base",
+      "benefit1": "Set your schedule, service locations, and travel radius",
+      "benefit2": "Share your profile link with existing clients",
+      "benefit3": "Payments handled—no chasing clients"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Have a question or feedback? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible."
+    },
+    "form": {
+      "responseTime": "Response time",
+      "responseValue": "Within 24-48 hours",
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "phone": "Phone (optional)",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "subject": "Subject",
+      "subjectPlaceholder": "What is this about?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us how we can help you...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "successTitle": "Message sent successfully!",
+      "successMessage": "Thank you for reaching out. We'll get back to you within 24-48 hours.",
+      "errorTitle": "Failed to send message",
+      "privacyNote": "By submitting this form, you agree to our"
+    }
+  },
+  "faq": {
+    "hero": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Everything you need to know about booking and training with Group Fit."
+    },
+    "categories": {
+      "gettingStarted": "Getting Started",
+      "trainersQuality": "Trainers & Quality",
+      "bookingAvailability": "Booking & Availability",
+      "locationsEquipment": "Locations & Equipment",
+      "groupBookings": "Group Bookings",
+      "cancellationsRescheduling": "Cancellations & Rescheduling",
+      "paymentsPromotions": "Payments & Promotions",
+      "feedbackSupport": "Feedback & Support"
+    },
+    "cta": {
+      "title": "Still have questions?",
+      "subtitle": "Download Group Fit and reach out to our support team",
+      "contactSupport": "Contact Support"
+    }
+  },
+  "trainer": {
+    "hero": {
+      "title": "Run your schedule.",
+      "titleHighlight": "Stop the back-and-forth.",
+      "subtitle": "Move your clients onto Group Fit so bookings and payments run cleanly—without DMs, spreadsheets, or chasing.",
+      "download": "Download",
+      "howItWorks": "How it works"
+    },
+    "benefits": {
+      "setSchedule": "Set your schedule",
+      "setScheduleDesc": "Pick your time slots and what you coach.",
+      "setLocations": "Set your service locations + radius",
+      "setLocationsDesc": "Only show up for clients inside your service area.",
+      "noDoubleBookings": "No double bookings",
+      "noDoubleBookingsDesc": "Buffer time blocks back-to-back sessions automatically.",
+      "paymentsHandled": "Payments handled",
+      "paymentsHandledDesc": "Group Fit handles payments so you don't have to chase clients. Transparent payouts with clear earnings visibility in the app.",
+      "matchNote": "Clients can only book when they match your radius, hours, and specialty."
+    },
+    "shareProfile": {
+      "title": "Invite your existing clients in 15 seconds",
+      "subtitle": "Share your public profile link. Your clients book you directly—only when it matches your settings.",
+      "step1": "Open Group Fit Trainer",
+      "step2": "Account → My Profile",
+      "step3": "Tap 3 dots (top right)",
+      "step4": "View Public Profile",
+      "step5": "Share",
+      "startTip": "Start by sending your profile link to your existing clients today."
+    },
+    "howClientsBook": {
+      "title": "How clients book you",
+      "subtitle": "Clients can only book when all of these match:",
+      "criteria1": "Specialization",
+      "criteria2": "Day + time",
+      "criteria3": "Address inside service location radius",
+      "criteria4": "Buffer time allows it",
+      "example": "Monday: CN Tower (Toronto) + 25 km radius + 9:00 AM to 2:00 PM → Only clients inside the radius booking within that time can book you.",
+      "clientsDoTitle": "What clients do:",
+      "clientsDo": "choose specialization → pick time → enter address → book",
+      "youDoTitle": "What you do:",
+      "youDo": "accept → show up → coach"
+    },
+    "bonus": {
+      "title": "Bonus: new clients can find you on Group Fit",
+      "subtitle": "When customers search in your coverage area for your specialties, you can appear—without changing how you run your existing clients."
+    },
+    "testimonials": {
+      "title": "Hear from trainers using Group Fit",
+      "subtitle": "Real trainers share how Group Fit helps them manage their schedule and grow their business."
+    },
+    "cta": {
+      "title": "Ready to simplify your week?"
+    }
+  },
+  "trainerHowItWorks": {
+    "hero": {
+      "title": "Set your availability and service locations. Group Fit does the rest.",
+      "subtitle": "Move existing clients into a clean booking flow. Only valid bookings get through.",
+      "note": "You appear only for matching requests—right specialty, right time, right location."
+    },
+    "pills": {
+      "inPerson": "Built for in-person coaches",
+      "verified": "Verified onboarding",
+      "rulesBased": "Rules-based scheduling",
+      "payments": "Payments handled"
+    },
+    "steps": {
+      "step1Title": "Choose what you coach",
+      "step1Desc": "35+ specializations—HIIT, Boxing, Jiu Jitsu, and more.",
+      "step2Title": "Set your time slots",
+      "step2Desc": "Create time windows per day (example: Monday 8:00 AM–3:00 PM and 5:00 PM–8:00 PM).",
+      "step2Note": "Outside your time slots? Clients can't book you.",
+      "step3Title": "Set service locations + radius",
+      "step3Desc": "Assign different locations and radiuses to different days.",
+      "step3Note": "Outside your radius? Clients can't book you.",
+      "step3Example": "Monday: 25 km radius from CN Tower (Toronto). Tuesday–Friday: 30 km radius from Square One (Mississauga).",
+      "step4Title": "Set buffer time",
+      "step4Desc": "Choose how much time between sessions (up to 1 hour).",
+      "step4Example": "Booked at 9:00 AM with a 30-minute buffer → next available shows at 10:30 AM.",
+      "step5Title": "Rescheduling is supported",
+      "step5Desc": "Request a change in the app. Group Fit manages the client confirmation flow."
+    },
+    "shareProfile": {
+      "title": "Share your profile link",
+      "subtitle": "Account → My Profile → 3 dots → View Public Profile → Share"
+    },
+    "bonus": {
+      "title": "Bonus: rules-based discovery",
+      "subtitle": "Group Fit shows your profile only to customers who match your specialization, time slots, and service location radius."
+    },
+    "videoTutorials": {
+      "title": "Video tutorials",
+      "subtitle": "Watch step-by-step guides on how to use the Group Fit Trainer app."
+    },
+    "links": {
+      "alreadyHaveApp": "Already have the app? How to invite clients"
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Download the trainer app and start growing your business today."
+    }
+  },
+  "trainerRequirements": {
+    "hero": {
+      "title": "Trainer Requirements & Verification",
+      "subtitle": "Professional standards, safer sessions, and smoother bookings.",
+      "note": "Currently available in Canada."
+    },
+    "whatYouNeed": "What you'll need",
+    "requirements": {
+      "photo": "Clear profile photo",
+      "photoDesc": "A clear, high-quality photo that represents you professionally.",
+      "resume": "Resume + certification scans",
+      "resumeDesc": "Your credentials are manually reviewed to ensure quality.",
+      "id": "ID verification during onboarding",
+      "idDesc": "Complete identity verification via Plaid during onboarding."
+    },
+    "inPerson": {
+      "title": "In-person sessions",
+      "description": "Customers choose the session location (home, park, gym, etc.). Customers are responsible for any facility fees and choosing a suitable space."
+    },
+    "equipment": {
+      "title": "Equipment",
+      "description": "Optional. Bring equipment if you choose."
+    },
+    "payouts": {
+      "title": "Payments and payouts",
+      "item1": "Group Fit handles payments so you don't have to chase clients",
+      "item2": "Secure payouts to your bank account",
+      "item3": "Transparent payouts with clear earnings visibility in the app",
+      "item4": "Earnings and promotions are handled transparently—details are available in the Terms & Conditions",
+      "termsNote": "For full details, see our"
+    },
+    "bonus": {
+      "title": "Bonus: rules-based discovery",
+      "subtitle": "Group Fit shows your profile only to customers who match your specialization, time slots, and service location radius."
+    },
+    "cta": {
+      "title": "Meet the requirements?",
+      "subtitle": "Download the trainer app and start your onboarding today."
+    }
+  },
+  "trainerFaq": {
+    "hero": {
+      "title": "Trainer FAQ",
+      "subtitle": "Quick answers. No fluff.",
+      "note": "If it doesn't match your settings, the client can't book you."
+    },
+    "categories": {
+      "gettingStarted": "Getting started",
+      "bookingRules": "Booking rules (visibility)",
+      "managingSessions": "Managing sessions",
+      "paymentsPayouts": "Payments & payouts",
+      "groupBookings": "Group bookings",
+      "locationsTravel": "Locations & travel"
+    },
+    "stillHaveQuestions": "Still have questions?",
+    "contactSupport": "Contact Support",
+    "cta": {
+      "title": "Ready to start training?",
+      "subtitle": "Download the trainer app and start growing your business today."
+    }
+  },
+  "trainerDownload": {
+    "hero": {
+      "title": "Download Group Fit Trainer",
+      "subtitle": "Set your rules, reduce admin, and keep your schedule clean."
+    },
+    "checklist": {
+      "title": "Quick setup checklist",
+      "subtitle": "Get started in minutes with these simple steps.",
+      "item1": "Create your profile",
+      "item2": "Choose specializations",
+      "item3": "Set availability time slots",
+      "item4": "Set service locations + radius by day",
+      "item5": "Set your time gap between sessions",
+      "item6": "Complete verification"
+    },
+    "alreadyHaveApp": "Already have the app?",
+    "inviteClients": "How to invite clients →",
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Download now and start receiving bookings."
+    }
+  },
+  "common": {
+    "download": "Download",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "required": "required"
+  }
+}

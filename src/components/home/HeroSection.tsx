@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Download, ArrowRight, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/customer-banner.jpg";
 
 export function HeroSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-[90vh] flex items-center bg-secondary overflow-hidden">
       {/* Background Image with Overlay */}
@@ -34,8 +37,9 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
           >
-            Personal Trainer at{" "}
-            <span className="text-primary">Your Address</span> in Canada
+            {t("home.hero.title")}{" "}
+            <span className="text-primary">{t("home.hero.titleHighlight")}</span>{" "}
+            {t("home.hero.titleSuffix")}
           </motion.h1>
 
           <motion.p
@@ -44,9 +48,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl"
           >
-            Choose an activity, enter your session address, and pick a time—Group Fit shows
-            available trainers for that exact session. Book for yourself, your private group,
-            or your organization.
+            {t("home.hero.subtitle")}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -63,7 +65,7 @@ export function HeroSection() {
             >
               <Link to="/download" aria-label="Download the Group Fit app">
                 <Download className="w-5 h-5 mr-2" />
-                Download
+                {t("home.hero.download")}
               </Link>
             </Button>
 
@@ -74,7 +76,7 @@ export function HeroSection() {
               className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white text-lg px-8 py-6"
             >
               <Link to="/how-it-works" aria-label="How Group Fit works">
-                How it Works
+                {t("home.hero.howItWorks")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
@@ -89,7 +91,7 @@ export function HeroSection() {
           >
             <ShieldCheck className="w-5 h-5 text-primary" />
             <span className="text-sm">
-              Trainer onboarding includes credential review and identity verification
+              {t("home.hero.trustBadge")}
             </span>
           </motion.div>
         </div>

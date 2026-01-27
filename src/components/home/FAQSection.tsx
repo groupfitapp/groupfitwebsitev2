@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { PillLink } from "@/components/ui/PillLink";
 import {
@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+// Export for schema generation (keeps original English for SEO)
 export const homeFaqs = [
   {
     question: "Where can sessions take place?",
@@ -32,6 +33,16 @@ export const homeFaqs = [
 ];
 
 export function FAQSection() {
+  const { t } = useTranslation();
+
+  const translatedFaqs = [
+    { question: t("home.faq.q1"), answer: t("home.faq.a1") },
+    { question: t("home.faq.q2"), answer: t("home.faq.a2") },
+    { question: t("home.faq.q3"), answer: t("home.faq.a3") },
+    { question: t("home.faq.q4"), answer: t("home.faq.a4") },
+    { question: t("home.faq.q5"), answer: t("home.faq.a5") },
+  ];
+
   return (
     <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
@@ -43,7 +54,7 @@ export function FAQSection() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Frequently asked questions
+              {t("home.faq.title")}
             </h2>
           </motion.div>
 
@@ -54,7 +65,7 @@ export function FAQSection() {
             transition={{ delay: 0.1 }}
           >
             <Accordion type="single" collapsible className="space-y-4">
-              {homeFaqs.map((faq, index) => (
+              {translatedFaqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
@@ -79,7 +90,7 @@ export function FAQSection() {
             className="text-center mt-8"
           >
             <PillLink to="/faq">
-              View all FAQs
+              {t("home.faq.viewAll")}
             </PillLink>
           </motion.div>
         </div>

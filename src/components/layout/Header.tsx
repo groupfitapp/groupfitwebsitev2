@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Menu, Download, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import logo from "@/assets/logo.png";
 
 const customerNavLinks = [
@@ -24,12 +26,13 @@ const trainerNavLinks = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
   const isTrainerSection = location.pathname.startsWith("/trainer");
   
   const navLinks = isTrainerSection ? trainerNavLinks : customerNavLinks;
   const switchLink = isTrainerSection 
-    ? { name: "For Customers", href: "/" }
-    : { name: "For Trainers", href: "/trainer" };
+    ? { name: t("nav.forCustomers"), href: "/" }
+    : { name: t("nav.forTrainers"), href: "/trainer" };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-secondary/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
@@ -66,16 +69,17 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
+            <LanguageToggle />
             <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
               <a href="/referral" className="inline-flex items-center justify-center">
                 <Gift className="w-4 h-4 mr-2" />
-                Refer & Earn
+                {t("nav.referEarn")}
               </a>
             </Button>
             <Button asChild className="bg-primary hover:bg-red-dark text-white">
               <Link to="/download">
                 <Download className="w-4 h-4 mr-2" />
-                Download
+                {t("nav.download")}
               </Link>
             </Button>
           </div>
@@ -117,16 +121,19 @@ export function Header() {
                 </div>
                 
                 <div className="pt-4 border-t border-border/10 space-y-3">
+                  <div className="flex justify-center py-2">
+                    <LanguageToggle />
+                  </div>
                   <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
                     <a href="/referral" onClick={() => setIsOpen(false)} className="inline-flex items-center justify-center">
                       <Gift className="w-4 h-4 mr-2" />
-                      Refer & Earn
+                      {t("nav.referEarn")}
                     </a>
                   </Button>
                   <Button asChild className="w-full bg-primary hover:bg-red-dark text-white">
                     <Link to="/download" onClick={() => setIsOpen(false)}>
                       <Download className="w-4 h-4 mr-2" />
-                      Download
+                      {t("nav.download")}
                     </Link>
                   </Button>
                 </div>

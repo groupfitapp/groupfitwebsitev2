@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { PillLink } from "@/components/ui/PillLink";
 
@@ -12,17 +13,19 @@ import basketballImg from "@/assets/activities/basketball.jpg";
 import calisthenicsImg from "@/assets/activities/calisthenics-v2.jpg";
 
 const activities = [
-  { name: "Strength & Conditioning", slug: "strength-and-conditioning", image: strengthImg },
-  { name: "Yoga", slug: "yoga", image: yogaImg },
-  { name: "Boxing", slug: "boxing", image: boxingImg },
-  { name: "HIIT", slug: "hiit", image: hiitImg },
-  { name: "Kickboxing", slug: "kickboxing", image: kickboxingImg },
-  { name: "Soccer", slug: "soccer", image: soccerImg },
-  { name: "Basketball", slug: "basketball", image: basketballImg },
-  { name: "Calisthenics", slug: "calisthenics", image: calisthenicsImg },
+  { nameKey: "activities.activityNames.strengthConditioning", slug: "strength-and-conditioning", image: strengthImg },
+  { nameKey: "activities.activityNames.yoga", slug: "yoga", image: yogaImg },
+  { nameKey: "activities.activityNames.boxing", slug: "boxing", image: boxingImg },
+  { nameKey: "activities.activityNames.hiit", slug: "hiit", image: hiitImg },
+  { nameKey: "activities.activityNames.kickboxing", slug: "kickboxing", image: kickboxingImg },
+  { nameKey: "activities.activityNames.soccer", slug: "soccer", image: soccerImg },
+  { nameKey: "activities.activityNames.basketball", slug: "basketball", image: basketballImg },
+  { nameKey: "activities.activityNames.calisthenics", slug: "calisthenics", image: calisthenicsImg },
 ];
 
 export function ActivitiesSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-20 md:py-28 bg-muted/50">
       <div className="container mx-auto px-4">
@@ -34,7 +37,7 @@ export function ActivitiesSection() {
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-bold text-foreground"
             >
-              Popular activities
+              {t("home.activities.title")}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -43,11 +46,11 @@ export function ActivitiesSection() {
               transition={{ delay: 0.1 }}
               className="mt-2 text-muted-foreground"
             >
-              Explore our most booked training styles
+              {t("home.activities.subtitle")}
             </motion.p>
           </div>
           <PillLink to="/activities">
-            View all activities
+            {t("home.activities.viewAll")}
           </PillLink>
         </div>
 
@@ -68,7 +71,7 @@ export function ActivitiesSection() {
               >
                 <img
                   src={activity.image}
-                  alt={`${activity.name} personal training session with a certified coach`}
+                  alt={`${t(activity.nameKey)} personal training session with a certified coach`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                   decoding="async"
@@ -78,7 +81,7 @@ export function ActivitiesSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <h3 className="text-white font-semibold text-sm md:text-base group-hover:text-primary transition-colors duration-300">
-                    {activity.name}
+                    {t(activity.nameKey)}
                   </h3>
                 </div>
               </Link>

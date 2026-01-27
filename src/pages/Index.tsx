@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   HeroSection,
   VideoSection,
@@ -35,6 +36,8 @@ function toPlainText(node: unknown): string {
 }
 
 const Index = () => {
+  const { t } = useTranslation();
+
   // Keep these aligned with index.html (your canonical home SEO)
   const title = "Personal Trainer at Your Address in Canada | Group Fit";
   const description =
@@ -99,10 +102,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              See real training sessions
+              {t("home.testimonials.title")}
             </h2>
             <p className="text-white/70 max-w-xl mx-auto">
-              Watch customers training with Group Fit coaches at their chosen locations.
+              {t("home.testimonials.subtitle")}
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
