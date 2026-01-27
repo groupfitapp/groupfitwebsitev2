@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { PillLink } from "@/components/ui/PillLink";
 import {
@@ -17,15 +18,17 @@ import edmontonImg from "@/assets/cities/edmonton.jpg";
 import winnipegImg from "@/assets/cities/winnipeg.jpg";
 
 const cities = [
-  { name: "Toronto", slug: "toronto", image: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop" },
-  { name: "Mississauga", slug: "mississauga", image: mississaugaImg },
-  { name: "Vancouver", slug: "vancouver", image: vancouverImg },
-  { name: "Calgary", slug: "calgary", image: calgaryImg },
-  { name: "Edmonton", slug: "edmonton", image: edmontonImg },
-  { name: "Winnipeg", slug: "winnipeg", image: winnipegImg },
+  { nameKey: "cities.cityNames.toronto", slug: "toronto", image: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop" },
+  { nameKey: "cities.cityNames.mississauga", slug: "mississauga", image: mississaugaImg },
+  { nameKey: "cities.cityNames.vancouver", slug: "vancouver", image: vancouverImg },
+  { nameKey: "cities.cityNames.calgary", slug: "calgary", image: calgaryImg },
+  { nameKey: "cities.cityNames.edmonton", slug: "edmonton", image: edmontonImg },
+  { nameKey: "cities.cityNames.winnipeg", slug: "winnipeg", image: winnipegImg },
 ];
 
 export function CitiesSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
@@ -37,7 +40,7 @@ export function CitiesSection() {
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-bold text-foreground"
             >
-              Available across Canada
+              {t("home.cities.title")}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -46,11 +49,11 @@ export function CitiesSection() {
               transition={{ delay: 0.1 }}
               className="mt-2 text-muted-foreground"
             >
-              Subject to trainer availability in your area
+              {t("home.cities.subtitle")}
             </motion.p>
           </div>
           <PillLink to="/cities">
-            View all cities
+            {t("home.cities.viewAll")}
           </PillLink>
         </div>
 
@@ -80,7 +83,7 @@ export function CitiesSection() {
                     >
                       <img
                         src={city.image}
-                        alt={`Personal trainers available in ${city.name}, Canada`}
+                        alt={`Personal trainers available in ${t(city.nameKey)}, Canada`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         loading="lazy"
                         decoding="async"
@@ -89,7 +92,7 @@ export function CitiesSection() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-300" />
                       <div className="absolute bottom-0 left-0 right-0 p-3">
-                        <span className="font-medium text-white text-sm group-hover:text-primary transition-colors duration-300">{city.name}</span>
+                        <span className="font-medium text-white text-sm group-hover:text-primary transition-colors duration-300">{t(city.nameKey)}</span>
                       </div>
                     </Link>
                   </motion.div>

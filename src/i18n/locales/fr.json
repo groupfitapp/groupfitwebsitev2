@@ -1,0 +1,542 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "howItWorks": "Comment ça marche",
+    "activities": "Activités",
+    "cities": "Villes",
+    "faq": "FAQ",
+    "download": "Télécharger",
+    "contact": "Nous contacter",
+    "forCustomers": "Pour les clients",
+    "forTrainers": "Pour les entraîneurs",
+    "becomeTrainer": "Devenir entraîneur",
+    "requirements": "Exigences",
+    "referEarn": "Parrainez et gagnez"
+  },
+  "footer": {
+    "tagline": "Entraînement en personne à votre emplacement, simplifié—pour les particuliers, les groupes privés et les organisations.",
+    "customers": "Clients",
+    "trainers": "Entraîneurs",
+    "topCities": "Villes populaires",
+    "topActivities": "Activités populaires",
+    "legalPrivacy": "Juridique et confidentialité",
+    "website": "Site web",
+    "apps": "Applications",
+    "terms": "Conditions",
+    "privacyPolicy": "Politique de confidentialité",
+    "appTerms": "Conditions Group Fit",
+    "trainerTerms": "Conditions entraîneur Group Fit",
+    "appPrivacy": "Politique de confidentialité des applications Group Fit",
+    "viewAllCities": "Voir toutes les villes",
+    "viewAllActivities": "Voir toutes les activités",
+    "copyright": "© {{year}} Group Fit. Tous droits réservés.",
+    "aboutUs": "À propos de nous",
+    "blog": "Blogue"
+  },
+  "home": {
+    "hero": {
+      "title": "Entraîneur personnel à",
+      "titleHighlight": "votre adresse",
+      "titleSuffix": "au Canada",
+      "subtitle": "Choisissez une activité, entrez l'adresse de votre séance et choisissez une heure—Group Fit affiche les entraîneurs disponibles pour cette séance exacte. Réservez pour vous-même, votre groupe privé ou votre organisation.",
+      "download": "Télécharger",
+      "howItWorks": "Comment ça marche",
+      "trustBadge": "L'intégration des entraîneurs comprend une vérification des qualifications et de l'identité"
+    },
+    "video": {
+      "title": "Group Fit - Réservez un entraînement personnel en personne"
+    },
+    "benefits": {
+      "title": "Entraînement personnel—sans les tracas habituels",
+      "subtitle": "Group Fit simplifie la réservation. Vous choisissez une activité, une adresse de séance et une heure. Vous ne voyez que les coachs qui peuvent accepter cette séance, avec des paiements sécurisés dans l'application et un partage optionnel des coûts de groupe privé.",
+      "trainAnywhere": "Entraînez-vous n'importe où",
+      "trainAnywhereDesc": "À domicile, salle de gym de condo, parc ou un établissement que vous organisez (si permis).",
+      "moreWays": "Plus de façons de s'entraîner",
+      "moreWaysDesc": "Choisissez parmi plus de 35 activités, y compris la musculation, la boxe, le yoga, l'entraînement sportif et plus encore.",
+      "privateGroup": "Réservations de groupe privé",
+      "privateGroupDesc": "Entraînez-vous avec des amis ou de la famille au même moment et au même endroit.",
+      "verifiedCoaches": "Coachs vérifiés",
+      "verifiedCoachesDesc": "Les qualifications des entraîneurs sont examinées et la vérification d'identité est complétée lors de l'intégration."
+    },
+    "activities": {
+      "title": "Activités populaires",
+      "subtitle": "Explorez nos styles d'entraînement les plus réservés",
+      "viewAll": "Voir toutes les activités"
+    },
+    "cities": {
+      "title": "Disponible partout au Canada",
+      "subtitle": "Selon la disponibilité des entraîneurs dans votre région",
+      "viewAll": "Voir toutes les villes"
+    },
+    "testimonials": {
+      "title": "Voyez de vraies séances d'entraînement",
+      "subtitle": "Regardez des clients s'entraîner avec des coachs Group Fit à leurs emplacements choisis."
+    },
+    "faq": {
+      "title": "Questions fréquemment posées",
+      "viewAll": "Voir toutes les FAQ",
+      "q1": "Où peuvent avoir lieu les séances ?",
+      "a1": "Vous choisissez l'emplacement de la séance—domicile, salle de gym de condo, parc ou un établissement que vous organisez (si permis). Vous entrez l'adresse lors de la réservation et le coach se rend à cet endroit.",
+      "q2": "Pourquoi la liste des coachs change-t-elle quand je change l'adresse ?",
+      "a2": "La disponibilité est basée sur l'adresse de séance sélectionnée dans Group Fit. Changer l'adresse peut modifier quels coachs couvrent cette zone et qui est disponible à l'heure sélectionnée.",
+      "q3": "Quelle est la durée de chaque séance ?",
+      "a3": "Chaque séance dure 60 minutes.",
+      "q4": "Puis-je réserver avec des amis ou de la famille et partager les coûts ?",
+      "a4": "Oui. Les réservations de groupe sont privées (vos propres personnes). Vous pouvez partager le coût de la séance dans Group Fit, donc pas de collecte manuelle.",
+      "q5": "Et si je ne vois pas d'options pour mon activité ou mon horaire ?",
+      "a5": "Essayez une heure ou une date différente, ou choisissez une activité différente. La disponibilité dépend de l'adresse de séance, de l'activité sélectionnée et des horaires des coachs."
+    },
+    "cta": {
+      "title": "Prêt à vous entraîner selon votre horaire ?",
+      "subtitle": "Téléchargez Group Fit et trouvez des entraîneurs disponibles près de chez vous",
+      "trainerLink": "Vous êtes entraîneur ?"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "À propos de",
+      "titleHighlight": "Group Fit",
+      "subtitle": "Group Fit est une plateforme canadienne conçue pour simplifier la réservation d'entraînement sur place. Vous choisissez ce que vous voulez entraîner, entrez l'adresse de votre séance, choisissez une heure et réservez un coach disponible pour cette séance exacte—sans les allers-retours habituels."
+    },
+    "stats": {
+      "activities": "Activités",
+      "coverage": "Couverture",
+      "sessions": "Séances",
+      "coaches": "Coachs",
+      "canadaWide": "Partout au Canada",
+      "sixtyMin": "60 Min",
+      "verified": "Vérifiés"
+    },
+    "mission": {
+      "title": "Notre mission",
+      "content": "Rendre le fitness accessible, abordable et pratique en connectant les gens avec des entraîneurs certifiés pour des séances personnalisées en personne, à tout moment et n'importe où."
+    },
+    "vision": {
+      "title": "Notre vision",
+      "content": "Enrichir les vies en offrant un accès facile à diverses activités de fitness, permettant aux individus d'atteindre leurs objectifs de santé de manière flexible et agréable."
+    },
+    "whyBuilt": {
+      "title": "Pourquoi nous avons créé Group Fit",
+      "content": "Trop de gens veulent s'entraîner régulièrement mais sont bloqués par les mêmes obstacles :",
+      "obstacles": "options limitées, emplacements peu pratiques et planification peu fiable",
+      "conclusion": "Group Fit a été créé pour éliminer ces obstacles en amenant un coaching qualifié là où les gens s'entraînent vraiment—selon leur horaire, à leur emplacement."
+    },
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "subtitle": "Réservez une séance d'entraînement personnel en trois étapes simples.",
+      "step1Title": "Choisissez et recherchez",
+      "step1Desc": "Sélectionnez votre activité, entrez l'adresse de votre séance et choisissez votre heure préférée.",
+      "step2Title": "Trouvez des coachs disponibles",
+      "step2Desc": "Voyez uniquement les coachs qui correspondent à votre emplacement, heure et activité—sans devinette.",
+      "step3Title": "Réservez et entraînez-vous",
+      "step3Desc": "Complétez le paiement sécurisé dans l'application et rencontrez votre coach à votre emplacement.",
+      "learnMore": "En savoir plus"
+    },
+    "trainAnywhere": {
+      "title": "Entraînez-vous n'importe où",
+      "subtitle": "Vous choisissez où votre séance a lieu. Les coachs viennent à vous.",
+      "home": "Votre domicile",
+      "homeDesc": "Entraînez-vous dans votre salon ou votre cour",
+      "condoGym": "Salle de gym de condo",
+      "condoGymDesc": "Utilisez les équipements de votre immeuble",
+      "park": "Parc local",
+      "parkDesc": "Séances en plein air au grand air",
+      "facility": "Votre établissement",
+      "facilityDesc": "Toute salle de sport ou studio que vous organisez"
+    },
+    "activitiesSection": {
+      "title": "Plus de 35 activités",
+      "subtitle": "De la musculation aux arts martiaux, trouvez des coachs dans une grande variété de spécialisations.",
+      "viewAll": "Voir toutes les activités"
+    },
+    "forCustomers": {
+      "title": "Pour les clients",
+      "benefit1": "Réservez des séances à votre propre adresse",
+      "benefit2": "Choisissez parmi plus de 35 activités",
+      "benefit3": "Entraînez-vous seul ou avec un groupe privé",
+      "benefit4": "Partagez les coûts avec amis et famille",
+      "benefit5": "Coachs vérifiés avec qualifications examinées",
+      "benefit6": "Paiements sécurisés dans l'application"
+    },
+    "forTrainers": {
+      "title": "Pour les entraîneurs",
+      "benefit1": "Définissez votre propre horaire et tarifs",
+      "benefit2": "Définissez vos zones de service et rayon",
+      "benefit3": "Plus besoin de courir après les paiements",
+      "benefit4": "Partagez votre profil pour inviter des clients",
+      "benefit5": "Visibilité transparente des revenus",
+      "benefit6": "Développez votre clientèle organiquement"
+    }
+  },
+  "howItWorks": {
+    "hero": {
+      "title": "Comment fonctionne la réservation dans Group Fit",
+      "subtitle": "La réservation est construite autour de votre activité sélectionnée, de l'adresse de séance et de l'heure—vous ne voyez donc que les coachs qui peuvent accepter cette séance."
+    },
+    "stepsTitle": "Étape par étape",
+    "step1": {
+      "title": "Choisissez votre activité",
+      "description": "Commencez par le style d'entraînement souhaité. Explorez les options sur notre page d'activités."
+    },
+    "step2": {
+      "title": "Entrez l'adresse de votre séance",
+      "description": "Utilisez l'adresse exacte où vous voulez vous entraîner. La disponibilité des coachs est basée sur cette adresse."
+    },
+    "step3": {
+      "title": "Choisissez votre date et heure",
+      "description": "Choisissez quand vous voulez vous entraîner. La disponibilité se met à jour selon l'horaire et la couverture géographique."
+    },
+    "step4": {
+      "title": "Sélectionnez un coach disponible",
+      "description": "Choisissez parmi les coachs affichés comme disponibles pour cette séance (adresse + heure + activité)."
+    },
+    "step5": {
+      "title": "Payez dans l'application et entraînez-vous",
+      "description": "Complétez la réservation et rencontrez votre coach à l'emplacement sélectionné."
+    },
+    "groupBookings": {
+      "title": "Réservations de groupe privé",
+      "feature1": "Les réservations de groupe sont privées (amis/famille)",
+      "feature2": "Tout le monde se retrouve au même endroit et à la même heure",
+      "feature3": "Partagez les coûts dans Group Fit",
+      "feature4": "Jusqu'à 10 membres par groupe"
+    },
+    "sessionInfo": "Chaque séance dure 60 minutes",
+    "videoTutorials": {
+      "title": "Tutoriels vidéo",
+      "subtitle": "Regardez des guides étape par étape sur l'utilisation de Group Fit."
+    },
+    "cta": {
+      "title": "Prochaines étapes",
+      "viewActivities": "Voir les activités"
+    }
+  },
+  "activities": {
+    "hero": {
+      "title": "Choisissez votre activité",
+      "subtitle": "Ce sont des activités populaires. Group Fit prend en charge plus de 35 activités—téléchargez l'application pour voir les options disponibles selon votre adresse et heure."
+    },
+    "categories": {
+      "strengthPerformance": "Force et performance",
+      "mindMobility": "Esprit et mobilité",
+      "combatSports": "Sports de combat et autodéfense",
+      "sportTraining": "Entraînement sportif",
+      "conditioning": "Conditionnement"
+    },
+    "activityNames": {
+      "strengthConditioning": "Musculation et conditionnement",
+      "calisthenics": "Callisthénie",
+      "yoga": "Yoga",
+      "boxing": "Boxe",
+      "kickboxing": "Kickboxing",
+      "muayThai": "Muay Thai",
+      "jiuJitsu": "Jiu Jitsu",
+      "wrestling": "Lutte",
+      "selfDefense": "Autodéfense",
+      "soccer": "Soccer",
+      "basketball": "Basketball",
+      "hiit": "HIIT",
+      "bootcamp": "Bootcamp"
+    },
+    "moreNote": "Ces pages couvrent les options populaires. Téléchargez Group Fit pour voir les 35+ activités et vérifier la disponibilité des coachs selon l'adresse et l'heure de votre séance.",
+    "cta": {
+      "title": "Prêt à commencer l'entraînement ?",
+      "subtitle": "Téléchargez Group Fit sur votre appareil pour trouver des coachs disponibles près de chez vous.",
+      "viewCities": "Voir les villes"
+    }
+  },
+  "cities": {
+    "hero": {
+      "title": "Trouvez des entraîneurs près de chez vous",
+      "subtitle": "Les pages de villes vous aident à choisir la bonne activité et à comprendre les options de séance. Pour voir la disponibilité réelle et réserver, utilisez Group Fit avec l'adresse et l'heure exactes de votre séance."
+    },
+    "provinces": {
+      "ontario": "Ontario",
+      "britishColumbia": "Colombie-Britannique",
+      "alberta": "Alberta",
+      "manitoba": "Manitoba",
+      "quebec": "Québec",
+      "novaScotia": "Nouvelle-Écosse",
+      "newBrunswick": "Nouveau-Brunswick",
+      "saskatchewan": "Saskatchewan"
+    },
+    "cityNames": {
+      "toronto": "Toronto",
+      "mississauga": "Mississauga",
+      "ottawa": "Ottawa",
+      "brampton": "Brampton",
+      "oakville": "Oakville",
+      "vancouver": "Vancouver",
+      "calgary": "Calgary",
+      "edmonton": "Edmonton",
+      "winnipeg": "Winnipeg",
+      "quebecCity": "Ville de Québec",
+      "halifax": "Halifax",
+      "fredericton": "Fredericton",
+      "saskatoon": "Saskatoon"
+    },
+    "cta": {
+      "title": "Prêt à trouver un entraîneur ?",
+      "viewActivities": "Voir les activités"
+    }
+  },
+  "download": {
+    "hero": {
+      "title": "Téléchargez Group Fit",
+      "subtitle": "Obtenez l'application sur iOS ou Android pour commencer à réserver des séances ou accepter des clients."
+    },
+    "customers": {
+      "title": "Clients",
+      "subtitle": "Réservez des séances d'entraînement personnel",
+      "benefit1": "Trouvez des entraîneurs disponibles près de chez vous",
+      "benefit2": "Réservez seul ou avec un groupe privé",
+      "benefit3": "Partagez les coûts avec amis et famille"
+    },
+    "trainers": {
+      "title": "Entraîneurs",
+      "subtitle": "Développez votre clientèle",
+      "benefit1": "Définissez votre horaire, vos zones de service et votre rayon de déplacement",
+      "benefit2": "Partagez le lien de votre profil avec vos clients existants",
+      "benefit3": "Paiements gérés—plus besoin de courir après les clients"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contactez-nous",
+      "subtitle": "Vous avez une question ou un commentaire ? Nous serions ravis de vous entendre. Remplissez le formulaire ci-dessous et nous vous répondrons dès que possible."
+    },
+    "form": {
+      "responseTime": "Temps de réponse",
+      "responseValue": "Dans les 24 à 48 heures",
+      "name": "Nom",
+      "namePlaceholder": "Votre nom complet",
+      "email": "Courriel",
+      "emailPlaceholder": "vous@exemple.com",
+      "phone": "Téléphone (optionnel)",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "subject": "Sujet",
+      "subjectPlaceholder": "De quoi s'agit-il ?",
+      "message": "Message",
+      "messagePlaceholder": "Dites-nous comment nous pouvons vous aider...",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "successTitle": "Message envoyé avec succès !",
+      "successMessage": "Merci de nous avoir contactés. Nous vous répondrons dans les 24 à 48 heures.",
+      "errorTitle": "Échec de l'envoi du message",
+      "privacyNote": "En soumettant ce formulaire, vous acceptez notre"
+    }
+  },
+  "faq": {
+    "hero": {
+      "title": "Questions fréquemment posées",
+      "subtitle": "Tout ce que vous devez savoir sur la réservation et l'entraînement avec Group Fit."
+    },
+    "categories": {
+      "gettingStarted": "Pour commencer",
+      "trainersQuality": "Entraîneurs et qualité",
+      "bookingAvailability": "Réservation et disponibilité",
+      "locationsEquipment": "Emplacements et équipement",
+      "groupBookings": "Réservations de groupe",
+      "cancellationsRescheduling": "Annulations et reprogrammation",
+      "paymentsPromotions": "Paiements et promotions",
+      "feedbackSupport": "Commentaires et support"
+    },
+    "cta": {
+      "title": "Encore des questions ?",
+      "subtitle": "Téléchargez Group Fit et contactez notre équipe de support",
+      "contactSupport": "Contacter le support"
+    }
+  },
+  "trainer": {
+    "hero": {
+      "title": "Gérez votre horaire.",
+      "titleHighlight": "Arrêtez les allers-retours.",
+      "subtitle": "Faites passer vos clients sur Group Fit pour que les réservations et paiements se déroulent proprement—sans DM, tableurs ou relances.",
+      "download": "Télécharger",
+      "howItWorks": "Comment ça marche"
+    },
+    "benefits": {
+      "setSchedule": "Définissez votre horaire",
+      "setScheduleDesc": "Choisissez vos créneaux horaires et ce que vous coachez.",
+      "setLocations": "Définissez vos zones de service + rayon",
+      "setLocationsDesc": "N'apparaissez que pour les clients dans votre zone de service.",
+      "noDoubleBookings": "Pas de doubles réservations",
+      "noDoubleBookingsDesc": "Le temps tampon bloque automatiquement les séances consécutives.",
+      "paymentsHandled": "Paiements gérés",
+      "paymentsHandledDesc": "Group Fit gère les paiements pour que vous n'ayez pas à courir après les clients. Versements transparents avec une visibilité claire des revenus dans l'application.",
+      "matchNote": "Les clients ne peuvent réserver que s'ils correspondent à votre rayon, vos heures et votre spécialité."
+    },
+    "shareProfile": {
+      "title": "Invitez vos clients existants en 15 secondes",
+      "subtitle": "Partagez le lien de votre profil public. Vos clients vous réservent directement—seulement quand ça correspond à vos paramètres.",
+      "step1": "Ouvrez Group Fit Trainer",
+      "step2": "Compte → Mon profil",
+      "step3": "Appuyez sur les 3 points (en haut à droite)",
+      "step4": "Voir le profil public",
+      "step5": "Partager",
+      "startTip": "Commencez par envoyer le lien de votre profil à vos clients existants dès aujourd'hui."
+    },
+    "howClientsBook": {
+      "title": "Comment les clients vous réservent",
+      "subtitle": "Les clients ne peuvent réserver que si tout ceci correspond :",
+      "criteria1": "Spécialisation",
+      "criteria2": "Jour + heure",
+      "criteria3": "Adresse dans le rayon de zone de service",
+      "criteria4": "Le temps tampon le permet",
+      "example": "Lundi : Tour CN (Toronto) + rayon de 25 km + 9h00 à 14h00 → Seuls les clients dans le rayon réservant pendant cette période peuvent vous réserver.",
+      "clientsDoTitle": "Ce que font les clients :",
+      "clientsDo": "choisir la spécialisation → choisir l'heure → entrer l'adresse → réserver",
+      "youDoTitle": "Ce que vous faites :",
+      "youDo": "accepter → vous présenter → coacher"
+    },
+    "bonus": {
+      "title": "Bonus : de nouveaux clients peuvent vous trouver sur Group Fit",
+      "subtitle": "Quand des clients recherchent dans votre zone de couverture pour vos spécialités, vous pouvez apparaître—sans changer comment vous gérez vos clients existants."
+    },
+    "testimonials": {
+      "title": "Écoutez les entraîneurs qui utilisent Group Fit",
+      "subtitle": "De vrais entraîneurs partagent comment Group Fit les aide à gérer leur horaire et développer leur entreprise."
+    },
+    "cta": {
+      "title": "Prêt à simplifier votre semaine ?"
+    }
+  },
+  "trainerHowItWorks": {
+    "hero": {
+      "title": "Définissez votre disponibilité et vos zones de service. Group Fit fait le reste.",
+      "subtitle": "Faites passer vos clients existants dans un flux de réservation propre. Seules les réservations valides passent.",
+      "note": "Vous n'apparaissez que pour les demandes correspondantes—bonne spécialité, bon moment, bon endroit."
+    },
+    "pills": {
+      "inPerson": "Conçu pour les coachs en personne",
+      "verified": "Intégration vérifiée",
+      "rulesBased": "Planification basée sur des règles",
+      "payments": "Paiements gérés"
+    },
+    "steps": {
+      "step1Title": "Choisissez ce que vous coachez",
+      "step1Desc": "Plus de 35 spécialisations—HIIT, Boxe, Jiu Jitsu, et plus.",
+      "step2Title": "Définissez vos créneaux horaires",
+      "step2Desc": "Créez des fenêtres horaires par jour (exemple : Lundi 8h00–15h00 et 17h00–20h00).",
+      "step2Note": "Hors de vos créneaux ? Les clients ne peuvent pas vous réserver.",
+      "step3Title": "Définissez les zones de service + rayon",
+      "step3Desc": "Attribuez différents emplacements et rayons à différents jours.",
+      "step3Note": "Hors de votre rayon ? Les clients ne peuvent pas vous réserver.",
+      "step3Example": "Lundi : rayon de 25 km depuis la Tour CN (Toronto). Mardi–Vendredi : rayon de 30 km depuis Square One (Mississauga).",
+      "step4Title": "Définissez le temps tampon",
+      "step4Desc": "Choisissez combien de temps entre les séances (jusqu'à 1 heure).",
+      "step4Example": "Réservé à 9h00 avec un tampon de 30 minutes → le prochain disponible s'affiche à 10h30.",
+      "step5Title": "La reprogrammation est supportée",
+      "step5Desc": "Demandez un changement dans l'application. Group Fit gère le flux de confirmation client."
+    },
+    "shareProfile": {
+      "title": "Partagez le lien de votre profil",
+      "subtitle": "Compte → Mon profil → 3 points → Voir le profil public → Partager"
+    },
+    "bonus": {
+      "title": "Bonus : découverte basée sur les règles",
+      "subtitle": "Group Fit montre votre profil uniquement aux clients qui correspondent à votre spécialisation, créneaux horaires et rayon de zone de service."
+    },
+    "videoTutorials": {
+      "title": "Tutoriels vidéo",
+      "subtitle": "Regardez des guides étape par étape sur l'utilisation de l'application Group Fit Trainer."
+    },
+    "links": {
+      "alreadyHaveApp": "Vous avez déjà l'application ? Comment inviter des clients"
+    },
+    "cta": {
+      "title": "Prêt à commencer ?",
+      "subtitle": "Téléchargez l'application entraîneur et commencez à développer votre entreprise dès aujourd'hui."
+    }
+  },
+  "trainerRequirements": {
+    "hero": {
+      "title": "Exigences et vérification des entraîneurs",
+      "subtitle": "Standards professionnels, séances plus sûres et réservations plus fluides.",
+      "note": "Actuellement disponible au Canada."
+    },
+    "whatYouNeed": "Ce dont vous aurez besoin",
+    "requirements": {
+      "photo": "Photo de profil claire",
+      "photoDesc": "Une photo claire et de haute qualité qui vous représente professionnellement.",
+      "resume": "CV + scans de certifications",
+      "resumeDesc": "Vos qualifications sont examinées manuellement pour assurer la qualité.",
+      "id": "Vérification d'identité lors de l'intégration",
+      "idDesc": "Complétez la vérification d'identité via Plaid lors de l'intégration."
+    },
+    "inPerson": {
+      "title": "Séances en personne",
+      "description": "Les clients choisissent l'emplacement de la séance (domicile, parc, gym, etc.). Les clients sont responsables des frais d'établissement et du choix d'un espace approprié."
+    },
+    "equipment": {
+      "title": "Équipement",
+      "description": "Optionnel. Apportez de l'équipement si vous le souhaitez."
+    },
+    "payouts": {
+      "title": "Paiements et versements",
+      "item1": "Group Fit gère les paiements pour que vous n'ayez pas à courir après les clients",
+      "item2": "Versements sécurisés sur votre compte bancaire",
+      "item3": "Versements transparents avec une visibilité claire des revenus dans l'application",
+      "item4": "Les revenus et promotions sont gérés de manière transparente—les détails sont disponibles dans les Conditions générales",
+      "termsNote": "Pour tous les détails, consultez nos"
+    },
+    "bonus": {
+      "title": "Bonus : découverte basée sur les règles",
+      "subtitle": "Group Fit montre votre profil uniquement aux clients qui correspondent à votre spécialisation, créneaux horaires et rayon de zone de service."
+    },
+    "cta": {
+      "title": "Vous répondez aux exigences ?",
+      "subtitle": "Téléchargez l'application entraîneur et commencez votre intégration dès aujourd'hui."
+    }
+  },
+  "trainerFaq": {
+    "hero": {
+      "title": "FAQ Entraîneurs",
+      "subtitle": "Réponses rapides. Sans blabla.",
+      "note": "Si ça ne correspond pas à vos paramètres, le client ne peut pas vous réserver."
+    },
+    "categories": {
+      "gettingStarted": "Pour commencer",
+      "bookingRules": "Règles de réservation (visibilité)",
+      "managingSessions": "Gestion des séances",
+      "paymentsPayouts": "Paiements et versements",
+      "groupBookings": "Réservations de groupe",
+      "locationsTravel": "Emplacements et déplacements"
+    },
+    "stillHaveQuestions": "Encore des questions ?",
+    "contactSupport": "Contacter le support",
+    "cta": {
+      "title": "Prêt à commencer l'entraînement ?",
+      "subtitle": "Téléchargez l'application entraîneur et commencez à développer votre entreprise dès aujourd'hui."
+    }
+  },
+  "trainerDownload": {
+    "hero": {
+      "title": "Téléchargez Group Fit Trainer",
+      "subtitle": "Définissez vos règles, réduisez l'administratif et gardez votre horaire propre."
+    },
+    "checklist": {
+      "title": "Liste de vérification rapide",
+      "subtitle": "Commencez en quelques minutes avec ces étapes simples.",
+      "item1": "Créez votre profil",
+      "item2": "Choisissez vos spécialisations",
+      "item3": "Définissez vos créneaux de disponibilité",
+      "item4": "Définissez les zones de service + rayon par jour",
+      "item5": "Définissez l'intervalle entre les séances",
+      "item6": "Complétez la vérification"
+    },
+    "alreadyHaveApp": "Vous avez déjà l'application ?",
+    "inviteClients": "Comment inviter des clients →",
+    "cta": {
+      "title": "Prêt à commencer ?",
+      "subtitle": "Téléchargez maintenant et commencez à recevoir des réservations."
+    }
+  },
+  "common": {
+    "download": "Télécharger",
+    "learnMore": "En savoir plus",
+    "viewAll": "Voir tout",
+    "required": "requis"
+  }
+}

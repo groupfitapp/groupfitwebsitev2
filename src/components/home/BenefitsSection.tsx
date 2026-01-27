@@ -1,30 +1,33 @@
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Home, Sparkles, UsersRound, BadgeCheck } from "lucide-react";
 
-const benefits = [
-  {
-    icon: Home,
-    title: "Train anywhere",
-    description: "Home, condo gym, park, or a facility you arrange (where permitted).",
-  },
-  {
-    icon: Sparkles,
-    title: "More ways to train",
-    description: "Choose from 35+ activities, including strength, boxing, yoga, sport training and more.",
-  },
-  {
-    icon: UsersRound,
-    title: "Private group bookings",
-    description: "Train with friends or family at the same time and location.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Verified coaches",
-    description: "Trainer credentials are reviewed and identity verification is completed during onboarding.",
-  },
-];
-
 export function BenefitsSection() {
+  const { t } = useTranslation();
+
+  const benefits = [
+    {
+      icon: Home,
+      title: t("home.benefits.trainAnywhere"),
+      description: t("home.benefits.trainAnywhereDesc"),
+    },
+    {
+      icon: Sparkles,
+      title: t("home.benefits.moreWays"),
+      description: t("home.benefits.moreWaysDesc"),
+    },
+    {
+      icon: UsersRound,
+      title: t("home.benefits.privateGroup"),
+      description: t("home.benefits.privateGroupDesc"),
+    },
+    {
+      icon: BadgeCheck,
+      title: t("home.benefits.verifiedCoaches"),
+      description: t("home.benefits.verifiedCoachesDesc"),
+    },
+  ];
+
   return (
     <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
@@ -35,7 +38,7 @@ export function BenefitsSection() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-foreground"
           >
-            Personal training—without the usual hassle
+            {t("home.benefits.title")}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -44,16 +47,14 @@ export function BenefitsSection() {
             transition={{ delay: 0.1 }}
             className="mt-4 text-lg text-muted-foreground"
           >
-            Group Fit keeps booking simple. You choose an activity, session address, and time.
-            You only see coaches who can accept that session, with secure in-app payments and
-            optional private group cost-splitting.
+            {t("home.benefits.subtitle")}
           </motion.p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
             <motion.div
-              key={benefit.title}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
