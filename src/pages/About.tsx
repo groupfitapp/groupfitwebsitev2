@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { 
@@ -29,62 +28,60 @@ import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 
 import aboutHeroImg from "@/assets/heroes/about-hero.jpg";
 
+const stats = [
+  { icon: Dumbbell, value: "35+", label: "Activities" },
+  { icon: MapPin, value: "Canada-Wide", label: "Coverage" },
+  { icon: Clock, value: "60 Min", label: "Sessions" },
+  { icon: Shield, value: "Verified", label: "Coaches" },
+];
+
+const howItWorksSteps = [
+  {
+    icon: Zap,
+    step: "1",
+    title: "Choose & Search",
+    description: "Select your activity, enter your session address, and pick your preferred time.",
+  },
+  {
+    icon: Navigation,
+    step: "2",
+    title: "Find Available Coaches",
+    description: "See only coaches who match your location, time, and activity—no guesswork.",
+  },
+  {
+    icon: CalendarClock,
+    step: "3",
+    title: "Book & Train",
+    description: "Complete secure payment in-app and meet your coach at your location.",
+  },
+];
+
+const trainingLocations = [
+  { icon: Home, label: "Your Home", description: "Train in your living room or backyard" },
+  { icon: Building, label: "Condo Gym", description: "Use your building's amenities" },
+  { icon: TreePine, label: "Local Park", description: "Outdoor sessions in fresh air" },
+  { icon: Dumbbell, label: "Your Facility", description: "Any gym or studio you arrange" },
+];
+
+const customerBenefits = [
+  "Book sessions at your own address",
+  "Choose from 35+ activities",
+  "Train solo or with a private group",
+  "Split costs with friends & family",
+  "Verified, credential-reviewed coaches",
+  "Secure in-app payments",
+];
+
+const trainerBenefits = [
+  "Set your own schedule & rates",
+  "Define your service areas & radius",
+  "No chasing clients for payments",
+  "Share your profile to invite clients",
+  "Transparent earnings visibility",
+  "Grow your client base organically",
+];
+
 export default function About() {
-  const { t } = useTranslation();
-
-  const stats = [
-    { icon: Dumbbell, value: "35+", label: t("about.stats.activities") },
-    { icon: MapPin, value: t("about.stats.canadaWide"), label: t("about.stats.coverage") },
-    { icon: Clock, value: t("about.stats.sixtyMin"), label: t("about.stats.sessions") },
-    { icon: Shield, value: t("about.stats.verified"), label: t("about.stats.coaches") },
-  ];
-
-  const howItWorksSteps = [
-    {
-      icon: Zap,
-      step: "1",
-      title: t("about.howItWorks.step1Title"),
-      description: t("about.howItWorks.step1Desc"),
-    },
-    {
-      icon: Navigation,
-      step: "2",
-      title: t("about.howItWorks.step2Title"),
-      description: t("about.howItWorks.step2Desc"),
-    },
-    {
-      icon: CalendarClock,
-      step: "3",
-      title: t("about.howItWorks.step3Title"),
-      description: t("about.howItWorks.step3Desc"),
-    },
-  ];
-
-  const trainingLocations = [
-    { icon: Home, label: t("about.trainAnywhere.home"), description: t("about.trainAnywhere.homeDesc") },
-    { icon: Building, label: t("about.trainAnywhere.condoGym"), description: t("about.trainAnywhere.condoGymDesc") },
-    { icon: TreePine, label: t("about.trainAnywhere.park"), description: t("about.trainAnywhere.parkDesc") },
-    { icon: Dumbbell, label: t("about.trainAnywhere.facility"), description: t("about.trainAnywhere.facilityDesc") },
-  ];
-
-  const customerBenefits = [
-    t("about.forCustomers.benefit1"),
-    t("about.forCustomers.benefit2"),
-    t("about.forCustomers.benefit3"),
-    t("about.forCustomers.benefit4"),
-    t("about.forCustomers.benefit5"),
-    t("about.forCustomers.benefit6"),
-  ];
-
-  const trainerBenefits = [
-    t("about.forTrainers.benefit1"),
-    t("about.forTrainers.benefit2"),
-    t("about.forTrainers.benefit3"),
-    t("about.forTrainers.benefit4"),
-    t("about.forTrainers.benefit5"),
-    t("about.forTrainers.benefit6"),
-  ];
-
   const title = "About Group Fit | On-Location Personal Training Across Canada";
   const description =
     "Group Fit connects you with verified coaches across Canada. Book strength, yoga, HIIT, boxing & more at your address—solo, private group, or organization.";
@@ -165,10 +162,12 @@ export default function About() {
               className="max-w-4xl mx-auto text-center"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                {t("about.hero.title")} <span className="text-primary">{t("about.hero.titleHighlight")}</span>
+                About <span className="text-primary">Group Fit</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
-                {t("about.hero.subtitle")}
+                Group Fit is a Canadian platform built to make booking on-location training straightforward.
+                You choose what you want to train, enter your session address, pick a time, and book a coach
+                who's available for that exact session—without the usual back-and-forth.
               </p>
             </motion.div>
           </div>
@@ -213,9 +212,10 @@ export default function About() {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <Target className="w-7 h-7 text-primary" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("about.mission.title")}</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Our Mission</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  {t("about.mission.content")}
+                  To make fitness accessible, affordable, and convenient by connecting people with certified trainers 
+                  for personalised in-person sessions anytime, anywhere.
                 </p>
               </motion.div>
 
@@ -231,9 +231,10 @@ export default function About() {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                   <Eye className="w-7 h-7 text-primary" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("about.vision.title")}</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Our Vision</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  {t("about.vision.content")}
+                  To enrich lives by providing easy access to diverse fitness activities, empowering individuals 
+                  to achieve their health goals flexibly and enjoyably.
                 </p>
               </motion.div>
             </div>
@@ -253,11 +254,12 @@ export default function About() {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
                   <Heart className="w-8 h-8 text-primary" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("about.whyBuilt.title")}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why We Built Group Fit</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                  {t("about.whyBuilt.content")}
-                  <strong className="text-foreground"> {t("about.whyBuilt.obstacles")}</strong>.
-                  {" "}{t("about.whyBuilt.conclusion")}
+                  Too many people want to train consistently but get stuck on the same obstacles:
+                  <strong className="text-foreground"> limited options, inconvenient locations, and unreliable scheduling</strong>.
+                  Group Fit was created to remove those barriers by bringing qualified coaching to where people
+                  actually train—on their schedule, at their location.
                 </p>
               </motion.div>
             </div>
@@ -273,9 +275,9 @@ export default function About() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("about.howItWorks.title")}</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How It Works</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                {t("about.howItWorks.subtitle")}
+                Book a personal training session in three simple steps.
               </p>
             </motion.div>
 
@@ -310,7 +312,7 @@ export default function About() {
             >
               <Button asChild variant="outline" size="lg">
                 <Link to="/how-it-works">
-                  {t("about.howItWorks.learnMore")}
+                  Learn More
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
@@ -330,9 +332,9 @@ export default function About() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
                 <MapPin className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("about.trainAnywhere.title")}</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Train Anywhere</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                {t("about.trainAnywhere.subtitle")}
+                You choose where your session happens. Coaches come to you.
               </p>
             </motion.div>
 
@@ -371,9 +373,9 @@ export default function About() {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
                   <Dumbbell className="w-8 h-8 text-primary" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("about.activitiesSection.title")}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">35+ Activities</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  {t("about.activitiesSection.subtitle")}
+                  From strength training to martial arts, find coaches across a wide variety of specializations.
                 </p>
               </motion.div>
 
@@ -400,7 +402,7 @@ export default function About() {
               >
                 <Button asChild variant="outline" size="lg">
                   <Link to="/activities">
-                    {t("about.activitiesSection.viewAll")}
+                    View All Activities
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>

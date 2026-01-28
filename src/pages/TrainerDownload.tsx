@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { 
   Download,
@@ -13,17 +12,16 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PillLink } from "@/components/ui/PillLink";
 import trainerBanner from "@/assets/trainer-banner.jpg";
 
-export default function TrainerDownload() {
-  const { t } = useTranslation();
+const setupChecklist = [
+  "Create your profile",
+  "Choose specializations",
+  "Set availability time slots",
+  "Set service locations + radius by day",
+  "Set your time gap between sessions",
+  "Complete verification",
+];
 
-  const setupChecklist = [
-    t("trainerDownload.checklist.item1"),
-    t("trainerDownload.checklist.item2"),
-    t("trainerDownload.checklist.item3"),
-    t("trainerDownload.checklist.item4"),
-    t("trainerDownload.checklist.item5"),
-    t("trainerDownload.checklist.item6"),
-  ];
+export default function TrainerDownload() {
   return (
     <>
       <Helmet>
@@ -67,10 +65,10 @@ export default function TrainerDownload() {
               <Smartphone className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              {t("trainerDownload.hero.title")}
+              Download Group Fit Trainer
             </h1>
             <p className="mt-6 text-lg text-white/80">
-              {t("trainerDownload.hero.subtitle")}
+              Set your rules, reduce admin, and keep your schedule clean.
             </p>
             <div className="mt-8 flex justify-center">
               <AppStoreBadges
@@ -96,10 +94,10 @@ export default function TrainerDownload() {
               <Download className="w-8 h-8 text-primary" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              {t("trainerDownload.checklist.title")}
+              Quick setup checklist
             </h2>
             <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-              {t("trainerDownload.checklist.subtitle")}
+              Get started in minutes with these simple steps.
             </p>
           </motion.div>
 
@@ -145,7 +143,7 @@ export default function TrainerDownload() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <Link to="/trainer#share" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              {t("trainerDownload.alreadyHaveApp")} <span className="text-primary font-medium">{t("trainerDownload.inviteClients")}</span>
+              Already have the app? <span className="text-primary font-medium">How to invite clients →</span>
             </Link>
           </div>
         </div>
@@ -167,10 +165,10 @@ export default function TrainerDownload() {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              {t("trainerDownload.cta.title")}
+              Ready to get started?
             </h2>
             <p className="text-white/70 mb-8">
-              {t("trainerDownload.cta.subtitle")}
+              Download now and start receiving bookings.
             </p>
             <div className="flex justify-center">
               <AppStoreBadges

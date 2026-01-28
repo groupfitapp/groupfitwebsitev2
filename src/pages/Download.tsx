@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Users, Dumbbell } from "lucide-react";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -7,8 +6,6 @@ import { APP_LINKS } from "@/lib/appLinks";
 import downloadHero from "@/assets/heroes/download-hero.jpg";
 
 export default function Download() {
-  const { t } = useTranslation();
-
   return (
     <>
       <Helmet>
@@ -47,10 +44,10 @@ export default function Download() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              {t("download.hero.title")}
+              Download Group Fit
             </h1>
             <p className="mt-6 text-lg text-white/70">
-              {t("download.hero.subtitle")}
+              Get the app on iOS or Android to start booking sessions or accepting clients.
             </p>
           </motion.div>
         </div>
@@ -73,23 +70,23 @@ export default function Download() {
                   <Users className="w-7 h-7 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-foreground">{t("download.customers.title")}</h2>
-                  <p className="text-muted-foreground">{t("download.customers.subtitle")}</p>
+                  <h2 className="text-2xl font-bold text-foreground">Customers</h2>
+                  <p className="text-muted-foreground">Book personal training sessions</p>
                 </div>
               </div>
 
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {t("download.customers.benefit1")}
+                  Find available trainers near you
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {t("download.customers.benefit2")}
+                  Book solo or with a private group
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {t("download.customers.benefit3")}
+                  Split costs with friends and family
                 </li>
               </ul>
 
@@ -114,23 +111,23 @@ export default function Download() {
                   <Dumbbell className="w-7 h-7 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-foreground">{t("download.trainers.title")}</h2>
-                  <p className="text-muted-foreground">{t("download.trainers.subtitle")}</p>
+                  <h2 className="text-2xl font-bold text-foreground">Trainers</h2>
+                  <p className="text-muted-foreground">Grow your client base</p>
                 </div>
               </div>
 
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {t("download.trainers.benefit1")}
+                  Set your schedule, service locations, and travel radius
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {t("download.trainers.benefit2")}
+                  Share your profile link with existing clients
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {t("download.trainers.benefit3")}
+                  Payments handled—no chasing clients
                 </li>
               </ul>
 

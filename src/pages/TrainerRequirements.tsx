@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { 
   CircleCheckBig, 
@@ -19,49 +18,48 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PillLink } from "@/components/ui/PillLink";
 import trainerRequirementsHeroImg from "@/assets/heroes/trainer-requirements-hero.jpg";
 
+const requirements = [
+  {
+    icon: Camera,
+    title: "Clear profile photo",
+    description: "A clear, high-quality photo that represents you professionally.",
+  },
+  {
+    icon: FileText,
+    title: "Resume + certification scans",
+    description: "Your credentials are manually reviewed to ensure quality.",
+  },
+  {
+    icon: Fingerprint,
+    title: "ID verification during onboarding",
+    description: "Complete identity verification via Plaid during onboarding.",
+  },
+];
+
+const inPersonInfo = {
+  icon: Users,
+  title: "In-person sessions",
+  description: "Customers choose the session location (home, park, gym, etc.). Customers are responsible for any facility fees and choosing a suitable space.",
+};
+
+const equipmentInfo = {
+  icon: Dumbbell,
+  title: "Equipment",
+  description: "Optional. Bring equipment if you choose.",
+};
+
+const payoutsInfo = {
+  icon: Wallet,
+  title: "Payments and payouts",
+  items: [
+    "Group Fit handles payments so you don't have to chase clients",
+    "Secure payouts to your bank account",
+    "Transparent payouts with clear earnings visibility in the app",
+    "Earnings and promotions are handled transparently—details are available in the Terms & Conditions",
+  ],
+};
+
 export default function TrainerRequirements() {
-  const { t } = useTranslation();
-
-  const requirements = [
-    {
-      icon: Camera,
-      title: t("trainerRequirements.requirements.photo"),
-      description: t("trainerRequirements.requirements.photoDesc"),
-    },
-    {
-      icon: FileText,
-      title: t("trainerRequirements.requirements.resume"),
-      description: t("trainerRequirements.requirements.resumeDesc"),
-    },
-    {
-      icon: Fingerprint,
-      title: t("trainerRequirements.requirements.id"),
-      description: t("trainerRequirements.requirements.idDesc"),
-    },
-  ];
-
-  const inPersonInfo = {
-    icon: Users,
-    title: t("trainerRequirements.inPerson.title"),
-    description: t("trainerRequirements.inPerson.description"),
-  };
-
-  const equipmentInfo = {
-    icon: Dumbbell,
-    title: t("trainerRequirements.equipment.title"),
-    description: t("trainerRequirements.equipment.description"),
-  };
-
-  const payoutsInfo = {
-    icon: Wallet,
-    title: t("trainerRequirements.payouts.title"),
-    items: [
-      t("trainerRequirements.payouts.item1"),
-      t("trainerRequirements.payouts.item2"),
-      t("trainerRequirements.payouts.item3"),
-      t("trainerRequirements.payouts.item4"),
-    ],
-  };
   return (
     <>
       <Helmet>
@@ -105,13 +103,13 @@ export default function TrainerRequirements() {
               <CircleCheckBig className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              {t("trainerRequirements.hero.title")}
+              Trainer Requirements & Verification
             </h1>
             <p className="mt-6 text-lg text-white/80">
-              {t("trainerRequirements.hero.subtitle")}
+              Professional standards, safer sessions, and smoother bookings.
             </p>
             <p className="mt-2 text-white/60">
-              {t("trainerRequirements.hero.note")}
+              Currently available in Canada.
             </p>
           </motion.div>
         </div>
@@ -127,7 +125,7 @@ export default function TrainerRequirements() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              {t("trainerRequirements.whatYouNeed")}
+              What you'll need
             </h2>
           </motion.div>
 
@@ -220,9 +218,9 @@ export default function TrainerRequirements() {
             </div>
 
             <p className="mt-6 text-sm text-muted-foreground">
-              {t("trainerRequirements.payouts.termsNote")}{" "}
+              For full details, see our{" "}
               <Link to="/app-trainer-terms-and-condition" className="text-primary hover:underline">
-                {t("footer.trainerTerms")}
+                Trainer Terms & Conditions
               </Link>
               .
             </p>
@@ -243,10 +241,10 @@ export default function TrainerRequirements() {
               <Sparkles className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">
-              {t("trainerRequirements.bonus.title")}
+              Bonus: rules-based discovery
             </h3>
             <p className="text-muted-foreground text-sm">
-              {t("trainerRequirements.bonus.subtitle")}
+              Group Fit shows your profile only to customers who match your specialization, time slots, and service location radius.
             </p>
           </motion.div>
         </div>
@@ -274,7 +272,7 @@ export default function TrainerRequirements() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <PillLink to="/trainer#share" variant="default">
-              {t("trainerHowItWorks.links.alreadyHaveApp")}
+              Already have the app? How to invite clients
             </PillLink>
           </div>
         </div>
@@ -296,10 +294,10 @@ export default function TrainerRequirements() {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              {t("trainerRequirements.cta.title")}
+              Meet the requirements?
             </h2>
             <p className="text-white/70 mb-8">
-              {t("trainerRequirements.cta.subtitle")}
+              Download the trainer app and start your onboarding today.
             </p>
             <div className="flex justify-center">
               <AppStoreBadges

@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { 
   Dumbbell,
@@ -22,40 +21,39 @@ import shareProfileVideo from "@/assets/videos/share-profile-demo.mp4";
 
 import trainerHowItWorksHeroImg from "@/assets/heroes/trainer-how-it-works-hero.jpg";
 
-export default function TrainerHowItWorks() {
-  const { t } = useTranslation();
+const steps = [
+  {
+    icon: Dumbbell,
+    title: "Choose what you coach",
+    description: "35+ specializations—HIIT, Boxing, Jiu Jitsu, and more.",
+  },
+  {
+    icon: CalendarDays,
+    title: "Set your time slots",
+    description: "Create time windows per day (example: Monday 8:00 AM–3:00 PM and 5:00 PM–8:00 PM).",
+    note: "Outside your time slots? Clients can't book you.",
+  },
+  {
+    icon: MapPinned,
+    title: "Set service locations + radius",
+    description: "Assign different locations and radiuses to different days.",
+    note: "Outside your radius? Clients can't book you.",
+    example: "Monday: 25 km radius from CN Tower (Toronto). Tuesday–Friday: 30 km radius from Square One (Mississauga).",
+  },
+  {
+    icon: Timer,
+    title: "Set buffer time",
+    description: "Choose how much time between sessions (up to 1 hour).",
+    example: "Booked at 9:00 AM with a 30-minute buffer → next available shows at 10:30 AM.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Rescheduling is supported",
+    description: "Request a change in the app. Group Fit manages the client confirmation flow.",
+  },
+];
 
-  const steps = [
-    {
-      icon: Dumbbell,
-      title: t("trainerHowItWorks.steps.step1Title"),
-      description: t("trainerHowItWorks.steps.step1Desc"),
-    },
-    {
-      icon: CalendarDays,
-      title: t("trainerHowItWorks.steps.step2Title"),
-      description: t("trainerHowItWorks.steps.step2Desc"),
-      note: t("trainerHowItWorks.steps.step2Note"),
-    },
-    {
-      icon: MapPinned,
-      title: t("trainerHowItWorks.steps.step3Title"),
-      description: t("trainerHowItWorks.steps.step3Desc"),
-      note: t("trainerHowItWorks.steps.step3Note"),
-      example: t("trainerHowItWorks.steps.step3Example"),
-    },
-    {
-      icon: Timer,
-      title: t("trainerHowItWorks.steps.step4Title"),
-      description: t("trainerHowItWorks.steps.step4Desc"),
-      example: t("trainerHowItWorks.steps.step4Example"),
-    },
-    {
-      icon: RefreshCw,
-      title: t("trainerHowItWorks.steps.step5Title"),
-      description: t("trainerHowItWorks.steps.step5Desc"),
-    },
-  ];
+export default function TrainerHowItWorks() {
   return (
     <>
       <Helmet>
@@ -99,13 +97,13 @@ export default function TrainerHowItWorks() {
               <Rocket className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              {t("trainerHowItWorks.hero.title")}
+              Set your availability and service locations. Group Fit does the rest.
             </h1>
             <p className="mt-6 text-lg text-white/80">
-              {t("trainerHowItWorks.hero.subtitle")}
+              Move existing clients into a clean booking flow. Only valid bookings get through.
             </p>
             <p className="mt-4 text-white/60">
-              {t("trainerHowItWorks.hero.note")}
+              You appear only for matching requests—right specialty, right time, right location.
             </p>
           </motion.div>
         </div>
@@ -115,7 +113,7 @@ export default function TrainerHowItWorks() {
       <section className="py-8 bg-background border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-3">
-            {[t("trainerHowItWorks.pills.inPerson"), t("trainerHowItWorks.pills.verified"), t("trainerHowItWorks.pills.rulesBased"), t("trainerHowItWorks.pills.payments")].map((item) => (
+            {["Built for in-person coaches", "Verified onboarding", "Rules-based scheduling", "Payments handled"].map((item) => (
               <span key={item} className="px-4 py-2 bg-muted rounded-full text-sm text-foreground">
                 {item}
               </span>
@@ -181,10 +179,10 @@ export default function TrainerHowItWorks() {
                 <Share2 className="w-8 h-8 text-primary" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                {t("trainerHowItWorks.shareProfile.title")}
+                Share your profile link
               </h2>
               <p className="text-muted-foreground">
-                {t("trainerHowItWorks.shareProfile.subtitle")}
+                Account → My Profile → 3 dots → View Public Profile → Share
               </p>
             </motion.div>
 
@@ -221,10 +219,10 @@ export default function TrainerHowItWorks() {
               <Sparkles className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">
-              {t("trainerHowItWorks.bonus.title")}
+              Bonus: rules-based discovery
             </h3>
             <p className="text-muted-foreground text-sm">
-              {t("trainerHowItWorks.bonus.subtitle")}
+              Group Fit shows your profile only to customers who match your specialization, time slots, and service location radius.
             </p>
           </motion.div>
         </div>
@@ -243,10 +241,10 @@ export default function TrainerHowItWorks() {
               <PlayCircle className="w-8 h-8 text-primary" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              {t("trainerHowItWorks.videoTutorials.title")}
+              Video tutorials
             </h2>
             <p className="mt-4 text-white/70 max-w-2xl mx-auto">
-              {t("trainerHowItWorks.videoTutorials.subtitle")}
+              Watch step-by-step guides on how to use the Group Fit Trainer app.
             </p>
           </motion.div>
 
@@ -281,7 +279,7 @@ export default function TrainerHowItWorks() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <PillLink to="/trainer#share" variant="default">
-              {t("trainerHowItWorks.links.alreadyHaveApp")}
+              Already have the app? How to invite clients
             </PillLink>
           </div>
         </div>
@@ -303,10 +301,10 @@ export default function TrainerHowItWorks() {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              {t("trainerHowItWorks.cta.title")}
+              Ready to get started?
             </h2>
             <p className="text-white/70 mb-8">
-              {t("trainerHowItWorks.cta.subtitle")}
+              Download the trainer app and start growing your business today.
             </p>
             <div className="flex justify-center">
               <AppStoreBadges

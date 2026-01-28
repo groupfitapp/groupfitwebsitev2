@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { CalendarCheck, MapPinned, Timer, CreditCard, CheckCircle, Share2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,46 +11,46 @@ import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PillLink } from "@/components/ui/PillLink";
 
+const benefitCards = [
+  {
+    icon: CalendarCheck,
+    title: "Set your schedule",
+    description: "Pick your time slots and what you coach.",
+  },
+  {
+    icon: MapPinned,
+    title: "Set your service locations + radius",
+    description: "Only show up for clients inside your service area.",
+  },
+  {
+    icon: Timer,
+    title: "No double bookings",
+    description: "Buffer time blocks back-to-back sessions automatically.",
+  },
+  {
+    icon: CreditCard,
+    title: "Payments handled",
+    description:
+      "Group Fit handles payments so you don't have to chase clients. Transparent payouts with clear earnings visibility in the app.",
+  },
+];
+
+const howClientsBookCriteria = [
+  "Specialization",
+  "Day + time",
+  "Address inside service location radius",
+  "Buffer time allows it",
+];
+
+const shareSteps = [
+  "Open Group Fit Trainer",
+  "Account → My Profile",
+  "Tap 3 dots (top right)",
+  "View Public Profile",
+  "Share",
+];
+
 export default function Trainer() {
-  const { t } = useTranslation();
-
-  const benefitCards = [
-    {
-      icon: CalendarCheck,
-      title: t("trainer.benefits.setSchedule"),
-      description: t("trainer.benefits.setScheduleDesc"),
-    },
-    {
-      icon: MapPinned,
-      title: t("trainer.benefits.setLocations"),
-      description: t("trainer.benefits.setLocationsDesc"),
-    },
-    {
-      icon: Timer,
-      title: t("trainer.benefits.noDoubleBookings"),
-      description: t("trainer.benefits.noDoubleBookingsDesc"),
-    },
-    {
-      icon: CreditCard,
-      title: t("trainer.benefits.paymentsHandled"),
-      description: t("trainer.benefits.paymentsHandledDesc"),
-    },
-  ];
-
-  const howClientsBookCriteria = [
-    t("trainer.howClientsBook.criteria1"),
-    t("trainer.howClientsBook.criteria2"),
-    t("trainer.howClientsBook.criteria3"),
-    t("trainer.howClientsBook.criteria4"),
-  ];
-
-  const shareSteps = [
-    t("trainer.shareProfile.step1"),
-    t("trainer.shareProfile.step2"),
-    t("trainer.shareProfile.step3"),
-    t("trainer.shareProfile.step4"),
-    t("trainer.shareProfile.step5"),
-  ];
   return (
     <>
       <Helmet>
@@ -104,15 +103,16 @@ export default function Trainer() {
           <Breadcrumbs className="mb-6" />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              {t("trainer.hero.title")} <span className="text-primary">{t("trainer.hero.titleHighlight")}</span>
+              Run your schedule. <span className="text-primary">Stop the back-and-forth.</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl">
-              {t("trainer.hero.subtitle")}
+              Move your clients onto Group Fit so bookings and payments run cleanly—without DMs, spreadsheets, or
+              chasing.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link to="/download">
                 <Button size="lg" className="w-full sm:w-auto">
-                  {t("trainer.hero.download")}
+                  Download
                 </Button>
               </Link>
               <Link to="/trainer/how-it-works">
@@ -121,7 +121,7 @@ export default function Trainer() {
                   size="lg"
                   className="w-full sm:w-auto bg-white/10 border-white/20 text-white hover:bg-white/20"
                 >
-                  {t("trainer.hero.howItWorks")}
+                  How it works
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 w-4 h-4"
@@ -174,7 +174,7 @@ export default function Trainer() {
             viewport={{ once: true }}
             className="text-center text-muted-foreground mt-8 max-w-2xl mx-auto"
           >
-            {t("trainer.benefits.matchNote")}
+            Clients can only book when they match your radius, hours, and specialty.
           </motion.p>
         </div>
       </section>
@@ -193,10 +193,10 @@ export default function Trainer() {
                 <Share2 className="w-8 h-8 text-primary" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                {t("trainer.shareProfile.title")}
+                Invite your existing clients in 15 seconds
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                {t("trainer.shareProfile.subtitle")}
+                Share your public profile link. Your clients book you directly—only when it matches your settings.
               </p>
             </motion.div>
 
@@ -218,7 +218,7 @@ export default function Trainer() {
                 ))}
 
                 <p className="text-muted-foreground text-sm pt-4">
-                  {t("trainer.shareProfile.startTip")}
+                  Start by sending your profile link to your existing clients today.
                 </p>
               </motion.div>
 
@@ -263,8 +263,8 @@ export default function Trainer() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("trainer.howClientsBook.title")}</h2>
-              <p className="text-muted-foreground">{t("trainer.howClientsBook.subtitle")}</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How clients book you</h2>
+              <p className="text-muted-foreground">Clients can only book when all of these match:</p>
             </motion.div>
 
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -290,7 +290,8 @@ export default function Trainer() {
               className="bg-primary/5 border border-primary/20 rounded-xl p-6"
             >
               <p className="text-foreground">
-                <strong>Example:</strong> {t("trainer.howClientsBook.example")}
+                <strong>Example:</strong> Monday: CN Tower (Toronto) + 25 km radius + 9:00 AM to 2:00 PM → Only clients
+                inside the radius booking within that time can book you.
               </p>
             </motion.div>
 
@@ -301,10 +302,11 @@ export default function Trainer() {
               className="mt-8 text-center"
             >
               <p className="text-muted-foreground mb-2">
-                <strong className="text-foreground">{t("trainer.howClientsBook.clientsDoTitle")}</strong> {t("trainer.howClientsBook.clientsDo")}
+                <strong className="text-foreground">What clients do:</strong> choose specialization → pick time → enter
+                address → book
               </p>
               <p className="text-muted-foreground">
-                <strong className="text-foreground">{t("trainer.howClientsBook.youDoTitle")}</strong> {t("trainer.howClientsBook.youDo")}
+                <strong className="text-foreground">What you do:</strong> accept → show up → coach
               </p>
             </motion.div>
           </div>
@@ -323,9 +325,10 @@ export default function Trainer() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-4">
               <Sparkles className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-2">{t("trainer.bonus.title")}</h3>
+            <h3 className="text-xl font-bold text-foreground mb-2">Bonus: new clients can find you on Group Fit</h3>
             <p className="text-muted-foreground text-sm">
-              {t("trainer.bonus.subtitle")}
+              When customers search in your coverage area for your specialties, you can appear—without changing how you
+              run your existing clients.
             </p>
           </motion.div>
         </div>
@@ -340,9 +343,9 @@ export default function Trainer() {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t("trainer.testimonials.title")}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Hear from trainers using Group Fit</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              {t("trainer.testimonials.subtitle")}
+              Real trainers share how Group Fit helps them manage their schedule and grow their business.
             </p>
           </motion.div>
           <div className="max-w-4xl mx-auto">
@@ -387,7 +390,7 @@ export default function Trainer() {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t("trainer.cta.title")}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to simplify your week?</h2>
             <div className="flex justify-center">
               <AppStoreBadges iosLink={APP_LINKS.trainer.ios} androidLink={APP_LINKS.trainer.android} />
             </div>

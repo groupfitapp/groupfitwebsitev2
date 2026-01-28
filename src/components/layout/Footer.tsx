@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { Facebook, Instagram, Youtube, FileText, ChevronDown, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
@@ -88,7 +87,6 @@ const topActivities = [
 
 export function Footer() {
   const location = useLocation();
-  const { t } = useTranslation();
   const isTrainerSection = location.pathname.startsWith("/trainer");
 
   return (
@@ -102,7 +100,7 @@ export function Footer() {
               <img src={logo} alt="Group Fit" className="h-10 w-auto" />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
-              {t("footer.tagline")}
+              In-person training at your location, made simple—for individuals, private groups, and organizations.
             </p>
 
             {/* Social Icons */}
@@ -127,13 +125,13 @@ export function Footer() {
               variant="outline"
               className="mt-4 border-primary text-primary hover:bg-primary hover:text-white"
             >
-              <Link to="/contact">{t("nav.contact")}</Link>
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
 
           {/* Customers */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">{t("footer.customers")}</h4>
+            <h4 className="font-semibold mb-4 text-white">Customers</h4>
             <ul className="space-y-2">
               {customerLinks.map((link) => (
                 <li key={link.name}>
@@ -161,7 +159,7 @@ export function Footer() {
 
           {/* Trainers */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">{t("footer.trainers")}</h4>
+            <h4 className="font-semibold mb-4 text-white">Trainers</h4>
             <ul className="space-y-2">
               {trainerLinks.map((link) => (
                 <li key={link.name}>
@@ -178,7 +176,7 @@ export function Footer() {
 
           {/* Top Cities */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">{t("footer.topCities")}</h4>
+            <h4 className="font-semibold mb-4 text-white">Top Cities</h4>
             <ul className="space-y-2">
               {topCities.map((link) => (
                 <li key={link.name}>
@@ -195,7 +193,7 @@ export function Footer() {
 
           {/* Top Activities */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">{t("footer.topActivities")}</h4>
+            <h4 className="font-semibold mb-4 text-white">Top Activities</h4>
             <ul className="space-y-2">
               {topActivities.map((link) => (
                 <li key={link.name}>
@@ -217,11 +215,11 @@ export function Footer() {
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white/70 hover:text-white border border-white/20 rounded-lg hover:border-white/40 transition-colors bg-white/5 hover:bg-white/10">
                 <FileText className="w-4 h-4" />
-                {t("footer.legalPrivacy")}
+                Legal & Privacy
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-secondary border-white/20 z-50" align="center">
-                <DropdownMenuLabel className="text-white/50 text-xs">{t("footer.website")}</DropdownMenuLabel>
+                <DropdownMenuLabel className="text-white/50 text-xs">Website</DropdownMenuLabel>
                 {websiteLegalLinks.map((link) => (
                   <DropdownMenuItem key={link.name} asChild>
                     <Link to={link.href} className="text-white/80 hover:text-primary cursor-pointer">
@@ -230,7 +228,7 @@ export function Footer() {
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuSeparator className="bg-white/10" />
-                <DropdownMenuLabel className="text-white/50 text-xs">{t("footer.apps")}</DropdownMenuLabel>
+                <DropdownMenuLabel className="text-white/50 text-xs">Apps</DropdownMenuLabel>
                 {appLegalLinks.map((link) => (
                   <DropdownMenuItem key={link.name} asChild>
                     <Link to={link.href} className="text-white/80 hover:text-primary cursor-pointer">
@@ -246,7 +244,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-white/10">
           <p className="text-white/50 text-sm text-center">
-            {t("footer.copyright", { year: new Date().getFullYear() })}
+            © {new Date().getFullYear()} Group Fit. All rights reserved.
           </p>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import {
   Zap,
@@ -21,49 +20,47 @@ import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 
 import howItWorksHeroImg from "@/assets/heroes/how-it-works-hero.jpg";
 
+const steps = [
+  {
+    number: 1,
+    icon: Zap,
+    title: "Choose your activity",
+    description: "Start with the training style you want. Explore options on our activities page."
+  },
+  {
+    number: 2,
+    icon: Navigation,
+    title: "Enter your session address",
+    description: "Use the exact address where you want to train. Coach availability is based on this address."
+  },
+  {
+    number: 3,
+    icon: CalendarClock,
+    title: "Pick your date & time",
+    description: "Choose when you want to train. Availability updates based on schedule and location coverage."
+  },
+  {
+    number: 4,
+    icon: UserCheck,
+    title: "Select an available coach",
+    description: "Pick from coaches shown as available for that session (address + time + activity)."
+  },
+  {
+    number: 5,
+    icon: Wallet,
+    title: "Pay in-app and train",
+    description: "Complete the booking and meet your coach at the selected location."
+  }
+];
+
+const groupFeatures = [
+  "Group bookings are private (friends/family)",
+  "Everyone meets at the same location and time",
+  "Split the cost inside Group Fit",
+  "Up to 10 members per group"
+];
+
 export default function HowItWorks() {
-  const { t } = useTranslation();
-
-  const steps = [
-    {
-      number: 1,
-      icon: Zap,
-      title: t("howItWorks.step1.title"),
-      description: t("howItWorks.step1.description")
-    },
-    {
-      number: 2,
-      icon: Navigation,
-      title: t("howItWorks.step2.title"),
-      description: t("howItWorks.step2.description")
-    },
-    {
-      number: 3,
-      icon: CalendarClock,
-      title: t("howItWorks.step3.title"),
-      description: t("howItWorks.step3.description")
-    },
-    {
-      number: 4,
-      icon: UserCheck,
-      title: t("howItWorks.step4.title"),
-      description: t("howItWorks.step4.description")
-    },
-    {
-      number: 5,
-      icon: Wallet,
-      title: t("howItWorks.step5.title"),
-      description: t("howItWorks.step5.description")
-    }
-  ];
-
-  const groupFeatures = [
-    t("howItWorks.groupBookings.feature1"),
-    t("howItWorks.groupBookings.feature2"),
-    t("howItWorks.groupBookings.feature3"),
-    t("howItWorks.groupBookings.feature4")
-  ];
-
   const title = "How It Works | Personal Trainer at Your Address | Group Fit";
   const description =
     "See how Group Fit works: choose an activity, enter your session address, pick a time, then book an in-person coach available for that session.";
@@ -122,10 +119,11 @@ export default function HowItWorks() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              {t("howItWorks.hero.title")}
+              How booking works in Group Fit
             </h1>
             <p className="mt-6 text-lg text-white/70">
-              {t("howItWorks.hero.subtitle")}
+              Booking is built around your selected activity, session address, and time—so you only see coaches
+              who can accept that session.
             </p>
           </motion.div>
         </div>
@@ -140,7 +138,7 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12"
           >
-            {t("howItWorks.stepsTitle")}
+            Step-by-step
           </motion.h2>
 
           <div className="max-w-4xl mx-auto space-y-8">
@@ -182,7 +180,7 @@ export default function HowItWorks() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
                 <UsersRound className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t("howItWorks.groupBookings.title")}</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Private group bookings</h2>
             </motion.div>
 
             <motion.div
@@ -217,7 +215,7 @@ export default function HowItWorks() {
               className="inline-flex items-center gap-3 bg-muted rounded-full px-6 py-3"
             >
               <Timer className="w-5 h-5 text-primary" />
-              <span className="text-foreground font-medium">{t("howItWorks.sessionInfo")}</span>
+              <span className="text-foreground font-medium">Each session is 60 minutes</span>
             </motion.div>
           </div>
         </div>
@@ -235,9 +233,9 @@ export default function HowItWorks() {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
               <PlayCircle className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t("howItWorks.videoTutorials.title")}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Video tutorials</h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              {t("howItWorks.videoTutorials.subtitle")}
+              Watch step-by-step guides on how to use Group Fit.
             </p>
           </motion.div>
 
@@ -265,13 +263,13 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t("howItWorks.cta.title")}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Next steps</h2>
             <div className="flex justify-center mb-6">
               <AppStoreBadges iosLink={APP_LINKS.customer.ios} androidLink={APP_LINKS.customer.android} />
             </div>
             <Button asChild size="lg" variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10">
               <Link to="/activities" aria-label="View Group Fit activities">
-                {t("howItWorks.cta.viewActivities")}
+                View Activities
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
