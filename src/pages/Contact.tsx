@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -24,6 +25,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 const WEB3FORMS_ACCESS_KEY = "c5288a8d-ab57-4736-9066-8ea86f674232";
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -136,10 +138,10 @@ export default function Contact() {
           <Breadcrumbs className="mb-6" />
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Contact Us
+              {t("contact.hero.title")}
             </h1>
             <p className="text-xl text-white/80">
-              Have a question or feedback? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+              {t("contact.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -155,8 +157,8 @@ export default function Contact() {
                 <Mail className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Response time</p>
-                <p className="font-semibold text-foreground">Within 24-48 hours</p>
+                <p className="text-sm text-muted-foreground">{t("contact.form.responseTime")}</p>
+                <p className="font-semibold text-foreground">{t("contact.form.responseValue")}</p>
               </div>
             </div>
 
@@ -165,9 +167,9 @@ export default function Contact() {
               <div className="mb-8 p-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl flex items-start gap-4">
                 <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-green-800 dark:text-green-200">Message sent successfully!</h3>
+                  <h3 className="font-semibold text-green-800 dark:text-green-200">{t("contact.form.successTitle")}</h3>
                   <p className="text-green-700 dark:text-green-300 text-sm mt-1">
-                    Thank you for reaching out. We'll get back to you within 24-48 hours.
+                    {t("contact.form.successMessage")}
                   </p>
                 </div>
               </div>
@@ -178,7 +180,7 @@ export default function Contact() {
               <div className="mb-8 p-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl flex items-start gap-4">
                 <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-red-800 dark:text-red-200">Failed to send message</h3>
+                  <h3 className="font-semibold text-red-800 dark:text-red-200">{t("contact.form.errorTitle")}</h3>
                   <p className="text-red-700 dark:text-red-300 text-sm mt-1">{errorMessage}</p>
                 </div>
               </div>
@@ -193,11 +195,11 @@ export default function Contact() {
                 {/* Name */}
                 <div className="space-y-2">
                   <Label htmlFor="name">
-                    Name <span className="text-primary">*</span>
+                    {t("contact.form.name")} <span className="text-primary">*</span>
                   </Label>
                   <Input
                     id="name"
-                    placeholder="Your full name"
+                    placeholder={t("contact.form.namePlaceholder")}
                     {...register("name")}
                     className={errors.name ? "border-red-500" : ""}
                   />
@@ -209,12 +211,12 @@ export default function Contact() {
                 {/* Email */}
                 <div className="space-y-2">
                   <Label htmlFor="email">
-                    Email <span className="text-primary">*</span>
+                    {t("contact.form.email")} <span className="text-primary">*</span>
                   </Label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="you@example.com"
+                    placeholder={t("contact.form.emailPlaceholder")}
                     {...register("email")}
                     className={errors.email ? "border-red-500" : ""}
                   />
@@ -227,11 +229,11 @@ export default function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Phone */}
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone (optional)</Label>
+                  <Label htmlFor="phone">{t("contact.form.phone")}</Label>
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder={t("contact.form.phonePlaceholder")}
                     {...register("phone")}
                     className={errors.phone ? "border-red-500" : ""}
                   />
@@ -243,11 +245,11 @@ export default function Contact() {
                 {/* Subject */}
                 <div className="space-y-2">
                   <Label htmlFor="subject">
-                    Subject <span className="text-primary">*</span>
+                    {t("contact.form.subject")} <span className="text-primary">*</span>
                   </Label>
                   <Input
                     id="subject"
-                    placeholder="What is this about?"
+                    placeholder={t("contact.form.subjectPlaceholder")}
                     {...register("subject")}
                     className={errors.subject ? "border-red-500" : ""}
                   />
@@ -260,11 +262,11 @@ export default function Contact() {
               {/* Message */}
               <div className="space-y-2">
                 <Label htmlFor="message">
-                  Message <span className="text-primary">*</span>
+                  {t("contact.form.message")} <span className="text-primary">*</span>
                 </Label>
                 <Textarea
                   id="message"
-                  placeholder="Tell us how we can help you..."
+                  placeholder={t("contact.form.messagePlaceholder")}
                   rows={6}
                   {...register("message")}
                   className={errors.message ? "border-red-500" : ""}
@@ -287,20 +289,20 @@ export default function Contact() {
                 {isSubmitting ? (
                   <>
                     <span className="animate-spin mr-2">⏳</span>
-                    Sending...
+                    {t("contact.form.sending")}
                   </>
                 ) : (
                   <>
                     <Send className="w-5 h-5 mr-2" />
-                    Send Message
+                    {t("contact.form.submit")}
                   </>
                 )}
               </Button>
 
               <p className="text-sm text-muted-foreground text-center">
-                By submitting this form, you agree to our{" "}
+                {t("contact.form.privacyNote")}{" "}
                 <a href="/privacy-policy" className="text-primary hover:underline">
-                  Privacy Policy
+                  {t("footer.privacyPolicy")}
                 </a>
                 .
               </p>

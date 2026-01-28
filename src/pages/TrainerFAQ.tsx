@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { 
   Sparkles, 
@@ -194,6 +195,8 @@ const faqSchemaData = {
 };
 
 export default function TrainerFAQ() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Helmet>
@@ -240,13 +243,13 @@ export default function TrainerFAQ() {
               <HelpCircle className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              Trainer FAQ
+              {t("trainerFaq.hero.title")}
             </h1>
             <p className="mt-6 text-lg text-white/80">
-              Quick answers. No fluff.
+              {t("trainerFaq.hero.subtitle")}
             </p>
             <p className="mt-2 text-white/60">
-              If it doesn't match your settings, the client can't book you.
+              {t("trainerFaq.hero.note")}
             </p>
           </motion.div>
         </div>
@@ -309,9 +312,9 @@ export default function TrainerFAQ() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <p className="text-muted-foreground">
-              Still have questions?{" "}
+              {t("trainerFaq.stillHaveQuestions")}{" "}
               <Link to="/contact" className="text-primary hover:underline font-medium">
-                Contact Support
+                {t("trainerFaq.contactSupport")}
               </Link>
             </p>
           </div>
@@ -340,7 +343,7 @@ export default function TrainerFAQ() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <PillLink to="/trainer#share" variant="default">
-              Already have the app? How to invite clients
+              {t("trainerHowItWorks.links.alreadyHaveApp")}
             </PillLink>
           </div>
         </div>
@@ -362,10 +365,10 @@ export default function TrainerFAQ() {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to start training?
+              {t("trainerFaq.cta.title")}
             </h2>
             <p className="text-white/70 mb-8">
-              Download the trainer app and start growing your business today.
+              {t("trainerFaq.cta.subtitle")}
             </p>
             <div className="flex justify-center">
               <AppStoreBadges
