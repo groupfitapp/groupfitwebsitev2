@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -62,6 +63,8 @@ const activityCategories = [
 ];
 
 export default function Activities() {
+  const { t } = useTranslation();
+  
   const title = "Activities | Personal Trainer at Your Address | Group Fit";
   const description =
     "Explore training activities across Canada—strength, yoga, boxing, HIIT and more. Group Fit helps you book an in-person coach at your address.";
@@ -120,10 +123,9 @@ export default function Activities() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Choose your activity</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">{t("activities.hero.title")}</h1>
             <p className="mt-6 text-lg text-white/70">
-              These are popular activities. Group Fit supports 35+ activities—download the app to see options available
-              based on your address and time.
+              {t("activities.hero.subtitle")}
             </p>
           </motion.div>
         </div>
@@ -184,8 +186,7 @@ export default function Activities() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-muted-foreground">
-              These pages cover popular options. Download Group Fit to see all 35+ activities and check coach
-              availability based on your session address and time.
+              {t("activities.moreNote")}
             </p>
           </div>
         </div>
@@ -206,8 +207,8 @@ export default function Activities() {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to start training?</h2>
-            <p className="text-white/70 mb-8">Download Group Fit on your device to find available coaches near you.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t("activities.cta.title")}</h2>
+            <p className="text-white/70 mb-8">{t("activities.cta.subtitle")}</p>
 
             <div className="flex justify-center mb-6">
               <AppStoreBadges iosLink={APP_LINKS.customer.ios} androidLink={APP_LINKS.customer.android} />
@@ -218,7 +219,7 @@ export default function Activities() {
               className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
               aria-label="View cities Group Fit serves"
             >
-              View Cities
+              {t("activities.cta.viewCities")}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>

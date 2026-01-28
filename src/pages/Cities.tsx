@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -93,6 +94,8 @@ const provinces: Province[] = [
 ];
 
 export default function Cities() {
+  const { t } = useTranslation();
+  
   const title = "Cities | Personal Trainer at Your Address | Group Fit";
   const description =
     "Browse Canadian cities served by Group Fit. To see real availability and book an in-person coach, enter your session address and time in Group Fit.";
@@ -152,11 +155,10 @@ export default function Cities() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              Find trainers near you
+              {t("cities.hero.title")}
             </h1>
             <p className="mt-6 text-lg text-white/70">
-              City pages help you choose the right activity and understand session options. To see real availability
-              and book, use Group Fit with your exact session address and time.
+              {t("cities.hero.subtitle")}
             </p>
           </motion.div>
         </div>
@@ -230,7 +232,7 @@ export default function Cities() {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to find a trainer?
+              {t("cities.cta.title")}
             </h2>
 
             <div className="flex justify-center mb-6">
@@ -244,7 +246,7 @@ export default function Cities() {
               className="text-white/80 hover:text-white hover:bg-white/10"
             >
               <Link to="/activities" aria-label="View Group Fit activities">
-                View Activities
+                {t("cities.cta.viewActivities")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
