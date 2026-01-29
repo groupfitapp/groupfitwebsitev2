@@ -94,7 +94,6 @@ const Index = () => {
       <ReviewsSection />
       <ActivitiesSection />
       <CitiesSection />
-      <CitiesSection />
       <HowItWorksSection />
       
       {/* Customer Testimonials */}

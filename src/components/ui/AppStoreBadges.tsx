@@ -1,5 +1,6 @@
 import appStoreBadge from "@/assets/badges/app-store.svg";
-import googlePlayBadge from "@/assets/badges/google-play.png";
+// @ts-ignore - vite-imagetools query params
+import googlePlayBadge from "@/assets/badges/google-play.png?w=200&format=webp&quality=90";
 
 interface AppStoreBadgesProps {
   iosLink: string;
@@ -34,6 +35,8 @@ export function AppStoreBadges({
           src={appStoreBadge}
           alt="Download on the App Store"
           className={`${badgeHeight} w-auto`}
+          width={144}
+          height={48}
         />
       </a>
       <a 
@@ -46,6 +49,8 @@ export function AppStoreBadges({
           src={googlePlayBadge}
           alt="Get it on Google Play"
           className={`${badgeHeight} w-auto`}
+          width={162}
+          height={48}
         />
       </a>
     </div>

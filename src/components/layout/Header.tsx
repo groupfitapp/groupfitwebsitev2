@@ -3,7 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, Download, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import logo from "@/assets/logo.png";
+// Optimized logo: WebP format, 200px width for header display
+// @ts-ignore - vite-imagetools query params
+import logo from "@/assets/logo.png?w=200&format=webp&quality=90";
 
 const customerNavLinks = [
   { name: "Home", href: "/" },
@@ -37,7 +39,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to={isTrainerSection ? "/trainer" : "/"} className="flex items-center gap-2">
-            <img src={logo} alt="Group Fit" className="h-8 md:h-10 w-auto" />
+            <img src={logo} alt="Group Fit" className="h-8 md:h-10 w-auto" width={135} height={40} />
           </Link>
 
           {/* Desktop Navigation */}
