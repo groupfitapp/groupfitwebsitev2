@@ -9,20 +9,39 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-// City images - local assets
+// City images - local assets with responsive sizes
 import mississaugaImg from "@/assets/cities/mississauga.jpg";
+import mississaugaImg400 from "@/assets/cities/mississauga.jpg?w=400&format=webp";
+import mississaugaImg200 from "@/assets/cities/mississauga.jpg?w=200&format=webp";
+
 import vancouverImg from "@/assets/cities/vancouver.jpg";
+import vancouverImg400 from "@/assets/cities/vancouver.jpg?w=400&format=webp";
+import vancouverImg200 from "@/assets/cities/vancouver.jpg?w=200&format=webp";
+
 import calgaryImg from "@/assets/cities/calgary.jpg";
+import calgaryImg400 from "@/assets/cities/calgary.jpg?w=400&format=webp";
+import calgaryImg200 from "@/assets/cities/calgary.jpg?w=200&format=webp";
+
 import edmontonImg from "@/assets/cities/edmonton.jpg";
+import edmontonImg400 from "@/assets/cities/edmonton.jpg?w=400&format=webp";
+import edmontonImg200 from "@/assets/cities/edmonton.jpg?w=200&format=webp";
+
 import winnipegImg from "@/assets/cities/winnipeg.jpg";
+import winnipegImg400 from "@/assets/cities/winnipeg.jpg?w=400&format=webp";
+import winnipegImg200 from "@/assets/cities/winnipeg.jpg?w=200&format=webp";
 
 const cities = [
-  { name: "Toronto", slug: "toronto", image: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop" },
-  { name: "Mississauga", slug: "mississauga", image: mississaugaImg },
-  { name: "Vancouver", slug: "vancouver", image: vancouverImg },
-  { name: "Calgary", slug: "calgary", image: calgaryImg },
-  { name: "Edmonton", slug: "edmonton", image: edmontonImg },
-  { name: "Winnipeg", slug: "winnipeg", image: winnipegImg },
+  { 
+    name: "Toronto", 
+    slug: "toronto", 
+    image: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop",
+    srcSet: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=200&h=150&fit=crop 200w, https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop 400w"
+  },
+  { name: "Mississauga", slug: "mississauga", image: mississaugaImg, srcSet: `${mississaugaImg200} 200w, ${mississaugaImg400} 400w` },
+  { name: "Vancouver", slug: "vancouver", image: vancouverImg, srcSet: `${vancouverImg200} 200w, ${vancouverImg400} 400w` },
+  { name: "Calgary", slug: "calgary", image: calgaryImg, srcSet: `${calgaryImg200} 200w, ${calgaryImg400} 400w` },
+  { name: "Edmonton", slug: "edmonton", image: edmontonImg, srcSet: `${edmontonImg200} 200w, ${edmontonImg400} 400w` },
+  { name: "Winnipeg", slug: "winnipeg", image: winnipegImg, srcSet: `${winnipegImg200} 200w, ${winnipegImg400} 400w` },
 ];
 
 export function CitiesSection() {
@@ -80,6 +99,8 @@ export function CitiesSection() {
                     >
                       <img
                         src={city.image}
+                        srcSet={city.srcSet}
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                         alt={`Personal trainers available in ${city.name}, Canada`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         loading="lazy"
