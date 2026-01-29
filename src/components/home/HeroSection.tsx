@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Download, ArrowRight, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// Optimized hero image: WebP format, 1920px width for full-screen display
-// @ts-ignore - vite-imagetools query params
-import heroBg from "@/assets/customer-banner.jpg?w=1920&format=webp&quality=85";
+// Hero image served from public folder for LCP optimization (discoverable in initial HTML)
+const heroBg = "/images/hero-banner.jpg";
 
 export function HeroSection() {
   return (
