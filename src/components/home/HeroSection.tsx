@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[90vh] flex items-center bg-secondary overflow-hidden">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-secondary">
         <img
           src={heroBg}
           alt="Personal training session"
@@ -19,6 +19,11 @@ export function HeroSection() {
           fetchPriority="high"
           width={1920}
           height={1080}
+          sizes="100vw"
+          style={{ 
+            contentVisibility: 'auto',
+            containIntrinsicSize: '1920px 1080px'
+          }}
         />
         <div className="absolute inset-0 bg-secondary/65" />
         {/* Bottom gradient fade */}
