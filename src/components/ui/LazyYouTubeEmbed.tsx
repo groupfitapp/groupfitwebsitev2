@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
@@ -7,30 +7,30 @@ interface LazyYouTubeEmbedProps {
   playlistId?: string;
   title: string;
   className?: string;
-  autoplay?: boolean;
 }
 
 /**
  * A performance-optimized YouTube embed that uses the facade pattern.
  * Shows a thumbnail + play button initially, only loading the heavy
- * YouTube iframe when the user clicks or scrolls into view (if autoplay).
+ * YouTube iframe when the user CLICKS to play.
+ * 
+ * This prevents ~700KB of YouTube scripts from loading on initial page load,
+ * significantly improving LCP and reducing unused JavaScript.
  */
 export function LazyYouTubeEmbed({ 
   videoId, 
   playlistId, 
   title, 
-  className = "", 
-  autoplay = false 
+  className = "" 
 }: LazyYouTubeEmbedProps) {
   const [isLoaded, setIsLoaded] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   // For playlists, we use a default thumbnail; for videos, use the video's thumbnail
   const thumbnailUrl = videoId 
     ? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
     : `https://i.ytimg.com/vi/PLsM4U67lWn/maxresdefault.jpg`; // Fallback for playlist
 
-  // Build the iframe src
+  // Build the iframe src - autoplay kicks in after user clicks
   let src: string;
   if (playlistId) {
     const playlistParams = `&autoplay=1&mute=1&loop=1&controls=1&modestbranding=1&rel=0`;
@@ -42,27 +42,6 @@ export function LazyYouTubeEmbed({
     return null;
   }
 
-  // If autoplay is enabled, load iframe when in viewport
-  useEffect(() => {
-    if (!autoplay || isLoaded) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsLoaded(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "200px", threshold: 0.1 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [autoplay, isLoaded]);
-
   const handleClick = () => {
     if (!isLoaded) {
       setIsLoaded(true);
@@ -71,7 +50,6 @@ export function LazyYouTubeEmbed({
 
   return (
     <motion.div
-      ref={containerRef}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
