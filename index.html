@@ -42,25 +42,11 @@
       href="https://storage.googleapis.com/gpt-engineer-file-uploads/uNr7VX8mQdYi859Qg2YbAI9MSzk2/uploads/1768265839624-Facebook%20Profile%20Picture%20-%20Logo%20%26%20Text.png"
     />
 
-    <!-- Preload the stylesheet (faster on mobile) -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    />
-    <!-- Load it non-blocking -->
+    <!-- Load Inter early to reduce CLS from late font CSS/font swaps -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      media="print"
-      onload="this.media='all'"
     />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      />
-    </noscript>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
