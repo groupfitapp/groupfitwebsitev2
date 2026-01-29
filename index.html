@@ -17,8 +17,18 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://groupfitapp.com/" />
 
-    <!-- Preload LCP hero image for faster paint -->
-    <link rel="preload" as="image" href="/src/assets/customer-banner.jpg" type="image/jpeg" fetchpriority="high" />
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.youtube.com" />
+    <link rel="preconnect" href="https://i.ytimg.com" />
+    <link rel="preconnect" href="https://maps.googleapis.com" />
+    <link rel="preconnect" href="https://cdn.gpteng.co" crossorigin />
+    
+    <!-- DNS prefetch for additional domains -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://connect.facebook.net" />
+    <link rel="dns-prefetch" href="https://analytics.tiktok.com" />
     
     <!-- Preload logo (safe performance win) -->
     <link rel="preload" as="image" href="/groupfit-logo.png" />
@@ -29,10 +39,6 @@
       type="image/png"
       href="https://storage.googleapis.com/gpt-engineer-file-uploads/uNr7VX8mQdYi859Qg2YbAI9MSzk2/uploads/1768265839624-Facebook%20Profile%20Picture%20-%20Logo%20%26%20Text.png"
     />
-
-    <!-- Fonts: speed up + avoid render blocking -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- Preload the stylesheet (faster on mobile) -->
     <link
