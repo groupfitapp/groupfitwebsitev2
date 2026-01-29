@@ -127,7 +127,7 @@ export function HowItWorksSection() {
           className="text-center mt-12"
         >
           <PillLink to="/how-it-works">
-            Learn more
+            Learn how booking works
           </PillLink>
         </motion.div>
       </div>
