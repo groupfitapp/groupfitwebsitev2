@@ -34,9 +34,10 @@ export function AppStoreBadges({
         <img
           src={appStoreBadge}
           alt="Download on the App Store"
-          className={`${badgeHeight} w-auto`}
+          className={badgeHeight}
           width={144}
           height={48}
+          style={{ aspectRatio: '144/48' }}
         />
       </a>
       <a 
@@ -48,9 +49,10 @@ export function AppStoreBadges({
         <img
           src={googlePlayBadge}
           alt="Get it on Google Play"
-          className={`${badgeHeight} w-auto`}
+          className={badgeHeight}
           width={162}
           height={48}
+          style={{ aspectRatio: '162/48' }}
         />
       </a>
     </div>
