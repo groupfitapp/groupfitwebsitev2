@@ -260,7 +260,7 @@ export function ReviewsSection() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             App Reviews
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Everyone<span className="text-primary">Thousands</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Loved by Everyone<span className="text-primary">Thousands</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             See what our customers are saying about Group Fit on the App Store
