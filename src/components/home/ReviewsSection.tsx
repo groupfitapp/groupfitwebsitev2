@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useRef, useEffect, useState } from "react";
 
-// Reviews data parsed from CSV
+// Reviews data parsed from CSV - filtered to 4+ stars with meaningful text
 const reviews = [
   { author: "Zaina Mohamed", rating: 5, text: "The variety and ease of finding coaches for mostly any sort of training is unmatched. I can make a booking in like less than 30 seconds." },
   { author: "mahaEl221", rating: 5, text: "This app is great, and the trainers are the real deal definitely would recommend." },
@@ -18,7 +18,47 @@ const reviews = [
   { author: "Majfhdb", rating: 5, text: "Love the variety of different sports to train" },
   { author: "Aizah4687", rating: 5, text: "This app helped me so much with the perfect trainer" },
   { author: "TGCyber10", rating: 5, text: "Love the variety can't wait to use it more" },
-  { author: "Chesan1243", rating: 5, text: "The activities are so unique" },
+  { author: "Too many adds 1", rating: 5, text: "I love using Group Fit! It's so easy to find great personal trainers near me, and I like that I can book sessions that fit my schedule. The trainers are professional, friendly, and really know what they're doing." },
+  { author: "Kari353", rating: 5, text: "Easy to use great to get into the gym." },
+  { author: "mgamer.101", rating: 5, text: "10/10 recommend" },
+  { author: "robert2070", rating: 5, text: "app runs smooth no bugs it's pretty good" },
+  { author: "Mickey84tt", rating: 5, text: "Great setup, good workouts." },
+  { author: "Viksaathvik", rating: 5, text: "Helped me with my fitness journey" },
+  { author: "Zain", rating: 5, text: "This app is the best choice for active people, organizing their workout schedule, and their types of workouts. I recommend this app to anyone because it works the best." },
+  { author: "dyrkwinder", rating: 5, text: "I've been using this fitness app for a few weeks now, and it's been a game-changer. The workout plans are easy to follow, and there's something for every fitness level." },
+  { author: "Smokymountain9", rating: 5, text: "Group Fit has been a game-changer for my fitness routine. The app makes it easy to find workout classes, connect with others, and stay motivated." },
+  { author: "Bella Boicca", rating: 5, text: "The creator of this app is a genius. This app helped me and my friend maya soo much." },
+  { author: "20pounds lighter", rating: 5, text: "Damn so amazed that this app exists it is great love the trainers and thanks to this I lost a 10 pounds already" },
+  { author: "gravemindset", rating: 5, text: "I found a trainer so easily and the app is so easy to use." },
+  { author: "Bshehrebdur", rating: 5, text: "Great app for fitness!" },
+  { author: "Scott6989", rating: 5, text: "Helped me excel in soccer so much" },
+  { author: "Miss peak chipotle", rating: 5, text: "Easy to use and the trainers are amazing" },
+  { author: "JRLLENA", rating: 5, text: "Super easy to access" },
+  { author: "PakariL", rating: 5, text: "I lost 40 pounds since I started this app, I'm glad that personal trainers are finally accessible." },
+  { author: "Phonemmm", rating: 5, text: "Would recommend for people trying to work out" },
+  { author: "Lebron James🐐", rating: 5, text: "Great app been using for awhile now" },
+  { author: "lozicc07", rating: 5, text: "Very easy to use, quick sign up, and very useful. Overall great app." },
+  { author: "Huzaifah213", rating: 5, text: "If you're not using it you're missing out because it saved my life." },
+  { author: "Angelo2100", rating: 5, text: "Helps achieve your fitness goals and has everything you need." },
+  { author: "Pritesh2647", rating: 5, text: "This app changed my unhealthy lifestyle and I became a new person." },
+  { author: "Rafehhh", rating: 5, text: "app's easy to use, for both beginners and pros this app is perfect!" },
+  { author: "Weijie223", rating: 5, text: "Good job on this app man, pretty good really useful" },
+  { author: "trapizoids", rating: 5, text: "This app is a total game-changer! GroupFit connected me with an amazing personal trainer who totally understood my goals and pushed me to stay motivated." },
+  { author: "Jakelano", rating: 5, text: "The trainers are very professional and friendly. There are so many activities to choose from." },
+  { author: "floofy cookie", rating: 5, text: "The app is great incredible sports and activities definitely a worthwhile app." },
+  { author: "Murr lak", rating: 5, text: "App is very smooth and very friendly trainers" },
+  { author: "Toseef Raza", rating: 5, text: "I would recommend it" },
+  { author: "donkhi", rating: 5, text: "the app is very easy to use and the trainers are very easy going.. a must have!!" },
+  { author: "VanUrban", rating: 5, text: "Perfect app for training" },
+  { author: "Ishpreetttt", rating: 5, text: "Had no trouble and it was pretty straightforward and helpful" },
+  { author: "k.u.24", rating: 5, text: "Super easy to use, and very helpful" },
+  { author: "Gabe Bairos", rating: 5, text: "At first, this app just looked like any other fitness app you'd come across. Little did I know how much power would be held into this app. Download it and start the journey already!!!" },
+  { author: "Kiran2323", rating: 5, text: "Good app. Love to use" },
+  { author: "Zaryan Anwar", rating: 5, text: "Amazing app very useful and I use it daily." },
+  { author: "cjrbx", rating: 5, text: "Great for the gym easy to use super helpful" },
+  { author: "Jud Z", rating: 5, text: "Love this app! It's super helpful" },
+  { author: "QurayshM", rating: 5, text: "Group Fit is exactly what I've been looking for! From browsing different activities and trainers to booking sessions. No more stressing about where to find a coach or how to schedule a session." },
+  { author: "HuzMohd", rating: 5, text: "I wanted to coach myself for boxing but always had an issue finding the right person with a convenient time slot with Groupfit I can book at my leisure at any venue of my choice." },
 ];
 
 function getInitials(name: string) {
