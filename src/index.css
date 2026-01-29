@@ -123,6 +123,12 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Prevent layout shifts from font loading */
+  body, button, input, textarea, select {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
 }
 
 @layer utilities {
