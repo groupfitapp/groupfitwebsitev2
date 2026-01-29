@@ -26,10 +26,9 @@ export function LazyYouTubeEmbed({
   const containerRef = useRef<HTMLDivElement>(null);
 
   // For playlists, we use a default thumbnail; for videos, use the video's thumbnail
-  // Use hqdefault.jpg as it's more reliably available than maxresdefault.jpg
   const thumbnailUrl = videoId 
-    ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
-    : undefined; // No thumbnail for playlists - will show solid background
+    ? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
+    : `https://i.ytimg.com/vi/PLsM4U67lWn/maxresdefault.jpg`; // Fallback for playlist
 
   // Build the iframe src
   let src: string;
