@@ -3,6 +3,7 @@ import {
   VideoSection,
   AvailabilitySection,
   BenefitsSection,
+  ReviewsSection,
   ActivitiesSection,
   CitiesSection,
   HowItWorksSection,
@@ -90,7 +91,9 @@ const Index = () => {
       <VideoSection />
       <AvailabilitySection />
       <BenefitsSection />
+      <ReviewsSection />
       <ActivitiesSection />
+      <CitiesSection />
       <CitiesSection />
       <HowItWorksSection />
       
