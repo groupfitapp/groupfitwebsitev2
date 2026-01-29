@@ -2,14 +2,23 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PillLink } from "@/components/ui/PillLink";
 
-import strengthImg from "@/assets/activities/strength.jpg";
-import yogaImg from "@/assets/activities/yoga.jpg";
-import boxingImg from "@/assets/activities/boxing.jpg";
-import hiitImg from "@/assets/activities/hiit-v2.jpg";
-import kickboxingImg from "@/assets/activities/kickboxing-v2.jpg";
-import soccerImg from "@/assets/activities/soccer-v2.jpg";
-import basketballImg from "@/assets/activities/basketball.jpg";
-import calisthenicsImg from "@/assets/activities/calisthenics-v2.jpg";
+// Optimized images: WebP format, 400px width for card display
+// @ts-ignore - vite-imagetools query params
+import strengthImg from "@/assets/activities/strength.jpg?w=400&format=webp&quality=80";
+// @ts-ignore - vite-imagetools query params
+import yogaImg from "@/assets/activities/yoga.jpg?w=400&format=webp&quality=80";
+// @ts-ignore - vite-imagetools query params
+import boxingImg from "@/assets/activities/boxing.jpg?w=400&format=webp&quality=80";
+// @ts-ignore - vite-imagetools query params
+import hiitImg from "@/assets/activities/hiit-v2.jpg?w=400&format=webp&quality=80";
+// @ts-ignore - vite-imagetools query params
+import kickboxingImg from "@/assets/activities/kickboxing-v2.jpg?w=400&format=webp&quality=80";
+// @ts-ignore - vite-imagetools query params
+import soccerImg from "@/assets/activities/soccer-v2.jpg?w=400&format=webp&quality=80";
+// @ts-ignore - vite-imagetools query params
+import basketballImg from "@/assets/activities/basketball.jpg?w=400&format=webp&quality=80";
+// @ts-ignore - vite-imagetools query params
+import calisthenicsImg from "@/assets/activities/calisthenics-v2.jpg?w=400&format=webp&quality=80";
 
 const activities = [
   { name: "Strength & Conditioning", slug: "strength-and-conditioning", image: strengthImg },

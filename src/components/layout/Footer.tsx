@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { Facebook, Instagram, Youtube, FileText, ChevronDown, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+// @ts-ignore - vite-imagetools query params
+import logo from "@/assets/logo.png?w=200&format=webp&quality=90";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -97,7 +98,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link to="/" className="inline-block mb-4">
-              <img src={logo} alt="Group Fit" className="h-10 w-auto" />
+              <img src={logo} alt="Group Fit" className="h-10 w-auto" width={135} height={40} />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
               In-person training at your location, made simple—for individuals, private groups, and organizations.
