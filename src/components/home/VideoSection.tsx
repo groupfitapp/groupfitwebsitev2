@@ -8,6 +8,7 @@ export function VideoSection() {
           <LazyYouTubeEmbed
             videoId="uag832_Ud0Y"
             title="Group Fit - Book In-Person Personal Training"
+            autoplay
           />
         </div>
       </div>
