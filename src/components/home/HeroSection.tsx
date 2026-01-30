@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Download, ArrowRight, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // Home hero image (unique to home page)
-import heroBg from "@/assets/hero-home-clean.jpg";
+import heroBg from "@/assets/hero-home.jpg";
 
 export function HeroSection() {
   return (
@@ -13,8 +13,7 @@ export function HeroSection() {
         <img
           src={heroBg}
           alt="Personal training session"
-          // Slight crop to ensure no edge fade is visible; no side gradients are added.
-          className="w-full h-full object-cover object-center scale-110"
+          className="w-full h-full object-cover"
           loading="eager"
           decoding="async"
           fetchPriority="high"
