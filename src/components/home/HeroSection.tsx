@@ -101,9 +101,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Decorative gradient blobs */}
-      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-primary/25 to-transparent blur-[80px] pointer-events-none" />
-      <div className="absolute top-1/4 right-1/4 w-1/3 h-1/3 bg-primary/10 rounded-full blur-[100px] pointer-events-none animate-pulse" />
     </section>
   );
 }
