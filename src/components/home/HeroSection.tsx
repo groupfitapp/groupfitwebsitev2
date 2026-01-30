@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Download, ArrowRight, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// Home hero image (unique to home page)
-import heroBg from "@/assets/hero-home.jpg";
+// Hero image imported via vite-imagetools for WebP conversion + content hash caching
+import heroBg from "@/assets/hero-banner.jpg";
 
 export function HeroSection() {
   return (
@@ -13,7 +13,8 @@ export function HeroSection() {
         <img
           src={heroBg}
           alt="Personal training session"
-          className="w-full h-full object-cover"
+          // Crop more to remove the image's natural light vignette on left/right
+          className="w-full h-full object-cover object-center scale-150"
           loading="eager"
           decoding="async"
           fetchPriority="high"
@@ -25,7 +26,7 @@ export function HeroSection() {
             containIntrinsicSize: '1920px 1080px'
           }}
         />
-        <div className="absolute inset-0 bg-secondary/65" />
+        <div className="absolute inset-0 bg-secondary/70" />
         {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </div>
