@@ -51,9 +51,7 @@ export default function AppTrainerTerms() {
             <p className="text-muted-foreground leading-relaxed mb-6">Group Fit provides a technology platform that enables independent trainers, coaches, and instructors to connect with clients for sport or physical activity instruction and coaching services (the "Services"). Group Fit Services do not include any transportation services and do not include the provision or supervision of the Services themselves.</p>
 
             <div className="bg-muted p-4 rounded-lg mb-6">
-              <p className="text-foreground font-semibold uppercase text-sm">
-                PLEASE READ THESE TERMS CAREFULLY BEFORE ACCESSING OR USING THE GROUP FIT SERVICES.
-              </p>
+              <p className="text-foreground font-semibold uppercase text-sm">PLEASE READ THESE TERMS CAREFULLY BEFORE ACCESSING OR USING GROUP FIT SERVICES.</p>
             </div>
 
             <h3 className="text-lg font-semibold text-foreground mb-3">Parties</h3>
@@ -66,9 +64,7 @@ export default function AppTrainerTerms() {
             </ul>
 
             <h3 className="text-lg font-semibold text-foreground mb-3">Acceptance of this Agreement</h3>
-            <p className="text-muted-foreground leading-relaxed mb-2">
-              By creating a trainer account, accessing or using the App, or offering any Services through Group Fit, you confirm that you:
-            </p>
+            <p className="text-muted-foreground leading-relaxed mb-2">By creating a trainer account, accessing or using Group Fit Trainer (the "App"), or offering any Services through the App, you confirm that you:</p>
             <ul className="space-y-2 text-muted-foreground list-disc list-inside mb-6">
               <li>have read and understood this Agreement; and</li>
               <li>agree to be bound by this Agreement as a Contractor.</li>
