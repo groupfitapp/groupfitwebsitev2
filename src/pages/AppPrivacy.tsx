@@ -1,34 +1,27 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import appPrivacyHero from "@/assets/heroes/app-privacy-hero.jpg";
-
 export default function AppPrivacy() {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Group Fit & Group Fit Trainer Privacy Policy | Group Fit</title>
-        <meta
-          name="description"
-          content="Read the Privacy Policy for the Group Fit mobile applications. Learn how we collect, use, and protect your personal information in our apps."
-        />
+        <meta name="description" content="Read the Privacy Policy for the Group Fit mobile applications. Learn how we collect, use, and protect your personal information in our apps." />
       </Helmet>
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="absolute inset-0">
-          <img
-            src={appPrivacyHero}
-            alt="App Privacy Policy"
-            className="w-full h-full object-cover"
-          />
+          <img src={appPrivacyHero} alt="App Privacy Policy" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-secondary/80" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-3xl mx-auto"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
               Group Fit & Group Fit Trainer Privacy Policy
             </h1>
@@ -40,15 +33,16 @@ export default function AppPrivacy() {
       {/* Content */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
-          >
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Thank you for choosing to use our GroupFit application ("the App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our App. Please read this Privacy Policy carefully. By using the App, you consent to the practices described in this Privacy Policy.
-            </p>
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="max-w-3xl mx-auto">
+            <p className="text-muted-foreground leading-relaxed mb-6">Thank you for choosing to use Group Fit and/or Group Fit Trainer applications ("the App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our App. Please read this Privacy Policy carefully. By using the App, you consent to the practices described in this Privacy Policy.</p>
             <p className="text-muted-foreground leading-relaxed mb-10">
               If you have any questions or concerns about our Privacy Policy, please contact us at{" "}
               <a href="mailto:legal@groupfitapp.com" className="text-primary hover:underline font-medium">
@@ -205,6 +199,5 @@ export default function AppPrivacy() {
           </motion.div>
         </div>
       </section>
-    </>
-  );
+    </>;
 }
