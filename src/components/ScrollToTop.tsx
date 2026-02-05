@@ -6,13 +6,24 @@ export function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
-      // Wait for the page to render, then scroll to the element
-      setTimeout(() => {
+      // Wait for lazy-loaded page to render, then scroll to the element
+      const scrollToHash = () => {
         const element = document.getElementById(hash.slice(1));
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100);
+      };
+      
+      // Use longer delay for lazy-loaded pages to ensure content is rendered
+      const timeoutId = setTimeout(scrollToHash, 300);
+      
+      // Also try again after a longer delay as a fallback
+      const fallbackId = setTimeout(scrollToHash, 600);
+      
+      return () => {
+        clearTimeout(timeoutId);
+        clearTimeout(fallbackId);
+      };
     } else {
       window.scrollTo(0, 0);
     }
