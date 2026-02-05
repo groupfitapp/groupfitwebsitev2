@@ -13,8 +13,7 @@ export function HeroSection() {
         <img
           src={heroBg}
           alt="Personal training session"
-          // Crop more to remove the image's natural light vignette on left/right
-          className="w-full h-full object-cover object-center scale-150"
+          className="w-full h-full object-cover"
           loading="eager"
           decoding="async"
           fetchPriority="high"
@@ -26,7 +25,7 @@ export function HeroSection() {
             containIntrinsicSize: '1920px 1080px'
           }}
         />
-        <div className="absolute inset-0 bg-secondary/70" />
+        <div className="absolute inset-0 bg-secondary/65" />
         {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </div>
@@ -102,6 +101,9 @@ export function HeroSection() {
         </div>
       </div>
 
+      {/* Decorative gradient blobs */}
+      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-primary/25 to-transparent blur-[80px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-1/3 h-1/3 bg-primary/10 rounded-full blur-[100px] pointer-events-none animate-pulse" />
     </section>
   );
 }
