@@ -1,34 +1,27 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import termsHero from "@/assets/heroes/terms-hero.jpg";
-
 export default function AppUserTerms() {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Group Fit Terms & Conditions | Group Fit</title>
-        <meta
-          name="description"
-          content="Read the Terms and Conditions for using the Group Fit customer application. Learn about booking, payments, cancellations, and your rights."
-        />
+        <meta name="description" content="Read the Terms and Conditions for using the Group Fit customer application. Learn about booking, payments, cancellations, and your rights." />
       </Helmet>
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="absolute inset-0">
-          <img
-            src={termsHero}
-            alt="Terms and Conditions"
-            className="w-full h-full object-cover"
-          />
+          <img src={termsHero} alt="Terms and Conditions" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-secondary/80" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-3xl mx-auto"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
               Group Fit Terms & Conditions
             </h1>
@@ -41,12 +34,15 @@ export default function AppUserTerms() {
       {/* Content */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="max-w-3xl mx-auto">
             {/* Section 1 */}
             <div className="mb-10">
               <h2 className="text-2xl font-bold mb-4">
@@ -148,8 +144,7 @@ export default function AppUserTerms() {
                 <span className="text-primary">5.</span> Cancellations
               </h2>
               <ul className="space-y-4">
-                <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Cancellation and Rescheduling Period:</strong> You may cancel or reschedule a booked session through the Group Fit app. You may cancel a session without incurring any charges if the cancellation is made at least 2 hours before the scheduled start time.
+                <li className="text-muted-foreground leading-relaxed">Cancellation and Rescheduling Period: You may cancel or reschedule a booked session through Group Fit. You may cancel a session without incurring any charges if the cancellation is made at least 2 hours before the scheduled start time.<strong className="text-primary">Cancellation and Rescheduling Period:</strong> You may cancel or reschedule a booked session through the Group Fit app. You may cancel a session without incurring any charges if the cancellation is made at least 2 hours before the scheduled start time.
                 </li>
                 <li className="text-muted-foreground leading-relaxed">
                   <strong className="text-primary">Refund for Timely Cancellations:</strong> If you cancel a booked session 2 hours before the scheduled time, the entire fee for the session will be refunded.
@@ -174,9 +169,7 @@ export default function AppUserTerms() {
               
               <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">Disclaimers</h3>
               <div className="bg-muted p-4 rounded-lg mb-4">
-                <p className="text-foreground text-sm uppercase leading-relaxed">
-                  THE GROUP FIT SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE". GROUP FIT AND ITS AFFILIATES DISCLAIM ALL REPRESENTATIONS AND WARRANTIES, EXPRESS, IMPLIED OR STATUTORY, NOT EXPRESSLY SET OUT IN THESE GROUP FIT TERMS.
-                </p>
+                <p className="text-foreground text-sm uppercase leading-relaxed">GROUP FIT SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE". GROUP FIT AND ITS AFFILIATES DISCLAIM ALL REPRESENTATIONS AND WARRANTIES, EXPRESS, IMPLIED OR STATUTORY, NOT EXPRESSLY SET OUT IN THESE GROUP FIT TERMS.</p>
               </div>
 
               <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">Limitation of Liability</h3>
@@ -235,9 +228,7 @@ export default function AppUserTerms() {
               <h2 className="text-2xl font-bold mb-4">
                 <span className="text-primary">10.</span> Application Usage
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                This Agreement shall be effective for the duration of your active use of the Group Fit app and platform. In the event of any disputes or differences between you and the Company, you agree to promptly cease using the Group Fit app, erase your profile from the platform, and delete the application from your mobile device.
-              </p>
+              <p className="text-muted-foreground leading-relaxed">This Agreement shall be effective for the duration of your active use of the Group Fit app and platform. In the event of any disputes or differences between you and the Company, you agree to promptly cease using Group Fit, erase your profile from the platform, and delete the application from your mobile device.</p>
             </div>
 
             {/* Contact */}
@@ -252,6 +243,5 @@ export default function AppUserTerms() {
           </motion.div>
         </div>
       </section>
-    </>
-  );
+    </>;
 }
