@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import privacyHero from "@/assets/heroes/privacy-hero.jpg";
 
 export default function WebsitePrivacy() {
   return (
@@ -13,8 +14,16 @@ export default function WebsitePrivacy() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
-        <div className="container mx-auto px-4">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="absolute inset-0">
+          <img
+            src={privacyHero}
+            alt="Website Privacy Policy"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-secondary/80" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -25,6 +34,7 @@ export default function WebsitePrivacy() {
             </h1>
           </motion.div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Content */}

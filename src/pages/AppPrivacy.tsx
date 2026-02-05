@@ -1,11 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import appPrivacyHero from "@/assets/heroes/app-privacy-hero.jpg";
 
 export default function AppPrivacy() {
   return (
     <>
       <Helmet>
-        <title>App Privacy Policy | Group Fit</title>
+        <title>Group Fit & Group Fit Trainer Privacy Policy | Group Fit</title>
         <meta
           name="description"
           content="Read the Privacy Policy for the Group Fit mobile applications. Learn how we collect, use, and protect your personal information in our apps."
@@ -13,18 +14,27 @@ export default function AppPrivacy() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
-        <div className="container mx-auto px-4">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="absolute inset-0">
+          <img
+            src={appPrivacyHero}
+            alt="App Privacy Policy"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-secondary/80" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              App Privacy Policy
+              Group Fit & Group Fit Trainer Privacy Policy
             </h1>
           </motion.div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Content */}
