@@ -1,34 +1,27 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import trainerTermsHero from "@/assets/heroes/trainer-terms-hero.jpg";
-
 export default function AppTrainerTerms() {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Group Fit Trainer Terms & Conditions | Group Fit</title>
-        <meta
-          name="description"
-          content="Read the Terms and Conditions for using the Group Fit Trainer application. Learn about compensation, cancellation policies, and contractor obligations."
-        />
+        <meta name="description" content="Read the Terms and Conditions for using the Group Fit Trainer application. Learn about compensation, cancellation policies, and contractor obligations." />
       </Helmet>
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="absolute inset-0">
-          <img
-            src={trainerTermsHero}
-            alt="Trainer Terms and Conditions"
-            className="w-full h-full object-cover"
-          />
+          <img src={trainerTermsHero} alt="Trainer Terms and Conditions" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-secondary/80" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-3xl mx-auto"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
               Group Fit Trainer Terms & Conditions
             </h1>
@@ -41,20 +34,21 @@ export default function AppTrainerTerms() {
       {/* Content */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} className="max-w-3xl mx-auto">
             <p className="text-muted-foreground leading-relaxed mb-6">
               These GroupFit Technologies, Inc. – Terms and Conditions – Canada ("Group Fit Terms" or this "Agreement") govern your access to and use of the Group Fit Trainer application and related websites, content, products, and services (collectively, the "Group Fit Services") made available by GroupFit Technologies, Inc. ("Group Fit", the "Company", "we", "us", or "our").
             </p>
 
             <h3 className="text-lg font-semibold text-foreground mb-3">Scope of these Group Fit Terms</h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Group Fit provides a technology platform that enables independent trainers, coaches, and instructors to connect with clients for sport or physical activity instruction and coaching services (the "Services"). The Group Fit Services do not include any transportation services and do not include the provision or supervision of the Services themselves.
-            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">Group Fit provides a technology platform that enables independent trainers, coaches, and instructors to connect with clients for sport or physical activity instruction and coaching services (the "Services"). Group Fit Services do not include any transportation services and do not include the provision or supervision of the Services themselves.</p>
 
             <div className="bg-muted p-4 rounded-lg mb-6">
               <p className="text-foreground font-semibold uppercase text-sm">
@@ -322,6 +316,5 @@ export default function AppTrainerTerms() {
           </motion.div>
         </div>
       </section>
-    </>
-  );
+    </>;
 }
