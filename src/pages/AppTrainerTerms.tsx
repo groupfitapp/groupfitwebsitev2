@@ -1,11 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import trainerTermsHero from "@/assets/heroes/trainer-terms-hero.jpg";
 
 export default function AppTrainerTerms() {
   return (
     <>
       <Helmet>
-        <title>App Trainer Terms and Conditions | Group Fit</title>
+        <title>Group Fit Trainer Terms & Conditions | Group Fit</title>
         <meta
           name="description"
           content="Read the Terms and Conditions for using the Group Fit Trainer application. Learn about compensation, cancellation policies, and contractor obligations."
@@ -13,19 +14,28 @@ export default function AppTrainerTerms() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary">
-        <div className="container mx-auto px-4">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="absolute inset-0">
+          <img
+            src={trainerTermsHero}
+            alt="Trainer Terms and Conditions"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-secondary/80" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-              App Trainer Terms and Conditions
+              Group Fit Trainer Terms & Conditions
             </h1>
             <p className="mt-4 text-white/70">Updated On: January 7, 2026</p>
           </motion.div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Content */}
