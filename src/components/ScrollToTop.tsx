@@ -4,6 +4,13 @@ import { useLocation } from "react-router-dom";
 export function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
+  // Disable browser's automatic scroll restoration so our manual scrollTo works
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
   useEffect(() => {
     if (hash) {
       // Wait for lazy-loaded page to render, then scroll to the element
