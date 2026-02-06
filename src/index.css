@@ -120,9 +120,8 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  /* scroll-behavior removed: handled programmatically in ScrollToTop.tsx
+     to avoid conflicts with lazy-loaded page transitions */
 
   /* Prevent layout shifts from font loading */
   body, button, input, textarea, select {
