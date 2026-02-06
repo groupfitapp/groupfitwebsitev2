@@ -1,9 +1,6 @@
 /* App-level styles - minimal to allow Layout component to control structure */
 
-/* Ensure smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior removed: handled programmatically in ScrollToTop.tsx */
 
 /* Remove default constraints */
 #root {

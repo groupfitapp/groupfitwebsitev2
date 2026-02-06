@@ -13,26 +13,49 @@ export function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
-      // Wait for lazy-loaded page to render, then scroll to the element
       const scrollToHash = () => {
         const element = document.getElementById(hash.slice(1));
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
       };
-      
-      // Use longer delay for lazy-loaded pages to ensure content is rendered
+
       const timeoutId = setTimeout(scrollToHash, 300);
-      
-      // Also try again after a longer delay as a fallback
       const fallbackId = setTimeout(scrollToHash, 600);
-      
+
       return () => {
         clearTimeout(timeoutId);
         clearTimeout(fallbackId);
       };
     } else {
-      window.scrollTo(0, 0);
+      // Blur any focused element to prevent Radix popover/dropdown focus
+      // restoration from scrolling the page back to the trigger button
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+
+      // Use 'instant' to override any remaining CSS scroll-behavior
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+
+      // Fallback: scroll again after Radix focus restoration and lazy-load settle
+      const raf = requestAnimationFrame(() => {
+        if (document.activeElement instanceof HTMLElement && document.activeElement !== document.body) {
+          document.activeElement.blur();
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+      });
+
+      const fallback = setTimeout(() => {
+        if (document.activeElement instanceof HTMLElement && document.activeElement !== document.body) {
+          document.activeElement.blur();
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+      }, 150);
+
+      return () => {
+        cancelAnimationFrame(raf);
+        clearTimeout(fallback);
+      };
     }
   }, [pathname, hash]);
 
