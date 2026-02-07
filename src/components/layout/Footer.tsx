@@ -1,8 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { Facebook, Instagram, Youtube, FileText, ChevronDown, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // @ts-ignore - vite-imagetools query params
 import logo from "@/assets/logo.png?w=200&format=webp&quality=90";
+// @ts-ignore - vite-imagetools query params
+import googleReviewBadge from "@/assets/badges/google-review.png?w=220&format=webp&quality=90";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -89,6 +92,14 @@ const topActivities = [
 export function Footer() {
   const location = useLocation();
   const isTrainerSection = location.pathname.startsWith("/trainer");
+  const trustpilotRef = useRef<HTMLDivElement>(null);
+
+  // Re-initialize Trustpilot widget on route changes
+  useEffect(() => {
+    if (trustpilotRef.current && (window as any).Trustpilot) {
+      (window as any).Trustpilot.loadFromElement(trustpilotRef.current, true);
+    }
+  }, [location.pathname]);
 
   return (
     <footer className="bg-secondary text-white">
@@ -130,11 +141,44 @@ export function Footer() {
             {/* Contact Us Button */}
             <Button
               asChild
-              variant="outline"
-              className="mt-4 border-primary text-primary hover:bg-primary hover:text-white"
+              className="mt-4 bg-primary text-white hover:bg-primary/90 hover:shadow-[0_0_20px_hsl(355_78%_56%/0.4)]"
             >
               <Link to="/contact">Contact Us</Link>
             </Button>
+
+            {/* Review Buttons */}
+            <div className="flex flex-col gap-3 mt-5">
+              <a
+                href="https://g.page/r/CfgQlDKa9jAiEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src={googleReviewBadge}
+                  alt="Click here to leave us a review on Google"
+                  className="h-10 rounded"
+                  width={220}
+                  height={52}
+                  loading="lazy"
+                  style={{ aspectRatio: '220/52' }}
+                />
+              </a>
+              <div
+                ref={trustpilotRef}
+                className="trustpilot-widget"
+                data-locale="en-US"
+                data-template-id="56278e9abfbbba0bdcd568bc"
+                data-businessunit-id="66f42a91d36fdcc4d52b7d87"
+                data-style-height="52px"
+                data-style-width="220px"
+                data-token="c2adff46-30f4-4e8a-b936-21dbcaa943e6"
+              >
+                <a href="https://www.trustpilot.com/review/groupfitapp.com" target="_blank" rel="noopener noreferrer" className="text-white/60 text-sm hover:text-primary transition-colors">
+                  Review us on Trustpilot
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Customers */}
