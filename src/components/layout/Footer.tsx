@@ -147,7 +147,7 @@ export function Footer() {
             </Button>
 
             {/* Review Buttons */}
-            <div className="flex flex-col gap-3 mt-3">
+            <div className="flex flex-col items-start gap-3 mt-3">
               <a
                 href="https://g.page/r/CfgQlDKa9jAiEBM/review"
                 target="_blank"
@@ -163,12 +163,12 @@ export function Footer() {
               </a>
               <div
                 ref={trustpilotRef}
-                className="trustpilot-widget"
+                className="trustpilot-widget -ml-1"
                 data-locale="en-US"
                 data-template-id="56278e9abfbbba0bdcd568bc"
                 data-businessunit-id="66f42a91d36fdcc4d52b7d87"
-                data-style-height="52px"
-                data-style-width="220px"
+                data-style-height="34px"
+                data-style-width="180px"
                 data-token="c2adff46-30f4-4e8a-b936-21dbcaa943e6"
               >
                 <a href="https://www.trustpilot.com/review/groupfitapp.com" target="_blank" rel="noopener noreferrer" className="text-white/60 text-sm hover:text-primary transition-colors">
