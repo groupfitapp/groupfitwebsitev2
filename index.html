@@ -24,14 +24,14 @@
     <link rel="preconnect" href="https://i.ytimg.com" />
     <link rel="preconnect" href="https://maps.googleapis.com" />
     <link rel="preconnect" href="https://cdn.gpteng.co" crossorigin />
-    
+
     <!-- DNS prefetch for additional domains -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
     <link rel="dns-prefetch" href="https://analytics.tiktok.com" />
-    
+
     <!-- Note: Hero image is bundled via vite-imagetools from src/assets, no preload needed -->
-    
+
     <!-- Preload logo (safe performance win) -->
     <link rel="preload" as="image" href="/groupfit-logo.png" />
 
@@ -180,7 +180,22 @@
       gtag("config", "G-X7P71JVPNM");
     </script>
 
-    <!-- Defer heavy pixels until after first paint (improves mobile LCP) -->
+    <!-- Brevo Tracker -->
+    <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
+    <script>
+      // Version: 2.0
+      window.Brevo = window.Brevo || [];
+      Brevo.push([
+        "init",
+        {
+          client_key: "ckscg5rvci4penlubmngf4ei"
+          // Optional: Add other initialization options, see documentation
+        }
+      ]);
+    </script>
+    <!-- End Brevo Tracker -->
+
+    <!-- Defer heavy pixels + Brevo chat until after first paint (improves mobile LCP) -->
     <script>
       (function () {
         function loadAfterPaint(fn) {
@@ -193,6 +208,21 @@
         }
 
         loadAfterPaint(function () {
+          // --- Brevo Conversations (Chat Widget) ---
+          (function (d, w, c) {
+            w.BrevoConversationsID = "67cf0fcc198ece97e00f079a";
+            w[c] =
+              w[c] ||
+              function () {
+                (w[c].q = w[c].q || []).push(arguments);
+              };
+            var s = d.createElement("script");
+            s.async = true;
+            s.src = "https://conversations-widget.brevo.com/brevo-conversations.js";
+            if (d.head) d.head.appendChild(s);
+          })(document, window, "BrevoConversations");
+          // --- End Brevo Conversations ---
+
           // --- Meta Pixel Code ---
           !(function (f, b, e, v, n, t, s) {
             if (f.fbq) return;
@@ -243,7 +273,8 @@
             };
             for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
             ttq.instance = function (t) {
-              for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
+              for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)
+                ttq.setAndDefer(e, ttq.methods[n]);
               return e;
             };
             ttq.load = function (e, n) {
