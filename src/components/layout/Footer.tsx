@@ -157,11 +157,8 @@ export function Footer() {
                 <img
                   src={googleReviewBadge}
                   alt="Click here to leave us a review on Google"
-                  className="h-10 rounded"
-                  width={220}
-                  height={52}
+                  className="h-[34px] w-auto rounded"
                   loading="lazy"
-                  style={{ aspectRatio: '220/52' }}
                 />
               </a>
               <div
