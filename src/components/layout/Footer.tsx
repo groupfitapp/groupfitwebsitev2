@@ -147,7 +147,7 @@ export function Footer() {
             </Button>
 
             {/* Review Buttons */}
-            <div className="flex flex-col gap-3 mt-5">
+            <div className="flex flex-col gap-3 mt-3">
               <a
                 href="https://g.page/r/CfgQlDKa9jAiEBM/review"
                 target="_blank"
