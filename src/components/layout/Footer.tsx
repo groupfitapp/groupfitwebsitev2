@@ -109,13 +109,13 @@ export function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link to="/" className="inline-block mb-4">
-              <img 
-                src={logo} 
-                alt="Group Fit" 
-                className="h-10" 
-                width={135} 
+              <img
+                src={logo}
+                alt="Group Fit"
+                className="h-10"
+                width={135}
                 height={40}
-                style={{ aspectRatio: '135/40' }}
+                style={{ aspectRatio: "135/40" }}
               />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
@@ -171,7 +171,12 @@ export function Footer() {
                 data-style-width="220px"
                 data-token="c2adff46-30f4-4e8a-b936-21dbcaa943e6"
               >
-                <a href="https://www.trustpilot.com/review/groupfitapp.com" target="_blank" rel="noopener noreferrer" className="text-white/60 text-sm hover:text-primary transition-colors">
+                <a
+                  href="https://www.trustpilot.com/review/groupfitapp.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/60 text-sm hover:text-primary transition-colors"
+                >
                   Review us on Trustpilot
                 </a>
               </div>
@@ -194,10 +199,7 @@ export function Footer() {
                       {link.name}
                     </a>
                   ) : (
-                    <Link
-                      to={link.href}
-                      className="text-white/70 text-sm hover:text-primary transition-colors"
-                    >
+                    <Link to={link.href} className="text-white/70 text-sm hover:text-primary transition-colors">
                       {link.name}
                     </Link>
                   )}
@@ -212,10 +214,7 @@ export function Footer() {
             <ul className="space-y-2">
               {trainerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-white/70 text-sm hover:text-primary transition-colors"
-                  >
+                  <Link to={link.href} className="text-white/70 text-sm hover:text-primary transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -229,10 +228,7 @@ export function Footer() {
             <ul className="space-y-2">
               {topCities.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-white/70 text-sm hover:text-primary transition-colors"
-                  >
+                  <Link to={link.href} className="text-white/70 text-sm hover:text-primary transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -246,10 +242,7 @@ export function Footer() {
             <ul className="space-y-2">
               {topActivities.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-white/70 text-sm hover:text-primary transition-colors"
-                  >
+                  <Link to={link.href} className="text-white/70 text-sm hover:text-primary transition-colors">
                     {link.name}
                   </Link>
                 </li>
