@@ -256,9 +256,6 @@ export function Footer() {
                   src={trustpilotBadge}
                   alt="Review us on Trustpilot"
                   className="h-[32px] w-auto"
-                  width={176}
-                  height={32}
-                  style={{ aspectRatio: '176/32' }}
                   loading="lazy"
                 />
               </a>
@@ -281,9 +278,6 @@ export function Footer() {
                   src={googleReviewBadge}
                   alt="Click here to leave us a review on Google"
                   className="h-[32px] w-auto rounded"
-                  width={176}
-                  height={32}
-                  style={{ aspectRatio: '176/32' }}
                   loading="lazy"
                 />
               </a>
