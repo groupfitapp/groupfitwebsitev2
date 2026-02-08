@@ -38,6 +38,14 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
 
+    <!-- Preload Inter woff2 to eliminate font-swap CLS -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2"
+      crossorigin
+    />
     <!-- Load Inter early to reduce CLS from late font CSS/font swaps -->
     <link
       rel="stylesheet"
@@ -302,9 +310,7 @@
       })();
     </script>
 
-    <!-- TrustBox script -->
-    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-    <!-- End TrustBox script -->
+    <!-- TrustBox script removed: widget replaced with static image badge -->
   </head>
 
   <body>

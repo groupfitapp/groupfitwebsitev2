@@ -254,7 +254,7 @@ export function ReviewsSection() {
 
   // Duplicate reviews for seamless loop
   const duplicatedReviews = [...reviews, ...reviews];
-  return <section className="py-16 md:py-24 bg-background overflow-hidden">
+  return <section className="py-16 md:py-24 bg-background overflow-hidden" style={{ contain: 'layout style' }}>
       <div className="container mx-auto px-4 mb-10">
         <div className="text-center">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
