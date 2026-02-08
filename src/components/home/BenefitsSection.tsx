@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Home, Sparkles, UsersRound, BadgeCheck } from "lucide-react";
+import { Home, Sparkles, UserPlus, BadgeCheck } from "lucide-react";
 
 const benefits = [
   {
@@ -13,9 +13,9 @@ const benefits = [
     description: "Choose from 35+ activities, including strength, boxing, yoga, sport training and more.",
   },
   {
-    icon: UsersRound,
-    title: "Private group bookings",
-    description: "Train with friends or family at the same time and location.",
+    icon: UserPlus,
+    title: "Solo or group—your call",
+    description: "Book a 1-on-1 session with a trainer, or invite friends and family to train together and split the cost.",
   },
   {
     icon: BadgeCheck,

@@ -146,41 +146,6 @@ export function Footer() {
               <Link to="/contact">Contact Us</Link>
             </Button>
 
-            {/* Review Buttons */}
-            <div className="flex flex-col gap-3 mt-3">
-              <a
-                href="https://g.page/r/CfgQlDKa9jAiEBM/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block hover:opacity-80 transition-opacity"
-              >
-                <img
-                  src={googleReviewBadge}
-                  alt="Click here to leave us a review on Google"
-                  className="h-[34px] w-auto rounded"
-                  loading="lazy"
-                />
-              </a>
-              <div
-                ref={trustpilotRef}
-                className="trustpilot-widget"
-                data-locale="en-US"
-                data-template-id="56278e9abfbbba0bdcd568bc"
-                data-businessunit-id="66f42a91d36fdcc4d52b7d87"
-                data-style-height="52px"
-                data-style-width="220px"
-                data-token="c2adff46-30f4-4e8a-b936-21dbcaa943e6"
-              >
-                <a
-                  href="https://www.trustpilot.com/review/groupfitapp.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/60 text-sm hover:text-primary transition-colors"
-                >
-                  Review us on Trustpilot
-                </a>
-              </div>
-            </div>
           </div>
 
           {/* Customers */}
@@ -285,9 +250,48 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-white/10">
-          <p className="text-white/50 text-sm text-center">
-            © {new Date().getFullYear()} Group Fit. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            {/* Trustpilot - Left */}
+            <div
+              ref={trustpilotRef}
+              className="trustpilot-widget"
+              data-locale="en-US"
+              data-template-id="56278e9abfbbba0bdcd568bc"
+              data-businessunit-id="66f42a91d36fdcc4d52b7d87"
+              data-style-height="24px"
+              data-style-width="200px"
+              data-token="c2adff46-30f4-4e8a-b936-21dbcaa943e6"
+            >
+              <a
+                href="https://www.trustpilot.com/review/groupfitapp.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 text-sm hover:text-primary transition-colors"
+              >
+                Review us on Trustpilot
+              </a>
+            </div>
+
+            {/* Copyright - Center */}
+            <p className="text-white/50 text-sm">
+              © {new Date().getFullYear()} Group Fit. All rights reserved.
+            </p>
+
+            {/* Google Review - Right */}
+            <a
+              href="https://g.page/r/CfgQlDKa9jAiEBM/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block hover:opacity-80 transition-opacity"
+            >
+              <img
+                src={googleReviewBadge}
+                alt="Click here to leave us a review on Google"
+                className="h-[24px] w-auto rounded"
+                loading="lazy"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
