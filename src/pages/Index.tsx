@@ -117,7 +117,6 @@ const Index = () => {
               <LazyYouTubeEmbed
                 playlistId="PLsM4U67lWn_-fabL01WQkp1xNS4iuGNNZ"
                 title="Group Fit Customer Training Sessions"
-                autoplay
               />
             </div>
           </div>
