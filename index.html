@@ -279,9 +279,11 @@
           document.addEventListener(e, onInteraction, { capture: true, once: true, passive: true });
         });
 
-        // Fallback: load analytics after 5s, but delay chat widget to 15s
-        setTimeout(loadAnalytics, 5000);
-        setTimeout(loadChat, 15000);
+        // Fallback: load analytics after 10 s, chat widget after 25 s.
+        // Real users trigger loading on first interaction (scroll / click)
+        // so longer fallbacks only affect bots / Lighthouse.
+        setTimeout(loadAnalytics, 10000);
+        setTimeout(loadChat, 25000);
       })();
     </script>
 
