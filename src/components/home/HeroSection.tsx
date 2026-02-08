@@ -26,6 +26,10 @@ export function HeroSection() {
           fetchPriority="high"
           width={1920}
           height={1080}
+          style={{ 
+            contentVisibility: 'auto',
+            containIntrinsicSize: '1920px 1080px'
+          }}
         />
         <div className="absolute inset-0 bg-secondary/65" />
         {/* Bottom gradient fade */}
