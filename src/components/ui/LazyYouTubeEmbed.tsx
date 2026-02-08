@@ -25,26 +25,11 @@ export function LazyYouTubeEmbed({
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // For playlists, we use a default thumbnail; for videos, use the video's thumbnail
-  const thumbnailUrl = videoId 
-    ? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
-    : `https://i.ytimg.com/vi/PLsM4U67lWn/maxresdefault.jpg`; // Fallback for playlist
-
-  // Build the iframe src
-  let src: string;
-  if (playlistId) {
-    const playlistParams = `&autoplay=1&mute=1&loop=1&controls=1&modestbranding=1&rel=0`;
-    src = `https://www.youtube.com/embed/videoseries?list=${playlistId}${playlistParams}`;
-  } else if (videoId) {
-    const videoParams = `?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0`;
-    src = `https://www.youtube.com/embed/${videoId}${videoParams}`;
-  } else {
-    return null;
-  }
+  const hasSource = !!(playlistId || videoId);
 
   // If autoplay is enabled, load iframe when in viewport
   useEffect(() => {
-    if (!autoplay || isLoaded) return;
+    if (!hasSource || !autoplay || isLoaded) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -61,7 +46,24 @@ export function LazyYouTubeEmbed({
     }
 
     return () => observer.disconnect();
-  }, [autoplay, isLoaded]);
+  }, [hasSource, autoplay, isLoaded]);
+
+  if (!hasSource) return null;
+
+  // For playlists, we use a default thumbnail; for videos, use the video's thumbnail
+  const thumbnailUrl = videoId 
+    ? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
+    : `https://i.ytimg.com/vi/PLsM4U67lWn/maxresdefault.jpg`;
+
+  // Build the iframe src
+  let src: string;
+  if (playlistId) {
+    const playlistParams = `&autoplay=1&mute=1&loop=1&controls=1&modestbranding=1&rel=0`;
+    src = `https://www.youtube-nocookie.com/embed/videoseries?list=${playlistId}${playlistParams}`;
+  } else {
+    const videoParams = `?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0`;
+    src = `https://www.youtube-nocookie.com/embed/${videoId}${videoParams}`;
+  }
 
   const handleClick = () => {
     if (!isLoaded) {
