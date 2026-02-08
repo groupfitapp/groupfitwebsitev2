@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
 import { APP_LINKS } from "@/lib/appLinks";
 import { PillLink } from "@/components/ui/PillLink";
+import { z } from "zod";
 
 // Extend window for Google Maps
 declare global {
@@ -40,7 +41,24 @@ declare global {
   }
 }
 
-const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] as const;
+
+const TrainerSchema = z.object({
+  Name: z.string().trim().min(1).max(100),
+  Activity: z.string().trim().min(1).max(50),
+  Day: z.enum(DAYS),
+  "Start Time": z.string().trim().regex(/^\d{1,2}:\d{2}\s?(AM|PM)$/i, "Invalid time format"),
+  "End Time": z.string().trim().regex(/^\d{1,2}:\d{2}\s?(AM|PM)$/i, "Invalid time format"),
+  Latitude: z.string().trim().regex(/^-?\d+(\.\d+)?$/, "Invalid latitude").refine(
+    (v) => { const n = parseFloat(v); return n >= -90 && n <= 90; },
+    "Latitude out of range"
+  ),
+  Longitude: z.string().trim().regex(/^-?\d+(\.\d+)?$/, "Invalid longitude").refine(
+    (v) => { const n = parseFloat(v); return n >= -180 && n <= 180; },
+    "Longitude out of range"
+  ),
+  KM: z.string().trim().regex(/^\d+$/, "Invalid KM value"),
+});
 
 const CONFIG = {
   SHEET_URL:
@@ -90,12 +108,14 @@ function formatTime(mins: number): string {
   return `${hour}:${m.toString().padStart(2, "0")} ${period}`;
 }
 
-// Parse CSV data
+// Parse CSV data with Zod validation
 function parseCSV(text: string): Trainer[] {
   const lines = text.trim().split("\n");
   const headers = lines[0].split(",").map((h) => h.trim().replace(/"/g, ""));
 
-  return lines.slice(1).map((line) => {
+  const parsed: Trainer[] = [];
+
+  for (const line of lines.slice(1)) {
     const values: string[] = [];
     let current = "";
     let inQuotes = false;
@@ -117,8 +137,14 @@ function parseCSV(text: string): Trainer[] {
       obj[header] = values[i] || "";
     });
 
-    return obj as unknown as Trainer;
-  });
+    const result = TrainerSchema.safeParse(obj);
+    if (result.success) {
+      parsed.push(result.data as Trainer);
+    }
+    // Silently skip invalid rows — they won't be shown to users
+  }
+
+  return parsed;
 }
 
 export default function SearchSection() {
@@ -294,7 +320,7 @@ export default function SearchSection() {
       // Get available days for this activity
       const trainersForActivity = validTrainers.filter((t) => t.Activity === selectedActivity);
       const uniqueDays = [...new Set(trainersForActivity.map((t) => t.Day))].sort(
-        (a, b) => DAYS.indexOf(a) - DAYS.indexOf(b)
+        (a, b) => (DAYS as readonly string[]).indexOf(a) - (DAYS as readonly string[]).indexOf(b)
       );
 
       setAvailableDays(uniqueDays);
