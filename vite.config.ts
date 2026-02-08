@@ -1,8 +1,32 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { imagetools } from "vite-imagetools";
+
+/**
+ * Vite plugin that injects a <link rel="preload"> for the hero-banner image
+ * into index.html at build time, making the LCP image discoverable
+ * from the initial HTML without waiting for React to render.
+ */
+function heroImagePreload(): Plugin {
+  return {
+    name: "hero-image-preload",
+    transformIndexHtml: {
+      order: "post",
+      handler(html, ctx) {
+        if (!ctx.bundle) return html;
+        for (const fileName of Object.keys(ctx.bundle)) {
+          if (fileName.includes("hero-banner") && fileName.endsWith(".webp")) {
+            const tag = `<link rel="preload" as="image" type="image/webp" href="/${fileName}" fetchpriority="high" />`;
+            return html.replace("</head>", `${tag}\n  </head>`);
+          }
+        }
+        return html;
+      },
+    },
+  };
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -33,6 +57,7 @@ export default defineConfig(({ mode }) => ({
         return new URLSearchParams();
       }
     }),
+    heroImagePreload(),
     mode === "development" && componentTagger()
   ].filter(Boolean),
 
