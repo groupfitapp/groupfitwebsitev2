@@ -2,8 +2,13 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Download, ArrowRight, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// Hero image imported via vite-imagetools for WebP conversion + content hash caching
-import heroBg from "@/assets/hero-banner.jpg";
+// Hero image imported via vite-imagetools for WebP conversion + responsive sizes
+// @ts-ignore - vite-imagetools query params
+import heroBg from "@/assets/hero-banner.jpg?w=1440&format=webp&quality=75";
+// @ts-ignore - vite-imagetools query params
+import heroBg768 from "@/assets/hero-banner.jpg?w=768&format=webp&quality=75";
+// @ts-ignore - vite-imagetools query params
+import heroBg1920 from "@/assets/hero-banner.jpg?w=1920&format=webp&quality=75";
 
 export function HeroSection() {
   return (
@@ -12,6 +17,8 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-secondary">
         <img
           src={heroBg}
+          srcSet={`${heroBg768} 768w, ${heroBg} 1440w, ${heroBg1920} 1920w`}
+          sizes="100vw"
           alt="Personal training session"
           className="w-full h-full object-cover"
           loading="eager"
@@ -19,7 +26,6 @@ export function HeroSection() {
           fetchPriority="high"
           width={1920}
           height={1080}
-          sizes="100vw"
           style={{ 
             contentVisibility: 'auto',
             containIntrinsicSize: '1920px 1080px'
