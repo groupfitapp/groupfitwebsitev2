@@ -179,9 +179,8 @@ export default function SearchSection() {
 
     const script = document.createElement("script");
     script.setAttribute("data-google-maps", "1");
-    const mapsKey = import.meta.env.VITE_GOOGLE_MAPS_KEY;
     script.src =
-      `https://maps.googleapis.com/maps/api/js?key=${mapsKey}&libraries=places`;
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyCfy7AmCWSSV36sswSYqtZkdhSt68M0eaA&libraries=places";
     script.async = true;
     script.defer = true;
 
