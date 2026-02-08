@@ -184,7 +184,8 @@
     -->
     <script>
       (function () {
-        var loaded = false;
+        var analyticsLoaded = false;
+        var chatLoaded = false;
 
         // Stub gtag so SPA route-change calls before load don't error
         window.dataLayer = window.dataLayer || [];
@@ -196,13 +197,10 @@
         // Stub Brevo so early calls queue safely
         window.Brevo = window.Brevo || [];
 
-        function loadAll() {
-          if (loaded) return;
-          loaded = true;
-          // Remove interaction listeners
-          ["scroll", "click", "touchstart", "keydown"].forEach(function (e) {
-            document.removeEventListener(e, loadAll, { capture: true });
-          });
+        // Phase 1: Analytics (GA4, Brevo Tracker, Meta Pixel, TikTok Pixel)
+        function loadAnalytics() {
+          if (analyticsLoaded) return;
+          analyticsLoaded = true;
 
           // --- Google Analytics (GA4) ---
           var ga = document.createElement("script");
@@ -217,16 +215,6 @@
           brevo.src = "https://cdn.brevo.com/js/sdk-loader.js";
           document.head.appendChild(brevo);
           Brevo.push(["init", { client_key: "ckscg5rvci4penlubmngf4ei" }]);
-
-          // --- Brevo Conversations (Chat Widget) ---
-          (function (d, w, c) {
-            w.BrevoConversationsID = "67cf0fcc198ece97e00f079a";
-            w[c] = w[c] || function () { (w[c].q = w[c].q || []).push(arguments); };
-            var s = d.createElement("script");
-            s.async = true;
-            s.src = "https://conversations-widget.brevo.com/brevo-conversations.js";
-            if (d.head) d.head.appendChild(s);
-          })(document, window, "BrevoConversations");
 
           // --- Meta Pixel Code ---
           !(function (f, b, e, v, n, t, s) {
@@ -264,13 +252,36 @@
           })(window, document, "ttq");
         }
 
-        // Trigger on first user interaction
+        // Phase 2: Brevo Conversations chat widget (heaviest resource, loaded separately)
+        function loadChat() {
+          if (chatLoaded) return;
+          chatLoaded = true;
+          (function (d, w, c) {
+            w.BrevoConversationsID = "67cf0fcc198ece97e00f079a";
+            w[c] = w[c] || function () { (w[c].q = w[c].q || []).push(arguments); };
+            var s = d.createElement("script");
+            s.async = true;
+            s.src = "https://conversations-widget.brevo.com/brevo-conversations.js";
+            if (d.head) d.head.appendChild(s);
+          })(document, window, "BrevoConversations");
+        }
+
+        function onInteraction() {
+          loadAnalytics();
+          loadChat();
+          ["scroll", "click", "touchstart", "keydown"].forEach(function (e) {
+            document.removeEventListener(e, onInteraction, { capture: true });
+          });
+        }
+
+        // Trigger analytics + chat on first user interaction
         ["scroll", "click", "touchstart", "keydown"].forEach(function (e) {
-          document.addEventListener(e, loadAll, { capture: true, once: true, passive: true });
+          document.addEventListener(e, onInteraction, { capture: true, once: true, passive: true });
         });
 
-        // Fallback: load after 5 seconds regardless
-        setTimeout(loadAll, 5000);
+        // Fallback: load analytics after 5s, but delay chat widget to 15s
+        setTimeout(loadAnalytics, 5000);
+        setTimeout(loadChat, 15000);
       })();
     </script>
 
