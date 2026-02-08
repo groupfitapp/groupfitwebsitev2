@@ -46,7 +46,7 @@ const cities = [
 
 export function CitiesSection() {
   return (
-    <section className="py-20 md:py-28 bg-background">
+    <section className="py-20 md:py-28 bg-background" style={{ contain: 'layout style' }}>
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
           <div>

@@ -97,7 +97,7 @@ const Index = () => {
       <HowItWorksSection />
       
       {/* Customer Testimonials */}
-      <section className="py-16 md:py-24 bg-secondary">
+      <section className="py-16 md:py-24 bg-secondary" style={{ contain: 'layout style' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
