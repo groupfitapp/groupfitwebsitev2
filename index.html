@@ -46,11 +46,14 @@
       href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2"
       crossorigin
     />
-    <!-- Load Inter early to reduce CLS from late font CSS/font swaps -->
+    <!-- Load Inter font CSS non-render-blocking (actual woff2 is already preloaded above) -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
