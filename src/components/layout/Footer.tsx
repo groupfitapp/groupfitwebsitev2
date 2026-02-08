@@ -6,7 +6,7 @@ import logo from "@/assets/logo.png?w=200&format=webp&quality=90";
 // @ts-ignore - vite-imagetools query params
 import googleReviewBadge from "@/assets/badges/google-review.png?w=220&format=webp&quality=90";
 // @ts-ignore - vite-imagetools query params
-import trustpilotBadge from "@/assets/badges/trustpilot.png?w=220&format=webp&quality=90";
+import trustpilotBadge from "@/assets/badges/trustpilot.png?w=80&format=webp&quality=85";
 import {
   DropdownMenu,
   DropdownMenuContent,
