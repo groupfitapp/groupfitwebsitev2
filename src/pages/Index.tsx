@@ -89,7 +89,9 @@ const Index = () => {
       </Helmet>
 
       <HeroSection />
-      <VideoSection />
+      <LazySection minHeight="400px">
+        <VideoSection />
+      </LazySection>
       <AvailabilitySection />
       <BenefitsSection />
       <LazySection minHeight="600px">
