@@ -1,11 +1,12 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Facebook, Instagram, Youtube, FileText, ChevronDown, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // @ts-ignore - vite-imagetools query params
 import logo from "@/assets/logo.png?w=200&format=webp&quality=90";
 // @ts-ignore - vite-imagetools query params
 import googleReviewBadge from "@/assets/badges/google-review.png?w=220&format=webp&quality=90";
+// @ts-ignore - vite-imagetools query params
+import trustpilotBadge from "@/assets/badges/trustpilot.png?w=220&format=webp&quality=90";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -92,14 +93,6 @@ const topActivities = [
 export function Footer() {
   const location = useLocation();
   const isTrainerSection = location.pathname.startsWith("/trainer");
-  const trustpilotRef = useRef<HTMLDivElement>(null);
-
-  // Re-initialize Trustpilot widget on route changes
-  useEffect(() => {
-    if (trustpilotRef.current && (window as any).Trustpilot) {
-      (window as any).Trustpilot.loadFromElement(trustpilotRef.current, true);
-    }
-  }, [location.pathname]);
 
   return (
     <footer className="bg-secondary text-white">
@@ -250,47 +243,45 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Trustpilot - Left */}
-            <div
-              ref={trustpilotRef}
-              className="trustpilot-widget"
-              data-locale="en-US"
-              data-template-id="56278e9abfbbba0bdcd568bc"
-              data-businessunit-id="66f42a91d36fdcc4d52b7d87"
-              data-style-height="24px"
-              data-style-width="200px"
-              data-token="c2adff46-30f4-4e8a-b936-21dbcaa943e6"
-            >
+            <div className="flex-1 flex justify-center md:justify-start">
               <a
-                href="https://www.trustpilot.com/review/groupfitapp.com"
+                href="https://www.trustpilot.com/review/groupfitapp.com?utm_medium=trustbox&utm_source=TrustBoxReviewCollector"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/60 text-sm hover:text-primary transition-colors"
+                className="inline-block hover:opacity-80 transition-opacity"
               >
-                Review us on Trustpilot
+                <img
+                  src={trustpilotBadge}
+                  alt="Review us on Trustpilot"
+                  className="h-[24px] w-auto"
+                  loading="lazy"
+                />
               </a>
             </div>
 
             {/* Copyright - Center */}
-            <p className="text-white/50 text-sm">
+            <p className="text-white/50 text-sm text-center flex-shrink-0">
               © {new Date().getFullYear()} Group Fit. All rights reserved.
             </p>
 
             {/* Google Review - Right */}
-            <a
-              href="https://g.page/r/CfgQlDKa9jAiEBM/review"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block hover:opacity-80 transition-opacity"
-            >
-              <img
-                src={googleReviewBadge}
-                alt="Click here to leave us a review on Google"
-                className="h-[24px] w-auto rounded"
-                loading="lazy"
-              />
-            </a>
+            <div className="flex-1 flex justify-center md:justify-end">
+              <a
+                href="https://g.page/r/CfgQlDKa9jAiEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src={googleReviewBadge}
+                  alt="Click here to leave us a review on Google"
+                  className="h-[24px] w-auto rounded"
+                  loading="lazy"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
