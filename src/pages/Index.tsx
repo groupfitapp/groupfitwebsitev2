@@ -12,6 +12,7 @@ import {
 } from "@/components/home";
 import { homeFaqs } from "@/components/home/FAQSection";
 import { LazyYouTubeEmbed } from "@/components/ui/LazyYouTubeEmbed";
+import { LazySection } from "@/components/ui/LazySection";
 import { Helmet } from "react-helmet-async";
 import React from "react";
 
@@ -91,33 +92,41 @@ const Index = () => {
       <VideoSection />
       <AvailabilitySection />
       <BenefitsSection />
-      <ReviewsSection />
+      <LazySection minHeight="600px">
+        <ReviewsSection />
+      </LazySection>
       <ActivitiesSection />
-      <CitiesSection />
+      <LazySection minHeight="400px">
+        <CitiesSection />
+      </LazySection>
       <HowItWorksSection />
       
       {/* Customer Testimonials */}
-      <section className="py-16 md:py-24 bg-secondary" style={{ contain: 'layout style' }}>
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              See real training sessions
-            </h2>
-            <p className="text-white/70 max-w-xl mx-auto">
-              Watch customers training with Group Fit coaches at their chosen locations.
-            </p>
+      <LazySection minHeight="400px">
+        <section className="py-16 md:py-24 bg-secondary" style={{ contain: 'layout style' }}>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                See real training sessions
+              </h2>
+              <p className="text-white/70 max-w-xl mx-auto">
+                Watch customers training with Group Fit coaches at their chosen locations.
+              </p>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              <LazyYouTubeEmbed
+                playlistId="PLsM4U67lWn_-fabL01WQkp1xNS4iuGNNZ"
+                title="Group Fit Customer Training Sessions"
+                autoplay
+              />
+            </div>
           </div>
-          <div className="max-w-4xl mx-auto">
-            <LazyYouTubeEmbed
-              playlistId="PLsM4U67lWn_-fabL01WQkp1xNS4iuGNNZ"
-              title="Group Fit Customer Training Sessions"
-              autoplay
-            />
-          </div>
-        </div>
-      </section>
+        </section>
+      </LazySection>
 
-      <FAQSection />
+      <LazySection minHeight="500px">
+        <FAQSection />
+      </LazySection>
       <CTASection />
     </>
   );
