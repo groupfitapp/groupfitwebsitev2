@@ -255,7 +255,7 @@ export function Footer() {
                 <img
                   src={trustpilotBadge}
                   alt="Review us on Trustpilot"
-                  className="h-[24px] w-auto"
+                  className="h-[32px] w-auto"
                   loading="lazy"
                 />
               </a>
@@ -277,7 +277,7 @@ export function Footer() {
                 <img
                   src={googleReviewBadge}
                   alt="Click here to leave us a review on Google"
-                  className="h-[24px] w-auto rounded"
+                  className="h-[32px] w-auto rounded"
                   loading="lazy"
                 />
               </a>
