@@ -231,25 +231,36 @@ export function ReviewsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-scroll effect
+  // Auto-scroll effect — cache scrollWidth to avoid forced reflows every frame
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
     let animationId: number;
-    let scrollSpeed = 0.5;
+    const scrollSpeed = 0.5;
+
+    // Cache the half-width; update on resize
+    let halfWidth = scrollContainer.scrollWidth / 2;
+    const onResize = () => {
+      halfWidth = scrollContainer.scrollWidth / 2;
+    };
+    window.addEventListener("resize", onResize, { passive: true });
+
     const scroll = () => {
       if (!isPaused && scrollContainer) {
         scrollContainer.scrollLeft += scrollSpeed;
 
         // Reset to start when reaching the end (seamless loop)
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+        if (scrollContainer.scrollLeft >= halfWidth) {
           scrollContainer.scrollLeft = 0;
         }
       }
       animationId = requestAnimationFrame(scroll);
     };
     animationId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationId);
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", onResize);
+    };
   }, [isPaused]);
 
   // Duplicate reviews for seamless loop
