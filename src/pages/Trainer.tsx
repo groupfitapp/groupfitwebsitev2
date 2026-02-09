@@ -57,29 +57,44 @@ export default function Trainer() {
         <title>Trainer Scheduling & Booking App | Group Fit</title>
         <meta
           name="description"
-          content="Move your clients onto Group Fit so bookings and payments run cleanly—without DMs, spreadsheets, or chasing."
+          content="Manage your personal training clients, schedule, and payments in one app—no DMs, spreadsheets, or chasing."
         />
         <meta
           name="keywords"
-          content="personal trainer booking, trainer scheduling app, fitness trainer platform, personal training business, trainer payments"
+          content="personal trainer booking, trainer scheduling app, fitness trainer platform, personal training business, trainer payments, client management for trainers, trainer booking system, fitness business tool, manage personal training clients"
         />
         <link rel="canonical" href="https://groupfitapp.com/trainer" />
         <meta name="robots" content="index,follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:site_name" content="Group Fit" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Trainer Scheduling & Booking App | Group Fit" />
         <meta
           property="og:description"
-          content="Move your clients onto Group Fit so bookings and payments run cleanly—without DMs, spreadsheets, or chasing."
+          content="Manage your personal training clients, schedule, and payments in one app—no DMs, spreadsheets, or chasing."
         />
         <meta property="og:url" content="https://groupfitapp.com/trainer" />
+        <meta property="og:image" content="https://groupfitapp.com/groupfit-logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Run your schedule. Stop the back-and-forth." />
         <meta
           name="twitter:description"
-          content="Move your clients onto Group Fit so bookings and payments run cleanly."
+          content="Manage your personal training clients, schedule, and payments in one app."
         />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Group Fit Trainer",
+            "operatingSystem": "iOS, Android",
+            "applicationCategory": "HealthApplication",
+            "description": "Manage your personal training clients, schedule, and payments in one app.",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
+            "installUrl": [
+              "https://apps.apple.com/ca/app/group-fit-trainer/id6499300864",
+              "https://play.google.com/store/apps/details?id=com.thegroupfittrainer&pli=1"
+            ]
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
