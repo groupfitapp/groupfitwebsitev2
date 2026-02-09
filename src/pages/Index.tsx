@@ -86,6 +86,23 @@ const Index = () => {
 
         {/* FAQ schema (valid plain text answers) */}
         <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
+
+        {/* SoftwareApplication schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Group Fit",
+            "operatingSystem": "iOS, Android",
+            "applicationCategory": "HealthApplication",
+            "description": "Book a certified personal trainer at your address in Canada. Solo or group sessions.",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
+            "installUrl": [
+              "https://apps.apple.com/ca/app/group-fit/id6503181635",
+              "https://play.google.com/store/apps/details?id=com.newcustomer"
+            ]
+          })}
+        </script>
       </Helmet>
 
       <HeroSection />
