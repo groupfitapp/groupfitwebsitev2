@@ -142,6 +142,7 @@ export default function SearchSection() {
   const [availableActivities, setAvailableActivities] = useState<string[]>([]);
   const [availableDays, setAvailableDays] = useState<string[]>([]);
   const [showResults, setShowResults] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState<string>("");
 
   const activityRef = useRef<HTMLDivElement>(null);
   const dayRef = useRef<HTMLDivElement>(null);
@@ -245,6 +246,11 @@ export default function SearchSection() {
       const response = await fetch(CONFIG.SHEET_URL);
       const text = await response.text();
       const data = parseCSV(text);
+      // Read LastUpdated from first row if available
+      const firstRow = data[0] as unknown as Record<string, string> | undefined;
+      if (firstRow?.["LastUpdated"]) {
+        setLastUpdated(firstRow["LastUpdated"]);
+      }
       setAllTrainers(data);
       return data;
     } catch (error) {
@@ -713,6 +719,13 @@ export default function SearchSection() {
               <Info className="w-4 h-4 mt-0.5 flex-shrink-0" />
               <p>Results are based on the session address you enter, your selected activity, and trainer availability in the app.</p>
             </div>
+
+            {/* Last Updated */}
+            {lastUpdated && (
+              <p className="mt-3 text-center text-xs text-muted-foreground">
+                Last Updated On: {lastUpdated}
+              </p>
+            )}
           </motion.div>
 
           {/* Quick Links */}
