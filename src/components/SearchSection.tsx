@@ -238,6 +238,28 @@ export default function SearchSection() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Fetch last updated date on mount (and cache trainer data)
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch(CONFIG.SHEET_URL);
+        const text = await response.text();
+        const lines = text.trim().split("\n");
+        const headers = lines[0].split(",").map((h) => h.trim().replace(/"/g, ""));
+        const colIndex = headers.indexOf("LastUpdated");
+        if (colIndex !== -1 && lines.length > 1) {
+          const firstDataRow = lines[1].split(",");
+          const val = (firstDataRow[colIndex] || "").trim().replace(/"/g, "");
+          if (val) setLastUpdated(val);
+        }
+        const data = parseCSV(text);
+        setAllTrainers(data);
+      } catch (error) {
+        console.error("Failed to fetch trainer data:", error);
+      }
+    })();
+  }, []);
+
   // Fetch trainer data (only when needed)
   const fetchTrainerData = useCallback(async (): Promise<Trainer[]> => {
     if (allTrainers.length > 0) return allTrainers;
@@ -246,11 +268,6 @@ export default function SearchSection() {
       const response = await fetch(CONFIG.SHEET_URL);
       const text = await response.text();
       const data = parseCSV(text);
-      // Read LastUpdated from first row if available
-      const firstRow = data[0] as unknown as Record<string, string> | undefined;
-      if (firstRow?.["LastUpdated"]) {
-        setLastUpdated(firstRow["LastUpdated"]);
-      }
       setAllTrainers(data);
       return data;
     } catch (error) {
