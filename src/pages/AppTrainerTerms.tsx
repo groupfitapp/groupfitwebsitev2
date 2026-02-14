@@ -80,9 +80,8 @@ export default function AppTrainerTerms() {
               <h2 className="text-2xl font-bold mb-4">
                 <span className="text-primary">1.</span> General
               </h2>
-              <h3 className="text-lg font-semibold text-foreground mb-3">Term of Agreement</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Your provision of Services through the Group Fit platform begins upon your sign-up as a Contractor and continues until this Agreement is terminated in accordance with these terms. Certain provisions, by their nature, will survive termination as set out in this Agreement.
+                <strong className="text-primary">1.1 Term of Agreement:</strong> Your provision of Services through the Group Fit platform begins upon your sign-up as a Contractor and continues until this Agreement is terminated in accordance with these terms. Certain provisions, by their nature, will survive termination as set out in this Agreement.
               </p>
             </div>
 
@@ -92,10 +91,10 @@ export default function AppTrainerTerms() {
                 <span className="text-primary">2.</span> Services and Obligations
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                <strong className="text-primary">Scope of Services:</strong> You agree to provide sport or physical activity instruction and coaching services (the "Services") to clients who book you through the App. The Services may include personal training, coaching, or instructing individuals or groups at locations selected by the clients.
+                <strong className="text-primary">2.1 Scope of Services:</strong> You agree to provide sport or physical activity instruction and coaching services (the "Services") to clients who book you through the App. The Services may include personal training, coaching, or instructing individuals or groups at locations selected by the clients.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                You are solely responsible for: (i) assessing the suitability of any environment where you provide Services; (ii) designing and delivering safe and appropriate sessions; (iii) complying with all applicable laws, regulations, and professional standards; and (iv) ensuring that your Services and any advice you provide are appropriate for each client's fitness level, health status, and limitations.
+                <strong className="text-primary">2.2 Contractor Responsibilities:</strong> You are solely responsible for: (i) assessing the suitability of any environment where you provide Services; (ii) designing and delivering safe and appropriate sessions; (iii) complying with all applicable laws, regulations, and professional standards; and (iv) ensuring that your Services and any advice you provide are appropriate for each client's fitness level, health status, and limitations.
               </p>
             </div>
 
@@ -181,16 +180,16 @@ export default function AppTrainerTerms() {
               </h2>
               <ul className="space-y-4">
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Trainer Cancellation Requests:</strong> You may request the cancellation of a booked session only by creating a support ticket through the Group Fit Helpdesk. This request should be made as soon as the need for cancellation arises.
+                  <strong className="text-primary">5.1 Trainer Cancellation Requests:</strong> You may request the cancellation of a booked session only by creating a support ticket through the Group Fit Helpdesk. This request should be made as soon as the need for cancellation arises.
                 </li>
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Trainer Cancellation Fee:</strong> If Group Fit approves your request to cancel a booked session, a cancellation fee equal to five percent (5%) of the session fee will be charged to you.
+                  <strong className="text-primary">5.2 Trainer Cancellation Fee:</strong> If Group Fit approves your request to cancel a booked session, a cancellation fee equal to five percent (5%) of the session fee will be charged to you.
                 </li>
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Repeated Cancellations:</strong> Repeated cancellations may result in warnings, temporary suspension of your ability to offer Services, or permanent revocation of your access to the platform.
+                  <strong className="text-primary">5.3 Repeated Cancellations:</strong> Repeated cancellations may result in warnings, temporary suspension of your ability to offer Services, or permanent revocation of your access to the platform.
                 </li>
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Client Cancellations:</strong> Clients may cancel booked sessions in accordance with the client-facing Group Fit terms and policies.
+                  <strong className="text-primary">5.4 Client Cancellations:</strong> Clients may cancel booked sessions in accordance with the client-facing Group Fit terms and policies.
                 </li>
               </ul>
             </div>
@@ -201,10 +200,10 @@ export default function AppTrainerTerms() {
                 <span className="text-primary">6.</span> Expenses
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                <strong className="text-primary">Travel and Other Expenses:</strong> Any expenses related to travel to a client's location, equipment, supplies, licences, insurance, or other costs you incur in connection with the Services are solely your responsibility. Group Fit has no obligation to reimburse any such expenses unless expressly agreed in writing in advance.
+                <strong className="text-primary">6.1 Travel and Other Expenses:</strong> Any expenses related to travel to a client's location, equipment, supplies, licences, insurance, or other costs you incur in connection with the Services are solely your responsibility. Group Fit has no obligation to reimburse any such expenses unless expressly agreed in writing in advance.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                <strong className="text-primary">Expense Tracking:</strong> You are responsible for maintaining your own records of any expenses you incur and for handling any related tax or accounting matters.
+                <strong className="text-primary">6.2 Expense Tracking:</strong> You are responsible for maintaining your own records of any expenses you incur and for handling any related tax or accounting matters.
               </p>
             </div>
 
@@ -214,10 +213,10 @@ export default function AppTrainerTerms() {
                 <span className="text-primary">7.</span> Licences and Permits
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                <strong className="text-primary">Licence to Group Fit:</strong> You grant Group Fit a non-exclusive, royalty-free, worldwide licence to use, reproduce, modify, publish, display, and distribute your profile information, images, and any content you submit in connection with your use of the App.
+                <strong className="text-primary">7.1 Licence to Group Fit:</strong> You grant Group Fit a non-exclusive, royalty-free, worldwide licence to use, reproduce, modify, publish, display, and distribute your profile information, images, and any content you submit in connection with your use of the App.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                <strong className="text-primary">Regulatory and Professional Requirements:</strong> You are solely responsible for obtaining and maintaining any registrations, licences, permits, certifications, or other approvals required to legally provide the Services.
+                <strong className="text-primary">7.2 Regulatory and Professional Requirements:</strong> You are solely responsible for obtaining and maintaining any registrations, licences, permits, certifications, or other approvals required to legally provide the Services.
               </p>
             </div>
 
