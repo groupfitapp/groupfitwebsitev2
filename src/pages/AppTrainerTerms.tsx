@@ -177,9 +177,21 @@ export default function AppTrainerTerms() {
               <p className="text-muted-foreground leading-relaxed mb-4">
                 This eligibility requirement does not affect commissions earned from standard paid sessions.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Group Fit reserves the right, acting reasonably, to apply and administer this eligibility standard based on session records maintained within the platform.
               </p>
+
+              <ul className="space-y-4 mt-6">
+                <li className="text-muted-foreground leading-relaxed">
+                  <strong className="text-primary">GST/HST and Other Taxes:</strong> You are solely responsible for determining and complying with all tax obligations that may apply to you in connection with the Services and amounts you receive from the Company.
+                </li>
+                <li className="text-muted-foreground leading-relaxed">
+                  <strong className="text-primary">Payment Schedule:</strong> The Company will make payments of your commissions and promotional payouts on a bi-monthly basis. Payments will be made within fifteen (15) days following the end of each bi-monthly period.
+                </li>
+                <li className="text-muted-foreground leading-relaxed">
+                  <strong className="text-primary">Payment Method:</strong> Payment will be made to you via bank transfer or other electronic payment method using your payment details on file.
+                </li>
+              </ul>
             </div>
 
             {/* Section 5 */}
