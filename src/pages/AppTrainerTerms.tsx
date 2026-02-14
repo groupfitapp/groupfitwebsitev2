@@ -25,7 +25,7 @@ export default function AppTrainerTerms() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
               Group Fit Trainer Terms & Conditions
             </h1>
-            <p className="mt-4 text-white/70">Updated On: January 7, 2026</p>
+            <p className="mt-4 text-white/70">Updated On: February 14, 2026</p>
           </motion.div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
