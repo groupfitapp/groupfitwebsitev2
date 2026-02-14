@@ -70,7 +70,7 @@ const Index = () => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
+        
 
         {/* Open Graph */}
         <meta property="og:title" content={title} />
