@@ -114,23 +114,72 @@ export default function AppTrainerTerms() {
               <h2 className="text-2xl font-bold mb-4">
                 <span className="text-primary">4.</span> Compensation
               </h2>
-              <ul className="space-y-4">
-                <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Standard Payment Terms:</strong> For standard, non-promotional paid sessions, you will receive a commission equal to ninety-three percent (93%) of the applicable session fee for that activity as determined by the Company from time to time (the "Session Fee"), excluding any refunds, chargebacks, or adjustments.
-                </li>
-                <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Promotional or Free Sessions:</strong> For each "first session free" or similar promotion that is completed, you will receive a fixed promotional payout of thirty Canadian dollars (CAD $30) per completed Free Session.
-                </li>
-                <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">GST/HST and Other Taxes:</strong> You are solely responsible for determining and complying with all tax obligations that may apply to you in connection with the Services and amounts you receive from the Company.
-                </li>
-                <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Payment Schedule:</strong> The Company will make payments of your commissions and promotional payouts on a bi-monthly basis. Payments will be made within fifteen (15) days following the end of each bi-monthly period.
-                </li>
-                <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Payment Method:</strong> Payment will be made to you via bank transfer or other electronic payment method using your payment details on file.
-                </li>
+
+              <h3 className="text-lg font-semibold text-foreground mb-3">Standard Payment Terms</h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                For standard paid sessions (excluding FREE Code Sessions described below), you will receive a commission equal to ninety-three percent (93%) of the gross listed session price for that activity as determined by the Company from time to time (the "Session Fee").
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-2">For purposes of this Agreement:</p>
+              <ul className="space-y-2 text-muted-foreground list-disc list-inside mb-4">
+                <li>"Gross listed session price" means the publicly displayed price for the session at the time of booking, before any customer discounts, promotional codes, credits, or incentives are applied.</li>
+                <li>Your commission is calculated based on the gross listed session price and is not reduced by customer-facing discounts or promotional offers, unless expressly stated otherwise by the Company in writing.</li>
+                <li>Refunds, chargebacks, cancellations, or adjustments may reduce or reverse payable amounts.</li>
               </ul>
+
+              <h3 className="text-lg font-semibold text-foreground mb-3">FREE Code Sessions (New Customers Only)</h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Group Fit may offer a "first session free" incentive to new customers on Group Fit through the discount code FREE (a "FREE Code Session").
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-2">The FREE code:</p>
+              <ul className="space-y-2 text-muted-foreground list-disc list-inside mb-4">
+                <li>May be used only once per customer;</li>
+                <li>Applies only to the first session booked by that customer after signing up on Group Fit; and</li>
+                <li>Will not apply to any subsequent bookings, even if the customer books with a different trainer.</li>
+              </ul>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                A FREE Code Session is a customer acquisition incentive and is not a standard paid session.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                No commission is payable for completion of a FREE Code Session itself.
+              </p>
+
+              <h3 className="text-lg font-semibold text-foreground mb-3">Trainer Bonus for FREE Code Customers</h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                A Contractor may be eligible to receive up to thirty Canadian dollars (CAD $30) in total bonus payments in connection with a FREE Code Session, provided that the same customer completes paid sessions through the Group Fit platform.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-2">Unless otherwise specified by the Company in writing, the bonus will be released as follows:</p>
+              <ul className="space-y-2 text-muted-foreground list-disc list-inside mb-4">
+                <li>CAD $10 after the customer completes their first paid session;</li>
+                <li>CAD $10 after the customer completes their second paid session;</li>
+                <li>CAD $10 after the customer completes their third paid session.</li>
+              </ul>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Bonus payments are earned only after the applicable paid sessions are completed (not merely booked). If the customer does not complete the required paid sessions, no bonus will be payable.
+              </p>
+
+              <h3 className="text-lg font-semibold text-foreground mb-3">FREE Code Conversion Eligibility</h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Eligibility to receive bonus payments in connection with FREE Code Sessions is conditional upon reasonable customer conversion.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-2">For purposes of this section:</p>
+              <ul className="space-y-2 text-muted-foreground list-disc list-inside mb-4">
+                <li>A "FREE Code Customer" means a customer who completes a FREE Code Session.</li>
+                <li>A "Qualifying Conversion" means completion of at least one (1) paid session by that same customer within sixty (60) days following the FREE Code Session.</li>
+              </ul>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                To remain eligible for bonus payments, a Contractor must maintain a minimum conversion ratio of at least one (1) Qualifying Conversion for every three (3) FREE Code Customers within any rolling sixty (60) day period.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-2">If, during any rolling sixty (60) day period, the Contractor's conversion ratio falls below this threshold:</p>
+              <ul className="space-y-2 text-muted-foreground list-disc list-inside mb-4">
+                <li>Group Fit may pause the Contractor's eligibility to receive bonus payments for new FREE Code Customers; and</li>
+                <li>Eligibility may be reinstated once the Contractor's conversion ratio returns to or exceeds the required threshold.</li>
+              </ul>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                This eligibility requirement does not affect commissions earned from standard paid sessions.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Group Fit reserves the right, acting reasonably, to apply and administer this eligibility standard based on session records maintained within the platform.
+              </p>
             </div>
 
             {/* Section 5 */}
