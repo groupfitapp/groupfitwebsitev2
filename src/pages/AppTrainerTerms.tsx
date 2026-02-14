@@ -117,7 +117,7 @@ export default function AppTrainerTerms() {
 
               <ul className="space-y-4">
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Standard Payment Terms:</strong> For standard paid sessions (excluding FREE Code Sessions described below), you will receive a commission equal to ninety-three percent (93%) of the gross listed session price for that activity as determined by the Company from time to time (the "Session Fee").
+                  <strong className="text-primary">4.1 Standard Payment Terms:</strong> For standard paid sessions (excluding FREE Code Sessions described below), you will receive a commission equal to ninety-three percent (93%) of the gross listed session price for that activity as determined by the Company from time to time (the "Session Fee").
                   <p className="mt-2">For purposes of this Agreement:</p>
                   <ul className="list-disc list-inside mt-2 space-y-1">
                     <li>"Gross listed session price" means the publicly displayed price for the session at the time of booking, before any customer discounts, promotional codes, credits, or incentives are applied.</li>
@@ -126,7 +126,7 @@ export default function AppTrainerTerms() {
                   </ul>
                 </li>
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">FREE Code Sessions (New Customers Only):</strong> Group Fit may offer a "first session free" incentive to new customers on Group Fit through the discount code FREE (a "FREE Code Session").
+                  <strong className="text-primary">4.2 FREE Code Sessions (New Customers Only):</strong> Group Fit may offer a "first session free" incentive to new customers on Group Fit through the discount code FREE (a "FREE Code Session").
                   <p className="mt-2">The FREE code:</p>
                   <ul className="list-disc list-inside mt-2 space-y-1">
                     <li>May be used only once per customer;</li>
@@ -137,7 +137,7 @@ export default function AppTrainerTerms() {
                   <p className="mt-2">No commission is payable for completion of a FREE Code Session itself.</p>
                 </li>
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Trainer Bonus for FREE Code Customers:</strong> A Contractor may be eligible to receive up to thirty Canadian dollars (CAD $30) in total bonus payments in connection with a FREE Code Session, provided that the same customer completes paid sessions through the Group Fit platform.
+                  <strong className="text-primary">4.3 Trainer Bonus for FREE Code Customers:</strong> A Contractor may be eligible to receive up to thirty Canadian dollars (CAD $30) in total bonus payments in connection with a FREE Code Session, provided that the same customer completes paid sessions through the Group Fit platform.
                   <p className="mt-2">Unless otherwise specified by the Company in writing, the bonus will be released as follows:</p>
                   <ul className="list-disc list-inside mt-2 space-y-1">
                     <li>CAD $10 after the customer completes their first paid session;</li>
@@ -147,7 +147,7 @@ export default function AppTrainerTerms() {
                   <p className="mt-2">Bonus payments are earned only after the applicable paid sessions are completed (not merely booked). If the customer does not complete the required paid sessions, no bonus will be payable.</p>
                 </li>
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">FREE Code Conversion Eligibility:</strong> Eligibility to receive bonus payments in connection with FREE Code Sessions is conditional upon reasonable customer conversion.
+                  <strong className="text-primary">4.4 FREE Code Conversion Eligibility:</strong> Eligibility to receive bonus payments in connection with FREE Code Sessions is conditional upon reasonable customer conversion.
                   <p className="mt-2">For purposes of this section:</p>
                   <ul className="list-disc list-inside mt-2 space-y-1">
                     <li>A "FREE Code Customer" means a customer who completes a FREE Code Session.</li>
@@ -163,13 +163,13 @@ export default function AppTrainerTerms() {
                   <p className="mt-2">Group Fit reserves the right, acting reasonably, to apply and administer this eligibility standard based on session records maintained within the platform.</p>
                 </li>
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">GST/HST and Other Taxes:</strong> You are solely responsible for determining and complying with all tax obligations that may apply to you in connection with the Services and amounts you receive from the Company.
+                  <strong className="text-primary">4.5 GST/HST and Other Taxes:</strong> You are solely responsible for determining and complying with all tax obligations that may apply to you in connection with the Services and amounts you receive from the Company.
                 </li>
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Payment Schedule:</strong> The Company will make payments of your commissions and promotional payouts on a bi-monthly basis. Payments will be made within fifteen (15) days following the end of each bi-monthly period.
+                  <strong className="text-primary">4.6 Payment Schedule:</strong> The Company will make payments of your commissions and promotional payouts on a bi-monthly basis. Payments will be made within fifteen (15) days following the end of each bi-monthly period.
                 </li>
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">Payment Method:</strong> Payment will be made to you via bank transfer or other electronic payment method using your payment details on file.
+                  <strong className="text-primary">4.7 Payment Method:</strong> Payment will be made to you via bank transfer or other electronic payment method using your payment details on file.
                 </li>
               </ul>
             </div>
