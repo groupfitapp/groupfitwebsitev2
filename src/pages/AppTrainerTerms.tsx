@@ -25,7 +25,7 @@ export default function AppTrainerTerms() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
               Group Fit Trainer Terms & Conditions
             </h1>
-            <p className="mt-4 text-white/70">Updated On: February 14, 2026</p>
+            <p className="mt-4 text-white/70">Updated On: March 13, 2026</p>
           </motion.div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
@@ -116,7 +116,7 @@ export default function AppTrainerTerms() {
 
               <ul className="space-y-4">
                 <li className="text-muted-foreground leading-relaxed">
-                  <strong className="text-primary">4.1 Standard Payment Terms:</strong> For standard paid sessions (excluding FREE Code Sessions described below), you will receive a commission equal to ninety-three percent (93%) of the gross listed session price for that activity as determined by the Company from time to time (the "Session Fee").
+                  <strong className="text-primary">4.1 Standard Payment Terms:</strong> For standard paid sessions (excluding FREE Code Sessions described below), you will receive a commission equal to eighty percent (80%) of the gross listed session price for that activity as determined by the Company from time to time (the "Session Fee").
                   <p className="mt-2">For purposes of this Agreement:</p>
                   <ul className="list-disc list-inside mt-2 space-y-1">
                     <li>"Gross listed session price" means the publicly displayed price for the session at the time of booking, before any customer discounts, promotional codes, credits, or incentives are applied.</li>
