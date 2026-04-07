@@ -107,13 +107,12 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="sync">
       <motion.div
         key={location.pathname}
-        variants={pageVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] } }}
+        exit={{ opacity: 0, transition: { duration: 0.2 } }}
         style={{ willChange: "opacity, transform" }}
       >
         <Suspense fallback={<RouteLoadingFallback />}>
