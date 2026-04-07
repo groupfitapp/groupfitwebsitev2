@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Download, Gift } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-// Optimized logo: WebP format, 200px width for header display
 // @ts-ignore - vite-imagetools query params
 import logo from "@/assets/logo.png?w=200&format=webp&quality=90";
 
@@ -25,27 +25,52 @@ const trainerNavLinks = [
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isTrainerSection = location.pathname.startsWith("/trainer");
-  
+
   const navLinks = isTrainerSection ? trainerNavLinks : customerNavLinks;
-  const switchLink = isTrainerSection 
+  const switchLink = isTrainerSection
     ? { name: "For Customers", href: "/" }
     : { name: "For Trainers", href: "/trainer" };
 
+  // Track scroll for header shrink effect
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-secondary/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-50 border-b border-white/5"
+      animate={{
+        backgroundColor: scrolled ? "rgba(10, 15, 28, 0.97)" : "rgba(10, 15, 28, 0.8)",
+        backdropFilter: scrolled ? "blur(24px)" : "blur(16px)",
+        boxShadow: scrolled
+          ? "0 4px 40px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.05)"
+          : "0 4px 30px rgba(0,0,0,0.1)",
+        borderBottomColor: scrolled ? "rgba(230,57,70,0.15)" : "rgba(255,255,255,0.05)",
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+    >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <motion.div
+          className="flex items-center justify-between"
+          animate={{ height: scrolled ? "60px" : "72px" }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
           {/* Logo */}
           <Link to={isTrainerSection ? "/trainer" : "/"} className="flex items-center gap-2">
-            <img 
-              src={logo} 
-              alt="Group Fit" 
-              className="h-8 md:h-10" 
-              width={135} 
+            <motion.img
+              src={logo}
+              alt="Group Fit"
+              className="w-auto"
+              animate={{ height: scrolled ? "32px" : "40px" }}
+              transition={{ duration: 0.3 }}
+              width={135}
               height={40}
-              style={{ aspectRatio: '135/40' }}
+              style={{ aspectRatio: "135/40" }}
             />
           </Link>
 
@@ -55,16 +80,26 @@ export function Header() {
               <Link
                 key={link.name}
                 to={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === link.href
-                    ? "text-primary"
-                    : "text-white/80"
-                }`}
+                className="relative text-sm font-medium transition-colors hover:text-primary group"
               >
-                {link.name}
+                <span
+                  className={
+                    location.pathname === link.href ? "text-primary" : "text-white/80"
+                  }
+                >
+                  {link.name}
+                </span>
+                {/* Active underline */}
+                {location.pathname === link.href && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                  />
+                )}
+                {/* Hover underline */}
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary/40 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
               </Link>
             ))}
-            {/* Switch Section Link */}
             <Link
               to={switchLink.href}
               className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
@@ -75,46 +110,58 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-              <a href="/referral" className="inline-flex items-center justify-center">
-                <Gift className="w-4 h-4 mr-2" />
-                Refer & Earn
-              </a>
-            </Button>
-            <Button asChild className="bg-primary hover:bg-red-dark text-white">
-              <Link to="/download">
-                <Download className="w-4 h-4 mr-2" />
-                Download
-              </Link>
-            </Button>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                <a href="/referral" className="inline-flex items-center justify-center">
+                  <Gift className="w-4 h-4 mr-2" />
+                  Refer & Earn
+                </a>
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <Button asChild className="bg-primary hover:bg-red-dark text-white shadow-[0_0_20px_hsl(355_78%_56%/0.3)] hover:shadow-[0_0_30px_hsl(355_78%_56%/0.5)]">
+                <Link to="/download">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download
+                </Link>
+              </Button>
+            </motion.div>
           </div>
 
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon" className="text-white">
-                <Menu className="h-6 w-6" />
+                <motion.div
+                  animate={{ rotate: isOpen ? 90 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="h-6 w-6" />
+                </motion.div>
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-secondary border-border/10 w-[300px]">
               <nav className="flex flex-col gap-4 mt-8">
-                {navLinks.map((link) => (
-                  <Link
+                {navLinks.map((link, i) => (
+                  <motion.div
                     key={link.name}
-                    to={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`text-lg font-medium transition-colors hover:text-primary py-2 ${
-                      location.pathname === link.href
-                        ? "text-primary"
-                        : "text-white/80"
-                    }`}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
                   >
-                    {link.name}
-                  </Link>
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`text-lg font-medium transition-colors hover:text-primary py-2 block ${
+                        location.pathname === link.href ? "text-primary" : "text-white/80"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 ))}
-                
-                {/* Switch Section Link */}
+
                 <div className="pt-4 border-t border-border/10">
                   <Link
                     to={switchLink.href}
@@ -124,7 +171,7 @@ export function Header() {
                     {switchLink.name}
                   </Link>
                 </div>
-                
+
                 <div className="pt-4 border-t border-border/10 space-y-3">
                   <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
                     <a href="/referral" onClick={() => setIsOpen(false)} className="inline-flex items-center justify-center">
@@ -142,8 +189,8 @@ export function Header() {
               </nav>
             </SheetContent>
           </Sheet>
-        </div>
+        </motion.div>
       </div>
-    </header>
+    </motion.header>
   );
 }

@@ -1,5 +1,6 @@
 import { useEffect, Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -8,8 +9,9 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Layout } from "@/components/layout";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { pageVariants } from "@/lib/animations";
 
-// ✅ Lazy-load pages to reduce initial JS (helps PageSpeed “Reduce unused JavaScript”)
+// ✅ Lazy-load pages to reduce initial JS (helps PageSpeed "Reduce unused JavaScript")
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
@@ -70,7 +72,7 @@ const AnalyticsRouteTracker = () => {
       window.ttq.page();
     }
 
-    // TikTok ViewContent on key pages (optional but you asked for it)
+    // TikTok ViewContent on key pages
     const viewContentMap: Record<string, string> = {
       "/download": "Download",
       "/trainer": "Trainer",
@@ -86,9 +88,9 @@ const AnalyticsRouteTracker = () => {
 
     if (contentName && typeof window.ttq?.track === "function") {
       window.ttq.track("ViewContent", {
-        content_id: location.pathname, // required by TikTok
+        content_id: location.pathname,
         content_name: contentName,
-        content_type: "product_group" // TikTok allows ONLY product / product_group
+        content_type: "product_group"
       });
     }
   }, [location.pathname, location.search]);
@@ -100,6 +102,55 @@ const RouteLoadingFallback = () => (
   <div style={{ minHeight: "60vh" }} aria-busy="true" />
 );
 
+/** Animated page wrapper — keyed by pathname for AnimatePresence */
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={location.pathname}
+        variants={pageVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        style={{ willChange: "opacity, transform" }}
+      >
+        <Suspense fallback={<RouteLoadingFallback />}>
+          <Routes location={location}>
+            <Route path="/" element={<Index />} />
+
+            {/* ✅ Fix Search Console "/availability" issues by making it a real SPA route */}
+            <Route path="/availability" element={<Index />} />
+            <Route path="/availability/*" element={<Index />} />
+
+            <Route path="/about" element={<About />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/activities" element={<Activities />} />
+            <Route path="/activities/:slug" element={<ActivityDetail />} />
+            <Route path="/cities" element={<Cities />} />
+            <Route path="/cities/:slug" element={<CityDetail />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/download" element={<Download />} />
+            <Route path="/trainer" element={<Trainer />} />
+            <Route path="/trainer/how-it-works" element={<TrainerHowItWorks />} />
+            <Route path="/trainer/requirements" element={<TrainerRequirements />} />
+            <Route path="/trainer/faq" element={<TrainerFAQ />} />
+            <Route path="/trainer/download" element={<TrainerDownload />} />
+            <Route path="/website-terms-and-condition" element={<WebsiteTerms />} />
+            <Route path="/privacy-policy" element={<WebsitePrivacy />} />
+            <Route path="/app-user-terms-and-condition" element={<AppUserTerms />} />
+            <Route path="/app-trainer-terms-and-condition" element={<AppTrainerTerms />} />
+            <Route path="/app-privacy-policy" element={<AppPrivacy />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -110,36 +161,7 @@ const App = () => (
           <AnalyticsRouteTracker />
           <ScrollToTop />
           <Layout>
-            <Suspense fallback={<RouteLoadingFallback />}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-
-                {/* ✅ Fix Search Console “/availability” issues by making it a real SPA route */}
-                <Route path="/availability" element={<Index />} />
-                <Route path="/availability/*" element={<Index />} />
-
-                <Route path="/about" element={<About />} />
-                <Route path="/how-it-works" element={<HowItWorks />} />
-                <Route path="/activities" element={<Activities />} />
-                <Route path="/activities/:slug" element={<ActivityDetail />} />
-                <Route path="/cities" element={<Cities />} />
-                <Route path="/cities/:slug" element={<CityDetail />} />
-                <Route path="/faq" element={<FAQ />} />
-                <Route path="/download" element={<Download />} />
-                <Route path="/trainer" element={<Trainer />} />
-                <Route path="/trainer/how-it-works" element={<TrainerHowItWorks />} />
-                <Route path="/trainer/requirements" element={<TrainerRequirements />} />
-                <Route path="/trainer/faq" element={<TrainerFAQ />} />
-                <Route path="/trainer/download" element={<TrainerDownload />} />
-                <Route path="/website-terms-and-condition" element={<WebsiteTerms />} />
-                <Route path="/privacy-policy" element={<WebsitePrivacy />} />
-                <Route path="/app-user-terms-and-condition" element={<AppUserTerms />} />
-                <Route path="/app-trainer-terms-and-condition" element={<AppTrainerTerms />} />
-                <Route path="/app-privacy-policy" element={<AppPrivacy />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
+            <AnimatedRoutes />
           </Layout>
         </BrowserRouter>
       </TooltipProvider>

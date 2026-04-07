@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Zap, Navigation, CalendarClock, UserCheck, Wallet } from "lucide-react";
 import { PillLink } from "@/components/ui/PillLink";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const steps = [
   {
@@ -42,18 +42,19 @@ export function HowItWorksSection() {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="text-3xl md:text-4xl font-bold text-foreground"
           >
             How it works
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="mt-4 text-lg text-muted-foreground"
           >
             Book a session in 5 simple steps
@@ -63,25 +64,41 @@ export function HowItWorksSection() {
         {/* Desktop Horizontal Stepper */}
         <div className="hidden lg:block">
           <div className="flex items-start justify-between relative">
-            {/* Connecting line */}
-            <div className="absolute top-8 left-[10%] right-[10%] h-0.5 bg-border" />
-            
+            {/* Animated connecting line */}
+            <motion.div
+              className="absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary via-primary/60 to-border origin-left"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+            />
+
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="relative flex flex-col items-center text-center w-1/5 px-4 group"
+                transition={{
+                  delay: 0.2 + index * 0.12,
+                  duration: 0.65,
+                  ease: [0.21, 0.47, 0.32, 0.98],
+                }}
+                className="relative flex flex-col items-center text-center w-1/5 px-4 group cursor-default"
               >
-                <div className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold z-10 shadow-[0_0_25px_hsl(355_78%_56%/0.4)] group-hover:shadow-[0_0_35px_hsl(355_78%_56%/0.6)] transition-shadow duration-300">
+                <motion.div
+                  className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold z-10 shadow-[0_0_25px_hsl(355_78%_56%/0.4)] group-hover:shadow-[0_0_40px_hsl(355_78%_56%/0.65)] transition-shadow duration-300"
+                  whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+                  transition={{ duration: 0.4 }}
+                >
                   {step.number}
-                </div>
-                <div className="mt-4 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                </motion.div>
+                <motion.div
+                  className="mt-4 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/25 transition-colors duration-300"
+                  whileHover={{ scale: 1.15 }}
+                >
                   <step.icon className="w-5 h-5 text-primary" />
-                </div>
+                </motion.div>
                 <h3 className="mt-4 font-semibold text-foreground">{step.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
               </motion.div>
@@ -94,18 +111,32 @@ export function HowItWorksSection() {
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+                ease: [0.21, 0.47, 0.32, 0.98],
+              }}
               className="flex gap-4 group"
             >
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold shadow-[0_0_20px_hsl(355_78%_56%/0.4)] group-hover:shadow-[0_0_30px_hsl(355_78%_56%/0.6)] transition-shadow duration-300">
+                <motion.div
+                  className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold shadow-[0_0_20px_hsl(355_78%_56%/0.4)] group-hover:shadow-[0_0_32px_hsl(355_78%_56%/0.6)] transition-shadow duration-300"
+                  whileHover={{ scale: 1.1 }}
+                >
                   {step.number}
-                </div>
+                </motion.div>
                 {index < steps.length - 1 && (
-                  <div className="w-0.5 flex-1 bg-gradient-to-b from-primary/50 to-border mt-2" />
+                  <motion.div
+                    className="w-0.5 flex-1 bg-gradient-to-b from-primary/50 to-border mt-2"
+                    initial={{ scaleY: 0 }}
+                    whileInView={{ scaleY: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
+                    style={{ transformOrigin: "top" }}
+                  />
                 )}
               </div>
               <div className="pb-8">
@@ -123,7 +154,7 @@ export function HowItWorksSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.6 }}
           className="text-center mt-12"
         >
           <PillLink to="/how-it-works">
