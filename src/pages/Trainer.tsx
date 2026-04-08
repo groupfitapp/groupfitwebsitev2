@@ -336,14 +336,14 @@ export default function Trainer() {
                   <span className="text-primary">alongside in-person.</span>
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed mb-6">
-                  Accept virtual bookings through the same app. Clients see your virtual availability separately from in-person — you control which sessions you offer and when.
+                  Offer virtual sessions through the same app, on the same schedule as your in-person sessions. If you're booked in-person, virtual clients can't book that same slot — your availability is always accurate.
                 </p>
                 <ul className="space-y-3">
                   {[
-                    "Set virtual-specific availability and pricing",
-                    "Clients book virtual sessions the same way as in-person",
-                    "Expand your reach beyond your service area",
-                    "Train clients across Canada — or anywhere",
+                    "Virtual and in-person share the same schedule — no double bookings",
+                    "Clients worldwide can book your virtual sessions, not just your local area",
+                    "Same instant booking flow — no extra setup required",
+                    "Set your own rate for virtual sessions",
                   ].map((point, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -371,14 +371,23 @@ export default function Trainer() {
                   </div>
                   <div className="space-y-3">
                     {[
-                      { label: "In-Person Availability", status: "Active", color: "text-green-400" },
-                      { label: "Virtual Availability", status: "Active", color: "text-primary" },
-                      { label: "Virtual Price Per Session", value: "Your rate" },
+                      { label: "Tuesday 10:00 AM", status: "In-Person booked", color: "text-white/40 line-through", note: "Blocked for virtual too" },
+                      { label: "Tuesday 11:00 AM", status: "Available", color: "text-green-400" },
+                      { label: "Tuesday 2:00 PM", status: "Virtual booked", color: "text-primary" },
                     ].map((item, i) => (
                       <div key={i} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0">
-                        <span className="text-white/60 text-sm">{item.label}</span>
-                        <span className={`text-sm font-semibold ${item.color || "text-white"}`}>
-                          {item.status || item.value}
+                        <div>
+                          <span className={`text-sm font-medium ${item.color}`}>{item.label}</span>
+                          {item.note && <p className="text-white/30 text-xs mt-0.5">{item.note}</p>}
+                        </div>
+                        <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                          item.status === "Available"
+                            ? "bg-green-400/15 text-green-400"
+                            : item.status === "Virtual booked"
+                            ? "bg-primary/15 text-primary"
+                            : "bg-white/5 text-white/30"
+                        }`}>
+                          {item.status}
                         </span>
                       </div>
                     ))}
@@ -386,9 +395,9 @@ export default function Trainer() {
                   <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-xl">
                     <div className="flex items-center gap-2 mb-1">
                       <Globe className="w-4 h-4 text-primary" />
-                      <span className="text-white font-semibold text-sm">No location limit</span>
+                      <span className="text-white font-semibold text-sm">Clients worldwide</span>
                     </div>
-                    <p className="text-white/50 text-xs">Virtual clients can book from anywhere in Canada — not restricted to your service radius.</p>
+                    <p className="text-white/50 text-xs">Virtual clients can book from anywhere in the world — no service radius applies.</p>
                   </div>
                 </div>
               </motion.div>

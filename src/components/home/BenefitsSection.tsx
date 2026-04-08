@@ -13,7 +13,7 @@ const options = [
     icon: Video,
     tag: "Virtual",
     title: "Book virtual sessions",
-    description: "Train with any coach anywhere, fully online. Same booking flow, same real-time availability.",
+    description: "Book live virtual sessions with trainers worldwide. Same real-time availability — if a trainer is busy, you won't see that slot.",
     highlight: true,
   },
   {
