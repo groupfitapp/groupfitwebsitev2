@@ -115,13 +115,13 @@ export function CTASection() {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight"
           >
-            Ready to train on your schedule?
+            Start training today.
           </motion.h2>
 
           <motion.p variants={itemVariants} className="mt-4 text-lg text-white/70">
-            Download Group Fit and find available trainers near you
+            Find verified trainers near you across 35+ activities — instant booking, transparent pricing.
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-8 flex justify-center">

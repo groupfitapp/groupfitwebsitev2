@@ -74,6 +74,10 @@ export default {
         sans: ["Inter", "system-ui", "sans-serif"],
         display: ["Inter", "system-ui", "sans-serif"]
       },
+      letterSpacing: {
+        tighter: "-0.04em",
+        tight: "-0.02em",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

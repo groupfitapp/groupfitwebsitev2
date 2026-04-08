@@ -82,10 +82,10 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact Us | Group Fit - Get in Touch</title>
+        <title>Contact Group Fit | Personal Trainers Canada</title>
         <meta
           name="description"
-          content="Have questions about Group Fit? Contact our support team for help with bookings, trainer inquiries, or general questions."
+          content="Reach out to Group Fit for questions, feedback, or support. Connect with certified trainers across Canada."
         />
         <link rel="canonical" href="https://groupfitapp.com/contact" />
         <meta property="og:title" content="Contact Us | Group Fit" />

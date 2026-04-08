@@ -271,7 +271,7 @@ export function ReviewsSection() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             App Reviews
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Loved by Everyone</h2>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">Loved by Everyone</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             See what our customers are saying about Group Fit on the App Store
           </p>
@@ -283,7 +283,7 @@ export function ReviewsSection() {
       scrollbarWidth: "none",
       msOverflowStyle: "none"
     }} onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)} onTouchStart={() => setIsPaused(true)} onTouchEnd={() => setIsPaused(false)}>
-        {duplicatedReviews.map((review, index) => <div key={`${review.author}-${index}`} className="flex-shrink-0 w-[320px] md:w-[380px] bg-card rounded-xl p-6 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-elevated)] transition-all duration-300 border border-border/50">
+        {duplicatedReviews.map((review, index) => <div key={`${review.author}-${index}`} className="flex-shrink-0 w-[300px] md:w-[340px] bg-card rounded-2xl p-5 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-elevated)] transition-all duration-300 border border-border hover:border-primary/30 group">
             <div className="flex items-center gap-3 mb-4">
               <Avatar className="h-10 w-10 bg-primary/10">
                 <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">

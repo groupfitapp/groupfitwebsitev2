@@ -37,22 +37,28 @@ const stats = [
 
 const howItWorksSteps = [
   {
-    icon: Zap,
+    icon: MapPin,
     step: "1",
-    title: "Choose & Search",
-    description: "Select your activity, enter your session address, and pick your preferred time.",
+    title: "Choose your location",
+    description: "Enter where you want to train — home, park, condo gym, or any address.",
   },
   {
-    icon: Navigation,
+    icon: Zap,
     step: "2",
-    title: "Find Available Coaches",
-    description: "See only coaches who match your location, time, and activity—no guesswork.",
+    title: "Browse available activities",
+    description: "See which activities have verified trainers available at your location.",
   },
   {
     icon: CalendarClock,
     step: "3",
-    title: "Book & Train",
-    description: "Complete secure payment in-app and meet your coach at your location.",
+    title: "Pick a trainer & time slot",
+    description: "Choose a trainer, see their real available days and times, select a slot.",
+  },
+  {
+    icon: Navigation,
+    step: "4",
+    title: "Book instantly",
+    description: "Confirm and pay in-app. Your trainer meets you at your location.",
   },
 ];
 
@@ -82,9 +88,9 @@ const trainerBenefits = [
 ];
 
 export default function About() {
-  const title = "About Group Fit | On-Location Personal Training Across Canada";
+  const title = "About Group Fit | Certified Personal Trainers Canada";
   const description =
-    "Group Fit connects you with verified coaches across Canada. Book strength, yoga, HIIT, boxing & more at your address—solo, private group, or organization.";
+    "Learn about Group Fit, the platform connecting verified trainers and clients across Canada. 35+ activities, solo or group sessions, transparent pricing.";
   const canonical = "https://groupfitapp.com/about";
   const ogImage = "https://groupfitapp.com/groupfit-logo.png";
 
@@ -281,7 +287,7 @@ export default function About() {
               </p>
             </motion.div>
 
-            <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+            <div className="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {howItWorksSteps.map((step, index) => (
                 <motion.div
                   key={step.title}

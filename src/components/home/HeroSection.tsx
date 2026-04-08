@@ -67,43 +67,37 @@ export function HeroSection() {
       {/* Content */}
       <div className="container mx-auto px-4 py-20 relative z-10 flex-1 flex items-center">
         <motion.div
-          className="max-w-3xl"
+          className="max-w-4xl"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Badge */}
-          <motion.div variants={itemVariants} className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-sm font-medium backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Available across Canada
+          {/* Eyebrow */}
+          <motion.div variants={itemVariants} className="mb-6 flex items-center gap-3">
+            <div className="h-px w-10 bg-primary" />
+            <span className="text-primary font-bold text-sm uppercase tracking-widest">
+              Canada-Wide — 35+ Activities
             </span>
           </motion.div>
 
-          {/* H1 */}
+          {/* H1 — big & bold */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[0.95] tracking-tighter"
           >
-            Book a Personal Trainer{" "}
-            <span className="text-primary relative inline-block">
-              in Under 30 Seconds
-              <motion.span
-                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary/60"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
-                style={{ transformOrigin: "left" }}
-              />
-            </span>
+            Book a
+            <br />
+            <span className="text-primary">Trainer</span>
+            <br />
+            in 30 Seconds.
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl"
+            className="mt-8 text-lg md:text-xl text-white/70 leading-relaxed max-w-xl"
           >
-            Choose from verified trainers across 35+ activities. See real availability,
-            transparent pricing, and book instantly — no back-and-forth.
+            Enter your location, choose an activity, pick a trainer and time slot — done.
+            Verified coaches, transparent pricing, instant booking.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -111,26 +105,26 @@ export function HeroSection() {
             variants={itemVariants}
             className="mt-8 flex flex-col sm:flex-row gap-4"
           >
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Button
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-red-dark text-white text-lg px-8 py-6 shadow-[0_0_30px_hsl(355_78%_56%/0.4)] hover:shadow-[0_0_40px_hsl(355_78%_56%/0.6)] transition-shadow"
+                className="bg-primary hover:bg-red-dark text-white text-base font-bold px-8 py-6 shadow-[0_0_30px_hsl(355_78%_56%/0.4)] hover:shadow-[0_0_40px_hsl(355_78%_56%/0.6)] transition-shadow rounded-xl"
               >
-                <Link to="/download" aria-label="Find a Trainer on Group Fit">
+                <Link to="/download">
                   Find a Trainer
                 </Link>
               </Button>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/15 hover:text-white text-lg px-8 py-6"
+                className="border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:text-white text-base font-semibold px-8 py-6 rounded-xl"
               >
-                <Link to="/activities" aria-label="Browse all activities">
+                <Link to="/activities">
                   Browse Activities
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>

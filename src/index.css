@@ -130,7 +130,39 @@
   }
 }
 
+/* Sport-inspired global type overrides */
+@layer base {
+  h1, h2 {
+    letter-spacing: -0.02em;
+  }
+}
+
 @layer utilities {
+  /* Sport diagonal accent */
+  .sport-stripe {
+    position: relative;
+    overflow: hidden;
+  }
+  .sport-stripe::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -40px;
+    width: 80px;
+    height: 100%;
+    background: hsl(var(--primary) / 0.08);
+    transform: skewX(-12deg);
+    pointer-events: none;
+  }
+
+  /* Angular clip section */
+  .clip-diagonal-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 48px), 0 100%);
+  }
+  .clip-diagonal-top {
+    clip-path: polygon(0 48px, 100% 0, 100% 100%, 0 100%);
+  }
+
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent;
   }

@@ -5,17 +5,17 @@ const points = [
   {
     icon: MessageSquareOff,
     title: "No messaging required",
-    description: "Skip the DMs. Open the app, pick your activity and time — it's done.",
+    description: "Enter your location, pick an activity, choose a trainer and time slot — booked.",
   },
   {
     icon: Handshake,
     title: "No negotiation",
-    description: "Pricing is set upfront. What you see is what you pay.",
+    description: "Trainer pricing is set upfront and visible before you book. No surprises.",
   },
   {
     icon: Clock,
     title: "Real availability only",
-    description: "Only trainers who are actually free at your chosen time show up.",
+    description: "You see actual time slots from trainers who cover your area — no phantom availability.",
   },
 ];
 
@@ -98,59 +98,56 @@ export function BookIn30Section() {
               <div className="relative bg-card border border-border rounded-2xl p-6 shadow-[0_8px_40px_rgba(0,0,0,0.3)]">
                 {/* Mock header */}
                 <div className="flex items-center justify-between mb-5">
-                  <span className="text-sm font-semibold text-foreground">Book a Session</span>
+                  <span className="text-sm font-semibold text-foreground">Find a Trainer</span>
                   <span className="text-xs text-primary font-medium px-2 py-0.5 bg-primary/10 rounded-full">Live</span>
                 </div>
 
-                {/* Activity selector mock */}
+                {/* Step 1: Location */}
                 <div className="mb-3">
-                  <label className="text-xs text-muted-foreground mb-1 block">Activity</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">① Your Location</label>
+                  <div className="bg-background border border-primary/40 rounded-lg px-4 py-2.5 text-sm text-foreground font-medium flex items-center justify-between">
+                    <span>123 Main St, Toronto</span>
+                    <span className="text-primary text-xs">✓</span>
+                  </div>
+                </div>
+
+                {/* Step 2: Activity */}
+                <div className="mb-3">
+                  <label className="text-xs text-muted-foreground mb-1 block">② Available Activity</label>
                   <div className="bg-background border border-border rounded-lg px-4 py-2.5 text-sm text-foreground font-medium flex items-center justify-between">
                     <span>Strength & Conditioning</span>
                     <span className="text-primary text-xs">✓</span>
                   </div>
                 </div>
 
-                {/* Time selector mock */}
-                <div className="mb-5">
-                  <label className="text-xs text-muted-foreground mb-1 block">Time</label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {["9:00 AM", "10:00 AM", "11:00 AM"].map((t, i) => (
-                      <div
-                        key={t}
-                        className={`text-center text-xs py-2 rounded-lg border transition-all ${
-                          i === 1
-                            ? "bg-primary text-white border-primary font-semibold"
-                            : "bg-background border-border text-muted-foreground"
-                        }`}
-                      >
-                        {t}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Trainer cards mock */}
+                {/* Step 3: Trainer + time slots */}
                 <div className="space-y-2 mb-5">
-                  <label className="text-xs text-muted-foreground block">Available Trainers</label>
+                  <label className="text-xs text-muted-foreground block">③ Trainer & Available Slots</label>
                   {[
-                    { name: "Alex R.", rating: "4.9", price: "$65/hr" },
-                    { name: "Jordan M.", rating: "4.8", price: "$70/hr" },
+                    { name: "Alex R.", rating: "4.9", price: "$65/hr", slots: ["9 AM", "11 AM"] },
+                    { name: "Jordan M.", rating: "4.8", price: "$70/hr", slots: ["10 AM", "2 PM"] },
                   ].map((trainer) => (
                     <div
                       key={trainer.name}
-                      className="flex items-center justify-between bg-background border border-border rounded-lg px-4 py-3"
+                      className="bg-background border border-border rounded-lg px-3 py-3"
                     >
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">
-                          {trainer.name[0]}
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <div className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">
+                            {trainer.name[0]}
+                          </div>
+                          <div>
+                            <p className="text-xs font-semibold text-foreground">{trainer.name}</p>
+                            <p className="text-xs text-muted-foreground">★ {trainer.rating}</p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-sm font-medium text-foreground">{trainer.name}</p>
-                          <p className="text-xs text-muted-foreground">★ {trainer.rating}</p>
-                        </div>
+                        <span className="text-primary text-xs font-bold">{trainer.price}</span>
                       </div>
-                      <span className="text-primary text-sm font-semibold">{trainer.price}</span>
+                      <div className="flex gap-1.5">
+                        {trainer.slots.map((slot, i) => (
+                          <span key={slot} className={`text-xs px-2 py-1 rounded-md border ${i === 0 ? "bg-primary text-white border-primary font-semibold" : "bg-background border-border text-muted-foreground"}`}>{slot}</span>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>

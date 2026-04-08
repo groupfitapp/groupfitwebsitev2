@@ -1,165 +1,130 @@
 import { motion } from "framer-motion";
-import { Zap, Navigation, CalendarClock, UserCheck, Wallet } from "lucide-react";
-import { PillLink } from "@/components/ui/PillLink";
-import { TiltCard } from "@/components/ui/TiltCard";
+import { MapPin, LayoutGrid, UserCheck, CalendarDays } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const steps = [
   {
-    number: "1",
-    icon: Zap,
-    title: "Choose an activity",
-    description: "Pick from strength, yoga, boxing, HIIT, and 35+ more training styles.",
+    number: "01",
+    icon: MapPin,
+    title: "Choose where you want to train",
+    description: "Enter your session address — home, park, condo gym, or any location you prefer.",
+    color: "from-red-500/20 to-red-600/5",
   },
   {
-    number: "2",
-    icon: Navigation,
-    title: "Enter your session address",
-    description: "Use the exact address where you want to train.",
+    number: "02",
+    icon: LayoutGrid,
+    title: "Browse available activities",
+    description: "See which of the 35+ activities have trainers available at your location.",
+    color: "from-red-500/20 to-red-600/5",
   },
   {
-    number: "3",
-    icon: CalendarClock,
-    title: "Pick a date and time",
-    description: "Choose when you want to train. Availability updates based on location.",
-  },
-  {
-    number: "4",
+    number: "03",
     icon: UserCheck,
-    title: "Select from available coaches",
-    description: "Pick from coaches shown as available for that exact session.",
+    title: "Pick a trainer",
+    description: "Browse verified trainers, see their real available days and time slots, and choose who fits best.",
+    color: "from-red-500/20 to-red-600/5",
   },
   {
-    number: "5",
-    icon: Wallet,
-    title: "Pay in-app and train",
-    description: "Complete the booking and meet your coach at the selected location.",
+    number: "04",
+    icon: CalendarDays,
+    title: "Book instantly",
+    description: "Select a time slot and confirm. No back-and-forth — your booking is confirmed on the spot.",
+    color: "from-red-500/20 to-red-600/5",
   },
 ];
 
 export function HowItWorksSection() {
   return (
-    <section className="py-20 md:py-28 bg-muted/50">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+    <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+      {/* Angular background accent */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(135deg, rgba(230,57,70,0.06) 0%, transparent 50%, rgba(230,57,70,0.03) 100%)",
+        }}
+      />
+      {/* Top diagonal line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header */}
+        <div className="max-w-2xl mb-16">
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="inline-block text-primary font-bold text-sm uppercase tracking-widest mb-3"
+          >
+            How It Works
+          </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="text-3xl md:text-4xl font-bold text-foreground"
+            transition={{ delay: 0.05 }}
+            className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight"
           >
-            How it works
+            From location to booked<br />
+            <span className="text-primary">in 4 steps.</span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="mt-4 text-lg text-muted-foreground"
-          >
-            Book a session in 5 simple steps
-          </motion.p>
         </div>
 
-        {/* Desktop Horizontal Stepper */}
-        <div className="hidden lg:block">
-          <div className="flex items-start justify-between relative">
-            {/* Animated connecting line */}
-            <motion.div
-              className="absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary via-primary/60 to-border origin-left"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-            />
-
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: 0.2 + index * 0.12,
-                  duration: 0.65,
-                  ease: [0.21, 0.47, 0.32, 0.98],
-                }}
-                className="relative flex flex-col items-center text-center w-1/5 px-4 group cursor-default"
-              >
-                <motion.div
-                  className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold z-10 shadow-[0_0_25px_hsl(355_78%_56%/0.4)] group-hover:shadow-[0_0_40px_hsl(355_78%_56%/0.65)] transition-shadow duration-300"
-                  whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {step.number}
-                </motion.div>
-                <motion.div
-                  className="mt-4 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/25 transition-colors duration-300"
-                  whileHover={{ scale: 1.15 }}
-                >
-                  <step.icon className="w-5 h-5 text-primary" />
-                </motion.div>
-                <h3 className="mt-4 font-semibold text-foreground">{step.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile/Tablet Vertical Stepper */}
-        <div className="lg:hidden space-y-6">
+        {/* Steps grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-0 md:gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, x: -28 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.6,
-                ease: [0.21, 0.47, 0.32, 0.98],
-              }}
-              className="flex gap-4 group"
+              transition={{ delay: index * 0.1, duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="group relative bg-secondary p-8 hover:bg-white/5 transition-colors duration-300 border-r border-b border-white/5 last:border-r-0"
             >
-              <div className="flex flex-col items-center">
-                <motion.div
-                  className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold shadow-[0_0_20px_hsl(355_78%_56%/0.4)] group-hover:shadow-[0_0_32px_hsl(355_78%_56%/0.6)] transition-shadow duration-300"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  {step.number}
-                </motion.div>
-                {index < steps.length - 1 && (
-                  <motion.div
-                    className="w-0.5 flex-1 bg-gradient-to-b from-primary/50 to-border mt-2"
-                    initial={{ scaleY: 0 }}
-                    whileInView={{ scaleY: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
-                    style={{ transformOrigin: "top" }}
-                  />
-                )}
+              {/* Big number behind */}
+              <div className="absolute top-4 right-6 text-7xl font-black text-white/[0.04] select-none leading-none pointer-events-none">
+                {step.number}
               </div>
-              <div className="pb-8">
-                <div className="flex items-center gap-2">
-                  <step.icon className="w-5 h-5 text-primary" />
-                  <h3 className="font-semibold text-foreground">{step.title}</h3>
+
+              {/* Step number badge */}
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-white text-sm font-black mb-6 shadow-[0_0_20px_hsl(355_78%_56%/0.4)] group-hover:shadow-[0_0_30px_hsl(355_78%_56%/0.6)] transition-shadow duration-300">
+                {step.number}
+              </div>
+
+              {/* Icon */}
+              <step.icon className="w-6 h-6 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
+
+              <h3 className="text-lg font-bold text-white mb-3 leading-snug">{step.title}</h3>
+              <p className="text-white/55 text-sm leading-relaxed">{step.description}</p>
+
+              {/* Connector arrow on desktop (not last) */}
+              {index < steps.length - 1 && (
+                <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
+                  <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_hsl(355_78%_56%/0.5)]">
+                    <svg viewBox="0 0 16 16" className="w-3 h-3 fill-white">
+                      <path d="M8.293 3.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L10.586 9H3a1 1 0 1 1 0-2h7.586L8.293 4.707a1 1 0 0 1 0-1.414z"/>
+                    </svg>
+                  </div>
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
-              </div>
+              )}
             </motion.div>
           ))}
         </div>
 
+        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-12"
+          transition={{ delay: 0.5 }}
+          className="mt-10 flex flex-col sm:flex-row items-start gap-4"
         >
-          <PillLink to="/how-it-works">
-            Learn how booking works
-          </PillLink>
+          <Button asChild size="lg" className="bg-primary hover:bg-red-dark text-white shadow-[0_0_20px_hsl(355_78%_56%/0.3)]">
+            <Link to="/download">Find a Trainer Now</Link>
+          </Button>
+          <Button asChild size="lg" variant="ghost" className="text-white/60 hover:text-white hover:bg-white/10">
+            <Link to="/how-it-works">See full details →</Link>
+          </Button>
         </motion.div>
       </div>
     </section>
