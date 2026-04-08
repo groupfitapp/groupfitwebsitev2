@@ -1,14 +1,13 @@
 import {
   HeroSection,
   VideoSection,
-  AvailabilitySection,
-  BenefitsSection,
   ReviewsSection,
   ActivitiesSection,
   CitiesSection,
   HowItWorksSection,
   FAQSection,
   CTASection,
+  BookIn30Section,
 } from "@/components/home";
 import { homeFaqs } from "@/components/home/FAQSection";
 import { LazyYouTubeEmbed } from "@/components/ui/LazyYouTubeEmbed";
@@ -17,30 +16,22 @@ import { Helmet } from "react-helmet-async";
 import React from "react";
 
 function toPlainText(node: unknown): string {
-  // If it's already a string/number, return it
   if (typeof node === "string" || typeof node === "number") return String(node);
-
-  // If it's a valid React element, try to extract its children recursively
   if (React.isValidElement(node)) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const children = (node.props as any)?.children;
     return toPlainText(children);
   }
-
-  // If it's an array of nodes, join them
   if (Array.isArray(node)) {
     return node.map(toPlainText).filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
   }
-
-  // Fallback
   return "";
 }
 
 const Index = () => {
-  // Keep these aligned with index.html (your canonical home SEO)
-  const title = "Personal Trainer at Your Address in Canada | Group Fit";
+  const title = "Book Personal Trainers Across Canada | Group Fit";
   const description =
-    "Book a trainer at your address in Canada. See how it works, check trainer availability by activity/time, book a 1-hour session solo or with private group.";
+    "Book certified personal trainers across 35+ activities in under 30 seconds. Solo or group sessions, transparent pricing, in-person or virtual, Canada-wide.";
   const canonical = "https://groupfitapp.com/";
   const ogImage = "https://groupfitapp.com/groupfit-logo.png";
 
@@ -52,17 +43,44 @@ const Index = () => {
         const q = (faq as any)?.question ?? "";
         const a = toPlainText((faq as any)?.answer ?? "");
         if (!q || !a) return null;
-
         return {
           "@type": "Question",
           name: q,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: a,
-          },
+          acceptedAnswer: { "@type": "Answer", text: a },
         };
       })
       .filter(Boolean),
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Group Fit",
+    "url": "https://groupfitapp.com",
+    "logo": "https://groupfitapp.com/groupfit-logo.png",
+    "description": description,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "admin@groupfitapp.com",
+      "contactType": "customer support"
+    },
+    "sameAs": [
+      "https://facebook.com/groupfit.fb",
+      "https://www.instagram.com/groupfit_app",
+      "https://www.youtube.com/@GroupFitApp"
+    ]
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Group Fit",
+    "url": "https://groupfitapp.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://groupfitapp.com/activities?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   };
 
   return (
@@ -70,7 +88,7 @@ const Index = () => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        
+        <link rel="canonical" href={canonical} />
 
         {/* Open Graph */}
         <meta property="og:title" content={title} />
@@ -78,51 +96,44 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:site_name" content="Group Fit" />
 
         {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
 
-        {/* FAQ schema (valid plain text answers) */}
+        {/* Schema */}
         <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
-
-        {/* SoftwareApplication schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "Group Fit",
-            "operatingSystem": "iOS, Android",
-            "applicationCategory": "HealthApplication",
-            "description": "Book a certified personal trainer at your address in Canada. Solo or group sessions.",
-            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
-            "installUrl": [
-              "https://apps.apple.com/ca/app/group-fit/id6503181635",
-              "https://play.google.com/store/apps/details?id=com.newcustomer"
-            ]
-          })}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
       </Helmet>
 
       <HeroSection />
-      <LazySection minHeight="400px">
-        <VideoSection />
-      </LazySection>
-      <AvailabilitySection />
-      <BenefitsSection />
-      <LazySection minHeight="600px">
-        <ReviewsSection />
-      </LazySection>
+
+      {/* Book in 30 Seconds */}
+      <BookIn30Section />
+
+      {/* How It Works */}
+      <HowItWorksSection />
+
+      {/* Activities Grid */}
       <ActivitiesSection />
+
+      {/* Cities Grid */}
       <LazySection minHeight="400px">
         <CitiesSection />
       </LazySection>
-      <HowItWorksSection />
-      
-      {/* Customer Testimonials */}
+
+      {/* Reviews / Social Proof */}
+      <LazySection minHeight="600px">
+        <ReviewsSection />
+      </LazySection>
+
+      {/* Customer Testimonials Video */}
       <LazySection minHeight="400px">
-        <section className="py-16 md:py-24 bg-secondary" style={{ contain: 'layout style' }}>
+        <section className="py-16 md:py-24 bg-secondary" style={{ contain: "layout style" }}>
           <div className="container mx-auto px-4">
             <div className="text-center mb-10">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -143,9 +154,14 @@ const Index = () => {
         </section>
       </LazySection>
 
+      <LazySection minHeight="400px">
+        <VideoSection />
+      </LazySection>
+
       <LazySection minHeight="500px">
         <FAQSection />
       </LazySection>
+
       <CTASection />
     </>
   );

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Home, Building, TreePine, Dumbbell, Flame, HeartPulse, ShieldCheck, Volleyball, Target, PersonStanding, Swords } from "lucide-react";
+import { ArrowRight, Home, Building, TreePine, Dumbbell, Flame, HeartPulse, ShieldCheck, Volleyball, Target, PersonStanding, Swords, Clock, DollarSign, Star } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { HandFistIcon } from "@/components/icons/HandFistIcon";
 import { Button } from "@/components/ui/button";
@@ -37,6 +37,7 @@ const cityImages: Record<string, string> = {
   brampton: bramptonImg,
   oakville: oakvilleImg,
   fredericton: "https://images.unsplash.com/photo-1578861256483-c68e4b7a4e20?w=1200&h=600&fit=crop",
+  montreal: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop",
 };
 
 // Activity icon mapping
@@ -70,6 +71,7 @@ const cityData: Record<string, { name: string; metaTitle: string; metaDesc: stri
   "saskatoon": { name: "Saskatoon", metaTitle: "Personal Trainer Saskatoon | In-Person Training | Group Fit", metaDesc: "Book an in-person personal trainer in Saskatoon at your location.", intro: "Saskatoon demand often centers on Strength & Conditioning and Boxing, with HIIT popular for fast-paced conditioning sessions.", activities: [{ name: "Bootcamp", slug: "bootcamp" }, { name: "Boxing", slug: "boxing" }, { name: "HIIT", slug: "hiit" }, { name: "Kickboxing", slug: "kickboxing" }, { name: "Self Defense", slug: "self-defense" }, { name: "Strength & Conditioning", slug: "strength-and-conditioning" }] },
   "brampton": { name: "Brampton", metaTitle: "Personal Trainer Brampton | In-Person Training | Group Fit", metaDesc: "Book an in-person personal trainer in Brampton at your location.", intro: "Brampton customers frequently book Strength & Conditioning and Boxing, plus Bootcamp/HIIT for high-energy conditioning.", activities: [{ name: "Bootcamp", slug: "bootcamp" }, { name: "Boxing", slug: "boxing" }, { name: "HIIT", slug: "hiit" }, { name: "Kickboxing", slug: "kickboxing" }, { name: "Strength & Conditioning", slug: "strength-and-conditioning" }, { name: "Yoga", slug: "yoga" }] },
   "oakville": { name: "Oakville", metaTitle: "Personal Trainer Oakville | In-Person Training | Group Fit", metaDesc: "Book an in-person personal trainer in Oakville at your location.", intro: "Oakville customers often prefer Strength & Conditioning for steady progression, with Yoga and Calisthenics popular for mobility and bodyweight sessions.", activities: [{ name: "Bootcamp", slug: "bootcamp" }, { name: "Boxing", slug: "boxing" }, { name: "Calisthenics", slug: "calisthenics" }, { name: "HIIT", slug: "hiit" }, { name: "Strength & Conditioning", slug: "strength-and-conditioning" }, { name: "Yoga", slug: "yoga" }] },
+  "montreal": { name: "Montreal", metaTitle: "Personal Trainers in Montreal | Group Fit", metaDesc: "Book certified personal trainers in Montreal for fitness, sports, and martial arts. Solo or group sessions, in-person or virtual, transparent pricing.", intro: "Montreal customers frequently book Strength & Conditioning, Boxing, and Yoga — with HIIT and Bootcamp popular for fast-paced, high-energy conditioning sessions in the city.", activities: [{ name: "Boxing", slug: "boxing" }, { name: "Bootcamp", slug: "bootcamp" }, { name: "HIIT", slug: "hiit" }, { name: "Kickboxing", slug: "kickboxing" }, { name: "Strength & Conditioning", slug: "strength-and-conditioning" }, { name: "Yoga", slug: "yoga" }] },
 };
 
 const faqs = [
@@ -90,11 +92,12 @@ export default function CityDetail() {
       <Helmet>
         <title>{city.metaTitle}</title>
         <meta name="description" content={city.metaDesc} />
-        <meta name="keywords" content={`personal trainer ${city.name}, fitness coach ${city.name}, in-person training ${city.name}, book trainer ${city.name}`} />
+        <meta name="keywords" content={`personal training in ${city.name}, certified trainers ${city.name}, in-home and virtual training in ${city.name}, book trainer ${city.name}`} />
         <link rel="canonical" href={`https://groupfitapp.com/cities/${slug}`} />
         <meta property="og:title" content={city.metaTitle} />
         <meta property="og:description" content={city.metaDesc} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://groupfitapp.com/groupfit-logo.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -126,7 +129,7 @@ export default function CityDetail() {
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumbs className="mb-6" />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">In-person personal training in {city.name}</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Personal Trainers in {city.name}</h1>
             <p className="mt-6 text-lg text-white/80">{city.intro}</p>
           </motion.div>
         </div>
@@ -158,6 +161,7 @@ export default function CityDetail() {
         </div>
       </section>
 
+      {/* Where sessions happen */}
       <section className="py-12 bg-muted/50">
         <div className="container mx-auto px-4">
           <h3 className="text-xl font-semibold text-foreground mb-6">Where sessions can happen</h3>
@@ -167,6 +171,73 @@ export default function CityDetail() {
                 <loc.icon className="w-4 h-4 text-primary" /><span className="text-sm text-muted-foreground">{loc.label}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Group Fit in [City] */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Why Group Fit in {city.name}</h2>
+              <p className="text-muted-foreground mt-2">What makes booking through Group Fit different.</p>
+            </motion.div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { icon: Clock, title: "Book in Under 30 Seconds", description: "Real availability shown upfront — no messaging required to confirm a session." },
+                { icon: DollarSign, title: "Transparent Pricing", description: "Trainer rates are set and visible before you book. No hidden fees, no surprises." },
+                { icon: Star, title: "Verified Trainers", description: "Every trainer on Group Fit goes through credential review and identity verification." },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors duration-300"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <item.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">How It Works</h2>
+            </motion.div>
+            <div className="space-y-4">
+              {[
+                { step: "1", text: `Choose your activity and enter your address in ${city.name}` },
+                { step: "2", text: "See trainers available at your chosen time and location" },
+                { step: "3", text: "Select a trainer and confirm your booking instantly" },
+                { step: "4", text: "Meet your trainer at your location and train" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="flex items-start gap-4 bg-card border border-border rounded-xl p-4"
+                >
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                    {item.step}
+                  </div>
+                  <span className="text-foreground text-sm pt-1">{item.text}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -197,7 +268,8 @@ export default function CityDetail() {
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to find a trainer in {city.name}?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Find a Trainer in {city.name}</h2>
+            <p className="text-white/70 mb-8">Book certified personal trainers in {city.name} for fitness, sports, and martial arts. Solo or group sessions, in-person or virtual, transparent pricing.</p>
             <div className="flex justify-center mb-6">
               <AppStoreBadges
                 iosLink={APP_LINKS.customer.ios}

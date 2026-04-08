@@ -8,3 +8,4 @@ export { CitiesSection } from "./CitiesSection";
 export { HowItWorksSection } from "./HowItWorksSection";
 export { FAQSection } from "./FAQSection";
 export { CTASection } from "./CTASection";
+export { BookIn30Section } from "./BookIn30Section";

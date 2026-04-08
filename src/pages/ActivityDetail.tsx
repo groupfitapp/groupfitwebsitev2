@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, MapPin } from "lucide-react";
+import { ArrowRight, CheckCircle, MapPin, Users, Video, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -55,6 +55,23 @@ const activityData: Record<string, { title: string; metaTitle: string; metaDesc:
   "self-defense": { title: "Self Defense", metaTitle: "Self Defense Training | In-Person Coach | Group Fit", metaDesc: "Book in-person self defense training focused on fundamentals, awareness, movement, and controlled drills.", intro: "Practical training focused on fundamentals, awareness, movement, and controlled drills.", bestFor: ["Confidence and readiness", "Fitness and movement", "Fundamental self-defense skills"], sessionIncludes: ["Warm-up and mobility", "Fundamental techniques and movement", "Controlled drills (space permitting)", "Cooldown"], locations: ["Indoor space with room to move", "Outdoor sessions when appropriate"], faqs: [{ q: "Is this the same as martial arts training?", a: "It may overlap, but self-defense sessions focus on practical fundamentals and controlled drills." }, { q: "Is it beginner-friendly?", a: "Yes. Coaches can start with basics and build gradually." }, { q: "Do I need equipment?", a: "No. Sessions can be run without equipment." }] },
 };
 
+const topCities = [
+  { name: "Toronto", slug: "toronto" },
+  { name: "Vancouver", slug: "vancouver" },
+  { name: "Calgary", slug: "calgary" },
+  { name: "Ottawa", slug: "ottawa" },
+  { name: "Montreal", slug: "montreal" },
+  { name: "Edmonton", slug: "edmonton" },
+  { name: "Mississauga", slug: "mississauga" },
+  { name: "Winnipeg", slug: "winnipeg" },
+];
+
+const sessionOptions = [
+  { icon: User, title: "1-on-1 Training", description: "Private session with a dedicated coach focused entirely on you." },
+  { icon: Users, title: "Group Sessions", description: "Train with friends, family, or colleagues — split the cost." },
+  { icon: Video, title: "Virtual Training", description: "Remote coaching sessions from anywhere, at any time." },
+];
+
 export default function ActivityDetail() {
   const { slug } = useParams();
   const activity = activityData[slug || ""] || activityData["strength-and-conditioning"];
@@ -65,52 +82,177 @@ export default function ActivityDetail() {
       <Helmet>
         <title>{activity.metaTitle}</title>
         <meta name="description" content={activity.metaDesc} />
-        <meta name="keywords" content={`${activity.title} training, ${activity.title} coach, personal trainer ${activity.title}, in-person ${activity.title} sessions`} />
+        <meta name="keywords" content={`${activity.title} training near me, private ${activity.title} coach, ${activity.title} lessons in Canada, in-person ${activity.title} sessions`} />
         <link rel="canonical" href={`https://groupfitapp.com/activities/${slug}`} />
         <meta property="og:title" content={activity.metaTitle} />
         <meta property="og:description" content={activity.metaDesc} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://groupfitapp.com/groupfit-logo.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": `${activity.title} Training`,
+            "description": activity.metaDesc,
+            "provider": {
+              "@type": "Organization",
+              "name": "Group Fit",
+              "url": "https://groupfitapp.com"
+            },
+            "areaServed": "Canada",
+            "serviceType": `${activity.title} Training`
+          })}
+        </script>
       </Helmet>
 
+      {/* Hero */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
           role="img"
           aria-label={`${activity.title} training - Book in-person sessions with certified coaches`}
         />
         <div className="absolute inset-0 bg-secondary/65" />
-        {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[1]" />
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumbs className="mb-6" />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">{activity.title} training at your location</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+              {activity.title} Trainers Near You
+            </h1>
             <p className="mt-6 text-lg text-white/80">{activity.intro}</p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-primary hover:bg-red-dark text-white shadow-[0_0_20px_hsl(355_78%_56%/0.3)]">
+                <Link to="/download">Find Your {activity.title} Trainer Now</Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
 
+      {/* Why Choose */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-card border border-border rounded-2xl p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-4">Best for</h3>
-              <ul className="space-y-2">{activity.bestFor.map((item, i) => <li key={i} className="flex items-start gap-2 text-muted-foreground"><CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />{item}</li>)}</ul>
+          <div className="max-w-5xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Why Choose {activity.title} Training</h2>
             </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="bg-card border border-border rounded-2xl p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-4">60-minute session may include</h3>
-              <ul className="space-y-2">{activity.sessionIncludes.map((item, i) => <li key={i} className="flex items-start gap-2 text-muted-foreground"><CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />{item}</li>)}</ul>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="bg-card border border-border rounded-2xl p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-4">Where sessions work best</h3>
-              <ul className="space-y-2">{activity.locations.map((item, i) => <li key={i} className="flex items-start gap-2 text-muted-foreground"><MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />{item}</li>)}</ul>
-            </motion.div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors duration-300">
+                <h3 className="text-lg font-semibold text-foreground mb-4">Best for</h3>
+                <ul className="space-y-2">{activity.bestFor.map((item, i) => <li key={i} className="flex items-start gap-2 text-muted-foreground"><CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />{item}</li>)}</ul>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors duration-300">
+                <h3 className="text-lg font-semibold text-foreground mb-4">60-minute session may include</h3>
+                <ul className="space-y-2">{activity.sessionIncludes.map((item, i) => <li key={i} className="flex items-start gap-2 text-muted-foreground"><CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />{item}</li>)}</ul>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-colors duration-300">
+                <h3 className="text-lg font-semibold text-foreground mb-4">Where sessions work best</h3>
+                <ul className="space-y-2">{activity.locations.map((item, i) => <li key={i} className="flex items-start gap-2 text-muted-foreground"><MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />{item}</li>)}</ul>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Available Options */}
       <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Available Options</h2>
+              <p className="text-muted-foreground mt-2">Choose the format that works for you.</p>
+            </motion.div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {sessionOptions.map((opt, i) => (
+                <motion.div
+                  key={opt.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-card border border-border rounded-2xl p-6 text-center hover:border-primary/40 transition-colors duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <opt.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{opt.title}</h3>
+                  <p className="text-muted-foreground text-sm">{opt.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">How It Works</h2>
+            </motion.div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                { step: "1", text: `Choose ${activity.title} as your activity` },
+                { step: "2", text: "Select a trainer from available options" },
+                { step: "3", text: "Pick your time and confirm your location" },
+                { step: "4", text: "Book instantly — no back-and-forth" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="flex items-start gap-4 bg-card border border-border rounded-xl p-4"
+                >
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                    {item.step}
+                  </div>
+                  <span className="text-foreground text-sm pt-1">{item.text}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cities with trainers */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                Cities with {activity.title} Trainers
+              </h2>
+            </motion.div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {topCities.map((city, i) => (
+                <motion.div
+                  key={city.slug}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                >
+                  <Link
+                    to={`/cities/${city.slug}`}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-full text-sm font-medium text-foreground hover:border-primary/50 hover:text-primary transition-all duration-200"
+                  >
+                    <MapPin className="w-3.5 h-3.5 text-primary" />
+                    {city.name}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold text-foreground mb-6">FAQs</h2>
@@ -126,24 +268,24 @@ export default function ActivityDetail() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="py-16 md:py-24 bg-secondary relative overflow-hidden">
-        {/* Decorative elements with enhanced glow */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[100px] pointer-events-none animate-pulse" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to start?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Find Your {activity.title} Trainer Now
+            </h2>
+            <p className="text-white/70 mb-8">Book certified {activity.title} trainers for private or group sessions, in-person or virtual. Fast booking, transparent pricing, verified coaches.</p>
             <div className="flex justify-center mb-6">
-              <AppStoreBadges
-                iosLink={APP_LINKS.customer.ios}
-                androidLink={APP_LINKS.customer.android}
-              />
+              <AppStoreBadges iosLink={APP_LINKS.customer.ios} androidLink={APP_LINKS.customer.android} />
             </div>
-            <Button asChild size="lg" variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10"><Link to="/cities">Check Cities<ArrowRight className="w-5 h-5 ml-2" /></Link></Button>
+            <Button asChild size="lg" variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10">
+              <Link to="/cities">Check Cities <ArrowRight className="w-5 h-5 ml-2" /></Link>
+            </Button>
             <div className="mt-8 flex flex-wrap justify-center gap-6">
               <Link to="/activities" className="text-white/60 hover:text-primary transition-colors text-sm">← Back to Activities</Link>
               <Link to="/how-it-works" className="text-white/60 hover:text-primary transition-colors text-sm">How it Works</Link>

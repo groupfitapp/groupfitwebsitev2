@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Download, Gift } from "lucide-react";
+import { Menu, Search, Gift } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -8,11 +8,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import logo from "@/assets/logo.png?w=200&format=webp&quality=90";
 
 const customerNavLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "How it Works", href: "/how-it-works" },
   { name: "Activities", href: "/activities" },
   { name: "Cities", href: "/cities" },
+  { name: "How it Works", href: "/how-it-works" },
+  { name: "About", href: "/about" },
   { name: "FAQ", href: "/faq" },
 ];
 
@@ -121,8 +120,8 @@ export function Header() {
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
               <Button asChild className="bg-primary hover:bg-red-dark text-white shadow-[0_0_20px_hsl(355_78%_56%/0.3)] hover:shadow-[0_0_30px_hsl(355_78%_56%/0.5)]">
                 <Link to="/download">
-                  <Download className="w-4 h-4 mr-2" />
-                  Download
+                  <Search className="w-4 h-4 mr-2" />
+                  Find a Trainer
                 </Link>
               </Button>
             </motion.div>
@@ -181,8 +180,8 @@ export function Header() {
                   </Button>
                   <Button asChild className="w-full bg-primary hover:bg-red-dark text-white">
                     <Link to="/download" onClick={() => setIsOpen(false)}>
-                      <Download className="w-4 h-4 mr-2" />
-                      Download
+                      <Search className="w-4 h-4 mr-2" />
+                      Find a Trainer
                     </Link>
                   </Button>
                 </div>
