@@ -8,6 +8,7 @@ import {
   FAQSection,
   CTASection,
   BookIn30Section,
+  BenefitsSection,
 } from "@/components/home";
 import { homeFaqs } from "@/components/home/FAQSection";
 import { LazyYouTubeEmbed } from "@/components/ui/LazyYouTubeEmbed";
@@ -114,6 +115,9 @@ const Index = () => {
 
       {/* Book in 30 Seconds */}
       <BookIn30Section />
+
+      {/* Training options: in-person, virtual, packs, group, pricing */}
+      <BenefitsSection />
 
       {/* How It Works */}
       <HowItWorksSection />

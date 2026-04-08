@@ -14,6 +14,8 @@ import {
   DollarSign,
   CheckCircle,
   ArrowRight,
+  Zap,
+  Globe,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppStoreBadges } from "@/components/ui/AppStoreBadges";
@@ -309,6 +311,164 @@ export default function Trainer() {
                   </motion.div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Virtual Training — dedicated highlight */}
+      <section className="py-16 md:py-24 bg-secondary relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-primary/4 pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 border border-primary/30 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                  New Feature
+                </span>
+                <h2 className="text-3xl md:text-4xl font-black text-white leading-tight tracking-tight mb-4">
+                  Offer virtual training<br />
+                  <span className="text-primary">alongside in-person.</span>
+                </h2>
+                <p className="text-white/70 text-lg leading-relaxed mb-6">
+                  Accept virtual bookings through the same app. Clients see your virtual availability separately from in-person — you control which sessions you offer and when.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Set virtual-specific availability and pricing",
+                    "Clients book virtual sessions the same way as in-person",
+                    "Expand your reach beyond your service area",
+                    "Train clients across Canada — or anywhere",
+                  ].map((point, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-white/80 text-sm">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="relative"
+              >
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center">
+                      <Video className="w-7 h-7 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-white font-bold text-lg">Virtual Sessions</p>
+                      <p className="text-white/50 text-sm">Available in your trainer dashboard</p>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    {[
+                      { label: "In-Person Availability", status: "Active", color: "text-green-400" },
+                      { label: "Virtual Availability", status: "Active", color: "text-primary" },
+                      { label: "Virtual Price Per Session", value: "Your rate" },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0">
+                        <span className="text-white/60 text-sm">{item.label}</span>
+                        <span className={`text-sm font-semibold ${item.color || "text-white"}`}>
+                          {item.status || item.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-xl">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Globe className="w-4 h-4 text-primary" />
+                      <span className="text-white font-semibold text-sm">No location limit</span>
+                    </div>
+                    <p className="text-white/50 text-xs">Virtual clients can book from anywhere in Canada — not restricted to your service radius.</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom Pricing & Session Packs — dedicated highlight */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Session packs card */}
+              <motion.div
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="order-2 lg:order-1 relative"
+              >
+                <div className="bg-card border border-border rounded-2xl p-8 shadow-[var(--shadow-soft)]">
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary mb-5">Example — Session Packs</p>
+                  <div className="space-y-3">
+                    {[
+                      { sessions: "1 session", label: "Drop-in", price: "Your rate", highlight: false },
+                      { sessions: "5 sessions", label: "Starter Pack", price: "Your rate × 5", highlight: true },
+                      { sessions: "10 sessions", label: "Commitment Pack", price: "Your rate × 10", highlight: false },
+                    ].map((pack) => (
+                      <div
+                        key={pack.sessions}
+                        className={`rounded-xl p-4 flex items-center justify-between border transition-all ${
+                          pack.highlight
+                            ? "bg-primary/10 border-primary/40 shadow-[0_0_20px_hsl(355_78%_56%/0.1)]"
+                            : "bg-background border-border"
+                        }`}
+                      >
+                        <div>
+                          <p className={`font-bold text-sm ${pack.highlight ? "text-primary" : "text-foreground"}`}>{pack.label}</p>
+                          <p className="text-muted-foreground text-xs">{pack.sessions}</p>
+                        </div>
+                        <span className="text-foreground font-semibold text-sm">{pack.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground text-xs mt-4">Clients purchase packs directly in the app. You set the pricing.</p>
+                </div>
+              </motion.div>
+
+              {/* Text */}
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="order-1 lg:order-2"
+              >
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                  New Feature
+                </span>
+                <h2 className="text-3xl md:text-4xl font-black text-foreground leading-tight tracking-tight mb-4">
+                  Set your own prices.<br />
+                  <span className="text-primary">Sell session packs.</span>
+                </h2>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  You decide what you charge — per session or in multi-session packs. Clients buy packs directly in the app. You get paid automatically as sessions are used.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Set your own per-session rate",
+                    "Offer 5-pack and 10-pack bundles",
+                    "Clients commit upfront — you get consistency",
+                    "Payouts handled automatically by Group Fit",
+                  ].map((point, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-foreground text-sm">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             </div>
           </div>
         </div>
