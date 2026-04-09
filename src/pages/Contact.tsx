@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -134,14 +135,19 @@ export default function Contact() {
         </div>
         <div className="container mx-auto px-4 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
           <Breadcrumbs className="mb-6" />
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h1 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
               Contact Us
             </h1>
             <p className="text-xl text-white/80">
               Have a question or feedback? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 

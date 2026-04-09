@@ -52,14 +52,15 @@ export function ActivitiesSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
-            <motion.span
+            <motion.div
               initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="inline-block text-primary font-bold text-sm uppercase tracking-widest mb-3"
+              className="flex items-center gap-3 mb-4"
             >
-              35+ Activities
-            </motion.span>
+              <div className="h-px w-8 bg-primary" />
+              <span className="text-primary font-bold text-xs uppercase tracking-[0.2em]">35+ Activities</span>
+            </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

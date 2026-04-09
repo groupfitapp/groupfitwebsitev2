@@ -268,9 +268,11 @@ export function ReviewsSection() {
   return <section className="py-16 md:py-24 bg-background overflow-hidden" style={{ contain: 'layout style' }}>
       <div className="container mx-auto px-4 mb-10">
         <div className="text-center">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            App Reviews
-          </span>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-8 bg-primary" />
+            <span className="text-primary font-bold text-xs uppercase tracking-[0.2em]">App Reviews</span>
+            <div className="h-px w-8 bg-primary" />
+          </div>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">Loved by Everyone</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             See what our customers are saying about Group Fit on the App Store

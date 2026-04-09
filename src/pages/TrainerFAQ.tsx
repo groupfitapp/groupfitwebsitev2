@@ -29,9 +29,8 @@ const faqCategories = [
     icon: Sparkles,
     faqs: [
       {
-        question: "How do I share my profile link with clients?",
-        answer: "Open Group Fit Trainer → Account → My Profile → tap the 3 dots → View Public Profile → Share. [See it in action](/trainer#share).",
-        hasLink: true,
+        question: "How do existing clients book with me?",
+        answer: "Direct your existing clients to download Group Fit and search for your name, or give them your trainer profile link from within the app.",
       },
       {
         question: "What is Group Fit Trainer?",

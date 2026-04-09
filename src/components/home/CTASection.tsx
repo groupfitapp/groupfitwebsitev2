@@ -121,7 +121,7 @@ export function CTASection() {
           </motion.h2>
 
           <motion.p variants={itemVariants} className="mt-4 text-lg text-white/70">
-            Find verified trainers near you across 35+ activities — instant booking, transparent pricing.
+            Find verified trainers near you across 35+ activities — transparent pricing, confirmed within 3 hours.
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-8 flex justify-center">

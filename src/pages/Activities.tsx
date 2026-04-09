@@ -120,7 +120,7 @@ export default function Activities() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Choose your activity</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">Choose your activity</h1>
             <p className="mt-6 text-lg text-white/70">
               These are popular activities. Group Fit supports 35+ activities—download the app to see options available
               based on your address and time.

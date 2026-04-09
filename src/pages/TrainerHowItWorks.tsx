@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { 
+import {
   Dumbbell,
   CalendarDays,
   MapPinned,
@@ -8,7 +8,6 @@ import {
   RefreshCw,
   Rocket,
   PlayCircle,
-  Share2,
   Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,8 +16,6 @@ import { APP_LINKS } from "@/lib/appLinks";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PillLink } from "@/components/ui/PillLink";
-import shareProfileVideo from "@/assets/videos/share-profile-demo.mp4";
-
 import trainerHowItWorksHeroImg from "@/assets/heroes/trainer-how-it-works-hero.jpg";
 
 const steps = [
@@ -161,47 +158,6 @@ export default function TrainerHowItWorks() {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Share Callout */}
-      <section className="py-16 md:py-24 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-10"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
-                <Share2 className="w-8 h-8 text-primary" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Share your profile link
-              </h2>
-              <p className="text-muted-foreground">
-                Account → My Profile → 3 dots → View Public Profile → Share
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl bg-secondary"
-            >
-              <video
-                src={shareProfileVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-auto"
-                title="How to share your profile link"
-              />
-            </motion.div>
           </div>
         </div>
       </section>
