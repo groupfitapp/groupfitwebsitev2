@@ -114,17 +114,23 @@ export default function HowItWorks() {
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+            <motion.h1
+              variants={{ hidden: { opacity: 0, y: 28, filter: "blur(6px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.75, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight"
+            >
               How booking works in Group Fit
-            </h1>
-            <p className="mt-6 text-lg text-white/70">
-              Booking is built around your selected activity, session address, and time—so you only see coaches
-              who can accept that session.
-            </p>
+            </motion.h1>
+            <motion.p
+              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="mt-6 text-lg text-white/60"
+            >
+              Booking is built around your selected activity, session address, and time — so you only see coaches who can accept that session.
+            </motion.p>
           </motion.div>
         </div>
       </section>

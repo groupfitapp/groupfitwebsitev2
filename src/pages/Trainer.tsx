@@ -169,19 +169,37 @@ export default function Trainer() {
 
         <div className="container mx-auto px-4 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
           <Breadcrumbs className="mb-6" />
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 border border-primary/30 text-primary text-xs font-semibold uppercase tracking-wider mb-6">
-              For Trainers
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+          <motion.div
+            className="max-w-3xl"
+            initial="hidden"
+            animate="visible"
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } }}
+          >
+            <motion.div
+              variants={{ hidden: { opacity: 0, x: -16 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <div className="h-px w-8 bg-primary" />
+              <span className="text-primary font-bold text-xs uppercase tracking-[0.2em]">For Trainers</span>
+            </motion.div>
+            <motion.h1
+              variants={{ hidden: { opacity: 0, y: 28, filter: "blur(6px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.75, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight"
+            >
               Run Your Training Business —{" "}
               <span className="text-primary">Properly</span>
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl">
+            </motion.h1>
+            <motion.p
+              variants={{ hidden: { opacity: 0, y: 20, filter: "blur(4px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="mt-6 text-lg md:text-xl text-white/65 max-w-2xl"
+            >
               Group Fit gives you a complete system to manage bookings, scheduling, clients, and
               payments — without the back-and-forth.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            </motion.p>
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="mt-8 flex flex-col sm:flex-row gap-4"
+            >
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                 <Button
                   asChild
@@ -207,7 +225,7 @@ export default function Trainer() {
                   </Link>
                 </Button>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 

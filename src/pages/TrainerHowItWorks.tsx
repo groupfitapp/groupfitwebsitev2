@@ -86,22 +86,35 @@ export default function TrainerHowItWorks() {
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumbs className="mb-6" />
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } }}
           >
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 mb-6">
+            <motion.div
+              variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 mb-6"
+            >
               <Rocket className="w-8 h-8 text-primary" />
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+            </motion.div>
+            <motion.h1
+              variants={{ hidden: { opacity: 0, y: 28, filter: "blur(6px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.75, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight"
+            >
               Set your availability and service locations. Group Fit does the rest.
-            </h1>
-            <p className="mt-6 text-lg text-white/80">
+            </motion.h1>
+            <motion.p
+              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="mt-6 text-lg text-white/65"
+            >
               Move existing clients into a clean booking flow. Only valid bookings get through.
-            </p>
-            <p className="mt-4 text-white/60">
-              You appear only for matching requests—right specialty, right time, right location.
-            </p>
+            </motion.p>
+            <motion.p
+              variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="mt-3 text-white/40 text-sm"
+            >
+              You appear only for matching requests — right specialty, right time, right location.
+            </motion.p>
           </motion.div>
         </div>
       </section>

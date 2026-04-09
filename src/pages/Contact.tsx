@@ -136,17 +136,23 @@ export default function Contact() {
         <div className="container mx-auto px-4 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
           <Breadcrumbs className="mb-6" />
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="max-w-3xl mx-auto text-center"
+            initial="hidden"
+            animate="visible"
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } }}
           >
-            <h1 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
+            <motion.h1
+              variants={{ hidden: { opacity: 0, y: 28, filter: "blur(6px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.75, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight"
+            >
               Contact Us
-            </h1>
-            <p className="text-xl text-white/80">
+            </motion.h1>
+            <motion.p
+              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } } }}
+              className="text-xl text-white/60"
+            >
               Have a question or feedback? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </section>
